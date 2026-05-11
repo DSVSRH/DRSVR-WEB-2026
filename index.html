@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr VSR Hospital</title>
     <link rel="icon" type="image/png" href="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_02_FEVICON_ICON.png">
-
     <script src="https://cdn.tailwindcss.com"></script>
-	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 	
 	
 	
@@ -16,12 +16,10 @@
 		:root { --primary-blue: #1e81ce; --deep-slate: #0f172a; --hospital-blue: #1e40af; }
 		body { margin: 0; padding: 0; background-color: #ffffff; display: flex; flex-direction: column; width: 100%; overflow-x: hidden; min-height: 100vh; }
 		
-		
-		
 /* 01-HEADER SECTION */
-		section {    scroll-margin-top: 120px;}
-		html { scroll-behavior: smooth; }
-		section { scroll-margin-top: 120px; }
+		
+        html { scroll-behavior: smooth; }
+        section { scroll-margin-top: 120px; }
         body { margin: 0; padding: 0; background-color: #ffffff; display: flex; flex-direction: column; width: 100%; overflow-x: hidden; min-height: 125vh; }
         .ultra-compact-unified-header { width: 100%; position: relative; z-index: 1000; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 0 6px 0; box-sizing: border-box; border-bottom: 1px solid #eccaca; background: linear-gradient(rgba(255, 250, 250, 0.9), rgba(249, 238, 238, 0.9)), url('https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_03_HEADER_BG_PIC.png'); background-size: cover; background-position: center; box-shadow: 0 4px 15px rgba(165, 42, 42, 0.05); gap: 10px; }
         .branding-top-tier { display: flex; flex-direction: row; align-items: center; justify-content: flex-start; width: 100%; padding: 0 50px; box-sizing: border-box; }
@@ -31,7 +29,7 @@
         .brand-name-linear-row { display: flex; flex-direction: row; align-items: baseline; justify-content: flex-start; gap: 8px; flex-wrap: wrap; line-height: 1; align-self: flex-start; }
 .brand-font-primary {
     color: #1e81ce;
-  font-family: 'Exo 2', sans-serif;
+    font-family: 'Roboto Slab', serif;
     font-size: clamp(11px, 1.3vw, 22px);
     font-weight: 560;
     letter-spacing: 1px;
@@ -44,81 +42,15 @@
         .nav-btn { display: flex; align-items: center; gap: 3px; color: #1e81ce; font-family: 'Montserrat', sans-serif; font-size: 8.5px; font-weight: 700; text-transform: uppercase; text-decoration: none; padding: 2px 7px; border-radius: 4px; transition: all 0.25s ease; cursor: pointer; letter-spacing: 0.5px; white-space: nowrap; }
         .nav-btn svg { width: 9px; height: 9px; stroke: currentColor; stroke-width: 2.5; fill: none; }
         .nav-btn:hover { background-color: #1e81ce; color: #ffffff; box-shadow: 0 2px 8px rgba(30, 129, 206, 0.15); }
-        @media (max-width: 768px) { .ultra-compact-unified-header { background: linear-gradient(180deg, #fffafa 0%, #f9eeee 100%) !important; } .branding-top-tier { padding: 0 20px; } .identity-text-stack { align-items: center; text-align: center; margin: 0 auto; } .brand-name-linear-row { align-self: center; justify-content: center; } }
-		
-		
-/* CLEAN TEXT MENU STYLE */
+        .top-menu-section { width: 100%; display: flex; justify-content: center; align-items: center; padding: 6px 0; background: transparent; }
+        .top-menu-container { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 2px; width: 100%; margin: 0 auto; }
+        .menu-btn { display: flex; justify-content: center; align-items: center; padding: 3px 8px; min-width: auto; height: auto; font-family: 'Roboto Slab', serif; font-size: 8px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; text-decoration: none; background: linear-gradient(135deg, #2563eb, #1d4ed8, #0f172a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: all 0.25s ease; }
+        .menu-btn:hover { transform: translateY(-1px) scale(1.04); background: linear-gradient(135deg, #0f172a, #2563eb, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @media (max-width: 768px) { .ultra-compact-unified-header { background: linear-gradient(180deg, #fffafa 0%, #f9eeee 100%) !important; } .branding-top-tier { padding: 0 20px; } .identity-text-stack { align-items: center; text-align: center; margin: 0 auto; } .brand-name-linear-row { align-self: center; justify-content: center; } .top-menu-container { gap: 1px; } .menu-btn { font-size: 6px; padding: 2px 5px; } }
 
-.top-menu-section {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 6px 0;
-    background: transparent;
-}
-
-.top-menu-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-/* TEXT BUTTONS */
-
-.menu-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 3px 8px;
-    min-width: auto;
-    height: auto;
-
-    font-family: 'Roboto Slab', serif;
-    font-size: 8px;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    text-decoration: none;
-
-    background: linear-gradient(135deg, #2563eb, #1d4ed8, #0f172a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    transition: all 0.25s ease;
-}
-
-/* HOVER EFFECT */
-
-.menu-btn:hover {
-    transform: translateY(-1px) scale(1.04);
-
-    background: linear-gradient(135deg, #0f172a, #2563eb, #60a5fa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* MOBILE */
-
-@media (max-width: 768px) {
-
-    .top-menu-container {
-        gap: 1px;
-    }
-
-    .menu-btn {
-        font-size: 6px;
-        padding: 2px 5px;
-    }
-
-}		
 		
 /* 02-ABOUT SECTION */
+
 		#about-container { width: 100%; font-family: 'Plus Jakarta Sans', sans-serif; -webkit-font-smoothing: antialiased; background-color: #ffffff; border-bottom: 1px solid #f1f5f9; position: relative; margin: 0; padding: 0; }
 		.compact-section { height: 5.2cm; overflow: hidden; position: relative; display: flex; align-items: center; width: 100%; }
 		.hd-3d-text { font-family: 'Roboto Slab', serif; letter-spacing: -0.02em; background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; text-transform: uppercase; filter: drop-shadow(2px 2px 0px rgba(30, 64, 175, 0.1)); line-height: 1.1; }
@@ -132,6 +64,7 @@
 		
 		
 /* 03-SPECIALTY SECTION */
+
 		body { font-family: 'Roboto Slab', serif; background-color: #fff; margin: 0; padding: 0; }
 		.specialty-card { display: flex; flex-direction: column; height: 100%; overflow: hidden; background-color: #fefce8; transition: transform 0.3s ease; border-radius: 12px; padding-bottom: 10px; border: 1.5px solid #fef3c7; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
 		.specialty-card:hover { background-color: #fef9c3; transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
@@ -150,6 +83,7 @@
 		
 		
 /* 04-TIMINGS SECTION */
+
 		.timing-box { padding: 1rem 1.25rem; background: white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); border-radius: 0.75rem; border-top: 4px solid #0a1d4a; transition: transform 0.2s ease; }
 		.timing-box:hover { transform: translateY(-2px); }
 		.time-row { display: flex; justify-content: space-between; align-items: center; padding: 0.4rem 0; border-bottom: 1px solid #f1f5f9; }
@@ -163,38 +97,36 @@
 
 
 /* 05-REGISTER SECTION */
-		#SVSR_REGISTRATION_MODULE .framed-card { background: #f1f5f9; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 12px; overflow: visible !important; width: 100%; height: 260px; box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff; display: flex; position: relative; z-index: 10; }
-		#SVSR_REGISTRATION_MODULE .input-soft-ui { background: #f1f5f9; border-radius: 8px; box-shadow: inset 3px 3px 6px #d1d9e6, inset -3px -3px 6px #ffffff; transition: all 0.2s ease; display: flex; flex-direction: row; align-items: center; padding: 0px 10px; border: 1px solid transparent; position: relative; justify-content: center; height: 32px; gap: 8px; overflow: visible !important; }
-		#SVSR_REGISTRATION_MODULE .input-soft-ui:focus-within { box-shadow: inset 1px 1px 3px #d1d9e6, inset -1px -1px 3px #ffffff; background: #f8fafc; border-color: rgba(10, 29, 74, 0.1); }
-		#SVSR_REGISTRATION_MODULE input { background: transparent !important; outline: none; width: 100%; color: #1e293b; font-weight: 700 !important; font-size: 10px !important; text-transform: uppercase; border: none !important; height: 100%; cursor: pointer; padding-left: 30px !important; }
-		#SVSR_REGISTRATION_MODULE input::placeholder { font-size: 10px; font-weight: 500; color: #94a3b8 !important; text-transform: uppercase; }
-		#SVSR_REGISTRATION_MODULE .icon-overlay { position: absolute; left: 12px; pointer-events: none; z-index: 15; display: flex; align-items: center; height: 100%; }
-		#SVSR_REGISTRATION_MODULE .custom-dropdown { position: relative; width: 100%; z-index: 20; }
-		#SVSR_REGISTRATION_MODULE .dropdown-trigger { background: #f1f5f9; border-radius: 8px; box-shadow: 3px 3px 6px #d1d9e6, -3px -3px 6px #ffffff; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; border: 1.5px solid transparent; height: 32px; gap: 8px; }
-		#SVSR_REGISTRATION_MODULE .dropdown-trigger span { font-size: 9px; font-weight: 800; color: #1e3a8a; text-transform: uppercase; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex-grow: 1; text-align: left; }
-		#SVSR_REGISTRATION_MODULE .dropdown-options { position: absolute; top: calc(100% + 4px); left: 0; right: 0; background: #ffffff; border-radius: 10px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); z-index: 9999 !important; display: none; max-height: 180px; overflow-y: auto; border: 1px solid #e2e8f0; padding: 5px; pointer-events: auto !important; }
-		#SVSR_REGISTRATION_MODULE .dropdown-options.show { display: block !important; animation: slideFade 0.2s ease; }
-		@keyframes slideFade { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
-		#SVSR_REGISTRATION_MODULE .dropdown-item { padding: 10px 12px; font-size: 9.5px; font-weight: 800; color: #475569; cursor: pointer; border-radius: 6px; text-transform: uppercase; line-height: 1.2; border-bottom: 1px solid #f1f5f9; }
-		#SVSR_REGISTRATION_MODULE .dropdown-item:hover { background: #f1f5f9; color: #1e40af; }
-		#SVSR_REGISTRATION_MODULE .btn-confirm { background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: all 0.2s ease; color: white; font-weight: 900; text-transform: uppercase; height: 32px; padding: 0 25px; border-radius: 8px; font-size: 11px; white-space: nowrap; min-width: 110px; border: none; cursor: pointer; }
-		#SVSR_REGISTRATION_MODULE .btn-confirm:hover { transform: translateY(-1px); filter: brightness(1.1); }
-		#SVSR_REGISTRATION_MODULE .image-container { position: relative; height: 100%; z-index: 1; border-radius: 12px 0 0 12px; overflow: hidden; }
-		#SVSR_REGISTRATION_MODULE .image-container::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to right, transparent 40%, #f1f5f9 95%); pointer-events: none; }
-		#SVSR_REGISTRATION_MODULE .dot-blink { animation: dot-pulse 1.5s infinite ease-in-out; }
-		@keyframes dot-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(0.8); } }
-		#SVSR_REGISTRATION_MODULE .ticket-entry { animation: slideUp 0.4s ease-out forwards; }
-		#SVSR_REGISTRATION_MODULE .success-header { font-size: 9px; color: #16a34a; font-weight: 900; text-transform: uppercase; margin-bottom: 6px; text-align: center; width: 100%; }
-		#SVSR_REGISTRATION_MODULE .ticket-label { font-size: 8px; color: #94a3b8; font-weight: 800; text-transform: uppercase; margin-bottom: 3px; }
-		#SVSR_REGISTRATION_MODULE .btn-side { height: 32px; font-size: 10px; font-weight: 900; text-transform: uppercase; border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; transition: all 0.2s; box-shadow: 2px 2px 5px rgba(0,0,0,0.05); cursor: pointer; border: none; }
-		#SVSR_REGISTRATION_MODULE .btn-side:disabled { opacity: 0.6; cursor: wait; }
-		#SVSR_REGISTRATION_MODULE .token-num-box { background: #800000; color: #ffffff; width: 130px; height: 90px; border-radius: 20px; font-size: 52px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(128,0,0,0.35); font-weight: 900; margin: 0; text-align: center; }
-		#SVSR_REGISTRATION_MODULE #ticketCapture { width: 100%; max-width: 360px; min-width: 340px; padding: 25px; box-sizing: border-box; background: white; border: 2px solid white; border-radius: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
-		@media (max-width: 1024px) { #SVSR_REGISTRATION_MODULE .framed-card { height: auto; min-height: 350px; overflow: visible !important; } #SVSR_REGISTRATION_MODULE .image-container { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.20; z-index: 0; } #SVSR_REGISTRATION_MODULE .order-form { position: relative; z-index: 10; width: 100% !important; padding-top: 25px; padding-bottom: 25px; } }
+
+        body { margin: 0; padding: 0; background-color: #ffffff; display: flex; flex-direction: column; width: 100%; overflow-x: hidden; min-height: 100vh; font-family: 'Roboto Slab', serif; }
+        #SVSR_REGISTRATION_MODULE .framed-card { background: #f1f5f9; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 12px; width: 100%; height: 6.8cm; box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff; display: flex; position: relative; z-index: 10; overflow: visible !important; }
+        #SVSR_REGISTRATION_MODULE .content-area { width: 100%; height: 100%; display: flex; align-items: center; position: relative; padding: 0 20px; gap: 0; }
+        #SVSR_REGISTRATION_MODULE .order-form { flex: 1; padding: 10px 20px; display: flex; flex-direction: column; justify-content: center; height: 100%; position: relative; transition: all 0.3s ease; }
+        #SVSR_REGISTRATION_MODULE .input-soft-ui { background: #f1f5f9; border-radius: 6px; box-shadow: inset 2px 2px 5px #d1d9e6, inset -2px -2px 5px #ffffff; display: flex; align-items: center; padding: 0 8px; height: 30px; gap: 6px; position: relative; }
+        #SVSR_REGISTRATION_MODULE input { background: transparent !important; outline: none; width: 100%; color: #1e293b; font-weight: 700; font-size: 10.5px; border: none !important; height: 100%; padding-left: 28px !important; font-family: 'Roboto Slab', serif; }
+        #SVSR_REGISTRATION_MODULE .icon-overlay { position: absolute; left: 10px; pointer-events: none; z-index: 15; display: flex; align-items: center; height: 100%; }
+        #SVSR_REGISTRATION_MODULE .dropdown-trigger { background: #f1f5f9; border-radius: 6px; box-shadow: 2px 2px 5px #d1d9e6, -2px -2px 5px #ffffff; cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 0 8px; height: 30px; gap: 6px; position: relative; z-index: 30; }
+        #SVSR_REGISTRATION_MODULE .dropdown-trigger span { font-size: 10px; font-weight: 800; color: #1e3a8a; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        #SVSR_REGISTRATION_MODULE .dropdown-options { position: absolute; top: calc(100% + 2px); left: 0; right: 0; background: #ffffff; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 9999 !important; display: none; max-height: 160px; overflow-y: auto; border: 1px solid #e2e8f0; padding: 4px; }
+        #SVSR_REGISTRATION_MODULE .dropdown-options.show { display: block !important; }
+        #SVSR_REGISTRATION_MODULE .dropdown-item { padding: 7px 10px; font-size: 10px; font-weight: 800; color: #475569; cursor: pointer; border-radius: 5px; border-bottom: 1px solid #f1f5f9; }
+        #SVSR_REGISTRATION_MODULE .dropdown-item:hover { background: #f1f5f9; color: #1e40af; }
+        #SVSR_REGISTRATION_MODULE .btn-confirm { background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); color: white; font-weight: 900; text-transform: uppercase; height: 32px; padding: 0 25px; border-radius: 6px; font-size: 11px; cursor: pointer; font-family: 'Roboto Slab', serif; border: none; }
+        #SVSR_REGISTRATION_MODULE .image-container { position: relative; height: 100%; width: 100%; z-index: 1; border-radius: 12px 0 0 12px; overflow: hidden; display: flex; }
+        #SVSR_REGISTRATION_MODULE .image-container img { width: 100%; height: 100%; object-fit: cover; }
+        #SVSR_REGISTRATION_MODULE .blur-overlay { position: absolute; inset: 0; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); mask-image: linear-gradient(to right, transparent 60%, black 100%); -webkit-mask-image: linear-gradient(to right, transparent 60%, black 100%); pointer-events: none; }
+        #SVSR_REGISTRATION_MODULE .image-container::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to right, transparent 30%, #f1f5f9 95%); pointer-events: none; }
+        #SVSR_REGISTRATION_MODULE .token-num-box { background: #800000; color: #ffffff; width: 140px; height: 100px; border-radius: 18px; font-size: 58px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(128,0,0,0.3); font-weight: 900; }
+        #SVSR_REGISTRATION_MODULE .sidebar-actions { width: 130px; display: none; flex-direction: column; gap: 8px; justify-content: center; padding-left: 15px; border-left: 2px solid rgba(0,0,0,0.03); height: 80%; }
+        #SVSR_REGISTRATION_MODULE .btn-side { height: 34px; font-size: 11px; font-weight: 900; text-transform: uppercase; border-radius: 6px; width: 100%; display: flex; align-items: center; justify-content: center; cursor: pointer; border: none; font-family: 'Roboto Slab', serif; color: white; transition: 0.2s; }
+        #SVSR_REGISTRATION_MODULE .btn-close { background: white; color: #dc2626; border: 1.5px solid #fee2e2; }
+        #SVSR_REGISTRATION_MODULE .loading-overlay { position: absolute; inset: 0; background: rgba(241, 245, 249, 0.8); backdrop-filter: blur(5px); display: none; align-items: center; justify-content: center; z-index: 50; border-radius: 12px; }
+        @media (max-width: 1024px) { #SVSR_REGISTRATION_MODULE .framed-card { flex-direction: column; height: auto; min-height: 480px; } #SVSR_REGISTRATION_MODULE .image-container { position: relative; width: 100%; height: 140px; order: 3; border-radius: 0 0 12px 12px; } #SVSR_REGISTRATION_MODULE .content-area { flex-direction: column; padding: 15px; height: auto; } #SVSR_REGISTRATION_MODULE .order-form { width: 100%; order: 1; padding: 0; } #SVSR_REGISTRATION_MODULE .sidebar-actions { width: 100%; order: 2; flex-direction: row; border-left: none; border-top: 1px solid rgba(0,0,0,0.05); padding: 15px 0 0 0; margin-top: 15px; display: none; } }
 
 
 
 /* 06-DOCTORS SECTION */
+
 		body { font-family: 'Roboto Slab', serif; background-color: #fbfbfb; margin: 0; padding: 0; overflow-x: hidden; color: #1a1a1a; }
 		.header { display: flex; align-items: center; justify-content: center; position: relative; margin: 15px 0; padding: 0 20px; }
 		.header::before, .header::after { content: ""; flex: 1; height: 2px; background: linear-gradient(to right, transparent, #dc2626, transparent); opacity: 0.3; }
@@ -220,6 +152,7 @@
 
 
 /* 07-GALLERY SECTION */
+
 		body, html { margin: 0; padding: 0; overflow-x: hidden; }
 		h3, .slide-caption { font-family: 'Roboto Slab', serif; }
 		.slider-wrapper { position: relative; overflow: hidden; border-radius: 1rem; background: #000; aspect-ratio: 16 / 9; width: 100%; max-width: 450px; margin: 0 auto; border: 4px solid white; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
@@ -231,6 +164,7 @@
 
 
 /* 08-EMERGENCY SECTION */
+
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;800;900&display=swap');
         body { font-family: 'Roboto Slab', serif; background-color: #ffffff; margin: 0; padding: 0; display: flex; justify-content: center; min-height: 100vh; overflow-x: hidden; }
         @keyframes gradient-move { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
@@ -249,9 +183,15 @@
         .vertical-divider { display: none; width: 2px; background-color: #22c55e; align-self: stretch; margin: 0 10px; }
         @media (min-width: 1024px) { .vertical-divider { display: block; } }
 
+
 /* 09-FECILITY SECTION */
+
         :root { --primary: #0f4c81; --secondary: #f8fafc; --accent: #3b82f6; --text-main: #1e293b; --text-muted: #64748b; --border: #e2e8f0; --white: #ffffff; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+        *{ margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto Slab', serif !important; }
+
+body, p, span, div, a, li, td, th, input, button, textarea, select, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Slab', serif !important;
+}
         body { background-color: #ffffff; color: var(--text-main); line-height: 1.5; padding-bottom: 2rem; -webkit-font-smoothing: antialiased; }
         header { background: transparent; padding: 0.5rem 0; }
         .header-container { display: flex; align-items: center; justify-content: center; gap: 1.5rem; max-width: 1440px; margin: 0 auto; padding: 0 2rem; }
@@ -272,7 +212,9 @@
         @media (max-width: 768px) { .facility-grid { grid-template-columns: repeat(2, 1fr); } .section-title { font-size: 0.75rem; } .container { padding: 0 1rem; } .side-line { display: none; } }
         @media (max-width: 480px) { .facility-grid { grid-template-columns: 1fr; } }
 
+
 /* 10-SERVICE SECTION */
+
         body { font-family: 'Roboto Slab', serif; background-color: #f0fff4; margin: 0; padding: 0; }
         .header-wrapper { display: flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 30px; gap: 15px; padding-top: 10px; }
         .header-side-line { flex-grow: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(21, 128, 61, 0.3), transparent); }
@@ -301,28 +243,10 @@
         .service-desc { font-size: 8px; font-weight: 600; color: #475569; line-height: 1.3; margin-top: auto; }
 
 
+/* 11-FOOTER SECTION */
 
-
-
-
-/* 10-FOOTER SECTION */
-				.footer-main-container {
-					position: relative;
-					left: 50%;
-					right: 50%;
-					margin-left: -50vw;
-					margin-right: -50vw;
-					width: 100vw;
-					max-width: 100vw;
-					background: #fdf5f5;
-					padding: 18px 50px 14px 50px;
-					border-top: 3px solid #a52a2a;
-					display: flex;
-					flex-direction: column;
-					gap: 18px;
-					box-shadow: 0 -10px 40px rgba(0,0,0,0.03);
-					box-sizing: border-box;}        
-        .footer-contact-tier { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; margin-bottom: 2px; }
+        .footer-main-container { position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; max-width: 100vw; background: #fdf5f5; padding: 35px 50px 30px 50px; border-top: 3px solid #a52a2a; display: flex; flex-direction: column; gap: 30px; box-shadow: 0 -10px 40px rgba(0,0,0,0.03); box-sizing: border-box; }
+        .footer-contact-tier { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 60px; margin-bottom: 2px; }
         .footer-contact-left { flex: 1; min-width: 320px; display: flex; flex-direction: column; gap: 5px; }
         .footer-contact-right { flex: 1; min-width: 320px; display: flex; flex-direction: column; align-items: flex-end; text-align: right; gap: 5px; }
         .footer-h-name { font-family: 'Exo 2', sans-serif; color: #1e81ce; font-size: 15.5px; font-weight: 800; margin: 0; text-transform: uppercase; line-height: 1.2; letter-spacing: 0.5px; }
@@ -337,140 +261,58 @@
         .footer-list-item { display: flex; align-items: center; gap: 6px; font-family: 'Roboto Slab', serif; font-size: 10px; color: #555; text-decoration: none; transition: all 0.25s ease; padding: 2px 0; }
         .footer-list-item svg { width: 9px; height: 9px; color: #1e81ce; opacity: 0.7; }
         .footer-list-item:hover { color: #1e81ce; transform: translateX(5px); }
-        .footer-geo-section { display: flex; flex-direction: row; gap: 12px; height: 160px; border-radius: 10px; overflow: hidden; background: white; border: 1px solid #eccaca; padding: 8px; margin-top: 5px; }
-        .footer-map-frame { flex: 1; border-radius: 6px; overflow: hidden; }
+        .footer-geo-section { display: flex; flex-direction: row; gap: 12px; height: 220px; border-radius: 10px; overflow: hidden; background: white; border: 1px solid #eccaca; padding: 8px; margin-top: 5px; }
+        .footer-map-frame { flex: 1; border-radius: 6px; overflow: hidden; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-family: 'Montserrat'; font-size: 10px; color: #999; }
         .footer-map-actions { width: 150px; display: flex; flex-direction: column; gap: 6px; justify-content: center; }
         .geo-btn { display: flex; align-items: center; justify-content: center; gap: 8px; background: #1e81ce; color: white; border: none; padding: 10px; border-radius: 5px; font-family: 'Montserrat', sans-serif; font-size: 9.5px; font-weight: 700; cursor: pointer; text-decoration: none; transition: all 0.3s ease; text-transform: uppercase; }
         .geo-btn:hover { background: #1569a8; transform: scale(1.02); box-shadow: 0 4px 10px rgba(30,129,206,0.2); }
-        .geo-btn svg { width: 13px; height: 13px; }
-        .footer-copyright-strip { margin-top: 15px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 8.5px; color: #888; letter-spacing: 0.4px; opacity: 0.8; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ALL SECTION HEADLINES - ROBOTO SLAB */
-
-.section-title,
-.header-main-text,
-.header span,
-.title-box h3,
-.card-title,
-.service-title,
-.footer-col-title,
-.footer-h-name,
-.story-tag,
-.hd-3d-text,
-.name,
-.spec-box-inline,
-.time-label,
-.time-value,
-.text-xl,
-.text-2xl,
-h2,
-h3,
-h4,
-h5,
-h6 {
+        .geo-btn svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; }
+        .footer-copyright-strip { margin-top: 30px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 8.5px; color: #888; letter-spacing: 0.4px; opacity: 0.8; }
+.section-title, .header-main-text, .header span, .title-box h3, .card-title, .service-title, .footer-col-title, .story-tag, .hd-3d-text, .name, .spec-box-inline, .time-label, .time-value, .text-xl, .text-2xl, h2, h3, h4, h5, h6 {
     font-family: 'Roboto Slab', serif !important;
 }
+        #specialties-section .bg-slate-900 { font-family: 'Roboto Slab', serif !important; font-weight: 900 !important; letter-spacing: 0.18em !important; }
+        @media (max-width: 768px) { .ultra-compact-unified-header { background: linear-gradient(180deg, #fffafa 0%, #f9eeee 100%) !important; } .branding-top-tier { padding: 0 20px; } .identity-text-stack { align-items: center; text-align: center; margin: 0 auto; } .brand-name-linear-row { align-self: center; justify-content: center; } .top-menu-container { gap: 1px; } .menu-btn { font-size: 6px; padding: 2px 5px; } .footer-nav-grid { grid-template-columns: repeat(2, 1fr); } .footer-geo-section { flex-direction: column; height: auto; } .footer-map-actions { width: 100%; } }
 
 
+ 
 
-
-/* OUR MEDICAL SPECIALTIES HEADLINE */
-
-#specialties-section .bg-slate-900 {
-    font-family: 'Roboto Slab', serif !important;
-    font-weight: 900 !important;
-    letter-spacing: 0.18em !important;
-}
     </style>
 </head>
 <body>
 
+
 <!-- 01-HEADER SECTION -->
 
-  <header class="ultra-compact-unified-header" id="top">
-
-    <div class="branding-top-tier">
-
-        <div class="logo-branding-wrapper">
-
-            <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_01_HEDER_LOGO_MAIN.png" alt="Hospital Logo" class="brand-logo-standard" onerror="this.src='https://via.placeholder.com/75x75?text=LOGO'">
-
-        </div>
-
-        <div class="identity-text-stack">
-
-            <div class="brand-name-linear-row">
-
-                <h1 class="brand-font-primary">DR.S.VENKATA SUBBA REDDY</h1>
-
-                <h1 class="brand-font-primary">MULTISPECIALITY</h1>
-
-                <h1 class="brand-font-primary">HOSPITAL</h1>
-
+    <header class="ultra-compact-unified-header" id="top">
+        <div class="branding-top-tier">
+            <div class="logo-branding-wrapper"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_01_HEDER_LOGO_MAIN.png" alt="Hospital Logo" class="brand-logo-standard" onerror="this.src='https://via.placeholder.com/75x75?text=LOGO'"></div>
+            <div class="identity-text-stack">
+                <div class="brand-name-linear-row"><h1 class="brand-font-primary">DR.S.VENKATA SUBBA REDDY</h1><h1 class="brand-font-primary">MULTISPECIALITY</h1><h1 class="brand-font-primary">HOSPITAL</h1></div>
+                <div class="center-accent-line"></div>
+                <div class="since-normal-label">since 1989</div>
+                <div class="tagline-font-standard">BEST OF CARE , CLOSE TO HOME</div>
             </div>
-
-            <div class="center-accent-line"></div>
-
-            <div class="since-normal-label">since 1989</div>
-
-            <div class="tagline-font-standard">BEST OF CARE , CLOSE TO HOME</div>
-
         </div>
+    </header>
+    <section class="top-menu-section">
+        <div class="top-menu-container">
+            <a href="#top" class="menu-btn">Home</a>
+            <a href="#about-container" class="menu-btn">About</a>
+            <a href="#doctors-section" class="menu-btn">Doctors</a>
+            <a href="#specialties-section" class="menu-btn">Specialties</a>
+            <a href="#facilities-section" class="menu-btn">Facilities</a>
+            <a href="#timings-section" class="menu-btn">Timings</a>
+            <a href="#SVSR_REGISTRATION_MODULE" class="menu-btn">Token</a>
+            <a href="#gallery-section" class="menu-btn">Gallery</a>
+            <a href="#contact-section" class="menu-btn">Contact</a>
+        </div>
+    </section>
 
-    </div>
 
-
-
-
-</header>
-
-	
-
-
-<!-- HEADER MENU SECTION -->
-
-<section class="top-menu-section">
-
-    <div class="top-menu-container">
-
-        <a href="#top" class="menu-btn">Home</a>
-
-        <a href="#about-container" class="menu-btn">About</a>
-
-        <a href="#doctors-section" class="menu-btn">Doctors</a>
-
-        <a href="#specialties-section" class="menu-btn">Specialties</a>
-
-        <a href="#facilities-section" class="menu-btn">Facilities</a>
-
-        <a href="#timings-section" class="menu-btn">Timings</a>
-
-        <a href="#SVSR_REGISTRATION_MODULE" class="menu-btn">Token</a>
-
-        <a href="#gallery-section" class="menu-btn">Gallery</a>
-
-        <a href="#contact-section" class="menu-btn">Contact</a>
-
-    </div>
-
-</section>
 <!-- 02-ABOUT SECTION -->
 
-		<div id="about-container"><section class="w-full relative overflow-hidden bg-white"><div class="compact-section"><div class="absolute right-0 top-0 w-full lg:w-[50%] h-full overflow-hidden"><img src="https://dsvsrh.github.io/SVRIMG-2026/ABOUT_SECTION_BG_PICTURE.png" alt="SVSRH Facility" class="absolute inset-0 w-full h-full object-cover object-[right_center] grayscale-[5%] brightness-[1.05]" onerror="this.src='https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1000'"><div class="img-gradient-overlay"></div></div><div class="relative z-10 w-full lg:w-[55%] px-4 md:px-6 lg:pl-12 lg:pr-4 py-4 flex flex-col justify-center h-full"><div class="space-y-2"><div class="flex items-center gap-3 pt-1"><div class="story-tag uppercase shadow-sm">SVSRH STORY</div><div class="h-px flex-grow bg-slate-200 max-w-[40px] md:max-w-[80px]"></div><span class="text-slate-500 text-[8px] md:text-[10px] font-extrabold tracking-[0.1em] md:tracking-[0.2em] uppercase">Estd 1989 • Allagadda</span></div><h2 class="text-lg md:text-2xl hd-3d-text py-1">37+ Years of Trust.</h2><div class="hd-block-passage text-[9px] md:text-[11px]"><p>SVSRH, established in 1989 in Allagadda, has been a trusted name in healthcare for over <span class="highlight-3d">37+ years</span>, delivering excellence with compassion and dedication. Our hospital provides high-quality care in a safe, friendly, and patient-centered environment where every individual is treated with warmth.</p><div class="middle-horizontal-line"></div><p>With a team of <span class="highlight-3d">6+ expert doctors</span>, <span class="highlight-3d">50+ wards</span>, <span class="highlight-3d">50+ healthcare services</span>, and <span class="highlight-3d">60+ helping staff</span>, SVSRH ensures efficient care. Our professionals work together to provide accurate diagnosis and effective treatments.</p></div></div></div></div></section></div>
+		<div id="about-container"><section class="w-full relative overflow-hidden bg-white"><div class="compact-section"><div class="absolute right-0 top-0 w-full lg:w-[50%] h-full overflow-hidden"><img src="https://dsvsrh.github.io/SVRIMG-2026/ABOUT_SECTION_BG_PICTURE.png" alt="SVSRH Facility" class="absolute inset-0 w-full h-full object-cover object-[right_center] grayscale-[5%] brightness-[1.05]" onerror="this.src='https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1000'"><div class="img-gradient-overlay"></div></div><div class="relative z-10 w-full lg:w-[55%] px-4 md:px-6 lg:pl-12 lg:pr-4 py-4 flex flex-col justify-center h-full"><div class="space-y-2"><div class="flex items-center gap-3 pt-1"><div class="story-tag uppercase shadow-sm">Dr SVSR Hospital -STORY</div><div class="h-px flex-grow bg-slate-200 max-w-[40px] md:max-w-[80px]"></div><span class="text-slate-500 text-[8px] md:text-[10px] font-extrabold tracking-[0.1em] md:tracking-[0.2em] uppercase">Estd 1989 • Allagadda</span></div><h2 class="text-lg md:text-2xl hd-3d-text py-1">37+ Years of Trust.</h2><div class="hd-block-passage text-[9px] md:text-[11px]"><p>SVSRH, established in 1989 in Allagadda, has been a trusted name in healthcare for over <span class="highlight-3d">37+ years</span>, delivering excellence with compassion and dedication. Our hospital provides high-quality care in a safe, friendly, and patient-centered environment where every individual is treated with warmth.</p><div class="middle-horizontal-line"></div><p>With a team of <span class="highlight-3d">6+ expert doctors</span>, <span class="highlight-3d">50+ wards</span>, <span class="highlight-3d">50+ healthcare services</span>, and <span class="highlight-3d">60+ helping staff</span>, SVSRH ensures efficient care. Our professionals work together to provide accurate diagnosis and effective treatments.</p></div></div></div></div></section></div>
 
 <!-- 03-SPECIALTY SECTION -->
 
@@ -495,8 +337,54 @@ h6 {
 		
 
 <!-- 05-REGISTRATION SECTION -->
-		<section id="SVSR_REGISTRATION_MODULE" class="w-full px-4 py-6 bg-white"><div class="framed-card"><div class="w-full lg:w-4/12 image-container"><img src="https://dsvsrh.github.io/SVSRIMG/RECEPTION_IMAGE_RIGHT.png" alt="Reception" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-[#0a1d4a]/30 to-transparent flex items-end p-2 md:opacity-100 opacity-0"><div class="text-white"><p class="text-[7px] font-bold uppercase tracking-widest opacity-80 leading-none">SVSR Hospital</p><h3 class="text-[9px] font-black leading-tight">Patient Care First.</h3></div></div></div><div id="formSection" class="w-full lg:w-8/12 px-3 lg:px-10 pt-4 pb-0 bg-transparent flex flex-col justify-start order-form"><div id="headerSection" class="flex justify-between items-center mb-4"><div class="flex flex-col"><h1 class="text-xs lg:text-[15px] font-black text-[#0a1d4a] uppercase tracking-tight leading-none">Registration Portal</h1><div class="h-0.5 w-12 bg-blue-600 rounded-full mt-1.5"></div></div><div class="bg-red-600 text-white text-[8px] font-black px-2 py-0.5 rounded-sm flex items-center gap-1.5 shadow-sm uppercase tracking-wide"><span>LIVE TOKENS</span><div class="w-2 h-2 bg-green-400 rounded-full dot-blink"></div></div></div><form id="tokenForm" class="space-y-4"><div class="grid grid-cols-12 gap-3"><div class="col-span-3 input-soft-ui"><div class="icon-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div><input type="date" id="formDate" required></div><div class="col-span-3 input-soft-ui"><div class="icon-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><input type="time" id="formTime" required></div><div class="col-span-6 custom-dropdown"><div class="dropdown-trigger" onclick="toggleDropdown('branchOptions')"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 22V8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v14"></path><path d="M10 22v-4a2 2 0 0 1 2-2v0a2 2 0 0 1 2 2v4"></path><path d="M10 11h4"></path><path d="M12 9v4"></path></svg><span id="doctorDisplay">CHOOSE BRANCH</span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div><div id="branchOptions" class="dropdown-options"><div class="dropdown-item" onclick="selectDrop('doctor', 'OBST-GYN', 'Obstetrics and Gynaecology', 'branchOptions')">Obstetrics and Gynaecology ( మహిళల మరియు గర్భిణీ వైద్యం )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'GENERAL', 'Diabetology and General Medicine', 'branchOptions')">Diabetology and General Medicine ( షుగర్ మరియు సాధారణ వైద్యం )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'ORTHO', 'Orthopaedics', 'branchOptions')">Orthopaedics ( ఎముకలు మరియు కీళ్ల వైద్యం )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'OPHTHAL', 'Ophthalmology', 'branchOptions')">Ophthalmology ( కంటి వైద్యం )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'HOMEOPATHY', 'Homeopathy', 'branchOptions')">Homeopathy ( హోమియోపతి చికిత్స )</div></div><input type="hidden" id="doctor" required></div></div><div class="grid grid-cols-12 gap-3"><div class="col-span-12 input-soft-ui"><div class="icon-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><input type="text" id="patientName" placeholder="PATIENT FULL NAME" required></div></div><div class="grid grid-cols-12 gap-3"><div class="col-span-2 input-soft-ui"><input type="number" id="age" placeholder="AGE" required style="padding-left:10px !important;"></div><div class="col-span-4 custom-dropdown"><div class="dropdown-trigger" onclick="toggleDropdown('genderOptions')"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg><span id="genderDisplay">SELECT GENDER</span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div><div id="genderOptions" class="dropdown-options"><div class="dropdown-item" onclick="selectDrop('gender', 'MALE', 'MALE', 'genderOptions')">MALE</div><div class="dropdown-item" onclick="selectDrop('gender', 'FEMALE', 'FEMALE', 'genderOptions')">FEMALE</div></div><input type="hidden" id="gender" required></div><div class="col-span-6 input-soft-ui"><div class="icon-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.79 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div><input type="tel" id="phoneNumber" placeholder="MOBILE NUMBER" required></div></div><div class="flex gap-3 items-center"><div class="flex-grow input-soft-ui"><div class="icon-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div><input type="text" id="village" placeholder="VILLAGE / LOCATION" required></div><button type="submit" id="submitBtn" class="btn-confirm flex items-center justify-center gap-2 transition-all"><span id="btnText">Confirm</span><div id="btnLoader" class="hidden w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div></button></div></form><div id="statusMessage" class="mt-2 text-center text-[6px] font-bold uppercase tracking-tight text-red-500 h-1"></div></div><div id="successTicket" class="hidden w-full lg:w-8/12 flex-row items-center justify-between px-3 lg:px-12 py-4 ticket-entry h-full"><div id="ticketCapture" class="bg-white border-[2px] border-white rounded-xl p-6 text-center flex-grow shadow-inner mx-auto max-w-[360px] flex flex-col justify-center items-center" style="width: 340px;"><p class="success-header" data-html2canvas-ignore="true">Your token successfully registered</p><div class="bg-[#f8fafc] py-4 px-5 rounded-3xl mb-2 shadow-sm flex flex-col items-center justify-center"><p class="ticket-label" data-html2canvas-ignore="true">ASSIGNED TOKEN</p><div id="resToken" class="token-num-box"></div></div></div><div class="flex flex-col gap-3 ml-6 w-[120px]"><button id="shBtn" onclick="PROCEDURE_INITIATE_TOKEN_SHARE()" class="btn-side bg-green-600 text-white">Share</button><button id="dlBtn" onclick="PROCEDURE_INITIATE_TOKEN_DOWNLOAD()" class="btn-side bg-[#0a1d4a] text-white">Print</button><button onclick="RESET_REGISTRATION_INTERFACE()" class="btn-side bg-white text-red-600 border border-red-100">Close</button></div></div></div></section>
-	
+    <section id="SVSR_REGISTRATION_MODULE" class="w-full px-4 py-6 bg-white">
+        <div class="framed-card max-w-6xl mx-auto">
+            <div class="hidden lg:flex lg:w-2/12 image-container">
+                <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_11_RECEPTION_IMAGE_RIGHT.png" alt="Reception">
+                <div class="blur-overlay"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0a1d4a]/40 to-transparent flex items-end p-4">
+                    <div class="text-white"><p class="text-[7px] font-bold uppercase tracking-widest opacity-80 leading-none">SVSR Hospital</p><h3 class="text-[9px] font-black leading-tight uppercase">Patient Care First.</h3></div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-10/12 content-area">
+                <div id="loadingOverlay" class="loading-overlay"><div class="flex flex-col items-center gap-2"><div class="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div><p class="text-[10px] font-bold text-[#0a1d4a] uppercase">Processing...</p></div></div>
+
+                <div id="formContainer" class="order-form">
+                    <div id="headerSection" class="flex justify-between items-center mb-3"><div class="flex flex-col"><h1 class="text-sm lg:text-base font-black text-[#0a1d4a] uppercase tracking-tight leading-none">Registration Portal</h1><div class="h-0.5 w-14 bg-blue-600 rounded-full mt-1"></div></div><div class="bg-red-600 text-white text-[9px] font-black px-2.5 py-0.5 rounded-sm flex items-center gap-1 shadow-sm uppercase tracking-wide"><span>LIVE TOKENS</span><div class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div></div></div>
+                    <form id="tokenForm" class="space-y-3">
+                        <div class="grid grid-cols-12 gap-2">
+                            <div class="col-span-6 lg:col-span-3 input-soft-ui"><div class="icon-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div><input type="date" id="formDate" required></div>
+                            <div class="col-span-6 lg:col-span-3 input-soft-ui"><div class="icon-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><input type="time" id="formTime" required></div>
+                            <div class="col-span-12 lg:col-span-6 relative"><div class="dropdown-trigger" onclick="toggleDropdown(event, 'branchOptions')"><span id="doctorDisplay">CHOOSE DEPARTMENT</span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg></div><div id="branchOptions" class="dropdown-options"><div class="dropdown-item" onclick="selectDrop('doctor', 'Orthopaedic', 'Orthopaedic', 'branchOptions')">Orthopaedic ( ఎముకలు మరియు కీళ్ల వైద్యం )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'OPHTHALMOLOGY', 'Ophthalmology', 'branchOptions')">Ophthalmology ( కంటి వైద్యం )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'Anesthesiology', 'Anesthesiology', 'branchOptions')">Anesthesiology ( అనస్థీషియాలజీ )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'OBGY – Gynaecology', 'OBGY – Gynaecology', 'branchOptions')">OBGY – Gynaecology ( గైనకాలజీ )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'Homeopathy', 'Homeopathy', 'branchOptions')">Homeopathy ( హోమియోపతి )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'Gynaecology', 'Gynaecology', 'branchOptions')">Gynaecology ( గైనకాలజీ )</div></div><input type="hidden" id="doctor" required></div>
+                        </div>
+                        <div class="grid grid-cols-12 gap-2"><div class="col-span-12 input-soft-ui"><div class="icon-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><input type="text" id="patientName" placeholder="PATIENT FULL NAME" required oninput="handleTitleCase(this)"></div></div>
+                        <div class="grid grid-cols-12 gap-2">
+                            <div class="col-span-3 lg:col-span-2 input-soft-ui"><input type="number" id="age" placeholder="AGE" required style="padding-left:10px !important;"></div>
+                            <div class="col-span-9 lg:col-span-4 relative"><div class="dropdown-trigger" onclick="toggleDropdown(event, 'genderOptions')"><span id="genderDisplay">SELECT GENDER</span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg></div><div id="genderOptions" class="dropdown-options"><div class="dropdown-item" onclick="selectDrop('gender', 'Male', 'MALE', 'genderOptions')">MALE</div><div class="dropdown-item" onclick="selectDrop('gender', 'Female', 'FEMALE', 'genderOptions')">FEMALE</div></div><input type="hidden" id="gender" required></div>
+                            <div class="col-span-12 lg:col-span-6 input-soft-ui"><div class="icon-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.79 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div><input type="tel" id="phoneNumber" placeholder="MOBILE NUMBER" pattern="[0-9]{10}" required></div>
+                        </div>
+                        <div class="flex gap-2 items-center"><div class="flex-grow input-soft-ui"><div class="icon-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div><input type="text" id="village" placeholder="VILLAGE / LOCATION" required oninput="handleTitleCase(this)"></div><button type="submit" id="submitBtn" class="btn-confirm flex items-center justify-center gap-2 transition-all">Confirm</button></div>
+                    </form>
+                    <div id="statusMessage" class="mt-2 text-center text-[9px] font-bold uppercase text-red-600 h-4"></div>
+                </div>
+
+                <div id="successView" class="hidden flex-1 flex-col items-center justify-center h-full">
+                    <div id="ticketCapture" class="bg-white border-[3px] border-gray-100 rounded-2xl p-6 text-center shadow-md flex flex-col justify-center items-center" style="min-width: 260px;">
+                        <h4 class="text-[9px] font-black text-green-600 uppercase mb-3">Token Registered</h4>
+                        <div class="bg-gray-50 py-4 px-8 rounded-2xl mb-2 shadow-inner flex flex-col items-center"><p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest mb-1">Assigned Token</p><div id="resToken" class="token-num-box"></div></div>
+                        <p id="resName" class="text-[11px] font-black text-[#0a1d4a] uppercase"></p>
+                    </div>
+                </div>
+
+                <div id="sideButtons" class="sidebar-actions">
+                    <button id="shBtn" onclick="PROCEDURE_INITIATE_TOKEN_SHARE()" class="btn-side bg-green-600 shadow-md">Share</button>
+                    <button id="dlBtn" onclick="PROCEDURE_INITIATE_TOKEN_DOWNLOAD()" class="btn-side bg-[#0a1d4a] shadow-md">Print</button>
+                    <button onclick="RESET_REGISTRATION_INTERFACE()" class="btn-side btn-close shadow-sm">Close</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 <!-- 06-DOCTORS SECTION -->
@@ -504,12 +392,12 @@ h6 {
 		<div class="header"><span>EXPERT DOCTORS</span></div>
 		<section class="main-section"><section id="doctors-section">
 		<div class="main-grid">
-		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/SVSRIMG/DOCTORE_EXAMPLE_PNG.png" class="doctor-img" alt="Dr. P. Haneesha"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. P. Haneesha</h3></div><div class="spec-box-inline">GYNECOLOGY</div><ul class="edu-list"><li class="edu-item">MBBS Degree</li><li class="edu-item">MS (OBGY)</li><li class="edu-item">SR: Santhiram Medical College & Hospital, Nandyal</li><li class="edu-item">Certified Training in Obstetrics & Gynaec Ultrasound</li><li class="edu-item">Pursuing Fellowship in Infertility & Reproductive Medicine</li><li class="edu-item">Global Surgical Institute</li></ul><div class="reg-no">Regd. No. :APMC/FMR/97996</div></div></div>
-		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/SVSRIMG/DOCTORE_EXAMPLE_PNG.png" class="doctor-img" alt="Dr. S. Chandrika"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. S. Chandrika</h3></div><div class="spec-box-inline">OPHTHALMOLOGY</div><ul class="edu-list"><li class="edu-item">MBBS Degree</li><li class="edu-item">MS (Ophthalmology)</li><li class="edu-item">Senior Residency: Bharati Vidyapeeth, Pune</li><li class="edu-item">Ex-Assistant Professor: Santhiram Medical College & Hospital</li></ul><div class="reg-no">Regd. No. APMC/FMR 98519</div></div></div>
-		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/SVSRIMG/DOCTORE_EXAMPLE_PNG.png" class="doctor-img" alt="Dr. S. Yaswanth Reddy"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. S. Yaswanth Reddy</h3></div><div class="spec-box-inline">ANESTHESIA</div><ul class="edu-list"><li class="edu-item">MBBS Degree</li><li class="edu-item">MD Anaesthesiology</li><li class="edu-item">SR: Narayana Medical College & Hospital, Nellore</li><li class="edu-item">Fellowship in Diabetology</li><li class="edu-item">Fellowship in Pain Medicine</li><li class="edu-item">Intensivist: Santhiram & Udayanand Hospitals</li></ul><div class="reg-no">Regd. No. :APMC/FMR/97996</div></div></div>
-		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/SVSRIMG/DOCTORE_EXAMPLE_PNG.png" class="doctor-img" alt="Dr. T.N. Lakshmi Reddy"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. T.N. Lakshmi Reddy</h3></div><div class="spec-box-inline">GENERAL MEDICINE</div><ul class="edu-list"><li class="edu-item">MBBS Degree</li><li class="edu-item">MD (General Medicine)</li><li class="edu-item">Consultant Physician</li><li class="edu-item">Specialist in Diabetes & Hypertension Management</li><li class="edu-item">Emergency and Critical Care Management</li><li class="edu-item">Preventive Health Care Specialist</li></ul><div class="reg-no">Regd.No. APMC/FMR 96871</div></div></div>
-		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/SVSRIMG/DOCTORE_EXAMPLE_PNG.png" class="doctor-img" alt="Dr. S. Narasimha Reddy"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. S. Narasimha Reddy</h3></div><div class="spec-box-inline">HOMEOPATHY</div><ul class="edu-list"><li class="edu-item">MBS(hom) Degree</li><li class="edu-item">4 Years of Clinical Experience</li></ul><div class="reg-no">Regd. No. : 4678.</div></div></div>
-		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/SVSRIMG/DOCTORE_EXAMPLE_PNG.png" class="doctor-img" alt="Dr. S. Siva Nageswaramma"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. S. Siva Nageswaramma</h3></div><div class="spec-box-inline">HOMEOPATHY</div><ul class="edu-list"><li class="edu-item">MBS(hom) Degree</li><li class="edu-item">4 Years of Clinical Experience</li></ul><div class="reg-no">Regd. No. : 4686.</div></div></div>
+		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" class="doctor-img" alt="Dr. P. Haneesha"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. Haneesha Yaswanth</h3></div><div class="spec-box-inline">OBGY-GYNECOLOGY</div><ul class="edu-list"><li class="edu-item">MBBS Degree</li><li class="edu-item">MS (OBGY)</li><li class="edu-item">SR: Santhiram Medical College & Hospital, Nandyal</li><li class="edu-item">Certified Training in Obstetrics & Gynaec Ultrasound</li><li class="edu-item">Pursuing Fellowship in Infertility & Reproductive Medicine</li><li class="edu-item">Global Surgical Institute</li></ul><div class="reg-no">Regd. No. :APMC/FMR/97996</div></div></div>
+		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" class="doctor-img" alt="Dr. S. Chandrika"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. S. Chandrika</h3></div><div class="spec-box-inline">OPHTHALMOLOGY</div><ul class="edu-list"><li class="edu-item">MBBS Degree</li><li class="edu-item">MS (Ophthalmology)</li><li class="edu-item">Senior Residency: Bharati Vidyapeeth, Pune</li><li class="edu-item">Ex-Assistant Professor: Santhiram Medical College & Hospital</li></ul><div class="reg-no">Regd. No. APMC/FMR 98519</div></div></div>
+		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" class="doctor-img" alt="Dr. S. Yaswanth Reddy"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. S. Yaswanth Reddy</h3></div><div class="spec-box-inline">ANESTHESIA</div><ul class="edu-list"><li class="edu-item">MBBS Degree</li><li class="edu-item">MD Anaesthesiology</li><li class="edu-item">SR: Narayana Medical College & Hospital, Nellore</li><li class="edu-item">Fellowship in Diabetology</li><li class="edu-item">Fellowship in Pain Medicine</li><li class="edu-item">Intensivist: Santhiram & Udayanand Hospitals</li></ul><div class="reg-no">Regd. No. :APMC/FMR/97996</div></div></div>
+		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" class="doctor-img" alt="Dr. T.N. Lakshmi Reddy"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. T.N. Lakshmi Reddy</h3></div><div class="spec-box-inline">ORTHOPAEDICS</div><ul class="edu-list"><li class="edu-item">MBBS Degree</li><li class="edu-item">MD (General Medicine)</li><li class="edu-item">Consultant Physician</li><li class="edu-item">Specialist in Diabetes & Hypertension Management</li><li class="edu-item">Emergency and Critical Care Management</li><li class="edu-item">Preventive Health Care Specialist</li></ul><div class="reg-no">Regd.No. APMC/FMR 96871</div></div></div>
+		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" class="doctor-img" alt="Dr. S. Narasimha Reddy"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. S. Narasimha Reddy</h3></div><div class="spec-box-inline">HOMEOPATHY</div><ul class="edu-list"><li class="edu-item">MBS(hom) Degree</li><li class="edu-item">4 Years of Clinical Experience</li></ul><div class="reg-no">Regd. No. : 4678.</div></div></div>
+		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" class="doctor-img" alt="Dr. S. Siva Nageswaramma"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. S. Siva Nageswaramma</h3></div><div class="spec-box-inline">HOMEOPATHY</div><ul class="edu-list"><li class="edu-item">MBS(hom) Degree</li><li class="edu-item">4 Years of Clinical Experience</li></ul><div class="reg-no">Regd. No. : 4686.</div></div></div>
 		</div>
 		</section>
 
@@ -539,7 +427,7 @@ h6 {
 		<div class="slider-wrapper">
 		<div id="track-right" class="slider-track">
 		<div class="slide"><img src="https://dsvsrh.github.io/SVSRIMG/RECEPTION_IMAGE_RIGHT.png" alt="Reception"><div class="slide-caption">Reception</div></div>
-		<div class="slide"><img src="https://dsvsrh.github.io/SVSRIMG/DOCTORE_EXAMPLE_PNG.png" alt="Doctors"><div class="slide-caption">Our Doctors</div></div>
+		<div class="slide"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" alt="Doctors"><div class="slide-caption">Our Doctors</div></div>
 		<div class="slide"><img src="https://dsvsrh.github.io/SVSRIMG/PAGE_ABOUT_RIGHT_EXAMPLE.png" alt="Infrastructure"><div class="slide-caption">Infrastructure</div></div>
 		<div class="slide"><img src="https://dsvsrh.github.io/SVSRIMG/emergency.png" alt="Emergency"><div class="slide-caption">24/7 Emergency</div></div>
 		</div>
@@ -649,18 +537,21 @@ h6 {
 
 
 
-		const GLOBAL_DEPLOYED_URL = "https://script.google.com/macros/s/AKfycbwhPWy5FupJYuD7GZmQjPxQZGzd_-ZW0a7-K60pUUnUPmkHMKYSQWQtNi4Mb9O90-If/exec";
-		function toggleDropdown(id) { event.stopPropagation(); document.querySelectorAll('.dropdown-options').forEach(d => { if(d.id !== id) d.classList.remove('show'); }); document.getElementById(id).classList.toggle('show'); }
-		function selectDrop(hiddenId, val, label, dropId) { document.getElementById(hiddenId).value = val; document.getElementById(hiddenId + 'Display').innerText = label; document.getElementById(dropId).classList.remove('show'); }
-		function SET_DEFAULT_TIMESTAMP() { const N = new Date(); document.getElementById('formDate').value = N.toISOString().split('T')[0]; document.getElementById('formTime').value = N.toTimeString().slice(0,5); }
-		function RESET_REGISTRATION_INTERFACE() { document.getElementById('tokenForm').reset(); document.getElementById('doctorDisplay').innerText = "CHOOSE BRANCH"; document.getElementById('genderDisplay').innerText = "SELECT GENDER"; document.querySelectorAll('input[type="hidden"]').forEach(I => I.value = ""); SET_DEFAULT_TIMESTAMP(); document.getElementById('formSection').classList.remove('hidden'); document.getElementById('successTicket').classList.add('hidden'); document.getElementById('successTicket').classList.remove('flex'); document.getElementById('statusMessage').innerText = ''; }
-		function PROCEDURE_INITIATE_TOKEN_DOWNLOAD() { const D_B = document.getElementById('dlBtn'), O_T = D_B.innerText; D_B.innerText = "Wait..."; D_B.disabled = true; setTimeout(() => { const T = document.getElementById('ticketCapture'); html2canvas(T, { backgroundColor: '#ffffff', scale: 4, useCORS: true, width: T.scrollWidth, height: T.scrollHeight, logging: false }).then(C => { const L = document.createElement('a'); L.download = 'SVSR_Hospital_Token.png'; L.href = C.toDataURL('image/png'); L.click(); D_B.innerText = O_T; D_B.disabled = false; }); }, 2000); }
-		function PROCEDURE_INITIATE_TOKEN_SHARE() { const S_B = document.getElementById('shBtn'), O_T = S_B.innerText; S_B.innerText = "Wait..."; S_B.disabled = true; setTimeout(() => { const T = document.getElementById('ticketCapture'); html2canvas(T, { backgroundColor: '#ffffff', scale: 4, useCORS: true, width: T.scrollWidth, height: T.scrollHeight }).then(C => { C.toBlob(BL => { if (navigator.share && BL) { const F = new File([BL], 'SVSR_Token.png', { type: 'image/png' }); navigator.share({ files: [F], title: 'SVSR Token', text: 'Hospital Appointment Token' }).then(() => { S_B.innerText = O_T; S_B.disabled = false; }).catch(() => { S_B.innerText = O_T; S_B.disabled = false; }); } else { const FB = document.createElement('a'); FB.href = C.toDataURL(); FB.click(); S_B.innerText = O_T; S_B.disabled = false; } }); }); }, 2000); }
-		/* SCRIPT initialization START */
-		window.onload = () => { logRender(); SET_DEFAULT_TIMESTAMP(); };
-		window.onclick = () => document.querySelectorAll('.dropdown-options').forEach(d => d.classList.remove('show'));
-		document.getElementById('tokenForm').addEventListener('submit', function(E) { E.preventDefault(); const B = document.getElementById('submitBtn'), M = document.getElementById('statusMessage'); if(!document.getElementById('doctor').value || !document.getElementById('gender').value) { M.innerText = "✕ PLEASE SELECT BRANCH AND GENDER"; return; } B.disabled = true; document.getElementById('btnText').innerText = 'WAIT...'; document.getElementById('btnLoader').classList.remove('hidden'); const PAYLOAD = { doctor: document.getElementById('doctor').value, PATIENT_FULL_NAME_DATA: document.getElementById('patientName').value.trim().toUpperCase(), age: document.getElementById('age').value, gender: document.getElementById('gender').value, PATIENT_CONTACT_NUMBER_DATA: document.getElementById('phoneNumber').value.trim(), village: document.getElementById('village').value.trim().toUpperCase(), date: document.getElementById('formDate').value, time: document.getElementById('formTime').value }; fetch(GLOBAL_DEPLOYED_URL, { method: "POST", body: JSON.stringify(PAYLOAD), headers: { "Content-Type": "text/plain;charset=utf-8" } }).then(R => R.json()).then(RES => { if (RES.status === "success") { document.getElementById('resToken').innerText = String(RES.token || ""); document.getElementById('formSection').classList.add('hidden'); document.getElementById('successTicket').classList.remove('hidden'); document.getElementById('successTicket').classList.add('flex'); } else { M.innerText = "✕ FAILED: " + (RES.message || "Unknown error"); } B.disabled = false; document.getElementById('btnText').innerText = 'Confirm'; document.getElementById('btnLoader').classList.add('hidden'); }).catch(() => { B.disabled = false; document.getElementById('btnText').innerText = 'Confirm'; document.getElementById('btnLoader').classList.add('hidden'); M.innerText = "✕ CONNECTION ERROR"; }); });
-
+        const GLOBAL_DEPLOYED_URL = "https://script.google.com/macros/s/AKfycbwzVegm1cmbPq-ZmypROGe4vOyHUhP4nMRljsnc7T96ZimqKszBhQq3whe8tj_5G1Vk/exec";
+        function handleTitleCase(el) { el.value = el.value.toLowerCase().split(' ').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' '); }
+        function toggleDropdown(e, id) { e.stopPropagation(); document.querySelectorAll('.dropdown-options').forEach(d => { if(d.id !== id) d.classList.remove('show'); }); document.getElementById(id).classList.toggle('show'); }
+        function selectDrop(hiddenId, val, label, dropId) { document.getElementById(hiddenId).value = val; document.getElementById(hiddenId + 'Display').innerText = label; document.getElementById(dropId).classList.remove('show'); }
+        function SET_DEFAULT_TIMESTAMP() { const N = new Date(); document.getElementById('formDate').value = N.toISOString().split('T')[0]; document.getElementById('formTime').value = N.toTimeString().slice(0,5); }
+        function RESET_REGISTRATION_INTERFACE() { document.getElementById('tokenForm').reset(); document.getElementById('doctorDisplay').innerText = "CHOOSE DEPARTMENT"; document.getElementById('genderDisplay').innerText = "SELECT GENDER"; document.querySelectorAll('input[type="hidden"]').forEach(I => I.value = ""); SET_DEFAULT_TIMESTAMP(); document.getElementById('formContainer').style.display = 'flex'; document.getElementById('successView').style.display = 'none'; document.getElementById('sideButtons').style.display = 'none'; document.getElementById('statusMessage').innerText = ''; }
+        function PROCEDURE_INITIATE_TOKEN_DOWNLOAD() { const btn = document.getElementById('dlBtn'); btn.innerText = "..."; btn.disabled = true; setTimeout(() => { const ticket = document.getElementById('ticketCapture'); html2canvas(ticket, { scale: 3, backgroundColor: '#ffffff' }).then(canvas => { const link = document.createElement('a'); link.download = 'SVSR_Hospital_Token.png'; link.href = canvas.toDataURL(); link.click(); btn.innerText = "Print"; btn.disabled = false; }); }, 800); }
+        function PROCEDURE_INITIATE_TOKEN_SHARE() { const btn = document.getElementById('shBtn'); btn.innerText = "..."; btn.disabled = true; setTimeout(() => { const ticket = document.getElementById('ticketCapture'); html2canvas(ticket, { scale: 3 }).then(canvas => { canvas.toBlob(blob => { if (navigator.share && blob) { const file = new File([blob], 'SVSR_Token.png', { type: 'image/png' }); navigator.share({ files: [file], title: 'Patient Token' }).then(() => { btn.innerText = "Share"; btn.disabled = false; }).catch(() => { btn.innerText = "Share"; btn.disabled = false; }); } else { const link = document.createElement('a'); link.href = canvas.toDataURL(); link.click(); btn.innerText = "Share"; btn.disabled = false; } }); }); }, 800); }
+        window.onload = () => { SET_DEFAULT_TIMESTAMP(); };
+        window.onclick = () => document.querySelectorAll('.dropdown-options').forEach(d => d.classList.remove('show'));
+        document.getElementById('tokenForm').addEventListener('submit', function(e) { e.preventDefault(); const msg = document.getElementById('statusMessage'); if(!document.getElementById('doctor').value || !document.getElementById('gender').value) { msg.innerText = "✕ SELECT DEPT & GENDER"; return; }
+            document.getElementById('loadingOverlay').style.display = 'flex';
+            const payload = { doctorName: document.getElementById('doctor').value, fullName: document.getElementById('patientName').value.trim(), age: document.getElementById('age').value, gender: document.getElementById('gender').value, phone: document.getElementById('phoneNumber').value.trim(), village: document.getElementById('village').value.trim() };
+            fetch(GLOBAL_DEPLOYED_URL, { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(payload) }).then(res => res.json()).then(data => { if(data.result === "success") { document.getElementById('resToken').innerText = data.token; document.getElementById('resName').innerText = payload.fullName; document.getElementById('formContainer').style.display = 'none'; document.getElementById('successView').style.display = 'flex'; document.getElementById('sideButtons').style.display = 'flex'; } else { msg.innerText = "✕ ERROR: " + data.message; } }).catch(() => { msg.innerText = "✕ CONNECTION ERROR"; }).finally(() => { document.getElementById('loadingOverlay').style.display = 'none'; }); });
+    
 
 		function moveSlider(track, slides, state) { state.index = (state.index + 1) % slides.length; track.style.transform = `translateX(-${state.index * 100}%)`; }
 		function initSlider(trackId, time) { const track = document.getElementById(trackId); if (!track) return; const slides = track.querySelectorAll('.slide'); const state = { index: 0 }; setInterval(() => moveSlider(track, slides, state), time); }
