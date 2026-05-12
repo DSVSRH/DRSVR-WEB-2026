@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr VSR Hospital</title>
+    <link rel="icon" type="image/png" href="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_02_FEVICON_ICON.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+	
+	
+	
+<style>
+
+		:root { --primary-blue: #1e81ce; --deep-slate: #0f172a; --hospital-blue: #1e40af; }
+		body { margin: 0; padding: 0; background-color: #ffffff; display: flex; flex-direction: column; width: 100%; overflow-x: hidden; min-height: 100vh; }
+		
+/* 01-HEADER SECTION */
+		
+        html { scroll-behavior: smooth; }
+        section { scroll-margin-top: 120px; }
+        body { margin: 0; padding: 0; background-color: #ffffff; display: flex; flex-direction: column; width: 100%; overflow-x: hidden; min-height: 125vh; }
+        .ultra-compact-unified-header { width: 100%; position: relative; z-index: 1000; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 0 6px 0; box-sizing: border-box; border-bottom: 1px solid #eccaca; background: linear-gradient(rgba(255, 250, 250, 0.9), rgba(249, 238, 238, 0.9)), url('https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_03_HEADER_BG_PIC.png'); background-size: cover; background-position: center; box-shadow: 0 4px 15px rgba(165, 42, 42, 0.05); gap: 10px; }
+        .branding-top-tier { display: flex; flex-direction: row; align-items: center; justify-content: flex-start; width: 100%; padding: 0 50px; box-sizing: border-box; }
+        .logo-branding-wrapper { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; padding-right: 15px; }
+        .brand-logo-standard { height: auto; max-height: 75px; width: auto; object-fit: contain; filter: drop-shadow(0px 6px 12px rgba(0,0,0,0.18)); }
+        .identity-text-stack { flex: 0 1 auto; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .brand-name-linear-row { display: flex; flex-direction: row; align-items: baseline; justify-content: flex-start; gap: 8px; flex-wrap: wrap; line-height: 1; align-self: flex-start; }
+.brand-font-primary {
+    color: #1e81ce;
+    font-family: 'Roboto Slab', serif;
+    font-size: clamp(11px, 1.3vw, 22px);
+    font-weight: 560;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+        .center-accent-line { width: 220px; height: 1.5px; background-color: #000000; margin: 6px 0 4px 0; border-radius: 1px; }
+        .since-normal-label { color: #000000; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 500; margin: 0; text-transform: lowercase; opacity: 0.85; letter-spacing: 0.5px; line-height: 1; }
+        .tagline-font-standard { color: #1e81ce; font-family: 'Montserrat', sans-serif; font-size: clamp(8px, 0.9vw, 9.5px); font-weight: 400; text-transform: uppercase; letter-spacing: 0.4em; margin: 2px 0 0 0; word-spacing: 0.4em; line-height: 1; }
+        .nav-bar-row { display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 4px; width: 100%; padding: 4px 10px; box-sizing: border-box; flex-wrap: wrap; border-top: 1px solid rgba(165, 42, 42, 0.05); }
+        .nav-btn { display: flex; align-items: center; gap: 3px; color: #1e81ce; font-family: 'Montserrat', sans-serif; font-size: 8.5px; font-weight: 700; text-transform: uppercase; text-decoration: none; padding: 2px 7px; border-radius: 4px; transition: all 0.25s ease; cursor: pointer; letter-spacing: 0.5px; white-space: nowrap; }
+        .nav-btn svg { width: 9px; height: 9px; stroke: currentColor; stroke-width: 2.5; fill: none; }
+        .nav-btn:hover { background-color: #1e81ce; color: #ffffff; box-shadow: 0 2px 8px rgba(30, 129, 206, 0.15); }
+        .top-menu-section { width: 100%; display: flex; justify-content: center; align-items: center; padding: 6px 0; background: transparent; }
+        .top-menu-container { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 2px; width: 100%; margin: 0 auto; }
+        .menu-btn { display: flex; justify-content: center; align-items: center; padding: 3px 8px; min-width: auto; height: auto; font-family: 'Roboto Slab', serif; font-size: 8px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; text-decoration: none; background: linear-gradient(135deg, #2563eb, #1d4ed8, #0f172a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: all 0.25s ease; }
+        .menu-btn:hover { transform: translateY(-1px) scale(1.04); background: linear-gradient(135deg, #0f172a, #2563eb, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @media (max-width: 768px) { .ultra-compact-unified-header { background: linear-gradient(180deg, #fffafa 0%, #f9eeee 100%) !important; } .branding-top-tier { padding: 0 20px; } .identity-text-stack { align-items: center; text-align: center; margin: 0 auto; } .brand-name-linear-row { align-self: center; justify-content: center; } .top-menu-container { gap: 1px; } .menu-btn { font-size: 6px; padding: 2px 5px; } }
+
+		
+/* 02-ABOUT SECTION */
+
+		#about-container { width: 100%; font-family: 'Plus Jakarta Sans', sans-serif; -webkit-font-smoothing: antialiased; background-color: #ffffff; border-bottom: 1px solid #f1f5f9; position: relative; margin: 0; padding: 0; }
+		.compact-section { height: 5.2cm; overflow: hidden; position: relative; display: flex; align-items: center; width: 100%; }
+		.hd-3d-text { font-family: 'Roboto Slab', serif; letter-spacing: -0.02em; background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; text-transform: uppercase; filter: drop-shadow(2px 2px 0px rgba(30, 64, 175, 0.1)); line-height: 1.1; }
+		.img-gradient-overlay { position: absolute; inset: 0; background: linear-gradient(to right, #ffffff 0%, #ffffff 35%, rgba(255,255,255,0.7) 55%, rgba(255,255,255,0) 100%); z-index: 2; }
+		.story-tag { background: #0f172a; color: #ffffff; padding: 2px 14px; border-radius: 1px; font-size: 0.65rem; font-weight: 900; letter-spacing: 0.15em; display: inline-block; border-left: 3px solid #1e81ce; }
+		.hd-block-passage { color: #1e293b; font-weight: 600; line-height: 1.6; text-align: justify; letter-spacing: -0.01em; }
+		.highlight-3d { color: #1e40af; font-weight: 800; position: relative; display: inline-block; }
+		.middle-horizontal-line { height: 1.5px; width: 100%; background: linear-gradient(to right, transparent, #e2e8f0, #1e81ce, #e2e8f0, transparent); margin: 8px 0; opacity: 0.4; }
+		
+		
+		
+		
+/* 03-SPECIALTY SECTION */
+
+		body { font-family: 'Roboto Slab', serif; background-color: #fff; margin: 0; padding: 0; }
+		.specialty-card { display: flex; flex-direction: column; height: 100%; overflow: hidden; background-color: #fefce8; transition: transform 0.3s ease; border-radius: 12px; padding-bottom: 10px; border: 1.5px solid #fef3c7; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+		.specialty-card:hover { background-color: #fef9c3; transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+		.img-box { width: 80%; aspect-ratio: 16 / 10; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.15); border: 3px solid #ffffff; border-radius: 6px; margin: 12px auto 4px; transition: 0.3s; }
+		.img-box img { width: 100%; height: 100%; object-fit: cover; transition: scale 0.5s; }
+		.specialty-card:hover .img-box { border-color: #dc2626; transform: scale(1.02); }
+		.title-box { display: flex; align-items: center; justify-content: center; text-align: center; padding: 10px 4px 6px 4px; min-height: 52px; }
+		.title-box h3 { background-color: #dc2626; color: white; padding: 5px 8px; border-radius: 3px; display: inline-block; width: 94%; font-size: 8.5px; line-height: 1.2; font-weight: 900; letter-spacing: 0.02em; box-shadow: 2px 2px 0px rgba(0,0,0,0.1); }
+		.points-list { padding: 4px 10px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 3px 12px; flex-grow: 1; align-content: start; }
+		.point-item { display: flex; align-items: start; gap: 4px; line-height: 1.1; }
+		.point-item:nth-child(even) { flex-direction: row-reverse; text-align: right; }
+		.dot { width: 4px; height: 4px; background-color: #dc2626; border-radius: 50%; margin-top: 4.5px; flex-shrink: 0; }
+		.point-text { font-size: 8px; color: #451a03; font-weight: 600; letter-spacing: -0.01em; }
+		@media (min-width: 1024px) { .title-box h3 { font-size: 13px; padding: 6px 12px; } .point-text { font-size: 10.5px; } .dot { width: 5px; height: 5px; margin-top: 6px; } .points-list { gap: 6px 20px; padding: 12px 18px; } .img-box { width: 85%; margin-top: 15px; } }
+
+		
+		
+/* 04-TIMINGS SECTION */
+
+		.timing-box { padding: 1rem 1.25rem; background: white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); border-radius: 0.75rem; border-top: 4px solid #0a1d4a; transition: transform 0.2s ease; }
+		.timing-box:hover { transform: translateY(-2px); }
+		.time-row { display: flex; justify-content: space-between; align-items: center; padding: 0.4rem 0; border-bottom: 1px solid #f1f5f9; }
+		.time-label-group { display: flex; align-items: center; gap: 0.5rem; }
+		.time-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; }
+		.time-value { font-size: 13px; font-weight: 600; color: #0f172a; }
+		.sunday-highlight { background-color: #fef2f2; border: 1px solid #fee2e2; border-radius: 0.5rem; padding: 0.5rem; margin-top: 0.6rem; }
+		.emergency-inline { margin-top: 0.6rem; padding: 0.35rem; text-align: center; border-radius: 0.4rem; background-color: #be123c; color: white; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; justify-content: center; gap: 0.4rem; }
+		.headline-underline { height: 2px; width: 3.5rem; background-color: #0a1d4a; margin-bottom: 0.75rem; border-radius: 9999px; }
+
+
+
+/* 05-REGISTER SECTION */
+
+        body { margin: 0; padding: 0; background-color: #ffffff; display: flex; flex-direction: column; width: 100%; overflow-x: hidden; min-height: 100vh; font-family: 'Roboto Slab', serif; }
+        #SVSR_REGISTRATION_MODULE .framed-card { background: #f1f5f9; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 12px; width: 100%; height: 6.8cm; box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff; display: flex; position: relative; z-index: 10; overflow: visible !important; }
+        #SVSR_REGISTRATION_MODULE .content-area { width: 100%; height: 100%; display: flex; align-items: center; position: relative; padding: 0 20px; gap: 0; }
+        #SVSR_REGISTRATION_MODULE .order-form { flex: 1; padding: 10px 20px; display: flex; flex-direction: column; justify-content: center; height: 100%; position: relative; transition: all 0.3s ease; }
+        #SVSR_REGISTRATION_MODULE .input-soft-ui { background: #f1f5f9; border-radius: 6px; box-shadow: inset 2px 2px 5px #d1d9e6, inset -2px -2px 5px #ffffff; display: flex; align-items: center; padding: 0 8px; height: 30px; gap: 6px; position: relative; }
+        #SVSR_REGISTRATION_MODULE input { background: transparent !important; outline: none; width: 100%; color: #1e293b; font-weight: 700; font-size: 10.5px; border: none !important; height: 100%; padding-left: 28px !important; font-family: 'Roboto Slab', serif; }
+        #SVSR_REGISTRATION_MODULE .icon-overlay { position: absolute; left: 10px; pointer-events: none; z-index: 15; display: flex; align-items: center; height: 100%; }
+        #SVSR_REGISTRATION_MODULE .dropdown-trigger { background: #f1f5f9; border-radius: 6px; box-shadow: 2px 2px 5px #d1d9e6, -2px -2px 5px #ffffff; cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 0 8px; height: 30px; gap: 6px; position: relative; z-index: 30; }
+        #SVSR_REGISTRATION_MODULE .dropdown-trigger span { font-size: 10px; font-weight: 800; color: #1e3a8a; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        #SVSR_REGISTRATION_MODULE .dropdown-options { position: absolute; top: calc(100% + 2px); left: 0; right: 0; background: #ffffff; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 9999 !important; display: none; max-height: 160px; overflow-y: auto; border: 1px solid #e2e8f0; padding: 4px; }
+        #SVSR_REGISTRATION_MODULE .dropdown-options.show { display: block !important; }
+        #SVSR_REGISTRATION_MODULE .dropdown-item { padding: 7px 10px; font-size: 10px; font-weight: 800; color: #475569; cursor: pointer; border-radius: 5px; border-bottom: 1px solid #f1f5f9; }
+        #SVSR_REGISTRATION_MODULE .dropdown-item:hover { background: #f1f5f9; color: #1e40af; }
+        #SVSR_REGISTRATION_MODULE .btn-confirm { background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); color: white; font-weight: 900; text-transform: uppercase; height: 32px; padding: 0 25px; border-radius: 6px; font-size: 11px; cursor: pointer; font-family: 'Roboto Slab', serif; border: none; }
+        #SVSR_REGISTRATION_MODULE .image-container { position: relative; height: 100%; width: 100%; z-index: 1; border-radius: 12px 0 0 12px; overflow: hidden; display: flex; }
+        #SVSR_REGISTRATION_MODULE .image-container img { width: 100%; height: 100%; object-fit: cover; }
+        #SVSR_REGISTRATION_MODULE .blur-overlay { position: absolute; inset: 0; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); mask-image: linear-gradient(to right, transparent 60%, black 100%); -webkit-mask-image: linear-gradient(to right, transparent 60%, black 100%); pointer-events: none; }
+        #SVSR_REGISTRATION_MODULE .image-container::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to right, transparent 30%, #f1f5f9 95%); pointer-events: none; }
+        #SVSR_REGISTRATION_MODULE .token-num-box { background: #800000; color: #ffffff; width: 140px; height: 100px; border-radius: 18px; font-size: 58px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(128,0,0,0.3); font-weight: 900; }
+        #SVSR_REGISTRATION_MODULE .sidebar-actions { width: 130px; display: none; flex-direction: column; gap: 8px; justify-content: center; padding-left: 15px; border-left: 2px solid rgba(0,0,0,0.03); height: 80%; }
+        #SVSR_REGISTRATION_MODULE .btn-side { height: 34px; font-size: 11px; font-weight: 900; text-transform: uppercase; border-radius: 6px; width: 100%; display: flex; align-items: center; justify-content: center; cursor: pointer; border: none; font-family: 'Roboto Slab', serif; color: white; transition: 0.2s; }
+        #SVSR_REGISTRATION_MODULE .btn-close { background: white; color: #dc2626; border: 1.5px solid #fee2e2; }
+        #SVSR_REGISTRATION_MODULE .loading-overlay { position: absolute; inset: 0; background: rgba(241, 245, 249, 0.8); backdrop-filter: blur(5px); display: none; align-items: center; justify-content: center; z-index: 50; border-radius: 12px; }
+        @media (max-width: 1024px) { #SVSR_REGISTRATION_MODULE .framed-card { flex-direction: column; height: auto; min-height: 480px; } #SVSR_REGISTRATION_MODULE .image-container { position: relative; width: 100%; height: 140px; order: 3; border-radius: 0 0 12px 12px; } #SVSR_REGISTRATION_MODULE .content-area { flex-direction: column; padding: 15px; height: auto; } #SVSR_REGISTRATION_MODULE .order-form { width: 100%; order: 1; padding: 0; } #SVSR_REGISTRATION_MODULE .sidebar-actions { width: 100%; order: 2; flex-direction: row; border-left: none; border-top: 1px solid rgba(0,0,0,0.05); padding: 15px 0 0 0; margin-top: 15px; display: none; } }
+
+
+
+/* 06-DOCTORS SECTION */
+
+		body { font-family: 'Roboto Slab', serif; background-color: #fbfbfb; margin: 0; padding: 0; overflow-x: hidden; color: #1a1a1a; }
+		.header { display: flex; align-items: center; justify-content: center; position: relative; margin: 15px 0; padding: 0 20px; }
+		.header::before, .header::after { content: ""; flex: 1; height: 2px; background: linear-gradient(to right, transparent, #dc2626, transparent); opacity: 0.3; }
+		.header span { background: linear-gradient(135deg, #dc2626 0%, #800000 100%); color: white; padding: 6px 18px; margin: 0 12px; font-weight: 900; font-size: 13px; letter-spacing: 2px; border-radius: 6px; box-shadow: 0 8px 20px rgba(128,0,0,0.25); white-space: nowrap; text-transform: uppercase; }
+		.main-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; padding: 0 15px; max-width: 1700px; margin: 0 auto; }
+		@media (min-width: 768px) { .main-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+		@media (min-width: 1024px) { .main-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+		.doctor-card { background: #ffffff; border-radius: 18px; overflow: hidden; text-align: left; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 10px 40px rgba(0,0,0,0.04); width: 100%; display: flex; flex-direction: column; border: 1px solid rgba(240,240,240,0.8); height: 100%; position: relative; }
+		.doctor-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 20px 50px rgba(128,0,0,0.12); border-color: rgba(128,0,0,0.3); }
+		.doctor-img-container { width: 100%; height: 110px; overflow: hidden; background: linear-gradient(180deg, #fdfdfd 0%, #f7f7f7 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #f0f0f0; flex-shrink: 0; }
+		.doctor-img { width: 100%; height: 100%; object-fit: contain; filter: grayscale(100%) brightness(1.05); transition: 0.8s ease; }
+		.doctor-card:hover .doctor-img { filter: grayscale(0%) brightness(1); transform: scale(1.1) translateY(-3px); }
+		.info-box { padding: 12px; flex-grow: 1; display: flex; flex-direction: column; background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%); }
+		.name-section { min-height: 40px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; border-bottom: 1px dashed #fcdcdc; }
+		.name { font-size: 10px; font-weight: 900; color: #dc2626; text-transform: uppercase; line-height: 1.2; text-align: center; letter-spacing: 0.5px; }
+		.spec-box-inline { background: rgba(255,250,250,0.9); color: #800000; border: 1.5px solid #800000; font-size: 8px; font-weight: 900; padding: 6px 2px; border-radius: 8px; text-align: center; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); flex-shrink: 0; white-space: nowrap; transition: 0.4s ease; backdrop-filter: blur(4px); }
+		.doctor-card:hover .spec-box-inline { background: #800000; color: #ffffff; box-shadow: 0 8px 20px rgba(128,0,0,0.3); }
+		.edu-list { margin: 0; padding: 0; list-style: none; flex-grow: 1; }
+		.edu-item { font-size: 7.5px; color: #4a4a4a; line-height: 1.4; padding-left: 12px; position: relative; font-weight: 600; margin-bottom: 3px; }
+		.edu-item::before { content: "✦"; position: absolute; left: 0; color: #dc2626; font-size: 7px; top: 1px; }
+		.reg-no { font-size: 8.5px; font-weight: 900; color: #1a1a1a; margin-top: 8px; padding-top: 5px; border-top: 1px solid #f0f0f0; text-align: center; letter-spacing: 0.3px; }
+		.main-section { max-width: 1700px; margin: 0 auto; padding-bottom: 15px; }
+
+
+/* 07-GALLERY SECTION */
+
+		body, html { margin: 0; padding: 0; overflow-x: hidden; }
+		h3, .slide-caption { font-family: 'Roboto Slab', serif; }
+		.slider-wrapper { position: relative; overflow: hidden; border-radius: 1rem; background: #000; aspect-ratio: 16 / 9; width: 100%; max-width: 450px; margin: 0 auto; border: 4px solid white; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
+		.slider-track { display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; }
+		.slide { min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+		.slide img { width: 100%; height: 100%; object-fit: cover; }
+		.slide-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: white; padding: 12px 10px 8px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-align: center; z-index: 20; }
+		@media (min-width: 768px) { .slider-wrapper { max-width: 100%; aspect-ratio: 16 / 8; } }
+
+
+/* 08-EMERGENCY SECTION */
+
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;800;900&display=swap');
+        body { font-family: 'Roboto Slab', serif; background-color: #ffffff; margin: 0; padding: 0; display: flex; justify-content: center; min-height: 100vh; overflow-x: hidden; }
+        @keyframes gradient-move { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes blink-glow-red { 0%, 100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 15px rgba(220,38,38,0.8)); } 50% { opacity: 0.6; transform: scale(0.9); filter: drop-shadow(0 0 2px rgba(220,38,38,0.1)); } }
+        @keyframes blink-glow-blue { 0%, 100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 15px rgba(37,99,235,0.8)); } 50% { opacity: 0.6; transform: scale(0.9); filter: drop-shadow(0 0 2px rgba(37,99,235,0.1)); } }
+.scene-3d { 
+    perspective: 2000px; 
+    width: 100%; 
+    max-width: 100%; 
+    padding: 0; 
+    display: flex; 
+    flex-direction: column; 
+}
+        .dual-horizon-row { display: flex; flex-direction: column; width: 100%; align-items: stretch; gap: 40px; }
+        @media (min-width: 1024px) { .dual-horizon-row { flex-direction: row; gap: 0; } }
+.floating-element { 
+    display: flex; 
+    flex-direction: column; 
+    flex: 1; 
+    transition: transform 0.4s ease; 
+    padding: 10px; 
+    transform-style: preserve-3d; 
+}
+        .text-scroll-red { background: linear-gradient(90deg, #991b1b, #ef4444, #fca5a5, #991b1b); background-size: 300% auto; -webkit-background-clip: text; color: transparent; animation: gradient-move 4s linear infinite; }
+        .text-scroll-blue { background: linear-gradient(90deg, #1e3a8a, #3b82f6, #93c5fd, #1e3a8a); background-size: 300% auto; -webkit-background-clip: text; color: transparent; animation: gradient-move 4s linear infinite; }
+        .icon-red { animation: blink-glow-red 2.2s ease-in-out infinite; }
+        .icon-blue { animation: blink-glow-blue 2.2s ease-in-out infinite; }
+        .service-header { font-size: 1.1rem; line-height: 1.3; margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 12px; border-bottom: 2px solid transparent; }
+        .service-description { flex-grow: 1; font-size: 0.95rem; color: #1e293b; text-align: justify; line-height: 1.8; font-weight: 400; }
+        .vertical-divider { display: none; width: 2px; background-color: #22c55e; align-self: stretch; margin: 0 10px; }
+        @media (min-width: 1024px) { .vertical-divider { display: block; } }
+
+
+/* 09-FECILITY SECTION */
+
+        :root { --primary: #0f4c81; --secondary: #f8fafc; --accent: #3b82f6; --text-main: #1e293b; --text-muted: #64748b; --border: #e2e8f0; --white: #ffffff; }
+        *{ margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto Slab', serif !important; }
+
+body, p, span, div, a, li, td, th, input, button, textarea, select, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Slab', serif !important;
+}
+        body { background-color: #ffffff; color: var(--text-main); line-height: 1.5; padding-bottom: 2rem; -webkit-font-smoothing: antialiased; }
+        header { background: transparent; padding: 0.5rem 0; }
+        .header-container { display: flex; align-items: center; justify-content: center; gap: 1.5rem; max-width: 1440px; margin: 0 auto; padding: 0 2rem; }
+        .side-line { flex: 1; height: 1px; background: var(--border); }
+        .section-title { background: var(--primary); color: var(--white); padding: 0.3rem 1.2rem; border-radius: 6px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; box-shadow: 0 4px 6px -1px rgba(15, 76, 129, 0.2); white-space: nowrap; }
+        .container { width: 100%; max-width: 100%; margin: 0; padding: 0; }
+        .facility-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem 1.5rem; margin-top: 0; }
+        .facility-card { background: transparent; border-radius: 0; padding: 0.4rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; height: 100%; border-left: 2px solid transparent; position: relative; }
+        .facility-card:hover { border-left-color: var(--primary); padding-left: 1rem; transform: translateX(3px); }
+        .card-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
+        .icon-container { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; color: var(--primary); flex-shrink: 0; font-size: 1.4rem; filter: drop-shadow(0 3px 2px rgba(0,0,0,0.15)); transition: transform 0.3s ease; }
+        .facility-card:hover .icon-container { transform: scale(1.1) rotate(5deg); }
+        .card-title { font-size: 0.85rem; font-weight: 800; color: var(--primary); margin: 0; text-transform: uppercase; letter-spacing: 0.04em; }
+        .card-desc { font-size: 0.75rem; color: var(--text-muted); flex-grow: 1; line-height: 1.4; border-top: 1px solid var(--border); padding-top: 0.5rem; transition: border-color 0.3s ease; }
+        .facility-card:hover .card-desc { border-top-color: var(--primary); color: var(--text-main); }
+        @media (max-width: 1400px) { .facility-grid { grid-template-columns: repeat(4, 1fr); } }
+        @media (max-width: 1100px) { .facility-grid { grid-template-columns: repeat(3, 1fr); } .header-container { gap: 1rem; } }
+        @media (max-width: 768px) { .facility-grid { grid-template-columns: repeat(2, 1fr); } .section-title { font-size: 0.75rem; } .container { padding: 0 1rem; } .side-line { display: none; } }
+        @media (max-width: 480px) { .facility-grid { grid-template-columns: 1fr; } }
+
+
+/* 10-SERVICE SECTION */
+
+        body { font-family: 'Roboto Slab', serif; background-color: #f0fff4; margin: 0; padding: 0; }
+        .header-wrapper { display: flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 30px; gap: 15px; padding-top: 10px; }
+        .header-side-line { flex-grow: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(21, 128, 61, 0.3), transparent); }
+        .header-bg-box { background: linear-gradient(135deg, #166534, #15803d); padding: 12px 35px; border-radius: 50px; box-shadow: 0 4px 15px rgba(22, 101, 52, 0.2); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .header-main-text { color: #ffffff; font-size: 13px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.15em; white-space: nowrap; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); }
+        .service-card { background-color: transparent; padding: 10px; border-radius: 20px; display: flex; flex-direction: column; align-items: center; transition: all 0.3s ease; width: 100%; height: 100%; text-align: center; }
+        .service-card:hover { transform: translateY(-5px); }
+        .headline-box { padding: 6px 12px; border-radius: 8px; margin-bottom: 12px; width: fit-content; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .service-title { font-size: 9px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; color: #ffffff; text-shadow: 0.5px 0.5px 0px rgba(0,0,0,0.2); white-space: nowrap; }
+        .bg-emergency { background: linear-gradient(135deg, #dc2626, #991b1b); }
+        .bg-opd { background: linear-gradient(135deg, #2563eb, #1e40af); }
+        .bg-ambulance { background: linear-gradient(135deg, #059669, #065f46); }
+        .bg-pharmacy { background: linear-gradient(135deg, #7c3aed, #5b21b6); }
+        .bg-lab { background: linear-gradient(135deg, #d97706, #92400e); }
+        .bg-imaging { background: linear-gradient(135deg, #0891b2, #155e75); }
+        .bg-obgyn { background: linear-gradient(135deg, #ec4899, #be185d); }
+        .bg-anaesthesia { background: linear-gradient(135deg, #6366f1, #4338ca); }
+        .bg-ortho { background: linear-gradient(135deg, #64748b, #334155); }
+        .bg-eye { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+        .bg-genmed { background: linear-gradient(135deg, #10b981, #047857); }
+        .bg-homeo { background: linear-gradient(135deg, #84cc16, #4d7c0f); }
+        .bg-maternity { background: linear-gradient(135deg, #f43f5e, #9f1239); }
+        .bg-ot { background: linear-gradient(135deg, #475569, #1e293b); }
+        .bg-postop { background: linear-gradient(135deg, #0ea5e9, #0369a1); }
+        .bg-nicu { background: linear-gradient(135deg, #2dd4bf, #0f766e); }
+        .service-desc { font-size: 8px; font-weight: 600; color: #475569; line-height: 1.3; margin-top: auto; }
+
+
+/* 11-FOOTER SECTION */
+
+        .footer-main-container { position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; max-width: 100vw; background: #fdf5f5; padding: 35px 50px 30px 50px; border-top: 3px solid #a52a2a; display: flex; flex-direction: column; gap: 30px; box-shadow: 0 -10px 40px rgba(0,0,0,0.03); box-sizing: border-box; }
+        .footer-contact-tier { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 60px; margin-bottom: 2px; }
+        .footer-contact-left { flex: 1; min-width: 320px; display: flex; flex-direction: column; gap: 5px; }
+        .footer-contact-right { flex: 1; min-width: 320px; display: flex; flex-direction: column; align-items: flex-end; text-align: right; gap: 5px; }
+        .footer-h-name { font-family: 'Exo 2', sans-serif; color: #1e81ce; font-size: 15.5px; font-weight: 800; margin: 0; text-transform: uppercase; line-height: 1.2; letter-spacing: 0.5px; }
+        .footer-contact-text { font-family: 'Montserrat', sans-serif; font-size: 10.5px; color: #444; font-weight: 600; line-height: 1.5; display: flex; align-items: center; gap: 6px; }
+        .footer-contact-right .footer-contact-text { justify-content: flex-end; }
+        .footer-contact-text svg { width: 12px; height: 12px; color: #1e81ce; }
+        .blink-dot { width: 7px; height: 7px; background-color: #2ecc71; border-radius: 50%; display: inline-block; animation: blinker 1.5s linear infinite; margin-right: 5px; box-shadow: 0 0 6px #2ecc71; }
+        @keyframes blinker { 50% { opacity: 0; } }
+        .footer-nav-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin-top: 2px; }
+        .footer-col-box { display: flex; flex-direction: column; gap: 0; }
+        .footer-col-title { font-family: 'Exo 2', sans-serif; color: #1e81ce; font-size: 11.5px; font-weight: 800; text-transform: uppercase; border-left: 4px solid #1e81ce; padding-left: 10px; margin-bottom: 8px; letter-spacing: 0.5px; }
+        .footer-list-item { display: flex; align-items: center; gap: 6px; font-family: 'Roboto Slab', serif; font-size: 10px; color: #555; text-decoration: none; transition: all 0.25s ease; padding: 2px 0; }
+        .footer-list-item svg { width: 9px; height: 9px; color: #1e81ce; opacity: 0.7; }
+        .footer-list-item:hover { color: #1e81ce; transform: translateX(5px); }
+        .footer-geo-section { display: flex; flex-direction: row; gap: 12px; height: 220px; border-radius: 10px; overflow: hidden; background: white; border: 1px solid #eccaca; padding: 8px; margin-top: 5px; }
+        .footer-map-frame { flex: 1; border-radius: 6px; overflow: hidden; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-family: 'Montserrat'; font-size: 10px; color: #999; }
+        .footer-map-actions { width: 150px; display: flex; flex-direction: column; gap: 6px; justify-content: center; }
+        .geo-btn { display: flex; align-items: center; justify-content: center; gap: 8px; background: #1e81ce; color: white; border: none; padding: 10px; border-radius: 5px; font-family: 'Montserrat', sans-serif; font-size: 9.5px; font-weight: 700; cursor: pointer; text-decoration: none; transition: all 0.3s ease; text-transform: uppercase; }
+        .geo-btn:hover { background: #1569a8; transform: scale(1.02); box-shadow: 0 4px 10px rgba(30,129,206,0.2); }
+        .geo-btn svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; }
+        .footer-copyright-strip { margin-top: 30px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 8.5px; color: #888; letter-spacing: 0.4px; opacity: 0.8; }
+.section-title, .header-main-text, .header span, .title-box h3, .card-title, .service-title, .footer-col-title, .story-tag, .hd-3d-text, .name, .spec-box-inline, .time-label, .time-value, .text-xl, .text-2xl, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Slab', serif !important;
+}
+        #specialties-section .bg-slate-900 { font-family: 'Roboto Slab', serif !important; font-weight: 900 !important; letter-spacing: 0.18em !important; }
+        @media (max-width: 768px) { .ultra-compact-unified-header { background: linear-gradient(180deg, #fffafa 0%, #f9eeee 100%) !important; } .branding-top-tier { padding: 0 20px; } .identity-text-stack { align-items: center; text-align: center; margin: 0 auto; } .brand-name-linear-row { align-self: center; justify-content: center; } .top-menu-container { gap: 1px; } .menu-btn { font-size: 6px; padding: 2px 5px; } .footer-nav-grid { grid-template-columns: repeat(2, 1fr); } .footer-geo-section { flex-direction: column; height: auto; } .footer-map-actions { width: 100%; } }
+
+
+ 
+
+    </style>
+</head>
+<body>
+
+
+<!-- 01-HEADER SECTION -->
+
+    <header class="ultra-compact-unified-header" id="top">
+        <div class="branding-top-tier">
+            <div class="logo-branding-wrapper"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_01_HEDER_LOGO_MAIN.png" alt="Hospital Logo" class="brand-logo-standard" onerror="this.src='https://via.placeholder.com/75x75?text=LOGO'"></div>
+            <div class="identity-text-stack">
+                <div class="brand-name-linear-row"><h1 class="brand-font-primary">DR.S.VENKATA SUBBA REDDY</h1><h1 class="brand-font-primary">MULTISPECIALITY</h1><h1 class="brand-font-primary">HOSPITAL</h1></div>
+                <div class="center-accent-line"></div>
+                <div class="since-normal-label">since 1989</div>
+                <div class="tagline-font-standard">BEST OF CARE , CLOSE TO HOME</div>
+            </div>
+        </div>
+    </header>
+    <section class="top-menu-section">
+        <div class="top-menu-container">
+<a href="javascript:void(0)" onclick="navigateSection('top','Home')" class="menu-btn">Home</a>
+
+<a href="javascript:void(0)" onclick="navigateSection('about-container','About')" class="menu-btn">About</a>
+
+<a href="javascript:void(0)" onclick="navigateSection('doctors-section','Doctors')" class="menu-btn">Doctors</a>
+
+<a href="javascript:void(0)" onclick="navigateSection('specialties-section','Specialties')" class="menu-btn">Specialties</a>
+
+<a href="javascript:void(0)" onclick="navigateSection('facilities-section','Facilities')" class="menu-btn">Facilities</a>
+
+<a href="javascript:void(0)" onclick="navigateSection('timings-section','Timings')" class="menu-btn">Timings</a>
+
+<a href="javascript:void(0)" onclick="navigateSection('SVSR_REGISTRATION_MODULE','Token')" class="menu-btn">Token</a>
+
+<a href="javascript:void(0)" onclick="navigateSection('gallery-section','Gallery')" class="menu-btn">Gallery</a>
+
+<a href="javascript:void(0)" onclick="navigateSection('contact-section','Contact')" class="menu-btn">Contact</a>
+        </div>
+    </section>
+
+
+<!-- 02-ABOUT SECTION -->
+
+		<div id="about-container"><section class="w-full relative overflow-hidden bg-white"><div class="compact-section"><div class="absolute right-0 top-0 w-full lg:w-[50%] h-full overflow-hidden"><img src="https://dsvsrh.github.io/SVRIMG-2026/ABOUT_SECTION_BG_PICTURE.png" alt="SVSRH Facility" class="absolute inset-0 w-full h-full object-cover object-[right_center] grayscale-[5%] brightness-[1.05]" onerror="this.src='https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1000'"><div class="img-gradient-overlay"></div></div><div class="relative z-10 w-full lg:w-[55%] px-4 md:px-6 lg:pl-12 lg:pr-4 py-4 flex flex-col justify-center h-full"><div class="space-y-2"><div class="flex items-center gap-3 pt-1"><div class="story-tag uppercase shadow-sm">Dr SVSR Hospital -STORY</div><div class="h-px flex-grow bg-slate-200 max-w-[40px] md:max-w-[80px]"></div><span class="text-slate-500 text-[8px] md:text-[10px] font-extrabold tracking-[0.1em] md:tracking-[0.2em] uppercase">Estd 1989 • Allagadda</span></div><h2 class="text-lg md:text-2xl hd-3d-text py-1">37+ Years of Trust.</h2><div class="hd-block-passage text-[9px] md:text-[11px]"><p>SVSRH, established in 1989 in Allagadda, has been a trusted name in healthcare for over <span class="highlight-3d">37+ years</span>, delivering excellence with compassion and dedication. Our hospital provides high-quality care in a safe, friendly, and patient-centered environment where every individual is treated with warmth.</p><div class="middle-horizontal-line"></div><p>With a team of <span class="highlight-3d">6+ expert doctors</span>, <span class="highlight-3d">50+ wards</span>, <span class="highlight-3d">50+ healthcare services</span>, and <span class="highlight-3d">60+ helping staff</span>, SVSRH ensures efficient care. Our professionals work together to provide accurate diagnosis and effective treatments.</p></div></div></div></div></section></div>
+
+<!-- 03-SPECIALTY SECTION -->
+
+		<section id="specialties-section" class="py-4 px-2 md:px-6">
+		<div class="max-w-[1500px] mx-auto"> 
+		<div class="flex items-center justify-center mb-8"><div class="h-px bg-slate-200 flex-grow"></div><div class="px-5 py-2 bg-slate-900 text-white text-[10px] md:text-[14px] tracking-[0.3em] font-black mx-4 rounded-md uppercase shadow-md">OUR MEDICAL SPECIALTIES</div><div class="h-px bg-slate-200 flex-grow"></div></div>
+		<div class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+		<div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/SVSRIMG/Gynecology.png" alt="OBGY"></div><div class="title-box"><h3>OBGY – OBSTETRICS & GYNAECOLOGY</h3></div><div class="points-list"><div class="point-item"><span class="dot"></span><span class="point-text">Antenatal Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">High-risk Preg.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Normal Delivery</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Caesarean Sec.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Labour Analgesia</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Infertility Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Menstrual Dis.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">PCOS Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Family Planning</span></div><div class="point-item"><span class="dot"></span><span class="point-text">IUCD/Steril.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Gynaec Surgery</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Hysterectomy</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Laparoscopic Surg</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Obstetric USG</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Pelvic Ultrasound</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Neonatal Stab.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Prenatal Counsel</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Postnatal Care</span></div></div></div>
+		<div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/SVSRIMG/Anesthesiology.png" alt="Medicine"></div><div class="title-box"><h3>DIABETOLOGY & GENERAL MEDICINE</h3></div><div class="points-list"><div class="point-item"><span class="dot"></span><span class="point-text">Fever Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Diabetes Treatment</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Hypertension Mgmt</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Asthma Treatment</span></div><div class="point-item"><span class="dot"></span><span class="point-text">COPD Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">TB Treatment</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Cardiac Screening</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Preventive Health</span></div><div class="point-item"><span class="dot"></span><span class="point-text">General Consult</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Glucose Monitor</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Thyroid Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Lifestyle Counsel</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Obesity Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Chronic Disease</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Routine Screening</span></div></div></div>
+		<div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/SVSRIMG/Trauma%20Care.png" alt="Emergency"></div><div class="title-box"><h3>EMERGENCY DEPARTMENT</h3></div><div class="points-list"><div class="point-item"><span class="dot"></span><span class="point-text">24×7 Emergency</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Trauma Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Poisoning Mgmt</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Cardiac Emergency</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Stroke Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Ambulance Service</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Myocardial Infarct</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Arrhythmia Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">BLS Support</span></div><div class="point-item"><span class="dot"></span><span class="point-text">ACLS Support</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Critical Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Emergency Proc.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Rapid Response</span></div><div class="point-item"><span class="dot"></span><span class="point-text">ICU Support</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Observation Care</span></div></div></div>
+		<div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/SVSRIMG/Orthopedics.png" alt="Orthopaedics"></div><div class="title-box"><h3>ORTHOPAEDICS</h3></div><div class="points-list"><div class="point-item"><span class="dot"></span><span class="point-text">Fracture Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Plaster Treatment</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Orthopaedic Surg.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Joint Replacement</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Knee Replacement</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Hip Replacement</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Spine Disorders</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Sports Injuries</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Arthroscopy</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Physiotherapy</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Rehabilitation</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Arthritis Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Back Pain Mgmt</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Trauma Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Bone & Joint Care</span></div></div></div>
+		<div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/SVSRIMG/Eye%20Care.png" alt="Ophthalmology"></div><div class="title-box"><h3>OPHTHALMOLOGY</h3></div><div class="points-list"><div class="point-item"><span class="dot"></span><span class="point-text">Vision Testing</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Cataract (Phaco)</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Glaucoma Screen.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Diabetic Retino.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Minor Eye Proc.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Spectacle Services</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Contact Lens</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Eye Infection Tx</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Dry Eye Treatment</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Routine Checkups</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Retina Eval.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Pediatric Eye Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Vision Correction</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Computer Vision</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Eye Health Counsel</span></div></div></div>
+		<div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/SVSRIMG/Homeopathy.png" alt="Homeopathy"></div><div class="title-box"><h3>HOMEOPATHY & INTEGRATIVE CARE</h3></div><div class="points-list"><div class="point-item"><span class="dot"></span><span class="point-text">Chronic Disease</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Allergy & Skin Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Migraine Mgmt</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Joint Pain Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Stress & Anxiety</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Lifestyle Counsel</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Immunity Support</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Holistic Consult</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Natural Healing</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Digestive Health</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Respiratory Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Women’s Wellness</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Child Health Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Wellness Programs</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Personalized Tx</span></div></div></div>
+		</div>
+		</div>
+		</section>
+
+
+<!-- 04-TIMINGS SECTION  -->
+
+		<section id="timings-section" class="w-full py-2 px-4 bg-[#f8fafc] border-b border-slate-200"><div class="max-w-5xl mx-auto"><div class="text-center mb-4 pt-2"><h1 class="text-xl md:text-2xl font-black text-[#0a1d4a] uppercase tracking-tighter mb-1">DAILY HOSPITAL OPD HOURS</h1><div class="h-1 w-16 bg-[#0a1d4a] mx-auto rounded-full"></div></div><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div class="timing-box"><h2 class="text-sm md:text-base font-black text-[#0a1d4a] uppercase mb-1 tracking-tight">DR. S. Venkata Subba Reddy Hospital</h2><div class="headline-underline"></div><div class="space-y-0"><div class="time-row"><div class="time-label-group"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93 13 13M17.66 17.66 19.07 19.07M2 12h2M20 12h2M6.34 17.66 4.93 19.07M19.07 4.93 17.66 6.34"/></svg><span class="time-label">MORNING TIME</span></div><span class="time-value text-blue-700">10:00 AM - 02:00 PM</span></div><div class="time-row"><div class="time-label-group"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M16.2 7.8l2.9-2.9M18 12h4M16.2 16.2l2.9 2.9M12 18v4M4.9 19.1l2.9-2.9M2 12h4M4.9 4.9l2.9 2.9"/></svg><span class="time-label">EVENING TIME</span></div><span class="time-value text-blue-700">06:00 PM - 09:00 PM</span></div><div class="sunday-highlight flex justify-between items-center"><div class="time-label-group"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="m9 16 2 2 4-4"/></svg><span class="time-label text-red-600">Sunday TIME</span></div><span class="time-value text-red-700">10:00 AM - 02:00 PM</span></div><div class="emergency-inline"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>* 24/7 Emergency Cases</div></div></div><div class="timing-box"><h2 class="text-sm md:text-base font-black text-[#0a1d4a] uppercase mb-1 tracking-tight">Bone, Eye, Trauma Care Hospital</h2><div class="headline-underline"></div><div class="space-y-0"><div class="time-row"><div class="time-label-group"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93 13 13M17.66 17.66 19.07 19.07M2 12h2M20 12h2M6.34 17.66 4.93 19.07M19.07 4.93 17.66 6.34"/></svg><span class="time-label">MORNING TIME</span></div><span class="time-value text-emerald-700">10:00 AM - 02:00 PM</span></div><div class="time-row"><div class="time-label-group"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M16.2 7.8l2.9-2.9M18 12h4M16.2 16.2l2.9 2.9M12 18v4M4.9 19.1l2.9-2.9M2 12h4M4.9 4.9l2.9 2.9"/></svg><span class="time-label">EVENING TIME</span></div><span class="time-value text-emerald-700">06:00 PM - 09:00 PM</span></div><div class="sunday-highlight flex justify-between items-center"><div class="time-label-group"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="m9 16 2 2 4-4"/></svg><span class="time-label text-red-600">Sunday TIME</span></div><span class="time-value text-red-700">10:00 AM - 02:00 PM</span></div><div class="emergency-inline"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>* 24/7 Emergency Cases</div></div></div></div></div></section>	
+		
+
+<!-- 05-REGISTRATION SECTION -->
+    <section id="SVSR_REGISTRATION_MODULE" class="w-full px-4 py-6 bg-white">
+        <div class="framed-card max-w-6xl mx-auto">
+            <div class="hidden lg:flex lg:w-2/12 image-container">
+                <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_11_RECEPTION_IMAGE_RIGHT.png" alt="Reception">
+                <div class="blur-overlay"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0a1d4a]/40 to-transparent flex items-end p-4">
+                    <div class="text-white"><p class="text-[7px] font-bold uppercase tracking-widest opacity-80 leading-none">SVSR Hospital</p><h3 class="text-[9px] font-black leading-tight uppercase">Patient Care First.</h3></div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-10/12 content-area">
+                <div id="loadingOverlay" class="loading-overlay"><div class="flex flex-col items-center gap-2"><div class="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div><p class="text-[10px] font-bold text-[#0a1d4a] uppercase">Processing...</p></div></div>
+
+                <div id="formContainer" class="order-form">
+                    <div id="headerSection" class="flex justify-between items-center mb-3"><div class="flex flex-col"><h1 class="text-sm lg:text-base font-black text-[#0a1d4a] uppercase tracking-tight leading-none">Registration Portal</h1><div class="h-0.5 w-14 bg-blue-600 rounded-full mt-1"></div></div><div class="bg-red-600 text-white text-[9px] font-black px-2.5 py-0.5 rounded-sm flex items-center gap-1 shadow-sm uppercase tracking-wide"><span>LIVE TOKENS</span><div class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div></div></div>
+                    <form id="tokenForm" class="space-y-3">
+                        <div class="grid grid-cols-12 gap-2">
+                            <div class="col-span-6 lg:col-span-3 input-soft-ui"><div class="icon-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div><input type="date" id="formDate" required></div>
+                            <div class="col-span-6 lg:col-span-3 input-soft-ui"><div class="icon-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><input type="time" id="formTime" required></div>
+                            <div class="col-span-12 lg:col-span-6 relative"><div class="dropdown-trigger" onclick="toggleDropdown(event, 'branchOptions')"><span id="doctorDisplay">CHOOSE DEPARTMENT</span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg></div><div id="branchOptions" class="dropdown-options"><div class="dropdown-item" onclick="selectDrop('doctor', 'Orthopaedic', 'Orthopaedic', 'branchOptions')">Orthopaedic ( ఎముకలు మరియు కీళ్ల వైద్యం )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'OPHTHALMOLOGY', 'Ophthalmology', 'branchOptions')">Ophthalmology ( కంటి వైద్యం )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'Anesthesiology', 'Anesthesiology', 'branchOptions')">Anesthesiology ( అనస్థీషియాలజీ )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'OBGY – Gynaecology', 'OBGY – Gynaecology', 'branchOptions')">OBGY – Gynaecology ( గైనకాలజీ )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'Homeopathy', 'Homeopathy', 'branchOptions')">Homeopathy ( హోమియోపతి )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'Gynaecology', 'Gynaecology', 'branchOptions')">Gynaecology ( గైనకాలజీ )</div></div><input type="hidden" id="doctor" required></div>
+                        </div>
+                        <div class="grid grid-cols-12 gap-2"><div class="col-span-12 input-soft-ui"><div class="icon-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><input type="text" id="patientName" placeholder="PATIENT FULL NAME" required oninput="handleTitleCase(this)"></div></div>
+                        <div class="grid grid-cols-12 gap-2">
+                            <div class="col-span-3 lg:col-span-2 input-soft-ui"><input type="number" id="age" placeholder="AGE" required style="padding-left:10px !important;"></div>
+                            <div class="col-span-9 lg:col-span-4 relative"><div class="dropdown-trigger" onclick="toggleDropdown(event, 'genderOptions')"><span id="genderDisplay">SELECT GENDER</span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg></div><div id="genderOptions" class="dropdown-options"><div class="dropdown-item" onclick="selectDrop('gender', 'Male', 'MALE', 'genderOptions')">MALE</div><div class="dropdown-item" onclick="selectDrop('gender', 'Female', 'FEMALE', 'genderOptions')">FEMALE</div></div><input type="hidden" id="gender" required></div>
+                            <div class="col-span-12 lg:col-span-6 input-soft-ui"><div class="icon-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.79 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div><input type="tel" id="phoneNumber" placeholder="MOBILE NUMBER" pattern="[0-9]{10}" required></div>
+                        </div>
+                        <div class="flex gap-2 items-center"><div class="flex-grow input-soft-ui"><div class="icon-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div><input type="text" id="village" placeholder="VILLAGE / LOCATION" required oninput="handleTitleCase(this)"></div><button type="submit" id="submitBtn" class="btn-confirm flex items-center justify-center gap-2 transition-all">Confirm</button></div>
+                    </form>
+                    <div id="statusMessage" class="mt-2 text-center text-[9px] font-bold uppercase text-red-600 h-4"></div>
+                </div>
+
+                <div id="successView" class="hidden flex-1 flex-col items-center justify-center h-full">
+                    <div id="ticketCapture" class="bg-white border-[3px] border-gray-100 rounded-2xl p-6 text-center shadow-md flex flex-col justify-center items-center" style="min-width: 260px;">
+                        <h4 class="text-[9px] font-black text-green-600 uppercase mb-3">Token Registered</h4>
+                        <div class="bg-gray-50 py-4 px-8 rounded-2xl mb-2 shadow-inner flex flex-col items-center"><p class="text-[8px] font-bold text-gray-400 uppercase tracking-widest mb-1">Assigned Token</p><div id="resToken" class="token-num-box"></div></div>
+                        <p id="resName" class="text-[11px] font-black text-[#0a1d4a] uppercase"></p>
+                    </div>
+                </div>
+
+                <div id="sideButtons" class="sidebar-actions">
+                    <button id="shBtn" onclick="PROCEDURE_INITIATE_TOKEN_SHARE()" class="btn-side bg-green-600 shadow-md">Share</button>
+                    <button id="dlBtn" onclick="PROCEDURE_INITIATE_TOKEN_DOWNLOAD()" class="btn-side bg-[#0a1d4a] shadow-md">Print</button>
+                    <button onclick="RESET_REGISTRATION_INTERFACE()" class="btn-side btn-close shadow-sm">Close</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- 06-DOCTORS SECTION -->
+
+		<div class="header"><span>EXPERT DOCTORS</span></div>
+		<section class="main-section"><section id="doctors-section">
+		<div class="main-grid">
+		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" class="doctor-img" alt="Dr. P. Haneesha"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. Haneesha Yaswanth</h3></div><div class="spec-box-inline">OBGY-GYNECOLOGY</div><ul class="edu-list"><li class="edu-item">MBBS Degree</li><li class="edu-item">MS (OBGY)</li><li class="edu-item">SR: Santhiram Medical College & Hospital, Nandyal</li><li class="edu-item">Certified Training in Obstetrics & Gynaec Ultrasound</li><li class="edu-item">Pursuing Fellowship in Infertility & Reproductive Medicine</li><li class="edu-item">Global Surgical Institute</li></ul><div class="reg-no">Regd. No. :APMC/FMR/97996</div></div></div>
+		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" class="doctor-img" alt="Dr. S. Chandrika"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. S. Chandrika</h3></div><div class="spec-box-inline">OPHTHALMOLOGY</div><ul class="edu-list"><li class="edu-item">MBBS Degree</li><li class="edu-item">MS (Ophthalmology)</li><li class="edu-item">Senior Residency: Bharati Vidyapeeth, Pune</li><li class="edu-item">Ex-Assistant Professor: Santhiram Medical College & Hospital</li></ul><div class="reg-no">Regd. No. APMC/FMR 98519</div></div></div>
+		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" class="doctor-img" alt="Dr. S. Yaswanth Reddy"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. S. Yaswanth Reddy</h3></div><div class="spec-box-inline">ANESTHESIA</div><ul class="edu-list"><li class="edu-item">MBBS Degree</li><li class="edu-item">MD Anaesthesiology</li><li class="edu-item">SR: Narayana Medical College & Hospital, Nellore</li><li class="edu-item">Fellowship in Diabetology</li><li class="edu-item">Fellowship in Pain Medicine</li><li class="edu-item">Intensivist: Santhiram & Udayanand Hospitals</li></ul><div class="reg-no">Regd. No. :APMC/FMR/97996</div></div></div>
+		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" class="doctor-img" alt="Dr. T.N. Lakshmi Reddy"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. T.N. Lakshmi Reddy</h3></div><div class="spec-box-inline">ORTHOPAEDICS</div><ul class="edu-list"><li class="edu-item">MBBS Degree</li><li class="edu-item">MD (General Medicine)</li><li class="edu-item">Consultant Physician</li><li class="edu-item">Specialist in Diabetes & Hypertension Management</li><li class="edu-item">Emergency and Critical Care Management</li><li class="edu-item">Preventive Health Care Specialist</li></ul><div class="reg-no">Regd.No. APMC/FMR 96871</div></div></div>
+		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" class="doctor-img" alt="Dr. S. Narasimha Reddy"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. S. Narasimha Reddy</h3></div><div class="spec-box-inline">HOMEOPATHY</div><ul class="edu-list"><li class="edu-item">MBS(hom) Degree</li><li class="edu-item">4 Years of Clinical Experience</li></ul><div class="reg-no">Regd. No. : 4678.</div></div></div>
+		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" class="doctor-img" alt="Dr. S. Siva Nageswaramma"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. S. Siva Nageswaramma</h3></div><div class="spec-box-inline">HOMEOPATHY</div><ul class="edu-list"><li class="edu-item">MBS(hom) Degree</li><li class="edu-item">4 Years of Clinical Experience</li></ul><div class="reg-no">Regd. No. : 4686.</div></div></div>
+		</div>
+		</section>
+
+	
+<!-- 07-GALLERY SECTION -->
+	
+
+<body class="bg-gray-50">
+
+<section id="gallery-section">
+<section class="pt-4 pb-8 bg-[#f0f4f8] border-b border-gray-200">
+
+<div class="max-w-5xl mx-auto px-4">
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+
+    <!-- LEFT GALLERY -->
+
+    <div class="gallery-column text-center">
+
+        <div class="mb-3">
+            <h3 class="text-[11px] font-black text-blue-900 uppercase tracking-[0.2em] border-b-2 border-blue-900 pb-1 inline-block">
+                Clinical Services
+            </h3>
+        </div>
+
+        <div class="slider-wrapper">
+
+            <div id="track-left" class="slider-track">
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/SVSRIMG/Orthopedics.png" alt="Orthopedics">
+                    <div class="slide-caption">Orthopedics</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/SVSRIMG/Eye%20Care.png" alt="Eye Care">
+                    <div class="slide-caption">Eye Care</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/SVSRIMG/Trauma%20Care.png" alt="Trauma Care">
+                    <div class="slide-caption">Trauma Care</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/SVSRIMG/Anesthesiology.png" alt="Anesthesiology">
+                    <div class="slide-caption">Anesthesiology</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/SVSRIMG/Gynecology.png" alt="Gynecology">
+                    <div class="slide-caption">Gynecology</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/SVSRIMG/Homeopathy.png" alt="Homeopathy">
+                    <div class="slide-caption">Homeopathy</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT GALLERY -->
+
+    <div class="gallery-column text-center">
+
+        <div class="mb-3">
+            <h3 class="text-[11px] font-black text-blue-900 uppercase tracking-[0.2em] border-b-2 border-blue-900 pb-1 inline-block">
+                Hospitality & Care
+            </h3>
+        </div>
+
+        <div class="slider-wrapper">
+
+            <div id="track-right" class="slider-track">
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/SVSRIMG/RECEPTION_IMAGE_RIGHT.png" alt="Reception">
+                    <div class="slide-caption">Reception</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" alt="Doctors">
+                    <div class="slide-caption">Our Doctors</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/SVSRIMG/PAGE_ABOUT_RIGHT_EXAMPLE.png" alt="Infrastructure">
+                    <div class="slide-caption">Infrastructure</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/SVSRIMG/emergency.png" alt="Emergency">
+                    <div class="slide-caption">24/7 Emergency</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- AUTO SLIDER SCRIPT -->
+
+<script>
+
+function autoSlider(trackId, intervalTime) {
+
+    const track = document.getElementById(trackId);
+
+    const slides = track.querySelectorAll('.slide');
+
+    let currentIndex = 0;
+
+    const totalSlides = slides.length;
+
+    setInterval(() => {
+
+        currentIndex++;
+
+        if (currentIndex >= totalSlides) {
+            currentIndex = 0;
+        }
+
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    }, intervalTime);
+
+}
+
+autoSlider('track-left', 3000);
+
+autoSlider('track-right', 3500);
+
+
+
+
+
+
+
+function navigateSection(sectionId, pageName) {
+
+    const section = document.getElementById(sectionId);
+
+    if(section) {
+
+        section.scrollIntoView({
+            behavior: 'smooth'
+        });
+
+        history.pushState(
+            null,
+            '',
+            '/' + pageName
+        );
+
+    }
+
+}
+
+
+
+
+
+</script>
+
+</body>
+	
+<!-- 08-EMERGENCY SECTION -->
+
+
+		<body class="bg-white">
+			<div class="scene-3d">
+				<div class="dual-horizon-row">
+					<div class="floating-element">
+						<div class="service-header border-red-500"><span class="p-2.5 bg-red-600 rounded-full text-white icon-red shadow-xl"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2a2 2 0 0 0-2 2v5H4a2 2 0 0 0-2 2v2c0 1.1.9 2 2 2h5v5c0 1.1.9 2 2 2h2a2 2 0 0 0 2-2v-5h5a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-5V4a2 2 0 0 0-2-2h-2z"/></svg></span><h2 class="text-scroll-red font-black uppercase tracking-tight">24/7 Accident & Emergency Care Center</h2></div>
+						<div class="service-description">Our 24/7 Accident & Emergency Care Center is a dedicated facility designed for the immediate treatment of acute injuries and life-threatening medical conditions. We are staffed by a multi-disciplinary team of highly skilled trauma surgeons, emergency physicians, and critical care nurses who are trained to act within the vital "Golden Hour." The unit is equipped with advanced life-support systems, including state-of-the-art ventilators, cardiac monitors, and rapid-response diagnostic imaging. Our triage system ensures that high-risk cases are prioritized for instantaneous intervention to improve survival rates. We offer round-the-clock ambulance services that act as mobile ICUs, providing stabilization during transit. From minor fractures to severe multi-organ trauma, our center provides comprehensive medical coverage 365 days a year. Our commitment to clinical excellence ensures that every patient receives compassionate and professional care during their most critical moments. We maintain a constant state of readiness to handle mass casualty incidents and individual emergencies with equal precision. Our facility integrates directly with leading specialized wings to ensure seamless care transitions.</div>
+					</div>
+					<div class="floating-element">
+						<div class="service-header border-blue-500"><span class="p-2.5 bg-blue-600 rounded-full text-white icon-blue shadow-xl"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2" ry="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span><h2 class="text-scroll-blue font-black uppercase tracking-tight">Universal Cashless Insurance & TPA Services</h2></div>
+						<div class="service-description">Our Universal Cashless Insurance and TPA Services are designed to provide a seamless financial experience for patients during hospitalization. We have partnered with an extensive network of major private insurance providers, corporate health plans, and government-backed health schemes to ensure broad coverage. A dedicated insurance help desk is available on-site to assist families with the entire pre-authorization process, significantly reducing the burden of paperwork. We aim to minimize out-of-pocket expenses by facilitating direct billing between the hospital and the insurance company. Our experienced coordinators provide transparent guidance on policy benefits, coverage limits, and required documentation to ensure a hassle-free claim settlement. By integrating digital tracking systems, we offer real-time updates on approval status and speed up the final discharge process. We also support specialized Third-Party Administrators (TPAs) to bridge the communication gap effectively. Our goal is to allow patients to focus entirely on their recovery while we manage the complexities of insurance. Professional support is available 24/7 to resolve any billing or authorization queries instantly.</div>
+					</div>
+
+				</div>
+			</div>
+
+
+
+<!-- 09-FECILITY SECTION -->
+
+	   <header><section id="facilities-section"> <div class="header-container"> <div class="side-line"></div> <h1 class="section-title">Our Special Facilities</h1> <div class="side-line"></div> </div> </header>
+		<div class="container"> <div class="facility-grid">
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">🔬</div> <h3 class="card-title">Laboratory</h3> </div> <p class="card-desc">Advanced automated pathology unit delivering clinical precision and rapid diagnostic reporting.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">⚔️</div> <h3 class="card-title">Operation Theatre</h3> </div> <p class="card-desc">Laminar flow surgical environments integrated with state-of-the-art anesthetic and life support systems.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">💳</div> <h3 class="card-title">Private Insurance</h3> </div> <p class="card-desc">Comprehensive cashless medical network facilitating efficient claim processing with major global providers.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">💊</div> <h3 class="card-title">24×7 Pharmacy</h3> </div> <p class="card-desc">Round-the-clock pharmaceutical access featuring an exhaustive inventory of life-saving and critical medications.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">🩻</div> <h3 class="card-title">Radiology</h3> </div> <p class="card-desc">High-definition digital imaging services including X-ray and ultrasound for multi-dimensional health analysis.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">⭐</div> <h3 class="card-title">Special Rooms</h3> </div> <p class="card-desc">Exclusive patient suites offering climate control, high-end amenities, and specialized one-to-one nursing care.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">🤱</div> <h3 class="card-title">Labour Room</h3> </div> <p class="card-desc">Sterile and compassionate birthing environment equipped for emergency obstetric intervention and natural care.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">🔍</div> <h3 class="card-title">Diagnostic Imaging</h3> </div> <p class="card-desc">Comprehensive internal health visualization support for abdominal, cardiac, and musculoskeletal diagnostics.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">🚑</div> <h3 class="card-title">Ambulance Services</h3> </div> <p class="card-desc">Advanced life support mobile units operating 24/7 with rapid response paramedics and trauma equipment.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">💉</div> <h3 class="card-title">Vaccination Wing</h3> </div> <p class="card-desc">Specialized immunization center providing global-standard vaccination protocols for all patient demographics.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">📹</div> <h3 class="card-title">Laparoscopy</h3> </div> <p class="card-desc">Advanced minimally invasive surgical technology for abdominal procedures with enhanced recovery timelines.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">👁️</div> <h3 class="card-title">Hysteroscopy</h3> </div> <p class="card-desc">High-precision intrauterine endoscopic diagnostic and corrective procedures for reproductive health excellence.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">🚨</div> <h3 class="card-title">Emergency Care</h3> </div> <p class="card-desc">Ultra-responsive trauma stabilization unit managing acute medical crises through dedicated expert intervention.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">🏥</div> <h3 class="card-title">Critical Care (ICU)</h3> </div> <p class="card-desc">Sophisticated intensive care monitoring for unstable patients with high-fidelity ventilation and surveillance.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">🍼</div> <h3 class="card-title">Neonatal Support</h3> </div> <p class="card-desc">Dedicated thermal and respiratory stabilization infrastructure for newborns requiring immediate medical support.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">📊</div> <h3 class="card-title">Cardiac Tracking</h3> </div> <p class="card-desc">High-precision hemodynamic and ECG surveillance systems for continuous cardiovascular health monitoring.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">🌫️</div> <h3 class="card-title">Respiratory Unit</h3> </div> <p class="card-desc">Centralized oxygen infrastructure and advanced nebulization support for acute pulmonary management.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">💧</div> <h3 class="card-title">Infusion Day Care</h3> </div> <p class="card-desc">Rapid admission protocols for intravenous therapies and short-term medical observations and treatments.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">👩‍👦</div> <h3 class="card-title">Postnatal Support</h3> </div> <p class="card-desc">Specialized maternal recovery follow-up focusing on physical healing, lactation, and neonatal bonding care.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">🧵</div> <h3 class="card-title">Wound Management</h3> </div> <p class="card-desc">Expert aseptic dressing and precision suturing services for trauma recovery and surgical site healing.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">⚠️</div> <h3 class="card-title">Trauma Center</h3> </div> <p class="card-desc">Dedicated accident response unit designed for the rapid stabilization of severe injuries and trauma cases.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">🩹</div> <h3 class="card-title">Minor Procedures</h3> </div> <p class="card-desc">Sterile clinical space for diagnostic biopsies and small-scale surgical interventions under local anesthesia.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">🛏️</div> <h3 class="card-title">In-patient Wards</h3> </div> <p class="card-desc">Highly maintained clinical ward facilities ensuring 24/7 monitoring and hygienic recovery environments.</p> </div>
+			<div class="facility-card"> <div class="card-header"> <div class="icon-container">👣</div> <h3 class="card-title">Post-Op Recovery</h3> </div> <p class="card-desc">High-surveillance unit focusing on patient vital sign stability and safety immediately following surgery.</p> </div>
+		</div> </div>
+
+
+
+<!-- 10-SERVICE SECTION -->
+
+       <section class="pt-4 pb-8 px-4 w-full"><section id="services-section">
+        <div class="header-wrapper"><div class="header-side-line"></div><div class="header-bg-box"><h2 class="header-main-text">Hospital Clinical Services</h2></div><div class="header-side-line"></div></div>
+        <div class="max-w-7xl mx-auto grid grid-cols-3 md:grid-cols-6 gap-x-2 gap-y-6 justify-items-center">
+            <div class="service-card"><div class="headline-box bg-emergency"><h3 class="service-title">Trauma Care</h3></div><p class="service-desc">Providing round-the-clock immediate medical attention for critical trauma, accidents, and life-saving urgent care services.</p></div>
+            <div class="service-card"><div class="headline-box bg-obgyn"><h3 class="service-title">Obstetrics</h3></div><p class="service-desc">Comprehensive maternal care including prenatal checkups, high-risk pregnancy management, and advanced gynecological health services for women.</p></div>
+            <div class="service-card"><div class="headline-box bg-anaesthesia"><h3 class="service-title">Anaesthesia</h3></div><p class="service-desc">Specialized pain management and sedation services provided by experts to ensure patient safety during complex surgical procedures.</p></div>
+            <div class="service-card"><div class="headline-box bg-emergency"><h3 class="service-title">Emergency</h3></div><p class="service-desc">Our dedicated emergency medicine department handles acute illnesses and medical crises with rapid response protocols and expert clinicians.</p></div>
+            <div class="service-card"><div class="headline-box bg-ortho"><h3 class="service-title">Orthopaedics</h3></div><p class="service-desc">Advanced treatment for bone fractures, joint replacements, and sports injuries utilizing modern surgical and rehabilitative orthopedic techniques.</p></div>
+            <div class="service-card"><div class="headline-box bg-eye"><h3 class="service-title">Ophthalmology</h3></div><p class="service-desc">Specialist eye care services ranging from routine vision tests to complex cataract surgeries and retinal disease management.</p></div>
+            <div class="service-card"><div class="headline-box bg-genmed"><h3 class="service-title">General Medicine</h3></div><p class="service-desc">Primary care diagnostics and treatment for chronic conditions, infectious diseases, and comprehensive internal medicine health checkups for adults.</p></div>
+            <div class="service-card"><div class="headline-box bg-homeo"><h3 class="service-title">Homeopathy</h3></div><p class="service-desc">Integrative and holistic healing approaches focusing on natural remedies and personalized treatment plans for long-term health and wellness.</p></div>
+            <div class="service-card"><div class="headline-box bg-maternity"><h3 class="service-title">Labour Room</h3></div><p class="service-desc">State-of-the-art labor and maternity suites providing a safe, comfortable, and hygienic environment for childbirth and neonatal care.</p></div>
+            <div class="service-card"><div class="headline-box bg-ot"><h3 class="service-title">Major OT</h3></div><p class="service-desc">Ultra-modern sterile operation theatres equipped with advanced surgical tools for major life-saving operations and specialized procedures.</p></div>
+            <div class="service-card"><div class="headline-box bg-postop"><h3 class="service-title">Postoperative</h3></div><p class="service-desc">Intensive monitoring and specialized nursing care provided to patients recovering from surgery to ensure a smooth transition to health.</p></div>
+            <div class="service-card"><div class="headline-box bg-opd"><h3 class="service-title">OPD Clinic</h3></div><p class="service-desc">Daily outpatient consultation services offering expert guidance from senior specialists across multiple clinical disciplines for all patients.</p></div>
+            <div class="service-card"><div class="headline-box bg-ambulance"><h3 class="service-title">Ambulance</h3></div><p class="service-desc">Dedicated rapid response emergency transport equipped with essential life support systems for safe and fast patient transfers.</p></div>
+            <div class="service-card"><div class="headline-box bg-pharmacy"><h3 class="service-title">Pharmacy</h3></div><p class="service-desc">Our 24/7 in-house pharmacy ensures constant availability of genuine quality medicines and healthcare supplies for all medical needs.</p></div>
+            <div class="service-card"><div class="headline-box bg-lab"><h3 class="service-title">Laboratory</h3></div><p class="service-desc">Modern diagnostic lab facility providing precise clinical testing and accurate pathology reports to ensure correct medical diagnosis.</p></div>
+            <div class="service-card"><div class="headline-box bg-imaging"><h3 class="service-title">X-rays</h3></div><p class="service-desc">Advanced digital radiology services offering high-quality X-rays and scans for detailed and accurate internal medical examinations.</p></div>
+            <div class="service-card"><div class="headline-box bg-ot"><h3 class="service-title">Minor OT</h3></div><p class="service-desc">Efficient surgical unit dedicated to minor procedures, wound dressings, and day-care surgeries in a controlled clinical environment.</p></div>
+            <div class="service-card"><div class="headline-box bg-nicu"><h3 class="service-title">Neonatal Care</h3></div><p class="service-desc">Specialized intensive care unit for newborns requiring advanced medical support and continuous monitoring by expert pediatricians.</p></div>
+        </div>
+    </section>
+
+<!-- 11-FOOTER SECTION -->
+
+
+		<footer class="footer-main-container"><footer id="contact-section">
+		<div class="footer-contact-tier"><div class="footer-contact-left"><h2 class="footer-h-name">DR. S VENKATA SUBBA REDDY HOSPITAL</h2><div class="footer-contact-text"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>Main Contact: 9063307444</div><div class="footer-contact-text"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>Landline: 08519796961</div><div class="footer-contact-text" style="color:#ff4d4d; font-weight:700;"><span class="blink-dot"></span>24*7 Emergency Services</div></div><div class="footer-contact-right"><h2 class="footer-h-name">BONE EYE TRAUMA CARE HOSPITAL</h2><div class="footer-contact-text"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>Contact: 8179072787</div><div class="footer-contact-text" style="color:#ff4d4d; font-weight:700;"><span class="blink-dot" style="background-color:#e74c3c;"></span>24*7 Emergency Services</div></div></div>
+		<div class="footer-nav-grid"><div class="footer-col-box"><h3 class="footer-col-title">Quick Access</h3><a href="#" class="footer-list-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>Home Portal</a><a href="#" class="footer-list-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>About Hospital</a><a href="#" class="footer-list-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>Doctor Profiles</a><a href="#" class="footer-list-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>Specialties</a></div><div class="footer-col-box"><h3 class="footer-col-title">Patient Care</h3><a href="#" class="footer-list-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>OPD Timings</a><a href="#" class="footer-list-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>Token Booking</a><a href="#" class="footer-list-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>Facilities</a><a href="#" class="footer-list-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>Medical Gallery</a></div><div class="footer-col-box"><h3 class="footer-col-title">Medical Portal</h3><a href="#" class="footer-list-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>Emergency Protocols</a><a href="#" class="footer-list-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>Digital Reports</a><a href="#" class="footer-list-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>Insurance Partners</a><a href="#" class="footer-list-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>Ambulance Service</a></div><div class="footer-col-box"><h3 class="footer-col-title">Location Info</h3><div class="footer-list-item" style="cursor:default;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>Church Masjid Street, ALLAGADDA - 518543</div><div class="footer-list-item" style="cursor:default;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>Nandyal District, AP.</div><a href="#" class="footer-list-item" style="font-weight:700;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>Get Contact Info</a></div></div>
+		<div class="footer-geo-section"><div class="footer-map-frame"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3851.688326261234!2d78.50971131484594!3d15.132643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2433010b98099395!2sDr.%20S.%20Venkata%20Subba%20Reddy%20Multispeciality%20Hospital!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div><div class="footer-map-actions"><button class="geo-btn" onclick="saveLocation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v13a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>Save</button><button class="geo-btn" onclick="shareLocation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>Share</button><a href="https://www.google.com/maps/dir/?api=1&destination=Dr.+S.+Venkata+Subba+Reddy+Multispeciality+Hospital&destination_place_id=ChIJ8_u9uV0HszsRhZMJmAsBMyQ" target="_blank" class="geo-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>Direction</a></div></div>
+		<div class="footer-copyright-strip">© 2026 All Rights Reserved | Dr. S. Venkata Subba Reddy Multispeciality Hospital | Architected by Sri Veda Org.</div>
+		</footer>
+
+
+
+<SCRIPT>
+
+ 
+		const logRender = () => { console.log("SVSRH Portal: Structural markers restored and alignment verified."); };
+		const saveLoc = () => { alert("Hospital location bookmarked in your browser storage."); };
+		const shareLoc = () => { alert("Location link copied to your system clipboard."); };
+
+
+
+        const GLOBAL_DEPLOYED_URL = "https://script.google.com/macros/s/AKfycbwzVegm1cmbPq-ZmypROGe4vOyHUhP4nMRljsnc7T96ZimqKszBhQq3whe8tj_5G1Vk/exec";
+        function handleTitleCase(el) { el.value = el.value.toLowerCase().split(' ').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' '); }
+        function toggleDropdown(e, id) { e.stopPropagation(); document.querySelectorAll('.dropdown-options').forEach(d => { if(d.id !== id) d.classList.remove('show'); }); document.getElementById(id).classList.toggle('show'); }
+        function selectDrop(hiddenId, val, label, dropId) { document.getElementById(hiddenId).value = val; document.getElementById(hiddenId + 'Display').innerText = label; document.getElementById(dropId).classList.remove('show'); }
+        function SET_DEFAULT_TIMESTAMP() { const N = new Date(); document.getElementById('formDate').value = N.toISOString().split('T')[0]; document.getElementById('formTime').value = N.toTimeString().slice(0,5); }
+        function RESET_REGISTRATION_INTERFACE() { document.getElementById('tokenForm').reset(); document.getElementById('doctorDisplay').innerText = "CHOOSE DEPARTMENT"; document.getElementById('genderDisplay').innerText = "SELECT GENDER"; document.querySelectorAll('input[type="hidden"]').forEach(I => I.value = ""); SET_DEFAULT_TIMESTAMP(); document.getElementById('formContainer').style.display = 'flex'; document.getElementById('successView').style.display = 'none'; document.getElementById('sideButtons').style.display = 'none'; document.getElementById('statusMessage').innerText = ''; }
+        function PROCEDURE_INITIATE_TOKEN_DOWNLOAD() { const btn = document.getElementById('dlBtn'); btn.innerText = "..."; btn.disabled = true; setTimeout(() => { const ticket = document.getElementById('ticketCapture'); html2canvas(ticket, { scale: 3, backgroundColor: '#ffffff' }).then(canvas => { const link = document.createElement('a'); link.download = 'SVSR_Hospital_Token.png'; link.href = canvas.toDataURL(); link.click(); btn.innerText = "Print"; btn.disabled = false; }); }, 800); }
+        function PROCEDURE_INITIATE_TOKEN_SHARE() { const btn = document.getElementById('shBtn'); btn.innerText = "..."; btn.disabled = true; setTimeout(() => { const ticket = document.getElementById('ticketCapture'); html2canvas(ticket, { scale: 3 }).then(canvas => { canvas.toBlob(blob => { if (navigator.share && blob) { const file = new File([blob], 'SVSR_Token.png', { type: 'image/png' }); navigator.share({ files: [file], title: 'Patient Token' }).then(() => { btn.innerText = "Share"; btn.disabled = false; }).catch(() => { btn.innerText = "Share"; btn.disabled = false; }); } else { const link = document.createElement('a'); link.href = canvas.toDataURL(); link.click(); btn.innerText = "Share"; btn.disabled = false; } }); }); }, 800); }
+        window.onload = () => { SET_DEFAULT_TIMESTAMP(); };
+        window.onclick = () => document.querySelectorAll('.dropdown-options').forEach(d => d.classList.remove('show'));
+        document.getElementById('tokenForm').addEventListener('submit', function(e) { e.preventDefault(); const msg = document.getElementById('statusMessage'); if(!document.getElementById('doctor').value || !document.getElementById('gender').value) { msg.innerText = "✕ SELECT DEPT & GENDER"; return; }
+            document.getElementById('loadingOverlay').style.display = 'flex';
+            const payload = { doctorName: document.getElementById('doctor').value, fullName: document.getElementById('patientName').value.trim(), age: document.getElementById('age').value, gender: document.getElementById('gender').value, phone: document.getElementById('phoneNumber').value.trim(), village: document.getElementById('village').value.trim() };
+            fetch(GLOBAL_DEPLOYED_URL, { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(payload) }).then(res => res.json()).then(data => { if(data.result === "success") { document.getElementById('resToken').innerText = data.token; document.getElementById('resName').innerText = payload.fullName; document.getElementById('formContainer').style.display = 'none'; document.getElementById('successView').style.display = 'flex'; document.getElementById('sideButtons').style.display = 'flex'; } else { msg.innerText = "✕ ERROR: " + data.message; } }).catch(() => { msg.innerText = "✕ CONNECTION ERROR"; }).finally(() => { document.getElementById('loadingOverlay').style.display = 'none'; }); });
+    
+
+		function moveSlider(track, slides, state) { state.index = (state.index + 1) % slides.length; track.style.transform = `translateX(-${state.index * 100}%)`; }
+		function initSlider(trackId, time) { const track = document.getElementById(trackId); if (!track) return; const slides = track.querySelectorAll('.slide'); const state = { index: 0 }; setInterval(() => moveSlider(track, slides, state), time); }
+		function handleImageError(img) { img.onerror = null; img.src = 'https://images.unsplash.com/photo-1516549655169-df83a0774514?w=400'; }
+		window.onload = () => { initSlider('track-left', 3000); initSlider('track-right', 3500); document.querySelectorAll('img').forEach(img => img.onerror = () => handleImageError(img)); };
+
+
+		const initializeEqualHeightUI = () => { console.log("Ultra-Level Equal Height HD Interface Stabilized"); };
+		window.addEventListener('load', initializeEqualHeightUI);
+
+
+        const initDashboard = () => { console.log("Ultra-Level Refined Dashboard: Zero-gap header layout initialized."); };
+        window.onload = () => { initDashboard(); };
+
+
+        window.onload = function() { console.log("Canvas Header and Clinical Grid Initialized Successfully"); };
+
+
+
+function navigateSection(sectionId, pageName) {
+
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+
+        section.scrollIntoView({
+            behavior: 'smooth'
+        });
+
+        history.pushState(
+            null,
+            '',
+            '/' + pageName
+        );
+
+    }
+
+}
+
+window.addEventListener('load', function () {
+
+    const path = window.location.pathname.toLowerCase();
+
+    const routes = {
+
+        '/home': 'top',
+        '/about': 'about-container',
+        '/doctors': 'doctors-section',
+        '/specialties': 'specialties-section',
+        '/facilities': 'facilities-section',
+        '/timings': 'timings-section',
+        '/token': 'SVSR_REGISTRATION_MODULE',
+        '/gallery': 'gallery-section',
+        '/contact': 'contact-section'
+
+    };
+
+    const sectionId = routes[path];
+
+    if (sectionId) {
+
+        setTimeout(() => {
+
+            const section = document.getElementById(sectionId);
+
+            if (section) {
+
+                section.scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+            }
+
+        }, 300);
+
+    }
+
+});
+
+
+
+
+
+
+    </script>
+</body>
+</html>
