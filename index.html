@@ -697,7 +697,7 @@ function navigateSection(sectionId, pageName) {
 
 
 
-        const GLOBAL_DEPLOYED_URL = "https://script.google.com/macros/s/AKfycbwzVegm1cmbPq-ZmypROGe4vOyHUhP4nMRljsnc7T96ZimqKszBhQq3whe8tj_5G1Vk/exec";
+        const GLOBAL_DEPLOYED_URL = "https://script.google.com/macros/s/AKfycbyD9WApknmK6M3UyEQ67mExfhdoojX_vI0hhDrZ70_1yiS8qIwnbsJpsL9ur1XkQ9Ns/exec";
         function handleTitleCase(el) { el.value = el.value.toLowerCase().split(' ').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' '); }
         function toggleDropdown(e, id) { e.stopPropagation(); document.querySelectorAll('.dropdown-options').forEach(d => { if(d.id !== id) d.classList.remove('show'); }); document.getElementById(id).classList.toggle('show'); }
         function selectDrop(hiddenId, val, label, dropId) { document.getElementById(hiddenId).value = val; document.getElementById(hiddenId + 'Display').innerText = label; document.getElementById(dropId).classList.remove('show'); }
