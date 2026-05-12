@@ -160,18 +160,20 @@
         <div id="dynamicActionArea" class="hidden bg-blue-50/30 border-b border-blue-100 no-print">
             <div class="w-full py-4">
                 <div id="searchResultDisplay" class="hidden fade-in">
+                    <!-- Section Header -->
                     <div class="flex items-center w-full mb-3 px-2 relative">
                         <hr class="flex-grow border-t-[2px] border-gray-300">
-                        <div class="px-4 py-1.5 bg-[#800000] rounded-md ml-3 mr-10 flex items-center gap-2 uppercase font-bold text-[12px] text-white shadow">
-                            <i data-lucide="search" class="w-4 h-4"></i><span>Search Results</span>
+                        <div class="px-4 py-1.5 border-[2px] border-[#800000] bg-[#800000] rounded-md mx-3 flex items-center gap-2 uppercase font-bold text-[12px] tracking-wider text-white shadow-sm">
+                            <i data-lucide="search" class="w-4 h-4 text-white"></i><span>Search Results</span>
                         </div>
-                        <button onclick="hideSearchArea()" class="absolute right-2 bg-white p-1 rounded border border-gray-300 text-gray-400 hover:text-red-600 shadow-sm transition-colors">
+                        <hr class="flex-grow border-t-[2px] border-gray-300">
+                        <button onclick="hideSearchArea()" class="absolute right-2 bg-white p-1 rounded-md border border-gray-300 text-gray-400 hover:text-red-600 shadow-sm transition-colors">
                             <i data-lucide="x" class="w-4 h-4"></i>
                         </button>
                     </div>
-                    
+                    <!-- Table -->
                     <div class="table-container overflow-x-auto w-full border-y border-gray-200 bg-white shadow-sm">
-                        <table class="w-full text-left min-w-[1000px] border-collapse">
+                        <table class="w-full text-left border-collapse min-w-[1000px]">
                             <thead>
                                 <tr class="bg-gray-100 border-b border-gray-200 text-hospital-dark text-[9px] font-bold uppercase">
                                     <th class="px-2 py-2 w-16">Action</th>
@@ -201,14 +203,15 @@
             <div class="flex flex-col">
                 <div class="flex items-center w-full mb-3 px-2">
                     <hr class="flex-grow border-t-[2px] border-gray-300">
-                    <div class="px-4 py-1.5 bg-[#800000] rounded-md ml-3 flex items-center gap-2 uppercase font-bold text-[12px] text-white shadow">
-                        <i data-lucide="list-checks" class="w-4 h-4"></i><span>Tokens Registered</span>
+                    <div class="px-4 py-1.5 border-[2px] border-[#800000] bg-[#800000] rounded-md mx-3 flex items-center gap-2 uppercase font-bold text-[12px] tracking-wider text-white shadow-sm">
+                        <i data-lucide="list-checks" class="w-4 h-4 text-white"></i><span>Tokens Registred</span>
                     </div>
+                    <hr class="flex-grow border-t-[2px] border-gray-300">
                 </div>
                 <div class="table-container overflow-x-auto w-full border-y border-gray-200 bg-white shadow-sm">
-                    <table class="w-full text-left min-w-[1000px] border-collapse">
+                    <table class="w-full text-left border-collapse min-w-[1000px]">
                         <thead>
-                            <tr class="bg-gray-50 border-b border-gray-200 text-[9px] font-bold uppercase text-hospital-dark">
+                            <tr class="bg-gray-100 border-b border-gray-200 text-hospital-dark text-[9px] font-bold uppercase">
                                 <th class="px-2 py-2 w-16">Action</th>
                                 <th class="px-2 py-2">Status / S.No</th>
                                 <th class="px-2 py-2">Date</th>
@@ -231,14 +234,15 @@
             <div class="flex flex-col">
                 <div class="flex items-center w-full mb-3 px-2">
                     <hr class="flex-grow border-t-[2px] border-gray-300">
-                    <div class="px-4 py-1.5 bg-[#800000] rounded-md ml-3 flex items-center gap-2 uppercase font-bold text-[12px] text-white shadow">
-                        <i data-lucide="indian-rupee" class="w-4 h-4"></i><span>Paid OPDs (Today)</span>
+                    <div class="px-4 py-1.5 border-[2px] border-[#800000] bg-[#800000] rounded-md mx-3 flex items-center gap-2 uppercase font-bold text-[12px] tracking-wider text-white shadow-sm">
+                        <i data-lucide="indian-rupee" class="w-4 h-4 text-white"></i><span>Paid OPDs (Today)</span>
                     </div>
+                    <hr class="flex-grow border-t-[2px] border-gray-300">
                 </div>
                 <div class="table-container overflow-x-auto w-full border-y border-gray-200 bg-white shadow-sm">
-                    <table class="w-full text-left min-w-[1000px] border-collapse">
+                    <table class="w-full text-left border-collapse min-w-[1000px]">
                         <thead>
-                            <tr class="bg-gray-50 border-b border-gray-200 text-[9px] font-bold uppercase text-hospital-dark">
+                            <tr class="bg-gray-100 border-b border-gray-200 text-hospital-dark text-[9px] font-bold uppercase">
                                 <th class="px-2 py-2 w-16">Action</th>
                                 <th class="px-2 py-2">Status / S.No</th>
                                 <th class="px-2 py-2">Date</th>
@@ -261,14 +265,15 @@
             <div class="flex flex-col">
                 <div class="flex items-center w-full mb-3 px-2">
                     <hr class="flex-grow border-t-[2px] border-gray-300">
-                    <div class="px-4 py-1.5 bg-[#800000] rounded-md ml-3 flex items-center gap-2 uppercase font-bold text-[12px] text-white shadow">
-                        <i data-lucide="user-x" class="w-4 h-4"></i><span>Not Visited List</span>
+                    <div class="px-4 py-1.5 border-[2px] border-[#800000] bg-[#800000] rounded-md mx-3 flex items-center gap-2 uppercase font-bold text-[12px] tracking-wider text-white shadow-sm">
+                        <i data-lucide="user-x" class="w-4 h-4 text-white"></i><span>Not Visited List</span>
                     </div>
+                    <hr class="flex-grow border-t-[2px] border-gray-300">
                 </div>
                 <div class="table-container overflow-x-auto w-full border-y border-gray-200 bg-white shadow-sm">
-                    <table class="w-full text-left min-w-[1000px] border-collapse">
+                    <table class="w-full text-left border-collapse min-w-[1000px]">
                         <thead>
-                            <tr class="bg-gray-50 border-b border-gray-200 text-[9px] font-bold uppercase text-hospital-dark">
+                            <tr class="bg-gray-100 border-b border-gray-200 text-hospital-dark text-[9px] font-bold uppercase">
                                 <th class="px-2 py-2 w-16">Action</th>
                                 <th class="px-2 py-2">Status / S.No</th>
                                 <th class="px-2 py-2">Date</th>
@@ -301,11 +306,11 @@
                 <i data-lucide="indian-rupee" class="w-4 h-4 text-hospital-red"></i> Enter OP Amount
             </h3>
             
-            <p id="printModalPatientName" class="text-xs mb-4 font-semibold text-gray-600 bg-gray-50 p-2 rounded border"></p>
+            <p id="printModalPatientName" class="text-xs mb-4 font-semibold text-gray-600 bg-gray-50 p-2 rounded border border-gray-200"></p>
             
             <div class="mb-5">
                 <label class="block text-[10px] font-bold text-gray-700 uppercase mb-1">Amount Paid (₹)</label>
-                <input type="number" id="printModalAmount" placeholder="e.g. 500" class="w-full border border-gray-300 rounded px-3 py-2 text-sm outline-none focus:border-hospital-red focus:ring-1 focus:ring-red-200">
+                <input type="number" id="printModalAmount" placeholder="e.g. 500" class="w-full border border-gray-300 rounded px-3 py-2 text-sm outline-none focus:border-hospital-red focus:ring-1 focus:ring-red-200 shadow-inner">
             </div>
             
             <div class="flex justify-end gap-2 mt-4">
@@ -321,7 +326,7 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // Updated Google Apps Script URL
+        // Google Apps Script URL
         const BASE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw3bxqFruADlCrj-qCBItaFiqV7NiDg8naRhjqGen49R4K_KXrzppKUi4fKkShkMEue/exec';
         
         let activeToken = '';
@@ -336,7 +341,6 @@
         function togglePassword() {
             const pwdInput = document.getElementById('loginPwd');
             const eyeIcon = document.getElementById('eyeIcon');
-            
             if (pwdInput.type === 'password') {
                 pwdInput.type = 'text';
                 eyeIcon.setAttribute('data-lucide', 'eye-off');
@@ -344,7 +348,7 @@
                 pwdInput.type = 'password';
                 eyeIcon.setAttribute('data-lucide', 'eye');
             }
-            lucide.createIcons(); // Refresh the icon
+            lucide.createIcons(); 
         }
 
         // Helper to show loading state on buttons
@@ -370,8 +374,8 @@
             refreshDashboardData(); 
         }
 
-        // Login Logic
-        async function doLogin(e) { 
+        // --- JSONP LOGIN LOGIC TO BYPASS CORS ISSUES LOCALLY ---
+        function doLogin(e) { 
             e.preventDefault(); 
             
             const tokenInput = document.getElementById('secToken').value.trim();
@@ -384,61 +388,75 @@
             btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Authenticating...'; 
             lucide.createIcons();
             
-            try { 
-                const r = await fetch(`${BASE_SCRIPT_URL}?action=login&uid=${uidInput}&pwd=${pwdInput}&token=${tokenInput}`); 
-                const j = await r.json(); 
+            // Create a unique callback function name
+            const callbackName = 'jsonpCallback_' + Math.round(100000 * Math.random());
+            
+            // Define the callback globally
+            window[callbackName] = function(data) {
+                document.getElementById(callbackName).remove();
+                delete window[callbackName];
                 
-                if(j.status === 'success') { 
+                if(data.status === 'success') { 
                     activeToken = tokenInput; 
-                    currentUser = j.user; 
-                    
-                    // Hide Login, Show Main App
+                    currentUser = data.user; 
+                    // Hide Login, Show Dashboard
                     document.getElementById('loginScreen').classList.add('hidden'); 
                     document.getElementById('mainApp').classList.remove('hidden'); 
                     document.getElementById('mainApp').classList.add('flex'); 
-                    
                     setupDash(); 
                 } else { 
-                    alert("Login Failed: " + j.message); 
-                } 
-            } catch(err) { 
-                alert('Network Error. Ensure your internet connection is active.'); 
-                console.error(err);
-            } finally { 
+                    alert("Login Failed: " + (data.message || 'Unknown error')); 
+                    btn.innerHTML = '<i data-lucide="lock" class="w-3.5 h-3.5"></i> Secure Login'; 
+                    lucide.createIcons();
+                }
+            };
+
+            // Inject the script tag to bypass CORS
+            const script = document.createElement('script');
+            script.id = callbackName;
+            script.src = `${BASE_SCRIPT_URL}?action=login&uid=${encodeURIComponent(uidInput)}&pwd=${encodeURIComponent(pwdInput)}&token=${encodeURIComponent(tokenInput)}&callback=${callbackName}`;
+            
+            script.onerror = function() {
+                document.getElementById(callbackName).remove();
+                delete window[callbackName];
+                alert('Network Error. Please ensure the token is correct and check your internet connection.');
                 btn.innerHTML = '<i data-lucide="lock" class="w-3.5 h-3.5"></i> Secure Login'; 
                 lucide.createIcons();
-            } 
+            };
+
+            document.body.appendChild(script);
         }
         
-        // Load Data from Backend
+        // Load Data from Backend (Assuming CORS headers are active in Apps Script for this fetch)
         async function refreshDashboardData() { 
             if(!activeToken || !currentUser) return; 
             btnLoad('refreshBtnIcon', true); 
             try { 
                 const r = await fetch(`${BASE_SCRIPT_URL}?action=getAllDashboardData&hospitalUnit=${currentUser.unit}&token=${activeToken}`); 
+                if(!r.ok) throw new Error("Network Response error");
                 const j = await r.json(); 
                 if(j.status === 'success') { 
                     renderRows(j.data.registered, 'registeredTableBody'); 
                     renderRows(j.data.notVisited, 'notVisitedTableBody'); 
                     renderRows(j.data.today, 'todayTableBody'); 
                 } else {
-                    alert(j.message); 
+                    console.error("Dashboard error: ", j.message); 
                 }
             } catch(e) { 
-                console.error(e); 
+                console.error("Failed to load dashboard data.", e); 
             } finally { 
                 btnLoad('refreshBtnIcon', false); 
             } 
         }
         
         // Move Record Action (Tick or Cross)
-        async function execMove(btn, ph, rowIdx, src, act) { 
+        function execMove(btn, ph, rowIdx, src, act) { 
             const row = btn.closest('tr'); 
             btn.innerHTML = '<i data-lucide="loader-2" class="w-3 h-3 animate-spin"></i>'; 
             lucide.createIcons(); 
             try { 
-                // Using actualRowIndex for precision
-                await fetch(BASE_SCRIPT_URL, { 
+                // Using no-cors to prevent browser block
+                fetch(BASE_SCRIPT_URL, { 
                     method:'POST', 
                     mode:'no-cors', 
                     headers:{'Content-Type':'text/plain'}, 
@@ -447,16 +465,16 @@
                         sourceSheet: src, 
                         targetAction: act, 
                         phoneNumber: ph, 
-                        sNo: rowIdx, // Backend expects actualRowIndex here
+                        sNo: rowIdx, 
                         token: activeToken
                     }) 
-                }); 
-                
-                row.classList.add('row-blur'); 
-                setTimeout(() => { 
-                    row.remove(); 
-                    refreshDashboardData(); 
-                }, 800); 
+                }).then(() => {
+                    row.classList.add('row-blur'); 
+                    setTimeout(() => { 
+                        row.remove(); 
+                        refreshDashboardData(); 
+                    }, 800); 
+                });
             } catch(e) { 
                 alert('Failed to execute move request.'); 
             } 
@@ -471,29 +489,31 @@
             }
             
             tb.innerHTML = data.map((p, i) => { 
-                // Determine Paid amount and badge styling
+                // Paid amount and badge styling
                 const isPaid = p.price && p.price.toString().trim() !== '' && p.price.toString().trim() !== '0'; 
-                const paidText = isPaid ? `PAID - ₹${p.price}` : '';
-                
+                const statusClass = isPaid ? 'bg-green-100 text-green-800 border-green-200' : 'hidden';
+                const statusText = isPaid ? `PAID - ₹${p.price}` : '';
+                const badgeContainerId = `badge-container-${p.sourceSheet.replace(/\s+/g,'')}-${p.sNo}`;
+
                 return `
                 <tr class="border-b border-gray-100 even:bg-gray-50 text-[10px] hover:bg-blue-50 transition-colors">
                     <td class="px-2 py-2">
                         <div class="flex gap-1">
-                            <button onclick="execMove(this, '${p.phoneNumber}', '${p.actualRowIndex}', '${p.sourceSheet}', 'tick')" class="p-1 border border-green-400 rounded bg-green-50 text-green-700 hover:bg-green-500 hover:text-white transition-colors">
+                            <button onclick="execMove(this, '${p.phoneNumber}', '${p.actualRowIndex || p.sNo}', '${p.sourceSheet}', 'tick')" class="p-1 border border-green-400 rounded bg-green-50 text-green-700 hover:bg-green-500 hover:text-white transition-colors shadow-sm">
                                 <i data-lucide="check" class="w-3 h-3"></i>
                             </button>
-                            <button onclick="execMove(this, '${p.phoneNumber}', '${p.actualRowIndex}', '${p.sourceSheet}', 'wrong')" class="p-1 border border-red-400 rounded bg-red-50 text-red-700 hover:bg-red-500 hover:text-white transition-colors">
+                            <button onclick="execMove(this, '${p.phoneNumber}', '${p.actualRowIndex || p.sNo}', '${p.sourceSheet}', 'wrong')" class="p-1 border border-red-400 rounded bg-red-50 text-red-700 hover:bg-red-500 hover:text-white transition-colors shadow-sm">
                                 <i data-lucide="x" class="w-3 h-3"></i>
                             </button>
                         </div>
                     </td>
                     <td class="px-2 py-2">
-                        <div class="${isPaid ? 'mb-1' : 'hidden'}">
-                            <span class="bg-green-100 text-green-800 border-green-200 text-[8px] font-bold px-1.5 py-0.5 rounded uppercase border shadow-sm">
-                                ${paidText}
+                        <div id="${badgeContainerId}" class="${isPaid ? 'mb-1' : 'hidden'}">
+                            <span class="${statusClass} text-[8px] font-bold px-1.5 py-0.5 rounded uppercase border shadow-sm">
+                                ${statusText}
                             </span>
                         </div>
-                        <span class="text-[9px] text-gray-500 font-semibold">S.No: ${p.sNo}</span>
+                        <span class="text-[9px] text-gray-500 font-semibold">S.No: ${i + 1}</span>
                     </td>
                     <td class="px-2 py-2 whitespace-nowrap font-semibold text-gray-800">${p.date || '-'}</td>
                     <td class="px-2 py-2 font-bold text-hospital-red text-[12px]">${p.tokenId || '-'}</td>
@@ -518,7 +538,6 @@
         document.getElementById('searchForm').addEventListener('submit', async (e) => { 
             e.preventDefault(); 
             const ph = document.getElementById('searchInput').value.trim(); 
-            
             if(!ph || !activeToken) return; 
             
             btnLoad('searchBtnIcon', true); 
@@ -527,7 +546,6 @@
             try { 
                 const r = await fetch(`${BASE_SCRIPT_URL}?phone=${ph}&hospitalUnit=${currentUser.unit}&token=${activeToken}`); 
                 const j = await r.json(); 
-                
                 if(j.status === 'success' && j.data.length > 0) { 
                     renderRows(j.data, 'searchTableBody'); 
                     document.getElementById('searchResultDisplay').classList.remove('hidden'); 
@@ -537,7 +555,6 @@
                 } 
             } catch(e) { 
                 hideSearchArea(); 
-                alert("Search Error.");
             } finally { 
                 btnLoad('searchBtnIcon', false); 
             } 
@@ -555,7 +572,7 @@
             printSheet = sheetName; 
             
             document.getElementById('printModalPatientName').innerHTML = `
-                <i data-lucide="user" class="w-3 h-3 inline mr-1"></i> ${printData.fullName} 
+                <i data-lucide="user" class="w-3 h-3 inline mr-1 text-gray-500"></i> ${printData.fullName} 
                 <span class="text-gray-400 mx-2">|</span> 
                 <span class="text-hospital-red font-bold">${printData.tokenId}</span>
             `; 
@@ -594,37 +611,58 @@
                         tokenId: printData.tokenId, 
                         price: amt, 
                         sourceSheet: printSheet, 
-                        sNo: printData.actualRowIndex, // Requires exact row index for accurate backend movement
+                        sNo: printData.actualRowIndex || printData.sNo, 
                         token: activeToken
                     }) 
                 }).then(() => { 
-                    doPrintLogic(printData, amt); 
-                    closePrintModal(); 
-                    
-                    // Refresh data after 1 second so UI displays row in 'Today' table 
-                    // with the "PAID - Amount" badge.
-                    setTimeout(refreshDashboardData, 1000); 
-                    
-                    btn.innerHTML = originalHTML; 
-                    lucide.createIcons(); 
+                    finishPrintRoutine(printData, amt, originalHTML, btn);
+                }).catch(() => {
+                    alert('Failed to save price, but proceeding with print.');
+                    finishPrintRoutine(printData, amt, originalHTML, btn);
                 }); 
             } else { 
-                doPrintLogic(printData, '0'); 
-                closePrintModal(); 
-                btn.innerHTML = originalHTML; 
-                lucide.createIcons(); 
+                finishPrintRoutine(printData, '0', originalHTML, btn); 
             } 
         }
 
-        // Output formatting & actual Print Window generating
+        function finishPrintRoutine(p, price, originalText, btn) {
+            // Update badge to PAID visually on the UI immediately
+            const isPaid = parseFloat(price) > 0;
+            const badgeContainerId = `badge-container-${printSheet.replace(/\s+/g,'')}-${p.sNo}`;
+            const badgeContainer = document.getElementById(badgeContainerId);
+            
+            if (badgeContainer) {
+                if (isPaid) {
+                    badgeContainer.classList.remove('hidden');
+                    badgeContainer.classList.add('mb-1');
+                    badgeContainer.innerHTML = `<span class="bg-green-100 text-green-800 border-green-200 text-[8px] font-bold px-1.5 py-0.5 rounded uppercase border shadow-sm">PAID - ₹${price}</span>`;
+                } else {
+                    badgeContainer.classList.add('hidden');
+                    badgeContainer.classList.remove('mb-1');
+                }
+            }
+            
+            doPrintLogic(p, price);
+            closePrintModal();
+
+            setTimeout(refreshDashboardData, 1000);
+            
+            btn.innerHTML = originalText;
+            lucide.createIcons();
+        }
+
+        // Output formatting & actual Print Window generating securely
         function doPrintLogic(p, amt) { 
             const logo = "https://dsvsrh.github.io/SVRIMG-2026/PAGE_FEVICON_ICON_NO_BG_HEADER_LOGO.png"; 
+            const contact = '08519796961';
             
             // Format doctor name and role using bold + bracket logic
             let doctorFormatted = p.doctor || '-'; 
             if (doctorFormatted.includes('-')) { 
                 const parts = doctorFormatted.split('-'); 
-                doctorFormatted = `<strong>${parts[0].trim()}</strong> (${parts.slice(1).join('-').trim()})`; 
+                const name = parts[0].trim();
+                const role = parts.slice(1).join('-').trim();
+                doctorFormatted = `<strong>${name}</strong> (${role})`; 
             } else { 
                 doctorFormatted = `<strong>${doctorFormatted}</strong>`; 
             } 
@@ -637,18 +675,20 @@
                     <style>
                         @page { size: A4; margin: 0; } 
                         body { font-family: 'Inter', sans-serif; margin: 0; padding: 5mm; display: flex; justify-content: center; } 
-                        .page-border { width: 200mm; height: 287mm; border: 1px solid #000; padding: 4mm; box-sizing: border-box; position: relative; } 
-                        .header { height: 18mm; display: flex; align-items: center; padding-bottom: 4mm; margin-bottom: 4mm; border-bottom: 2px solid #000; } 
-                        .logo { height: 100%; width: auto; max-width: 30mm; object-fit: contain; margin-right: 4mm; } 
+                        .page-border { width: 200mm; height: 287mm; border: 1px solid #000; padding: 6mm; box-sizing: border-box; position: relative; } 
+                        .header { height: 16mm; display: flex; align-items: center; padding-bottom: 2mm; margin-bottom: 6mm; border-bottom: 2px solid #000; } 
+                        .logo { height: 16mm; margin-right: 4mm; } 
                         .h-text { flex-grow: 1; text-align: center; } 
                         .h-name { font-size: 13pt; font-weight: bold; color: #bc2025; margin: 0; text-transform: uppercase; } 
                         .h-tag { font-size: 9pt; font-weight: bold; color: #1a2b4c; margin-top: 1.5mm; } 
-                        .main-content { display: flex; justify-content: space-between; margin-top: 4mm; } 
+                        .main-content { display: flex; justify-content: space-between; margin-top: 6mm; } 
                         .p-info { width: 60%; font-size: 10pt; line-height: 1.8; } 
                         .lbl { font-weight: bold; width: 35mm; display: inline-block; } 
                         .c-box { width: 38%; border-left: 1px dashed #ddd; padding-left: 5mm; } 
                         .c-item { font-size: 9pt; margin-bottom: 4mm; border-bottom: 1px dotted #ccc; padding-bottom: 1.5mm; display: flex; justify-content: space-between; } 
+                        .c-item span:first-child { font-weight: bold; color: #333; }
                         .f-cont { position: absolute; bottom: 6mm; left: 6mm; right: 6mm; display: flex; justify-content: space-between; align-items: flex-end; } 
+                        .contact-info { font-size: 9pt; font-weight: bold; }
                         .footer-sig { font-size: 9pt; font-weight: bold; border-top: 1px solid #000; padding-top: 1.5mm; text-align: center; width: 50mm; }
                     </style>
                 </head>
@@ -685,16 +725,22 @@
                             
                             <!-- Print Clinical Observation Box -->
                             <div class="c-box">
-                                ${['Height','Weight','Temp','BP','Sugar','RR','ML','LMP','EDD'].map(v => `
-                                    <div class="c-item"><strong>${v}</strong><span></span></div>
-                                `).join('')}
+                                <div class="c-item"><span>Height</span> <span></span></div>
+                                <div class="c-item"><span>Weight</span> <span></span></div>
+                                <div class="c-item"><span>Temp</span> <span></span></div>
+                                <div class="c-item"><span>BP</span> <span></span></div>
+                                <div class="c-item"><span>Sugar</span> <span></span></div>
+                                <div class="c-item"><span>RR</span> <span></span></div>
+                                <div class="c-item"><span>ML</span> <span></span></div>
+                                <div class="c-item"><span>LMP</span> <span></span></div>
+                                <div class="c-item"><span>EDD</span> <span></span></div>
                             </div>
                         </div>
                         
                         <!-- Print Footer -->
                         <div class="f-cont">
-                            <div style="font-size:9pt; font-weight:bold;">
-                                Contact: 08519796961<br/>
+                            <div class="contact-info">
+                                Contact: ${contact}<br/>
                                 <span style="font-weight:normal; color:#555">Website: www.drsvrhospital.in</span>
                             </div>
                             <div class="footer-sig">AUTHORIZED SIGNATURE</div>
