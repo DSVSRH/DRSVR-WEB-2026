@@ -170,10 +170,24 @@
         @keyframes gradient-move { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         @keyframes blink-glow-red { 0%, 100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 15px rgba(220,38,38,0.8)); } 50% { opacity: 0.6; transform: scale(0.9); filter: drop-shadow(0 0 2px rgba(220,38,38,0.1)); } }
         @keyframes blink-glow-blue { 0%, 100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 15px rgba(37,99,235,0.8)); } 50% { opacity: 0.6; transform: scale(0.9); filter: drop-shadow(0 0 2px rgba(37,99,235,0.1)); } }
-        .scene-3d { perspective: 2000px; width: 100%; max-width: 100%; padding: 40px; display: flex; flex-direction: column; }
+.scene-3d { 
+    perspective: 2000px; 
+    width: 100%; 
+    max-width: 100%; 
+    padding: 0; 
+    display: flex; 
+    flex-direction: column; 
+}
         .dual-horizon-row { display: flex; flex-direction: column; width: 100%; align-items: stretch; gap: 40px; }
         @media (min-width: 1024px) { .dual-horizon-row { flex-direction: row; gap: 0; } }
-        .floating-element { display: flex; flex-direction: column; flex: 1; transition: transform 0.4s ease; padding: 30px; transform-style: preserve-3d; }
+.floating-element { 
+    display: flex; 
+    flex-direction: column; 
+    flex: 1; 
+    transition: transform 0.4s ease; 
+    padding: 10px; 
+    transform-style: preserve-3d; 
+}
         .text-scroll-red { background: linear-gradient(90deg, #991b1b, #ef4444, #fca5a5, #991b1b); background-size: 300% auto; -webkit-background-clip: text; color: transparent; animation: gradient-move 4s linear infinite; }
         .text-scroll-blue { background: linear-gradient(90deg, #1e3a8a, #3b82f6, #93c5fd, #1e3a8a); background-size: 300% auto; -webkit-background-clip: text; color: transparent; animation: gradient-move 4s linear infinite; }
         .icon-red { animation: blink-glow-red 2.2s ease-in-out infinite; }
@@ -405,38 +419,146 @@ body, p, span, div, a, li, td, th, input, button, textarea, select, h1, h2, h3, 
 <!-- 07-GALLERY SECTION -->
 	
 
-		<body class="bg-gray-50"><section id="gallery-section">
-		<section class="pt-4 pb-8 bg-[#f0f4f8] border-b border-gray-200">
-		<div class="max-w-5xl mx-auto px-4">
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
-		<div class="gallery-column text-center">
-		<div class="mb-3"><h3 class="text-[11px] font-black text-blue-900 uppercase tracking-[0.2em] border-b-2 border-blue-900 pb-1 inline-block">Clinical Services</h3></div>
-		<div class="slider-wrapper">
-		<div id="track-left" class="slider-track">
-		<div class="slide"><img src="https://dsvsrh.github.io/SVSRIMG/Orthopedics.png" alt="Orthopedics"><div class="slide-caption">Orthopedics</div></div>
-		<div class="slide"><img src="https://dsvsrh.github.io/SVSRIMG/Eye%20Care.png" alt="Eye Care"><div class="slide-caption">Eye Care</div></div>
-		<div class="slide"><img src="https://dsvsrh.github.io/SVSRIMG/Trauma%20Care.png" alt="Trauma Care"><div class="slide-caption">Trauma Care</div></div>
-		<div class="slide"><img src="https://dsvsrh.github.io/SVSRIMG/Anesthesiology.png" alt="Anesthesiology"><div class="slide-caption">Anesthesiology</div></div>
-		<div class="slide"><img src="https://dsvsrh.github.io/SVSRIMG/Gynecology.png" alt="Gynecology"><div class="slide-caption">Gynecology</div></div>
-		<div class="slide"><img src="https://dsvsrh.github.io/SVSRIMG/Homeopathy.png" alt="Homeopathy"><div class="slide-caption">Homeopathy</div></div>
-		</div>
-		</div>
-		</div>
-		<div class="gallery-column text-center">
-		<div class="mb-3"><h3 class="text-[11px] font-black text-blue-900 uppercase tracking-[0.2em] border-b-2 border-blue-900 pb-1 inline-block">Hospitality & Care</h3></div>
-		<div class="slider-wrapper">
-		<div id="track-right" class="slider-track">
-		<div class="slide"><img src="https://dsvsrh.github.io/SVSRIMG/RECEPTION_IMAGE_RIGHT.png" alt="Reception"><div class="slide-caption">Reception</div></div>
-		<div class="slide"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" alt="Doctors"><div class="slide-caption">Our Doctors</div></div>
-		<div class="slide"><img src="https://dsvsrh.github.io/SVSRIMG/PAGE_ABOUT_RIGHT_EXAMPLE.png" alt="Infrastructure"><div class="slide-caption">Infrastructure</div></div>
-		<div class="slide"><img src="https://dsvsrh.github.io/SVSRIMG/emergency.png" alt="Emergency"><div class="slide-caption">24/7 Emergency</div></div>
-		</div>
-		</div>
-		</div>
-		</div>
-		</div>
-		</section>
-			
+<body class="bg-gray-50">
+
+<section id="gallery-section">
+<section class="pt-4 pb-8 bg-[#f0f4f8] border-b border-gray-200">
+
+<div class="max-w-5xl mx-auto px-4">
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+
+    <!-- LEFT GALLERY -->
+
+    <div class="gallery-column text-center">
+
+        <div class="mb-3">
+            <h3 class="text-[11px] font-black text-blue-900 uppercase tracking-[0.2em] border-b-2 border-blue-900 pb-1 inline-block">
+                Clinical Services
+            </h3>
+        </div>
+
+        <div class="slider-wrapper">
+
+            <div id="track-left" class="slider-track">
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/SVSRIMG/Orthopedics.png" alt="Orthopedics">
+                    <div class="slide-caption">Orthopedics</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/SVSRIMG/Eye%20Care.png" alt="Eye Care">
+                    <div class="slide-caption">Eye Care</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/SVSRIMG/Trauma%20Care.png" alt="Trauma Care">
+                    <div class="slide-caption">Trauma Care</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/SVSRIMG/Anesthesiology.png" alt="Anesthesiology">
+                    <div class="slide-caption">Anesthesiology</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/SVSRIMG/Gynecology.png" alt="Gynecology">
+                    <div class="slide-caption">Gynecology</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/SVSRIMG/Homeopathy.png" alt="Homeopathy">
+                    <div class="slide-caption">Homeopathy</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT GALLERY -->
+
+    <div class="gallery-column text-center">
+
+        <div class="mb-3">
+            <h3 class="text-[11px] font-black text-blue-900 uppercase tracking-[0.2em] border-b-2 border-blue-900 pb-1 inline-block">
+                Hospitality & Care
+            </h3>
+        </div>
+
+        <div class="slider-wrapper">
+
+            <div id="track-right" class="slider-track">
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/SVSRIMG/RECEPTION_IMAGE_RIGHT.png" alt="Reception">
+                    <div class="slide-caption">Reception</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" alt="Doctors">
+                    <div class="slide-caption">Our Doctors</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/SVSRIMG/PAGE_ABOUT_RIGHT_EXAMPLE.png" alt="Infrastructure">
+                    <div class="slide-caption">Infrastructure</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/SVSRIMG/emergency.png" alt="Emergency">
+                    <div class="slide-caption">24/7 Emergency</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- AUTO SLIDER SCRIPT -->
+
+<script>
+
+function autoSlider(trackId, intervalTime) {
+
+    const track = document.getElementById(trackId);
+
+    const slides = track.querySelectorAll('.slide');
+
+    let currentIndex = 0;
+
+    const totalSlides = slides.length;
+
+    setInterval(() => {
+
+        currentIndex++;
+
+        if (currentIndex >= totalSlides) {
+            currentIndex = 0;
+        }
+
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    }, intervalTime);
+
+}
+
+autoSlider('track-left', 3000);
+
+autoSlider('track-right', 3500);
+
+</script>
+
+</body>
 	
 <!-- 08-EMERGENCY SECTION -->
 
