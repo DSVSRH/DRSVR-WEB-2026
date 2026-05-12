@@ -1,78 +1,723 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>SVR Hospital</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVR Hospital Dashboard</title>
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://dsvsrh.github.io/SVRIMG-2026/PAGE_FEVICON_ICON_NO_BG_HEADER_LOGO.png">
-    <script src="https://cdn.tailwindcss.com"></script><script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Tailwind CSS & Lucide Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <script>tailwind.config={theme:{extend:{colors:{'hospital-red':'#bc2025','hospital-dark':'#1a2b4c'},fontFamily:{'serif':['"Roboto Slab"','serif'],'sans':['Inter','sans-serif']}}}};</script>
-    <style>body { font-family: 'Inter', sans-serif; font-size: 12px; } .fade-in { animation: fadeIn 0.3s ease-out forwards; } @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } } .table-container::-webkit-scrollbar { height: 4px; } .table-container::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; } .btn-3d { transition: all 0.1s; box-shadow: 0 3px 0 #821619, 0 4px 8px rgba(0,0,0,0.2); border: 1px solid #821619; } .btn-3d:active { transform: translateY(3px); box-shadow: none; } .row-blur { filter: blur(3px); opacity: 0.3; transition: all 0.6s ease; pointer-events: none; } @media print { .no-print { display: none !important; } }</style>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = { 
+            theme: { 
+                extend: { 
+                    colors: { 'hospital-red': '#bc2025', 'hospital-dark': '#1a2b4c' }, 
+                    fontFamily: { 'serif': ['"Roboto Slab"', 'serif'], 'sans': ['Inter', 'sans-serif'] } 
+                } 
+            } 
+        };
+    </script>
+    
+    <!-- Custom CSS Styles -->
+    <style>
+        body { font-family: 'Inter', sans-serif; font-size: 12px; }
+        .fade-in { animation: fadeIn 0.3s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Table Scrollbar Styling */
+        .table-container::-webkit-scrollbar { height: 4px; }
+        .table-container::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
+        
+        /* 3D Button Effects */
+        .btn-3d { transition: all 0.1s; box-shadow: 0 3px 0 #821619, 0 4px 8px rgba(0,0,0,0.2); border: 1px solid #821619; }
+        .btn-3d:active { transform: translateY(3px); box-shadow: none; }
+        
+        /* Row Blur Animation for Deletion */
+        .row-blur { filter: blur(3px); opacity: 0.3; transition: all 0.6s ease; pointer-events: none; }
+        
+        /* Force Uppercase text in inputs */
+        .uppercase-input { text-transform: uppercase; }
+        
+        /* Hide specific elements during print */
+        @media print { .no-print { display: none !important; } }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen relative">
 
-<div id="loginScreen" class="fixed inset-0 bg-hospital-dark flex items-center justify-center z-50 fade-in no-print">
-    <form onsubmit="doLogin(event)" class="bg-white p-8 rounded-lg shadow-2xl w-96 max-w-[90%] border-t-4 border-hospital-red text-center">
-        <img src="https://dsvsrh.github.io/SVRIMG-2026/PAGE_FEVICON_ICON_NO_BG_HEADER_LOGO.png" class="h-16 mx-auto mb-4">
-        <h2 class="text-lg font-serif font-bold text-hospital-red mb-1 uppercase">SVR Hospital</h2>
-        <p class="text-xs text-gray-500 mb-6 font-bold uppercase tracking-widest">Staff Portal Login</p>
-        <div class="space-y-4 text-left">
-            <div><label class="block text-[10px] font-bold text-gray-700 uppercase mb-1">Security Token</label><input type="password" id="secToken" required class="w-full border rounded px-3 py-2 text-sm outline-none focus:border-hospital-red" placeholder="Enter Token"></div>
-            <div><label class="block text-[10px] font-bold text-gray-700 uppercase mb-1">Login ID</label><input type="text" id="loginId" required class="w-full border rounded px-3 py-2 text-sm outline-none focus:border-hospital-red uppercase" placeholder="e.g. BE01"></div>
-            <div><label class="block text-[10px] font-bold text-gray-700 uppercase mb-1">Password</label><input type="password" id="loginPwd" required class="w-full border rounded px-3 py-2 text-sm outline-none focus:border-hospital-red" placeholder="Enter Password"></div>
+    <!-- GLOBAL HEADER (Always Visible) -->
+    <header class="bg-white border-b-[2px] border-hospital-red relative z-20 shadow-sm no-print">
+        <div class="px-3 py-1 flex items-center gap-3 max-w-[1600px] mx-auto">
+            <img src="https://dsvsrh.github.io/SVRIMG-2026/PAGE_FEVICON_ICON_NO_BG_HEADER_LOGO.png" class="h-8 w-auto">
+            <div class="flex flex-col">
+                <h1 class="text-sm md:text-lg font-serif text-hospital-red uppercase font-bold tracking-tight">
+                    Dr. S. Venkata Subba Reddy Multispecialty Hospital
+                </h1>
+                <span class="bg-hospital-dark text-white text-[8px] font-bold px-1.5 py-0.5 rounded-sm uppercase w-fit">
+                    Patient Corner
+                </span>
+            </div>
+            
+            <!-- 24/7 Live Tracking Indicator -->
+            <div class="hidden sm:flex items-center gap-1.5 ml-auto mr-4 bg-green-50 px-2.5 py-1 rounded-full border border-green-200">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span class="text-[9px] font-bold text-green-700 uppercase tracking-widest mt-0.5">24*7 Live Tracking</span>
+            </div>
         </div>
-        <button type="submit" id="loginBtn" class="w-full mt-6 bg-hospital-red text-white font-bold py-2 rounded shadow hover:bg-red-700 uppercase text-xs transition-colors">Secure Login</button>
-    </form>
-</div>
+    </header>
 
-<div id="mainApp" class="flex-grow flex flex-col hidden fade-in w-full">
-    <header class="bg-white border-b-[2px] border-hospital-red relative z-20 shadow-sm no-print"><div class="px-3 py-1 flex items-center gap-3 max-w-[1600px] mx-auto"><img src="https://dsvsrh.github.io/SVRIMG-2026/PAGE_FEVICON_ICON_NO_BG_HEADER_LOGO.png" class="h-8 w-auto"><div class="flex flex-col"><h1 class="text-sm md:text-lg font-serif text-hospital-red uppercase font-bold tracking-tight">Dr. S. Venkata Subba Reddy Multispecialty Hospital</h1><span class="bg-hospital-dark text-white text-[8px] font-bold px-1.5 py-0.5 rounded-sm uppercase w-fit">Patient Corner</span></div><div class="hidden sm:flex items-center gap-1.5 ml-auto mr-4 bg-green-50 px-2.5 py-1 rounded-full border border-green-200"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span><span class="text-[9px] font-bold text-green-700 uppercase tracking-widest mt-0.5">24*7 Live Tracking</span></div></div></header>
-    <div class="bg-hospital-dark text-white py-1 px-4 border-b border-hospital-red no-print"><div class="max-w-[1600px] mx-auto flex justify-between items-center text-[10px]"><div class="flex items-center gap-3"><span><i data-lucide="user" class="w-3 h-3 inline mr-1 text-red-400"></i> <strong id="userDisplayName"></strong> (<span id="userDisplayId"></span>)</span><span class="text-gray-500">|</span><span><i data-lucide="phone" class="w-3 h-3 inline mr-1 text-red-400"></i> <span id="userDisplayPhone"></span></span><span class="text-gray-500">|</span><span class="bg-red-600 px-2 py-0.5 rounded font-bold uppercase" id="userDisplayRole"></span></div><button onclick="location.reload()" class="text-white hover:text-red-400 font-bold flex items-center gap-1 uppercase"><i data-lucide="log-out" class="w-3 h-3"></i> Logout</button></div></div>
-    <div class="bg-[#f8f9fa] border-b border-gray-200 py-1 relative z-10 no-print"><div class="max-w-[1600px] mx-auto px-4 flex justify-center"><form id="searchForm" class="flex items-center gap-2 w-full max-w-4xl justify-center"><div class="flex items-center gap-1 text-hospital-dark font-bold text-[10px] shrink-0"><i data-lucide="smartphone" class="w-3.5 h-3.5 text-hospital-red"></i><span>NUMBER</span></div><div class="relative w-full sm:w-56"><input type="tel" id="searchInput" placeholder="10-Digit Mobile" maxlength="10" class="border border-gray-300 rounded-md px-3 py-1.5 w-full text-xs shadow-inner outline-none"></div><div class="flex gap-2"><button type="submit" id="searchBtnIcon" class="btn-3d p-1.5 bg-hospital-red text-white rounded-md w-8 h-8 flex items-center justify-center"><i data-lucide="search" class="w-4 h-4"></i></button><button type="button" id="refreshBtnIcon" onclick="refreshDashboardData()" class="btn-3d p-1.5 bg-white text-hospital-dark border-gray-300 rounded-md w-8 h-8 flex items-center justify-center"><i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i></button></div></form></div></div>
-    <div id="dynamicActionArea" class="hidden bg-blue-50/30 border-b border-blue-100 no-print"><div class="w-full py-4"><div id="searchResultDisplay" class="hidden fade-in"><div class="flex items-center w-full mb-3 px-2 relative"><hr class="flex-grow border-t-[2px] border-gray-300"><div class="px-4 py-1.5 bg-[#800000] rounded-md ml-3 mr-10 flex items-center gap-2 uppercase font-bold text-[12px] text-white"><i data-lucide="search" class="w-4 h-4"></i><span>Search Results</span></div><button onclick="hideAct()" class="absolute right-2 bg-white p-1 rounded border border-gray-300 text-gray-400 hover:text-red-600 shadow-sm"><i data-lucide="x" class="w-4 h-4"></i></button></div><div class="table-container overflow-x-auto w-full border-y border-gray-200 bg-white"><table class="w-full text-left min-w-[1000px]"><thead><tr class="bg-gray-100 border-b border-gray-200 text-hospital-dark text-[9px] font-bold uppercase"><th class="px-2 py-2 w-16">Action</th><th class="px-2 py-2">Status / S.No</th><th class="px-2 py-2">Date</th><th class="px-2 py-2">Token</th><th class="px-2 py-2">PID</th><th class="px-2 py-2">Patient Name</th><th class="px-2 py-2">Age/Gen</th><th class="px-2 py-2">Phone</th><th class="px-2 py-2">Village</th><th class="px-2 py-2">Doctor</th><th class="px-2 py-2 text-center w-20">Print</th></tr></thead><tbody id="searchTableBody"></tbody></table></div></div></div></div>
-    <main class="flex-grow w-full py-4 space-y-8 no-print">
-        <div class="flex flex-col"><div class="flex items-center w-full mb-3 px-2"><hr class="flex-grow border-t-[2px] border-gray-300"><div class="px-4 py-1.5 bg-[#800000] rounded-md ml-3 flex items-center gap-2 uppercase font-bold text-[12px] text-white"><i data-lucide="list-checks" class="w-4 h-4"></i><span>Tokens Registred</span></div></div><div class="table-container overflow-x-auto w-full border-y border-gray-200 bg-white shadow-sm"><table class="w-full text-left min-w-[1000px]"><thead><tr class="bg-gray-50 border-b border-gray-200 text-[9px] font-bold uppercase"><th class="px-2 py-2 w-16">Action</th><th class="px-2 py-2">Status / S.No</th><th class="px-2 py-2">Date</th><th class="px-2 py-2">Token</th><th class="px-2 py-2">PID</th><th class="px-2 py-2">Patient Name</th><th class="px-2 py-2">Age/Gen</th><th class="px-2 py-2">Phone</th><th class="px-2 py-2">Village</th><th class="px-2 py-2">Doctor</th><th class="px-2 py-2 text-center w-20">Print</th></tr></thead><tbody id="registeredTableBody"></tbody></table></div></div>
-        <div class="flex flex-col"><div class="flex items-center w-full mb-3 px-2"><hr class="flex-grow border-t-[2px] border-gray-300"><div class="px-4 py-1.5 bg-[#800000] rounded-md ml-3 flex items-center gap-2 uppercase font-bold text-[12px] text-white"><i data-lucide="indian-rupee" class="w-4 h-4"></i><span>Paid OPDs (Today)</span></div></div><div class="table-container overflow-x-auto w-full border-y border-gray-200 bg-white shadow-sm"><table class="w-full text-left min-w-[1000px]"><thead><tr class="bg-gray-50 border-b border-gray-200 text-[9px] font-bold uppercase"><th class="px-2 py-2 w-16">Action</th><th class="px-2 py-2">Status / S.No</th><th class="px-2 py-2">Date</th><th class="px-2 py-2">Token</th><th class="px-2 py-2">PID</th><th class="px-2 py-2">Patient Name</th><th class="px-2 py-2">Age/Gen</th><th class="px-2 py-2">Phone</th><th class="px-2 py-2">Village</th><th class="px-2 py-2">Doctor</th><th class="px-2 py-2 text-center w-20">Print</th></tr></thead><tbody id="todayTableBody"></tbody></table></div></div>
-        <div class="flex flex-col"><div class="flex items-center w-full mb-3 px-2"><hr class="flex-grow border-t-[2px] border-gray-300"><div class="px-4 py-1.5 bg-[#800000] rounded-md ml-3 flex items-center gap-2 uppercase font-bold text-[12px] text-white"><i data-lucide="user-x" class="w-4 h-4"></i><span>Not Visited List</span></div></div><div class="table-container overflow-x-auto w-full border-y border-gray-200 bg-white shadow-sm"><table class="w-full text-left min-w-[1000px]"><thead><tr class="bg-gray-50 border-b border-gray-200 text-[9px] font-bold uppercase"><th class="px-2 py-2 w-16">Action</th><th class="px-2 py-2">Status / S.No</th><th class="px-2 py-2">Date</th><th class="px-2 py-2">Token</th><th class="px-2 py-2">PID</th><th class="px-2 py-2">Patient Name</th><th class="px-2 py-2">Age/Gen</th><th class="px-2 py-2">Phone</th><th class="px-2 py-2">Village</th><th class="px-2 py-2">Doctor</th><th class="px-2 py-2 text-center w-20">Print</th></tr></thead><tbody id="notVisitedTableBody"></tbody></table></div></div>
-    </main>
-</div>
+    <!-- SECURITY LOGIN SCREEN -->
+    <div id="loginScreen" class="flex-grow flex items-center justify-center z-50 fade-in no-print my-10">
+        <form onsubmit="doLogin(event)" class="bg-white p-8 rounded-lg shadow-2xl w-96 max-w-[90%] border-t-4 border-hospital-red text-center">
+            <img src="https://dsvsrh.github.io/SVRIMG-2026/PAGE_FEVICON_ICON_NO_BG_HEADER_LOGO.png" class="h-16 mx-auto mb-4">
+            <h2 class="text-lg font-serif font-bold text-hospital-red mb-1 uppercase">SVR Hospital</h2>
+            <p class="text-xs text-gray-500 mb-6 font-bold uppercase tracking-widest">Staff Portal Login</p>
+            
+            <div class="space-y-4 text-left">
+                <!-- Security Token -->
+                <div>
+                    <label class="block text-[10px] font-bold text-gray-700 uppercase mb-1">Security Token</label>
+                    <input type="password" id="secToken" required class="w-full border border-gray-300 rounded px-3 py-2 text-sm outline-none focus:border-hospital-red" placeholder="Enter Token">
+                </div>
+                
+                <!-- Login ID (Auto Uppercase) -->
+                <div>
+                    <label class="block text-[10px] font-bold text-gray-700 uppercase mb-1">Login ID</label>
+                    <input type="text" id="loginId" required class="uppercase-input w-full border border-gray-300 rounded px-3 py-2 text-sm outline-none focus:border-hospital-red" placeholder="e.g. BE01">
+                </div>
+                
+                <!-- Password (With Eye Icon) -->
+                <div>
+                    <label class="block text-[10px] font-bold text-gray-700 uppercase mb-1">Password</label>
+                    <div class="relative w-full">
+                        <input type="password" id="loginPwd" required class="w-full border border-gray-300 rounded px-3 py-2 text-sm outline-none focus:border-hospital-red pr-10" placeholder="Enter Password">
+                        <button type="button" onclick="togglePassword()" class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none">
+                            <i data-lucide="eye" id="eyeIcon" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" id="loginBtn" class="w-full mt-6 bg-hospital-red text-white font-bold py-2 rounded shadow hover:bg-red-700 uppercase text-xs transition-colors flex justify-center items-center gap-2">
+                <i data-lucide="lock" class="w-3.5 h-3.5"></i> Secure Login
+            </button>
+        </form>
+    </div>
 
-<div id="printModal" class="fixed inset-0 bg-black/60 hidden z-50 flex items-center justify-center backdrop-blur-sm no-print"><div class="bg-white rounded-lg shadow-2xl p-5 w-80 max-w-[90%] border-t-4 border-hospital-red"><h3 class="font-bold text-hospital-dark uppercase text-xs flex items-center gap-2 mb-3"><i data-lucide="indian-rupee" class="w-4 h-4 text-hospital-red"></i> Enter OP Amount</h3><p id="printModalPatientName" class="text-xs mb-4 font-semibold text-gray-600 bg-gray-50 p-2 rounded border"></p><div class="mb-5"><label class="block text-[10px] font-bold text-gray-700 uppercase mb-1">Amount Paid (₹)</label><input type="number" id="printModalAmount" placeholder="e.g. 500" class="w-full border rounded px-3 py-2 text-sm outline-none focus:ring-1 focus:ring-red-200"></div><div class="flex justify-end gap-2"><button onclick="closePrintModal()" class="px-4 py-1.5 text-gray-600 text-[10px] uppercase font-bold">Cancel</button><button id="printModalConfirmBtn" onclick="confirmPrintAndPay()" class="btn-3d px-4 py-1.5 rounded bg-hospital-red text-white text-[10px] uppercase font-bold flex items-center gap-1.5"><i data-lucide="printer" class="w-3.5 h-3.5"></i> Confirm & Print</button></div></div></div>
+    <!-- MAIN DASHBOARD (Hidden until logged in) -->
+    <div id="mainApp" class="flex-grow flex-col hidden fade-in w-full">
+        
+        <!-- Logged-In User Information Bar -->
+        <div class="bg-hospital-dark text-white py-1 px-4 border-b border-hospital-red no-print">
+            <div class="max-w-[1600px] mx-auto flex justify-between items-center text-[10px]">
+                <div class="flex items-center gap-3">
+                    <span><i data-lucide="user" class="w-3 h-3 inline mr-1 text-red-400"></i> <strong id="userDisplayName"></strong> (<span id="userDisplayId"></span>)</span>
+                    <span class="text-gray-500">|</span>
+                    <span><i data-lucide="phone" class="w-3 h-3 inline mr-1 text-red-400"></i> <span id="userDisplayPhone"></span></span>
+                    <span class="text-gray-500">|</span>
+                    <span class="bg-red-600 px-2 py-0.5 rounded font-bold uppercase" id="userDisplayRole"></span>
+                </div>
+                <button onclick="location.reload()" class="text-white hover:text-red-400 font-bold flex items-center gap-1 uppercase transition-colors">
+                    <i data-lucide="log-out" class="w-3 h-3"></i> Logout
+                </button>
+            </div>
+        </div>
 
-<footer id="mainFooter" class="bg-hospital-dark text-gray-400 py-1.5 border-t border-hospital-red text-center text-[8px] uppercase font-bold no-print tracking-widest hidden">&copy; 2026 Dr. S. Venkata Subba Reddy Hospital</footer>
+        <!-- Utility / Search Bar -->
+        <div class="bg-[#f8f9fa] border-b border-gray-200 py-1 relative z-10 no-print">
+            <div class="max-w-[1600px] mx-auto px-4 flex justify-center">
+                <form id="searchForm" class="flex items-center gap-2 w-full max-w-4xl justify-center">
+                    <div class="flex items-center gap-1 text-hospital-dark font-bold text-[10px] shrink-0">
+                        <i data-lucide="smartphone" class="w-3.5 h-3.5 text-hospital-red"></i><span>NUMBER</span>
+                    </div>
+                    <div class="relative w-full sm:w-56">
+                        <input type="tel" id="searchInput" placeholder="10-Digit Mobile" maxlength="10" class="border border-gray-300 rounded-md px-3 py-1.5 w-full text-xs shadow-inner outline-none focus:ring-1 focus:ring-red-200">
+                    </div>
+                    <div class="flex gap-2">
+                        <button type="submit" id="searchBtnIcon" title="Search Mobile" class="btn-3d p-1.5 bg-hospital-red text-white rounded-md w-8 h-8 flex items-center justify-center">
+                            <i data-lucide="search" class="w-4 h-4"></i>
+                        </button>
+                        <button type="button" id="refreshBtnIcon" onclick="refreshDashboardData()" title="Refresh Dashboard" class="btn-3d p-1.5 bg-white text-hospital-dark border-gray-300 rounded-md w-8 h-8 flex items-center justify-center">
+                            <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
-<script>
-    const BASE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyasxNKy3UTuUrZirlu3t0WKPv0JjAxomRbr49pqf7y58w7yvPqufCSmjbWerdOomMt/exec';
-    let activeToken = '', currentUser = null, printData = null, printSheet = null;
+        <!-- Search Result Area (Hidden by default) -->
+        <div id="dynamicActionArea" class="hidden bg-blue-50/30 border-b border-blue-100 no-print">
+            <div class="w-full py-4">
+                <div id="searchResultDisplay" class="hidden fade-in">
+                    <div class="flex items-center w-full mb-3 px-2 relative">
+                        <hr class="flex-grow border-t-[2px] border-gray-300">
+                        <div class="px-4 py-1.5 bg-[#800000] rounded-md ml-3 mr-10 flex items-center gap-2 uppercase font-bold text-[12px] text-white shadow">
+                            <i data-lucide="search" class="w-4 h-4"></i><span>Search Results</span>
+                        </div>
+                        <button onclick="hideSearchArea()" class="absolute right-2 bg-white p-1 rounded border border-gray-300 text-gray-400 hover:text-red-600 shadow-sm transition-colors">
+                            <i data-lucide="x" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="table-container overflow-x-auto w-full border-y border-gray-200 bg-white shadow-sm">
+                        <table class="w-full text-left min-w-[1000px] border-collapse">
+                            <thead>
+                                <tr class="bg-gray-100 border-b border-gray-200 text-hospital-dark text-[9px] font-bold uppercase">
+                                    <th class="px-2 py-2 w-16">Action</th>
+                                    <th class="px-2 py-2">Status / S.No</th>
+                                    <th class="px-2 py-2">Date</th>
+                                    <th class="px-2 py-2">Token</th>
+                                    <th class="px-2 py-2">PID</th>
+                                    <th class="px-2 py-2">Patient Name</th>
+                                    <th class="px-2 py-2">Age/Gen</th>
+                                    <th class="px-2 py-2">Phone</th>
+                                    <th class="px-2 py-2">Village</th>
+                                    <th class="px-2 py-2">Doctor</th>
+                                    <th class="px-2 py-2 text-center w-20">Print</th>
+                                </tr>
+                            </thead>
+                            <tbody id="searchTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    const btnLoad = (id, ld) => { const b = document.getElementById(id), i = id === 'searchBtnIcon' ? 'search' : 'refresh-cw'; b.innerHTML = ld ? `<i data-lucide="loader-2" class="w-3.5 h-3.5 animate-spin"></i>` : `<i data-lucide="${i}" class="w-3.5 h-3.5"></i>`; b.disabled = ld; lucide.createIcons(); };
-    const setupDash = () => { document.getElementById('userDisplayName').innerText=currentUser.fullName; document.getElementById('userDisplayId').innerText=currentUser.loginId; document.getElementById('userDisplayPhone').innerText=currentUser.phone; document.getElementById('userDisplayRole').innerText=currentUser.role; document.getElementById('mainFooter').classList.remove('hidden'); refreshDashboardData(); };
+        <!-- Main Data Tables -->
+        <main class="flex-grow w-full py-4 space-y-8 no-print">
+            
+            <!-- Tokens Registered -->
+            <div class="flex flex-col">
+                <div class="flex items-center w-full mb-3 px-2">
+                    <hr class="flex-grow border-t-[2px] border-gray-300">
+                    <div class="px-4 py-1.5 bg-[#800000] rounded-md ml-3 flex items-center gap-2 uppercase font-bold text-[12px] text-white shadow">
+                        <i data-lucide="list-checks" class="w-4 h-4"></i><span>Tokens Registered</span>
+                    </div>
+                </div>
+                <div class="table-container overflow-x-auto w-full border-y border-gray-200 bg-white shadow-sm">
+                    <table class="w-full text-left min-w-[1000px] border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50 border-b border-gray-200 text-[9px] font-bold uppercase text-hospital-dark">
+                                <th class="px-2 py-2 w-16">Action</th>
+                                <th class="px-2 py-2">Status / S.No</th>
+                                <th class="px-2 py-2">Date</th>
+                                <th class="px-2 py-2">Token</th>
+                                <th class="px-2 py-2">PID</th>
+                                <th class="px-2 py-2">Patient Name</th>
+                                <th class="px-2 py-2">Age/Gen</th>
+                                <th class="px-2 py-2">Phone</th>
+                                <th class="px-2 py-2">Village</th>
+                                <th class="px-2 py-2">Doctor</th>
+                                <th class="px-2 py-2 text-center w-20">Print</th>
+                            </tr>
+                        </thead>
+                        <tbody id="registeredTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Paid OPDs (Today) -->
+            <div class="flex flex-col">
+                <div class="flex items-center w-full mb-3 px-2">
+                    <hr class="flex-grow border-t-[2px] border-gray-300">
+                    <div class="px-4 py-1.5 bg-[#800000] rounded-md ml-3 flex items-center gap-2 uppercase font-bold text-[12px] text-white shadow">
+                        <i data-lucide="indian-rupee" class="w-4 h-4"></i><span>Paid OPDs (Today)</span>
+                    </div>
+                </div>
+                <div class="table-container overflow-x-auto w-full border-y border-gray-200 bg-white shadow-sm">
+                    <table class="w-full text-left min-w-[1000px] border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50 border-b border-gray-200 text-[9px] font-bold uppercase text-hospital-dark">
+                                <th class="px-2 py-2 w-16">Action</th>
+                                <th class="px-2 py-2">Status / S.No</th>
+                                <th class="px-2 py-2">Date</th>
+                                <th class="px-2 py-2">Token</th>
+                                <th class="px-2 py-2">PID</th>
+                                <th class="px-2 py-2">Patient Name</th>
+                                <th class="px-2 py-2">Age/Gen</th>
+                                <th class="px-2 py-2">Phone</th>
+                                <th class="px-2 py-2">Village</th>
+                                <th class="px-2 py-2">Doctor</th>
+                                <th class="px-2 py-2 text-center w-20">Print</th>
+                            </tr>
+                        </thead>
+                        <tbody id="todayTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Not Visited List -->
+            <div class="flex flex-col">
+                <div class="flex items-center w-full mb-3 px-2">
+                    <hr class="flex-grow border-t-[2px] border-gray-300">
+                    <div class="px-4 py-1.5 bg-[#800000] rounded-md ml-3 flex items-center gap-2 uppercase font-bold text-[12px] text-white shadow">
+                        <i data-lucide="user-x" class="w-4 h-4"></i><span>Not Visited List</span>
+                    </div>
+                </div>
+                <div class="table-container overflow-x-auto w-full border-y border-gray-200 bg-white shadow-sm">
+                    <table class="w-full text-left min-w-[1000px] border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50 border-b border-gray-200 text-[9px] font-bold uppercase text-hospital-dark">
+                                <th class="px-2 py-2 w-16">Action</th>
+                                <th class="px-2 py-2">Status / S.No</th>
+                                <th class="px-2 py-2">Date</th>
+                                <th class="px-2 py-2">Token</th>
+                                <th class="px-2 py-2">PID</th>
+                                <th class="px-2 py-2">Patient Name</th>
+                                <th class="px-2 py-2">Age/Gen</th>
+                                <th class="px-2 py-2">Phone</th>
+                                <th class="px-2 py-2">Village</th>
+                                <th class="px-2 py-2">Doctor</th>
+                                <th class="px-2 py-2 text-center w-20">Print</th>
+                            </tr>
+                        </thead>
+                        <tbody id="notVisitedTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
 
-    // లాగిన్ ఫంక్షనాలిటీ
-    async function doLogin(e) { e.preventDefault(); const t=document.getElementById('secToken').value.trim(), u=document.getElementById('loginId').value.trim().toUpperCase(), p=document.getElementById('loginPwd').value.trim(), btn=document.getElementById('loginBtn'); if(!t||!u||!p)return; btn.innerText='LOADING...'; try { const r=await fetch(`${BASE_SCRIPT_URL}?action=login&uid=${u}&pwd=${p}&token=${t}`); const j=await r.json(); if(j.status==='success') { activeToken=t; currentUser=j.user; document.getElementById('loginScreen').classList.add('hidden'); document.getElementById('mainApp').classList.remove('hidden'); setupDash(); } else { alert(j.message); } } catch(err) { alert('Network Error'); } finally { btn.innerText='SECURE LOGIN'; } }
-    
-    // డ్యాష్‌బోర్డ్ రీలోడ్
-    async function refreshDashboardData() { if(!activeToken || !currentUser) return; btnLoad('refreshBtnIcon', true); try { const r = await fetch(`${BASE_SCRIPT_URL}?action=getAllDashboardData&hospitalUnit=${currentUser.unit}&token=${activeToken}`); const j = await r.json(); if(j.status==='success') { renderRows(j.data.registered, 'registeredTableBody'); renderRows(j.data.notVisited, 'notVisitedTableBody'); renderRows(j.data.today, 'todayTableBody'); } else alert(j.message); } catch(e) { console.error(e); } finally { btnLoad('refreshBtnIcon', false); } }
-    
-    // రికార్డ్ యాక్షన్ (టిక్/క్రాస్)
-    async function execMove(btn, ph, sNo, src, act) { const row = btn.closest('tr'); btn.innerHTML = '<i data-lucide="loader-2" class="w-3 h-3 animate-spin"></i>'; lucide.createIcons(); try { await fetch(BASE_SCRIPT_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body:JSON.stringify({action:'moveRecord', sourceSheet:src, targetAction:act, phoneNumber:ph, sNo:sNo, token:activeToken}) }); row.classList.add('row-blur'); setTimeout(() => { row.remove(); refreshDashboardData(); }, 800); } catch(e) { alert('Failed'); } }
+    <!-- GLOBAL FOOTER (Always Visible) -->
+    <footer id="mainFooter" class="bg-hospital-dark text-gray-400 py-2 border-t border-hospital-red text-center text-[8px] uppercase font-bold no-print tracking-widest mt-auto">
+        &copy; 2026 Dr. S. Venkata Subba Reddy Hospital
+    </footer>
 
-    // డేటాను టేబుల్స్ కి రెండర్ చేయడం
-    function renderRows(data, tbId) { const tb = document.getElementById(tbId); tb.innerHTML = (data && data.length > 0) ? data.map((p, i) => { const isPaid = p.price && p.price.toString().trim() !== '' && p.price.toString().trim() !== '0'; return `<tr class="border-b border-gray-100 even:bg-gray-50 text-[10px] hover:bg-blue-50 transition-colors"><td class="px-2 py-2"><div class="flex gap-1"><button onclick="execMove(this,'${p.phoneNumber}','${p.sNo}','${p.sourceSheet}','tick')" class="p-1 border border-green-400 rounded bg-green-50 text-green-700"><i data-lucide="check" class="w-3 h-3"></i></button><button onclick="execMove(this,'${p.phoneNumber}','${p.sNo}','${p.sourceSheet}','wrong')" class="p-1 border border-red-400 rounded bg-red-50 text-red-700"><i data-lucide="x" class="w-3 h-3"></i></button></div></td><td class="px-2 py-2"><div class="${isPaid ? 'mb-1' : 'hidden'}"><span class="bg-green-100 text-green-800 border-green-200 text-[8px] font-bold px-1.5 py-0.5 rounded uppercase border">PAID</span></div><span class="text-[9px] text-gray-500 font-semibold">S.No: ${i+1}</span></td><td class="px-2 py-2 whitespace-nowrap font-semibold">${p.date || '-'}</td><td class="px-2 py-2 font-bold text-hospital-red text-[12px]">${p.tokenId || '-'}</td><td class="px-2 py-2 font-semibold text-gray-700">${p.pid || '-'}</td><td class="px-2 py-2 font-bold text-hospital-dark text-[11px] uppercase">${p.fullName || '-'}</td><td class="px-2 py-2">${p.age || '-'}Y/${p.gender || '-'}</td><td class="px-2 py-2 font-semibold">${p.phoneNumber || '-'}</td><td class="px-2 py-2 truncate max-w-[100px]">${p.village || '-'}</td><td class="px-2 py-2 truncate max-w-[150px]">${p.doctor || '-'}</td><td class="px-2 py-2"><button onclick="openPrint('${encodeURIComponent(JSON.stringify(p))}','${p.sourceSheet}')" class="w-full border border-blue-500 bg-blue-50 text-blue-700 text-[9px] font-bold rounded py-1 hover:bg-blue-600 hover:text-white uppercase transition-colors flex justify-center items-center gap-1 shadow-sm"><i data-lucide="printer" class="w-3 h-3"></i> Print</button></td></tr>`; }).join('') : '<tr><td colspan="11" class="text-center py-6 text-gray-400 font-bold">NO RECORDS FOUND</td></tr>'; lucide.createIcons(); }
+    <!-- PRINT & PAYMENT MODAL -->
+    <div id="printModal" class="fixed inset-0 bg-black/60 hidden z-50 flex items-center justify-center backdrop-blur-sm no-print fade-in">
+        <div class="bg-white rounded-lg shadow-2xl p-5 w-80 max-w-[90%] border-t-4 border-hospital-red">
+            <h3 class="font-bold text-hospital-dark uppercase text-xs flex items-center gap-2 mb-3 border-b pb-2">
+                <i data-lucide="indian-rupee" class="w-4 h-4 text-hospital-red"></i> Enter OP Amount
+            </h3>
+            
+            <p id="printModalPatientName" class="text-xs mb-4 font-semibold text-gray-600 bg-gray-50 p-2 rounded border"></p>
+            
+            <div class="mb-5">
+                <label class="block text-[10px] font-bold text-gray-700 uppercase mb-1">Amount Paid (₹)</label>
+                <input type="number" id="printModalAmount" placeholder="e.g. 500" class="w-full border border-gray-300 rounded px-3 py-2 text-sm outline-none focus:border-hospital-red focus:ring-1 focus:ring-red-200">
+            </div>
+            
+            <div class="flex justify-end gap-2 mt-4">
+                <button onclick="closePrintModal()" class="px-4 py-1.5 rounded border border-gray-300 text-gray-600 text-[10px] uppercase font-bold hover:bg-gray-100 transition-colors">
+                    Cancel
+                </button>
+                <button id="printModalConfirmBtn" onclick="confirmPrintAndPay()" class="btn-3d px-4 py-1.5 rounded bg-hospital-red text-white text-[10px] uppercase font-bold flex items-center gap-1.5 hover:bg-red-700 transition-colors">
+                    <i data-lucide="printer" class="w-3.5 h-3.5"></i> Confirm & Print
+                </button>
+            </div>
+        </div>
+    </div>
 
-    // సెర్చ్ ఫంక్షన్
-    document.getElementById('searchForm').addEventListener('submit', async (e) => { e.preventDefault(); const ph = document.getElementById('searchInput').value.trim(); if(!ph || !activeToken) return; btnLoad('searchBtnIcon', true); document.getElementById('dynamicActionArea').classList.remove('hidden'); try { const r = await fetch(`${BASE_SCRIPT_URL}?phone=${ph}&hospitalUnit=${currentUser.unit}&token=${activeToken}`); const j = await r.json(); if(j.status==='success' && j.data.length > 0) { renderRows(j.data, 'searchTableBody'); document.getElementById('searchResultDisplay').classList.remove('hidden'); } else { alert("No records"); hideAct(); } } catch(e) { hideAct(); } finally { btnLoad('searchBtnIcon', false); } });
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Updated Google Apps Script URL
+        const BASE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw3bxqFruADlCrj-qCBItaFiqV7NiDg8naRhjqGen49R4K_KXrzppKUi4fKkShkMEue/exec';
+        
+        let activeToken = '';
+        let currentUser = null;
+        let printData = null;
+        let printSheet = null;
 
-    // ప్రింట్ కి సంబంధించి
-    const openPrint = (j, s) => { printData = JSON.parse(decodeURIComponent(j)); printSheet = s; document.getElementById('printModalPatientName').innerHTML = `${printData.fullName} | <span class="text-hospital-red">${printData.tokenId}</span>`; document.getElementById('printModalAmount').value = printData.price || ''; document.getElementById('printModal').classList.remove('hidden'); lucide.createIcons(); setTimeout(() => document.getElementById('printModalAmount').focus(), 100); };
-    const closePrintModal = () => { document.getElementById('printModal').classList.add('hidden'); printData = null; };
-    const hideAct = () => { document.getElementById('dynamicActionArea').classList.add('hidden'); document.getElementById('searchInput').value=''; };
+        // Initialize lucide icons on load
+        window.onload = () => { lucide.createIcons(); };
 
-    // పేమెంట్ కన్ఫర్మేషన్
-    function confirmPrintAndPay() { const amt = document.getElementById('printModalAmount').value.trim(), btn = document.getElementById('printModalConfirmBtn'), old = btn.innerHTML; btn.innerHTML = '<i data-lucide="loader-2" class="w-3.5 h-3.5 animate-spin"></i>'; lucide.createIcons(); if(amt !== '') { fetch(BASE_SCRIPT_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body:JSON.stringify({action:'updatePrice', phoneNumber:printData.phoneNumber, tokenId:printData.tokenId, price:amt, sourceSheet:printSheet, sNo:printData.sNo, token:activeToken}) }).then(() => { doPrint(printData, amt); closePrintModal(); refreshDashboardData(); btn.innerHTML = old; lucide.createIcons(); }); } else { doPrint(printData, '0'); closePrintModal(); btn.innerHTML = old; lucide.createIcons(); } }
+        // Toggle Password Visibility Logic
+        function togglePassword() {
+            const pwdInput = document.getElementById('loginPwd');
+            const eyeIcon = document.getElementById('eyeIcon');
+            
+            if (pwdInput.type === 'password') {
+                pwdInput.type = 'text';
+                eyeIcon.setAttribute('data-lucide', 'eye-off');
+            } else {
+                pwdInput.type = 'password';
+                eyeIcon.setAttribute('data-lucide', 'eye');
+            }
+            lucide.createIcons(); // Refresh the icon
+        }
 
-    // ఎక్స్పోర్ట్ ప్రింట్ కార్డ్
-    function doPrint(p, amt) { const logo = "https://dsvsrh.github.io/SVRIMG-2026/PAGE_FEVICON_ICON_NO_BG_HEADER_LOGO.png"; let dD = p.doctor || '-'; if (dD.includes('-')) { const s = dD.split('-'); dD = `<strong>${s[0].trim()}</strong> (${s.slice(1).join('-').trim()})`; } else { dD = `<strong>${dD}</strong>`; } const html = `<html><head><style>@page{size:A4;margin:0;} body{font-family:'Inter',sans-serif;margin:0;padding:5mm;display:flex;justify-content:center;} .page-border{width:200mm;height:287mm;border:1px solid #000;padding:4mm;box-sizing:border-box;position:relative;} .header{height:18mm;display:flex;align-items:center;padding-bottom:4mm;margin-bottom:4mm;border-bottom:2px solid #000;} .logo{height:100%;width:auto;max-width:30mm;object-fit:contain;margin-right:4mm;} .h-text{flex-grow:1;text-align:center;} .h-name{font-size:13pt;font-weight:bold;color:#bc2025;margin:0;text-transform:uppercase;} .h-tag{font-size:9pt;font-weight:bold;color:#1a2b4c;margin-top:1.5mm;} .main-content{display:flex;justify-content:space-between;margin-top:4mm;} .p-info{width:60%;font-size:10pt;line-height:1.8;} .lbl{font-weight:bold;width:35mm;display:inline-block;} .c-box{width:38%;border-left:1px dashed #ddd;padding-left:5mm;} .c-item{font-size:9pt;margin-bottom:4mm;border-bottom:1px dotted #ccc;padding-bottom:1.5mm;display:flex;justify-content:space-between;} .f-cont{position:absolute;bottom:6mm;left:6mm;right:6mm;display:flex;justify-content:space-between;align-items:flex-end;} .footer-sig{font-size:9pt;font-weight:bold;border-top:1px solid #000;padding-top:1.5mm;text-align:center;width:50mm;}</style></head><body><div class="page-border"><div class="header"><img src="${logo}" class="logo"><div class="h-text"><div class="h-name">Dr. S. Venkata Subba Reddy MULTISPECIALTY Hospital</div><div class="h-tag">SINCE 1989 - "Best Of Care, Close to Home"</div></div></div><div class="main-content"><div class="p-info"><div><span class="lbl">PATIENT ID</span>: ${p.pid}</div><div><span class="lbl">TOKEN NO</span>: ${p.tokenId}</div><div><span class="lbl">NAME</span>: ${p.fullName}</div><div><span class="lbl">AGE / GENDER</span>: ${p.age}Y/${p.gender}</div><div><span class="lbl">DATE</span>: ${p.date}</div><div><span class="lbl">CONSULTANT</span>: ${dD}</div><div style="margin-top:12px;border-top:1px solid #eee;padding-top:8px;"><span class="lbl" style="color:#bc2025;">OP AMOUNT</span>: <strong>₹ ${amt}</strong></div></div><div class="c-box">${['Height','Weight','Temp','BP','Sugar','RR','ML','LMP','EDD'].map(v=>`<div class="c-item"><strong>${v}</strong><span></span></div>`).join('')}</div></div><div class="f-cont"><div style="font-size:9pt;font-weight:bold;">Contact: 08519796961<br/><span style="font-weight:normal;color:#555">Website: www.drsvrhospital.in</span></div><div class="footer-sig">AUTHORIZED SIGNATURE</div></div></div></body></html>`; const pw = window.open('', '_blank'); if(pw) { pw.document.write(html); pw.document.close(); setTimeout(() => { pw.print(); pw.close(); }, 500); } else { alert("Popup Blocked"); } }
-    window.onload = () => lucide.createIcons();
-</script>
+        // Helper to show loading state on buttons
+        function btnLoad(id, isLoading) { 
+            const btn = document.getElementById(id);
+            const originalIcon = id === 'searchBtnIcon' ? 'search' : 'refresh-cw'; 
+            if(isLoading) {
+                btn.innerHTML = `<i data-lucide="loader-2" class="w-3.5 h-3.5 animate-spin"></i>`;
+                btn.disabled = true;
+            } else {
+                btn.innerHTML = `<i data-lucide="${originalIcon}" class="w-3.5 h-3.5"></i>`;
+                btn.disabled = false;
+            }
+            lucide.createIcons(); 
+        }
+
+        // Apply Logged-in User Data to the UI
+        function setupDash() { 
+            document.getElementById('userDisplayName').innerText = currentUser.fullName; 
+            document.getElementById('userDisplayId').innerText = currentUser.loginId; 
+            document.getElementById('userDisplayPhone').innerText = currentUser.phone; 
+            document.getElementById('userDisplayRole').innerText = currentUser.role; 
+            refreshDashboardData(); 
+        }
+
+        // Login Logic
+        async function doLogin(e) { 
+            e.preventDefault(); 
+            
+            const tokenInput = document.getElementById('secToken').value.trim();
+            const uidInput = document.getElementById('loginId').value.trim().toUpperCase();
+            const pwdInput = document.getElementById('loginPwd').value.trim();
+            const btn = document.getElementById('loginBtn'); 
+            
+            if(!tokenInput || !uidInput || !pwdInput) return; 
+            
+            btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Authenticating...'; 
+            lucide.createIcons();
+            
+            try { 
+                const r = await fetch(`${BASE_SCRIPT_URL}?action=login&uid=${uidInput}&pwd=${pwdInput}&token=${tokenInput}`); 
+                const j = await r.json(); 
+                
+                if(j.status === 'success') { 
+                    activeToken = tokenInput; 
+                    currentUser = j.user; 
+                    
+                    // Hide Login, Show Main App
+                    document.getElementById('loginScreen').classList.add('hidden'); 
+                    document.getElementById('mainApp').classList.remove('hidden'); 
+                    document.getElementById('mainApp').classList.add('flex'); 
+                    
+                    setupDash(); 
+                } else { 
+                    alert("Login Failed: " + j.message); 
+                } 
+            } catch(err) { 
+                alert('Network Error. Ensure your internet connection is active.'); 
+                console.error(err);
+            } finally { 
+                btn.innerHTML = '<i data-lucide="lock" class="w-3.5 h-3.5"></i> Secure Login'; 
+                lucide.createIcons();
+            } 
+        }
+        
+        // Load Data from Backend
+        async function refreshDashboardData() { 
+            if(!activeToken || !currentUser) return; 
+            btnLoad('refreshBtnIcon', true); 
+            try { 
+                const r = await fetch(`${BASE_SCRIPT_URL}?action=getAllDashboardData&hospitalUnit=${currentUser.unit}&token=${activeToken}`); 
+                const j = await r.json(); 
+                if(j.status === 'success') { 
+                    renderRows(j.data.registered, 'registeredTableBody'); 
+                    renderRows(j.data.notVisited, 'notVisitedTableBody'); 
+                    renderRows(j.data.today, 'todayTableBody'); 
+                } else {
+                    alert(j.message); 
+                }
+            } catch(e) { 
+                console.error(e); 
+            } finally { 
+                btnLoad('refreshBtnIcon', false); 
+            } 
+        }
+        
+        // Move Record Action (Tick or Cross)
+        async function execMove(btn, ph, rowIdx, src, act) { 
+            const row = btn.closest('tr'); 
+            btn.innerHTML = '<i data-lucide="loader-2" class="w-3 h-3 animate-spin"></i>'; 
+            lucide.createIcons(); 
+            try { 
+                // Using actualRowIndex for precision
+                await fetch(BASE_SCRIPT_URL, { 
+                    method:'POST', 
+                    mode:'no-cors', 
+                    headers:{'Content-Type':'text/plain'}, 
+                    body:JSON.stringify({
+                        action: 'moveRecord', 
+                        sourceSheet: src, 
+                        targetAction: act, 
+                        phoneNumber: ph, 
+                        sNo: rowIdx, // Backend expects actualRowIndex here
+                        token: activeToken
+                    }) 
+                }); 
+                
+                row.classList.add('row-blur'); 
+                setTimeout(() => { 
+                    row.remove(); 
+                    refreshDashboardData(); 
+                }, 800); 
+            } catch(e) { 
+                alert('Failed to execute move request.'); 
+            } 
+        }
+
+        // Render Table Rows dynamically
+        function renderRows(data, tbId) { 
+            const tb = document.getElementById(tbId); 
+            if (!data || data.length === 0) {
+                tb.innerHTML = '<tr><td colspan="11" class="text-center py-6 text-gray-400 font-bold uppercase text-[10px]">No Records Found</td></tr>';
+                return;
+            }
+            
+            tb.innerHTML = data.map((p, i) => { 
+                // Determine Paid amount and badge styling
+                const isPaid = p.price && p.price.toString().trim() !== '' && p.price.toString().trim() !== '0'; 
+                const paidText = isPaid ? `PAID - ₹${p.price}` : '';
+                
+                return `
+                <tr class="border-b border-gray-100 even:bg-gray-50 text-[10px] hover:bg-blue-50 transition-colors">
+                    <td class="px-2 py-2">
+                        <div class="flex gap-1">
+                            <button onclick="execMove(this, '${p.phoneNumber}', '${p.actualRowIndex}', '${p.sourceSheet}', 'tick')" class="p-1 border border-green-400 rounded bg-green-50 text-green-700 hover:bg-green-500 hover:text-white transition-colors">
+                                <i data-lucide="check" class="w-3 h-3"></i>
+                            </button>
+                            <button onclick="execMove(this, '${p.phoneNumber}', '${p.actualRowIndex}', '${p.sourceSheet}', 'wrong')" class="p-1 border border-red-400 rounded bg-red-50 text-red-700 hover:bg-red-500 hover:text-white transition-colors">
+                                <i data-lucide="x" class="w-3 h-3"></i>
+                            </button>
+                        </div>
+                    </td>
+                    <td class="px-2 py-2">
+                        <div class="${isPaid ? 'mb-1' : 'hidden'}">
+                            <span class="bg-green-100 text-green-800 border-green-200 text-[8px] font-bold px-1.5 py-0.5 rounded uppercase border shadow-sm">
+                                ${paidText}
+                            </span>
+                        </div>
+                        <span class="text-[9px] text-gray-500 font-semibold">S.No: ${p.sNo}</span>
+                    </td>
+                    <td class="px-2 py-2 whitespace-nowrap font-semibold text-gray-800">${p.date || '-'}</td>
+                    <td class="px-2 py-2 font-bold text-hospital-red text-[12px]">${p.tokenId || '-'}</td>
+                    <td class="px-2 py-2 font-semibold text-gray-700">${p.pid || '-'}</td>
+                    <td class="px-2 py-2 font-bold text-hospital-dark text-[11px] uppercase">${p.fullName || '-'}</td>
+                    <td class="px-2 py-2 whitespace-nowrap">${p.age || '-'} Y / ${p.gender || '-'}</td>
+                    <td class="px-2 py-2 font-semibold">${p.phoneNumber || '-'}</td>
+                    <td class="px-2 py-2 truncate max-w-[100px]" title="${p.village || '-'}">${p.village || '-'}</td>
+                    <td class="px-2 py-2 truncate max-w-[150px]" title="${p.doctor || '-'}">${p.doctor || '-'}</td>
+                    <td class="px-2 py-2 text-center w-20">
+                        <button onclick="openPrintModal('${encodeURIComponent(JSON.stringify(p))}', '${p.sourceSheet}')" class="w-full border border-blue-500 bg-blue-50 text-blue-700 text-[9px] font-bold rounded py-1 hover:bg-blue-600 hover:text-white uppercase transition-colors flex justify-center items-center gap-1 shadow-sm">
+                            <i data-lucide="printer" class="w-3 h-3"></i> Print
+                        </button>
+                    </td>
+                </tr>`; 
+            }).join(''); 
+            
+            lucide.createIcons(); 
+        }
+
+        // Search Form Logic
+        document.getElementById('searchForm').addEventListener('submit', async (e) => { 
+            e.preventDefault(); 
+            const ph = document.getElementById('searchInput').value.trim(); 
+            
+            if(!ph || !activeToken) return; 
+            
+            btnLoad('searchBtnIcon', true); 
+            document.getElementById('dynamicActionArea').classList.remove('hidden'); 
+            
+            try { 
+                const r = await fetch(`${BASE_SCRIPT_URL}?phone=${ph}&hospitalUnit=${currentUser.unit}&token=${activeToken}`); 
+                const j = await r.json(); 
+                
+                if(j.status === 'success' && j.data.length > 0) { 
+                    renderRows(j.data, 'searchTableBody'); 
+                    document.getElementById('searchResultDisplay').classList.remove('hidden'); 
+                } else { 
+                    alert("No records found for this mobile number."); 
+                    hideSearchArea(); 
+                } 
+            } catch(e) { 
+                hideSearchArea(); 
+                alert("Search Error.");
+            } finally { 
+                btnLoad('searchBtnIcon', false); 
+            } 
+        });
+
+        // Hide Search Area
+        function hideSearchArea() { 
+            document.getElementById('dynamicActionArea').classList.add('hidden'); 
+            document.getElementById('searchInput').value = ''; 
+        }
+
+        // Open Print Modal
+        function openPrintModal(patientJsonStr, sheetName) { 
+            printData = JSON.parse(decodeURIComponent(patientJsonStr)); 
+            printSheet = sheetName; 
+            
+            document.getElementById('printModalPatientName').innerHTML = `
+                <i data-lucide="user" class="w-3 h-3 inline mr-1"></i> ${printData.fullName} 
+                <span class="text-gray-400 mx-2">|</span> 
+                <span class="text-hospital-red font-bold">${printData.tokenId}</span>
+            `; 
+            
+            document.getElementById('printModalAmount').value = printData.price || ''; 
+            document.getElementById('printModal').classList.remove('hidden'); 
+            lucide.createIcons(); 
+            
+            setTimeout(() => document.getElementById('printModalAmount').focus(), 100); 
+        }
+        
+        // Close Print Modal
+        function closePrintModal() { 
+            document.getElementById('printModal').classList.add('hidden'); 
+            printData = null; 
+        }
+
+        // Confirm Payment and Initiate Print Routine
+        function confirmPrintAndPay() { 
+            const amt = document.getElementById('printModalAmount').value.trim(); 
+            const btn = document.getElementById('printModalConfirmBtn'); 
+            const originalHTML = btn.innerHTML; 
+            
+            btn.innerHTML = '<i data-lucide="loader-2" class="w-3.5 h-3.5 animate-spin"></i> Processing...'; 
+            lucide.createIcons(); 
+            
+            if (amt !== '') { 
+                // Securely push to the backend
+                fetch(BASE_SCRIPT_URL, { 
+                    method: 'POST', 
+                    mode: 'no-cors', 
+                    headers: { 'Content-Type': 'text/plain' }, 
+                    body: JSON.stringify({
+                        action: 'updatePrice', 
+                        phoneNumber: printData.phoneNumber, 
+                        tokenId: printData.tokenId, 
+                        price: amt, 
+                        sourceSheet: printSheet, 
+                        sNo: printData.actualRowIndex, // Requires exact row index for accurate backend movement
+                        token: activeToken
+                    }) 
+                }).then(() => { 
+                    doPrintLogic(printData, amt); 
+                    closePrintModal(); 
+                    
+                    // Refresh data after 1 second so UI displays row in 'Today' table 
+                    // with the "PAID - Amount" badge.
+                    setTimeout(refreshDashboardData, 1000); 
+                    
+                    btn.innerHTML = originalHTML; 
+                    lucide.createIcons(); 
+                }); 
+            } else { 
+                doPrintLogic(printData, '0'); 
+                closePrintModal(); 
+                btn.innerHTML = originalHTML; 
+                lucide.createIcons(); 
+            } 
+        }
+
+        // Output formatting & actual Print Window generating
+        function doPrintLogic(p, amt) { 
+            const logo = "https://dsvsrh.github.io/SVRIMG-2026/PAGE_FEVICON_ICON_NO_BG_HEADER_LOGO.png"; 
+            
+            // Format doctor name and role using bold + bracket logic
+            let doctorFormatted = p.doctor || '-'; 
+            if (doctorFormatted.includes('-')) { 
+                const parts = doctorFormatted.split('-'); 
+                doctorFormatted = `<strong>${parts[0].trim()}</strong> (${parts.slice(1).join('-').trim()})`; 
+            } else { 
+                doctorFormatted = `<strong>${doctorFormatted}</strong>`; 
+            } 
+            
+            // Setup Complete Print HTML Layout
+            const htmlLayout = `
+                <html>
+                <head>
+                    <title>Print Receipt - ${p.fullName}</title>
+                    <style>
+                        @page { size: A4; margin: 0; } 
+                        body { font-family: 'Inter', sans-serif; margin: 0; padding: 5mm; display: flex; justify-content: center; } 
+                        .page-border { width: 200mm; height: 287mm; border: 1px solid #000; padding: 4mm; box-sizing: border-box; position: relative; } 
+                        .header { height: 18mm; display: flex; align-items: center; padding-bottom: 4mm; margin-bottom: 4mm; border-bottom: 2px solid #000; } 
+                        .logo { height: 100%; width: auto; max-width: 30mm; object-fit: contain; margin-right: 4mm; } 
+                        .h-text { flex-grow: 1; text-align: center; } 
+                        .h-name { font-size: 13pt; font-weight: bold; color: #bc2025; margin: 0; text-transform: uppercase; } 
+                        .h-tag { font-size: 9pt; font-weight: bold; color: #1a2b4c; margin-top: 1.5mm; } 
+                        .main-content { display: flex; justify-content: space-between; margin-top: 4mm; } 
+                        .p-info { width: 60%; font-size: 10pt; line-height: 1.8; } 
+                        .lbl { font-weight: bold; width: 35mm; display: inline-block; } 
+                        .c-box { width: 38%; border-left: 1px dashed #ddd; padding-left: 5mm; } 
+                        .c-item { font-size: 9pt; margin-bottom: 4mm; border-bottom: 1px dotted #ccc; padding-bottom: 1.5mm; display: flex; justify-content: space-between; } 
+                        .f-cont { position: absolute; bottom: 6mm; left: 6mm; right: 6mm; display: flex; justify-content: space-between; align-items: flex-end; } 
+                        .footer-sig { font-size: 9pt; font-weight: bold; border-top: 1px solid #000; padding-top: 1.5mm; text-align: center; width: 50mm; }
+                    </style>
+                </head>
+                <body>
+                    <div class="page-border">
+                        <!-- Print Header -->
+                        <div class="header">
+                            <img src="${logo}" class="logo">
+                            <div class="h-text">
+                                <div class="h-name">Dr. S. Venkata Subba Reddy MULTISPECIALTY Hospital</div>
+                                <div class="h-tag">SINCE 1989 - "Best Of Care, Close to Home"</div>
+                            </div>
+                        </div>
+                        
+                        <div class="main-content">
+                            <!-- Print Patient Info -->
+                            <div class="p-info">
+                                <!-- PID AND TOKEN IN ONE ROW -->
+                                <div style="display: flex; justify-content: space-between; width: 85%;">
+                                    <div><span class="lbl">PATIENT ID</span>: ${p.pid}</div>
+                                    <div><span class="lbl">TOKEN NO</span>: <strong style="color:#bc2025; font-size: 11pt;">${p.tokenId}</strong></div>
+                                </div>
+                                
+                                <div><span class="lbl">NAME</span>: ${p.fullName}</div>
+                                <div><span class="lbl">AGE / GENDER</span>: ${p.age} Y / ${p.gender}</div>
+                                <div><span class="lbl">DATE</span>: ${p.date}</div>
+                                <div><span class="lbl">CONSULTANT</span>: ${doctorFormatted}</div>
+                                
+                                <!-- OP Amount section -->
+                                <div style="margin-top:12px; border-top:1px solid #eee; padding-top:8px;">
+                                    <span class="lbl" style="color:#bc2025;">OP AMOUNT</span>: <strong>₹ ${amt}</strong>
+                                </div>
+                            </div>
+                            
+                            <!-- Print Clinical Observation Box -->
+                            <div class="c-box">
+                                ${['Height','Weight','Temp','BP','Sugar','RR','ML','LMP','EDD'].map(v => `
+                                    <div class="c-item"><strong>${v}</strong><span></span></div>
+                                `).join('')}
+                            </div>
+                        </div>
+                        
+                        <!-- Print Footer -->
+                        <div class="f-cont">
+                            <div style="font-size:9pt; font-weight:bold;">
+                                Contact: 08519796961<br/>
+                                <span style="font-weight:normal; color:#555">Website: www.drsvrhospital.in</span>
+                            </div>
+                            <div class="footer-sig">AUTHORIZED SIGNATURE</div>
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `; 
+            
+            const printWindow = window.open('', '_blank'); 
+            if (printWindow) { 
+                printWindow.document.write(htmlLayout); 
+                printWindow.document.close(); 
+                
+                // Allow styles to load before calling print
+                setTimeout(() => { 
+                    printWindow.print(); 
+                    printWindow.close(); 
+                }, 500); 
+            } else { 
+                alert("Print Popup was Blocked! Please allow popups for this site."); 
+            } 
+        }
+    </script>
 </body>
 </html>
