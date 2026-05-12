@@ -729,6 +729,81 @@ function navigateSection(sectionId, pageName) {
 
         window.onload = function() { console.log("Canvas Header and Clinical Grid Initialized Successfully"); };
 
+
+
+
+
+
+function navigateSection(sectionId, pageName) {
+
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+
+        section.scrollIntoView({
+            behavior: 'smooth'
+        });
+
+        history.pushState(
+            null,
+            '',
+            '/' + pageName
+        );
+
+    }
+
+}
+
+/* PAGE REFRESH HANDLE */
+
+window.addEventListener('load', function () {
+
+    const path = window.location.pathname.toLowerCase();
+
+    const routes = {
+
+        '/home': 'top',
+        '/about': 'about-container',
+        '/doctors': 'doctors-section',
+        '/specialties': 'specialties-section',
+        '/facilities': 'facilities-section',
+        '/timings': 'timings-section',
+        '/token': 'SVSR_REGISTRATION_MODULE',
+        '/gallery': 'gallery-section',
+        '/contact': 'contact-section'
+
+    };
+
+    const sectionId = routes[path];
+
+    if (sectionId) {
+
+        setTimeout(() => {
+
+            const section = document.getElementById(sectionId);
+
+            if (section) {
+
+                section.scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+            }
+
+        }, 300);
+
+    }
+
+});
+
+
+
+
+
+
+
+
+
     </script>
 </body>
 </html>
