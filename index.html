@@ -311,15 +311,23 @@ body, p, span, div, a, li, td, th, input, button, textarea, select, h1, h2, h3, 
     </header>
     <section class="top-menu-section">
         <div class="top-menu-container">
-            <a href="#top" class="menu-btn">Home</a>
-            <a href="#about-container" class="menu-btn">About</a>
-            <a href="#doctors-section" class="menu-btn">Doctors</a>
-            <a href="#specialties-section" class="menu-btn">Specialties</a>
-            <a href="#facilities-section" class="menu-btn">Facilities</a>
-            <a href="#timings-section" class="menu-btn">Timings</a>
-            <a href="#SVSR_REGISTRATION_MODULE" class="menu-btn">Token</a>
-            <a href="#gallery-section" class="menu-btn">Gallery</a>
-            <a href="#contact-section" class="menu-btn">Contact</a>
+<a href="javascript:void(0)" onclick="navigateSection('top','Home')" class="menu-btn">Home</a>
+
+<a href="javascript:void(0)" onclick="navigateSection('about-container','About')" class="menu-btn">About</a>
+
+<a href="javascript:void(0)" onclick="navigateSection('doctors-section','Doctors')" class="menu-btn">Doctors</a>
+
+<a href="javascript:void(0)" onclick="navigateSection('specialties-section','Specialties')" class="menu-btn">Specialties</a>
+
+<a href="javascript:void(0)" onclick="navigateSection('facilities-section','Facilities')" class="menu-btn">Facilities</a>
+
+<a href="javascript:void(0)" onclick="navigateSection('timings-section','Timings')" class="menu-btn">Timings</a>
+
+<a href="javascript:void(0)" onclick="navigateSection('SVSR_REGISTRATION_MODULE','Token')" class="menu-btn">Token</a>
+
+<a href="javascript:void(0)" onclick="navigateSection('gallery-section','Gallery')" class="menu-btn">Gallery</a>
+
+<a href="javascript:void(0)" onclick="navigateSection('contact-section','Contact')" class="menu-btn">Contact</a>
         </div>
     </section>
 
@@ -555,6 +563,36 @@ function autoSlider(trackId, intervalTime) {
 autoSlider('track-left', 3000);
 
 autoSlider('track-right', 3500);
+
+
+
+
+
+
+
+function navigateSection(sectionId, pageName) {
+
+    const section = document.getElementById(sectionId);
+
+    if(section) {
+
+        section.scrollIntoView({
+            behavior: 'smooth'
+        });
+
+        history.pushState(
+            null,
+            '',
+            '/' + pageName
+        );
+
+    }
+
+}
+
+
+
+
 
 </script>
 
