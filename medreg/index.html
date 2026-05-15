@@ -2,27 +2,27 @@
 /* --- CSS STYLES START --- */
 :root { --primary: #ef4444; --accent: #dc2626; --bg: #f3f7f9; --black: #000000; }
 body { font-family: 'Roboto Slab', serif; background-color: var(--bg); margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
-/* Professional Header: Increased height, black title, and no bottom margin */
-.top-hospital-header { background: white; padding: 12px 10px; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--primary); width: 100%; z-index: 50; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+/* Professional Header: Increased height and black hospital name */
+.top-hospital-header { background: white; padding: 12px 10px; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--primary); width: 100%; z-index: 50; }
 .left-branding { display: flex; align-items: center; } 
-.header-logo { height: 45px; margin-right: 12px; filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1)); }
-.hospital-name { font-size: 13.5px; font-weight: 800; color: var(--black); text-transform: uppercase; line-height: 1.1; letter-spacing: 0.1px; }
-@media (max-width: 640px) { .hospital-name { font-size: 10px; } .header-logo { height: 38px; } }
+.header-logo { height: 48px; margin-right: 12px; filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1)); }
+.hospital-name { font-size: 14px; font-weight: 800; color: var(--black); text-transform: uppercase; line-height: 1.1; letter-spacing: 0.1px; }
+@media (max-width: 640px) { .hospital-name { font-size: 10.5px; } .header-logo { height: 40px; } }
 .dept-tagline { font-size: 8px; font-weight: 700; color: var(--accent); margin-top: 1px; letter-spacing: 0.5px; text-transform: uppercase; }
 .tracing-pill { background: #f0fdf4; border: 1px solid #bbf7d0; padding: 2px 8px; border-radius: 20px; display: flex; align-items: center; gap: 5px; }
 .blink-dot { width: 6px; height: 6px; background-color: #22c55e; border-radius: 50%; animation: pulse 1.5s infinite; } 
 @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
 .tracing-text { font-size: 8px; font-weight: 900; color: #64748b; text-transform: uppercase; }
-/* Main Layout: Removed gaps for a seamless transition from header to toolbar */
+/* Main Layout: No gaps between header and registry tools */
 .main-wrapper { flex: 1; display: flex; flex-direction: column; align-items: center; width: 100%; }
-.login-card { background: white; padding: 40px 30px; border-radius: 25px; box-shadow: 0 15px 50px rgba(0,0,0,0.1); width: 90%; max-width: 360px; position: relative; margin-top: 10vh; }
+.login-card { background: white; padding: 40px 30px; border-radius: 25px; box-shadow: 0 15px 50px rgba(0,0,0,0.08); width: 90%; max-width: 360px; position: relative; margin-top: 10vh; }
 .login-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; padding: 6px 20px; border-radius: 8px; font-size: 9px; font-weight: 900; white-space: nowrap; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4); z-index: 10; }
 .input-group { position: relative; margin-bottom: 15px; } .input-group i { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #3b82f6; font-size: 14px; } 
 .login-input { width: 100%; padding: 12px 20px 12px 50px; border: 1.5px solid #f1f5f9; border-radius: 50px; outline: none; font-size: 11.5px; font-weight: 700; transition: 0.3s; color: #334155; }
 .login-input:focus { border-color: #3b82f6; background: #f8fafc; }
 .login-go-btn { background: var(--primary); color: white; width: 45px; height: 45px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 20px; cursor: pointer; transition: 0.3s; margin: 10px auto 0; box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3); border: none; }
 .login-go-btn:disabled { opacity: 0.7; cursor: not-allowed; }
-/* Toolbar: Compact HD design with no top margin */
+/* Toolbar: Compact design for all devices */
 .toolbar { background: white; padding: 6px 12px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #e2e8f0; width: 100%; }
 .table-container { overflow-x: auto; background: white; width: 100%; scrollbar-width: none; -ms-overflow-style: none; } .table-container::-webkit-scrollbar { display: none; }
 th { background-color: #f8fafc; color: #1e293b; font-weight: 900; text-transform: uppercase; font-size: 9px; padding: 12px 10px; border: 1px solid #e2e8f0; white-space: nowrap; }
@@ -35,11 +35,11 @@ td { padding: 8px; border: 1px solid #f1f5f9; font-size: 10.5px; text-align: cen
 /* --- CSS STYLES END --- */
 </style></head><body>
 
-<!-- --- HEADER SECTION: Permanent Visibility --- -->
+<!-- --- HEADER SECTION: Always Visible --- -->
 <header class="top-hospital-header"><div class="left-branding"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_02_FEVICON_ICON.png" alt="Logo" class="header-logo"><div class="header-text-stack"><div class="hospital-name">Dr. S. Venkata Subba Reddy MULTISPECIALTY Hospital</div><div class="dept-tagline">MEDICAL DEPARTMENT • SECURE ACCESS</div></div></div><div class="header-right-tools"><div class="tracing-pill"><span class="tracing-text">24*7 Live Tracing</span><div class="blink-dot"></div></div></div></header>
 
 <main class="main-wrapper">
-  <!-- LOGIN SECTION: Hidden after successful verification -->
+  <!-- LOGIN SECTION: Disappears after successful entry -->
   <div id="loginArea" class="login-card">
     <div class="login-badge uppercase">Medicine Register Admin Login</div>
     <div class="input-group mt-6"><i class="fa-solid fa-key"></i><input type="password" id="tokenInput" class="login-input" placeholder="TOKEN"></div>
@@ -50,15 +50,14 @@ td { padding: 8px; border: 1px solid #f1f5f9; font-size: 10.5px; text-align: cen
       <i id="togglePwd" class="fa-solid fa-eye text-gray-400 cursor-pointer" style="left: auto; right: 20px;" onclick="togglePassword()"></i>
     </div>
     <button id="loginBtn" class="login-go-btn" onclick="verifyAndLoad()"><i id="loginIcon" class="fa-solid fa-arrow-right"></i></button>
-    <p id="loginError" class="text-red-600 text-[9px] text-center font-bold hidden mt-4 uppercase">Invalid Credentials! Try Again.</p>
+    <p id="loginError" class="text-red-600 text-[9.5px] text-center font-bold hidden mt-4 uppercase">Invalid Credentials! Please check again.</p>
   </div>
 
-  <!-- REGISTRY CONTENT: Fully Responsive and Seamless -->
+  <!-- REGISTRY CONTENT: Hidden until authenticated -->
   <div id="mainContent" class="hidden w-full">
     <div class="toolbar shadow-sm">
       <button onclick="openModal('add')" class="bg-green-600 text-white btn-hd hover:bg-green-700 uppercase whitespace-nowrap"><i class="fa-solid fa-plus-circle"></i> NEW REGISTER</button>
       <div class="flex items-center gap-1.5 flex-1 justify-end">
-        <!-- Optimized Search: Triggers on Enter, resets on empty input -->
         <div class="relative w-full max-w-[200px] md:max-w-[300px]">
           <input type="text" id="searchInput" onkeydown="if(event.key==='Enter')handleSearch()" oninput="handleAutoClear(this)" placeholder="Search MCD or Name..." class="w-full border-2 border-gray-100 p-1.5 rounded-lg text-[10.5px] outline-none focus:border-blue-500 uppercase font-black">
         </div>
@@ -72,7 +71,7 @@ td { padding: 8px; border: 1px solid #f1f5f9; font-size: 10.5px; text-align: cen
   </div>
 </main>
 
-<!-- --- MODAL FOR ADD/UPDATE --- -->
+<!-- --- MODAL FOR DATA ENTRY --- -->
 <div id="modal" class="modal">
   <div class="modal-content"><div class="flex justify-between items-center border-b-2 border-gray-100 pb-3 mb-4"><h2 id="modalTitle" class="text-xs font-black text-blue-900 uppercase">Medicine Entry</h2><i onclick="closeModal()" class="fa-solid fa-times text-gray-400 cursor-pointer hover:text-red-500"></i></div>
     <div class="grid grid-cols-1 gap-3">
@@ -103,11 +102,11 @@ td { padding: 8px; border: 1px solid #f1f5f9; font-size: 10.5px; text-align: cen
 
 <!-- --- JAVASCRIPT SECTION --- -->
 <script>
-/* Global Configuration and State */
+/* Global Config */
 const API_URL = "https://script.google.com/macros/s/AKfycbwfORRZ1Xd73yfKgkaBnisSQhN6xfDNPMCOu7yVTi9oerhEKOg5ezi6lVHOf8SepsKNhA/exec";
 let allMedicines = []; let sessionToken = ""; let sessionID = ""; let sessionPass = ""; let deleteTarget = null;
 
-/* UI State Helpers */
+/* UI Helpers */
 const setLoading = (btnId, iconId, isLoad) => { const btn = document.getElementById(btnId); const icon = document.getElementById(iconId); if(isLoad){ btn.disabled = true; if(icon) { icon.className = "fa-solid fa-spinner spinner"; icon.classList.remove('hidden'); } } else { btn.disabled = false; if(icon) { if(iconId === "loginIcon") icon.className = "fa-solid fa-arrow-right"; else if(iconId === "reloadIcon") icon.className = "fa-solid fa-rotate"; else if(iconId === "submitIcon") { icon.className = "fa-solid fa-save"; icon.classList.add('hidden'); } else if(iconId === "confirmIcon") { icon.className = "fa-solid fa-spinner spinner"; icon.classList.add('hidden'); } } } };
 const togglePassword = () => { const pin = document.getElementById('pwdInput'); const icon = document.getElementById('togglePwd'); if(pin.type === 'password'){ pin.type = 'text'; icon.className = "fa-solid fa-eye-slash text-blue-500 cursor-pointer"; } else { pin.type = 'password'; icon.className = "fa-solid fa-eye text-gray-400 cursor-pointer"; } };
 const closeModal = () => { document.getElementById('modal').style.display = 'none'; };
@@ -115,15 +114,16 @@ const closeConfirm = () => { document.getElementById('confirmModal').style.displ
 const clearSearch = () => { document.getElementById('searchInput').value = ''; renderTable(allMedicines); };
 const handleAutoClear = (input) => { if(input.value.trim() === '') renderTable(allMedicines); };
 
-/* Auth and Initial Data Load */
+/* Verification: Adding .trim() and .toUpperCase() to prevent common login issues */
 async function verifyAndLoad() { 
   const t = document.getElementById('tokenInput').value.trim(); 
-  const u = document.getElementById('uidInput').value.trim(); 
+  const u = document.getElementById('uidInput').value.trim().toUpperCase(); 
   const p = document.getElementById('pwdInput').value.trim();
   if(!t || !u || !p) return; sessionToken = t; sessionID = u; sessionPass = p; 
   setLoading('loginBtn', 'loginIcon', true); await fetchData(); 
 }
 
+/* Data Fetch with Loader */
 async function fetchData() { 
   if(!sessionID) return; setLoading('reloadBtn', 'reloadIcon', true); document.getElementById('loginError').classList.add('hidden');
   try { 
@@ -138,7 +138,7 @@ async function fetchData() {
   } catch (e) { console.error(e); } finally { setLoading('loginBtn', 'loginIcon', false); setLoading('reloadBtn', 'reloadIcon', false); } 
 }
 
-/* Core Table Generation */
+/* Render Table with 7-day Calculation */
 function renderTable(data) {
   const h = document.getElementById('tableHeader'); const b = document.getElementById('tableBody');
   const cols = ['SR', 'EDIT', 'DEL', 'MCD', 'MED-SHORT', 'MED-NAME', 'LST-STK', 'CUR-STK', 'LST-PRC', 'SELL-PRC', 'TAB-PRC', 'D1-Q', 'D2-Q', 'D3-Q', 'D4-Q', 'D5-Q', 'D6-Q', 'D7-Q', 'D1-A', 'D2-A', 'D3-A', 'D4-A', 'D5-A', 'D6-A', 'D7-A', 'WK-QTY', 'WK-AMT', 'TIME'];
@@ -150,7 +150,7 @@ function renderTable(data) {
   }).join('');
 }
 
-/* CRUD Logic */
+/* CRUD and Confirmation Logics */
 async function submitData() {
   const p = { action: window.currentAction, token: sessionToken, uid: sessionID, pwd: sessionPass, mcd: document.getElementById('editMcd').value, short: document.getElementById('shortName').value, name: document.getElementById('fullName').value, lstStk: Number(document.getElementById('lstStk').value), lstPrc: Number(document.getElementById('lstPrc').value), tabPrc: Number(document.getElementById('tabPrc').value) };
   setLoading('submitBtn', 'submitIcon', true); try { const r = await fetch(API_URL, { method: 'POST', body: JSON.stringify(p) }); const d = await r.json(); if(d.success) { allMedicines = d.medicines; renderTable(allMedicines); closeModal(); } else alert(d.msg); } catch(e) { console.error(e); } finally { setLoading('submitBtn', 'submitIcon', false); }
@@ -162,7 +162,7 @@ async function confirmDelete() {
   try { const r = await fetch(API_URL, { method: 'POST', body: JSON.stringify({ action: 'delete', token: sessionToken, uid: sessionID, pwd: sessionPass, mcd: deleteTarget }) }); const d = await r.json(); if(d.success) { allMedicines = d.medicines; renderTable(allMedicines); closeConfirm(); } else alert(d.msg); } catch(e) { console.error(e); } finally { setLoading('confirmBtn', 'confirmIcon', false); }
 }
 
-/* UI Helpers */
+/* Search and Auto-Suggestions */
 function handleSearch() { const t = document.getElementById('searchInput').value.toLowerCase(); const f = allMedicines.filter(m => m.some(v => String(v).toLowerCase().includes(t))); renderTable(f); }
 function openModal(mode, mcd = '') {
   document.getElementById('modal').style.display = 'flex'; document.getElementById('modalTitle').innerText = mode === 'add' ? 'ADD NEW MEDICINE' : 'UPDATE RECORD: ' + mcd;
