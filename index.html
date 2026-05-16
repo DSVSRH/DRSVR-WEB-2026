@@ -49,6 +49,87 @@
         @media (max-width: 768px) { .ultra-compact-unified-header { background: linear-gradient(180deg, #fffafa 0%, #f9eeee 100%) !important; } .branding-top-tier { padding: 0 20px; } .identity-text-stack { align-items: center; text-align: center; margin: 0 auto; } .brand-name-linear-row { align-self: center; justify-content: center; } .top-menu-container { gap: 1px; } .menu-btn { font-size: 6px; padding: 2px 5px; } }
 
 		
+		
+		
+/* SCROLLING PHOTOS*/	
+
+:root {
+    --marquee-height: 120px;
+    --scroll-speed:70s;
+}
+        .marquee-container {
+            width: 100%;
+            height: var(--marquee-height);
+            background: #ffffff;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: scroll-left var(--scroll-speed) linear infinite;
+        }
+
+        .marquee-item {
+            height: var(--marquee-height);
+            width: 200px; /* Fixed width for each slide */
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+            border-right: 1px solid #f1f5f9; /* Smart thin border */
+        }
+
+        .marquee-item img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .treatment-name {
+            font-family: 'Roboto Slab', serif;
+            font-size: 10px; /* Small size as requested */
+            font-weight: 700;
+            color: #f8fafc; /* Light color */
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            bottom: 8px;
+            /* Multi-layer shadow for visibility on any background */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.9), 0px 0px 5px rgba(0,0,0,0.6);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
+        }
+
+        /* Pause on hover feature */
+        .marquee-container:hover .marquee-track {
+            animation-play-state: paused;
+        }
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 /* 02-ABOUT SECTION */
 
 		#about-container { width: 100%; font-family: 'Plus Jakarta Sans', sans-serif; -webkit-font-smoothing: antialiased; background-color: #ffffff; border-bottom: 1px solid #f1f5f9; position: relative; margin: 0; padding: 0; }
@@ -146,7 +227,7 @@
 		.doctor-card:hover .spec-box-inline { background: #800000; color: #ffffff; box-shadow: 0 8px 20px rgba(128,0,0,0.3); }
 		.edu-list { margin: 0; padding: 0; list-style: none; flex-grow: 1; }
 		.edu-item { font-size: 7.5px; color: #4a4a4a; line-height: 1.4; padding-left: 12px; position: relative; font-weight: 600; margin-bottom: 3px; }
-		.edu-item::before { content: "✦"; position: absolute; left: 0; color: #dc2626; font-size: 7px; top: 1px; }
+		.edu-item::before { content: "?"; position: absolute; left: 0; color: #dc2626; font-size: 7px; top: 1px; }
 		.reg-no { font-size: 8.5px; font-weight: 900; color: #1a1a1a; margin-top: 8px; padding-top: 5px; border-top: 1px solid #f0f0f0; text-align: center; letter-spacing: 0.3px; }
 		.main-section { max-width: 1700px; margin: 0 auto; padding-bottom: 15px; }
 
@@ -332,9 +413,88 @@ body, p, span, div, a, li, td, th, input, button, textarea, select, h1, h2, h3, 
     </section>
 
 
+
+
+
+<!-- BUTTONS AFTER PHOTOS -->
+
+    <div class="marquee-container">
+        <!-- We wrap items in a track that is duplicated for the loop -->
+        <div class="marquee-track" id="main-track">
+            <!-- START OF GALLERY ITEMS (29 Images) -->
+            <!-- Item 1 -->
+            <div class="marquee-item">
+                <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_04_GYNAECOLOGY.png" alt="Gynaecology">
+                <div class="treatment-name">Gynaecology</div>
+            </div>
+            <!-- Item 2 -->
+            <div class="marquee-item">
+                <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_05_DIABETOLOGY.png" alt="Diabetology">
+                <div class="treatment-name">Diabetology</div>
+            </div>
+            <!-- Item 3 -->
+            <div class="marquee-item">
+                <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_06_EMERGENCY.png" alt="Emergency">
+                <div class="treatment-name">Emergency</div>
+            </div>
+            <!-- Item 4 -->
+            <div class="marquee-item">
+                <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_07_ORTHOPAEDICS.png" alt="Orthopaedics">
+                <div class="treatment-name">Orthopaedics</div>
+            </div>
+            <!-- Item 5 -->
+            <div class="marquee-item">
+                <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_08_OPHTHALMOLOGY.png" alt="Ophthalmology">
+                <div class="treatment-name">Ophthalmology</div>
+            </div>
+            <!-- Item 6 -->
+            <div class="marquee-item">
+                <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_09_HOMEOPATHY.png" alt="Homeopathy">
+                <div class="treatment-name">Homeopathy</div>
+            </div>
+            <!-- Item 7 -->
+            <div class="marquee-item">
+                <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_10_ABOUT_SECTION_BG.png" alt="Facility">
+                <div class="treatment-name">Our Facility</div>
+            </div>
+            <!-- Item 8 -->
+            <div class="marquee-item">
+                <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_11_RECEPTION_IMAGE_RIGHT.png" alt="Reception">
+                <div class="treatment-name">Reception</div>
+            </div>
+            <!-- Generic Medical Items 13 to 34 -->
+            <div class="marquee-item"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_13_PIC.jpg" alt="Med"><div class="treatment-name">Specialized Unit</div></div>
+            <div class="marquee-item"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_15_PIC.jpg" alt="Med"><div class="treatment-name">Medical Suite</div></div>
+            <div class="marquee-item"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_16_PIC.jpg" alt="Med"><div class="treatment-name">Diagnostics</div></div>
+            <div class="marquee-item"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_17_PIC.jpg" alt="Med"><div class="treatment-name">Tech Lab</div></div>
+            <div class="marquee-item"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_18_PIC.jpg" alt="Med"><div class="treatment-name">Sterile Zone</div></div>
+            <div class="marquee-item"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_19_PIC.jpg" alt="Med"><div class="treatment-name">Critical Care</div></div>
+            <div class="marquee-item"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_20_PIC.jpg" alt="Med"><div class="treatment-name">Advanced Ward</div></div>
+            <div class="marquee-item"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_21_PIC.jpg" alt="Med"><div class="treatment-name">Operation Theater</div></div>
+            <div class="marquee-item"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_23_PIC.jpg" alt="Med"><div class="treatment-name">Recovery Room</div></div>
+            <div class="marquee-item"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_24_PIC.jpg" alt="Med"><div class="treatment-name">Consultation</div></div>
+            <div class="marquee-item"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_25_PIC.jpg" alt="Med"><div class="treatment-name">Health Monitoring</div></div>
+            <div class="marquee-item"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_26_PIC.jpg" alt="Med"><div class="treatment-name">Expertise</div></div>
+            <div class="marquee-item"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_27_PIC.jpg" alt="Med"><div class="treatment-name">Treatment</div></div>
+            <div class="marquee-item"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_28_PIC.jpg" alt="Med"><div class="treatment-name">Medical Center</div></div>
+            <div class="marquee-item"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_29_PIC.jpg" alt="Med"><div class="treatment-name">Wellness</div></div>
+            <div class="marquee-item"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_30_PIC.jpg" alt="Med"><div class="treatment-name">Pharmacy</div></div>
+            <div class="marquee-item"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_31_PIC.jpg" alt="Med"><div class="treatment-name">Lab Services</div></div>
+            <div class="marquee-item"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_32_PIC.jpg" alt="Med"><div class="treatment-name">Care Unit</div></div>
+            <div class="marquee-item"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_33_PIC.jpg" alt="Med"><div class="treatment-name">In-Patient</div></div>
+            <div class="marquee-item"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_34_PIC.jpg" alt="Med"><div class="treatment-name">Our Services</div></div>
+            <!-- END OF GALLERY ITEMS -->
+
+            <!-- AUTOMATIC DUPLICATION FOR INFINITE LOOP (Script handles this or manually paste above here) -->
+        </div>
+    </div>
+
+
+
+
 <!-- 02-ABOUT SECTION -->
 
-		<div id="about-container"><section class="w-full relative overflow-hidden bg-white"><div class="compact-section"><div class="absolute right-0 top-0 w-full lg:w-[50%] h-full overflow-hidden"><img src="https://dsvsrh.github.io/SVRIMG-2026/ABOUT_SECTION_BG_PICTURE.png" alt="SVSRH Facility" class="absolute inset-0 w-full h-full object-cover object-[right_center] grayscale-[5%] brightness-[1.05]" onerror="this.src='https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1000'"><div class="img-gradient-overlay"></div></div><div class="relative z-10 w-full lg:w-[55%] px-4 md:px-6 lg:pl-12 lg:pr-4 py-4 flex flex-col justify-center h-full"><div class="space-y-2"><div class="flex items-center gap-3 pt-1"><div class="story-tag uppercase shadow-sm">Dr SVSR Hospital -STORY</div><div class="h-px flex-grow bg-slate-200 max-w-[40px] md:max-w-[80px]"></div><span class="text-slate-500 text-[8px] md:text-[10px] font-extrabold tracking-[0.1em] md:tracking-[0.2em] uppercase">Estd 1989 • Allagadda</span></div><h2 class="text-lg md:text-2xl hd-3d-text py-1">37+ Years of Trust.</h2><div class="hd-block-passage text-[9px] md:text-[11px]"><p>SVSRH, established in 1989 in Allagadda, has been a trusted name in healthcare for over <span class="highlight-3d">37+ years</span>, delivering excellence with compassion and dedication. Our hospital provides high-quality care in a safe, friendly, and patient-centered environment where every individual is treated with warmth.</p><div class="middle-horizontal-line"></div><p>With a team of <span class="highlight-3d">6+ expert doctors</span>, <span class="highlight-3d">50+ wards</span>, <span class="highlight-3d">50+ healthcare services</span>, and <span class="highlight-3d">60+ helping staff</span>, SVSRH ensures efficient care. Our professionals work together to provide accurate diagnosis and effective treatments.</p></div></div></div></div></section></div>
+		<div id="about-container"><section class="w-full relative overflow-hidden bg-white"><div class="compact-section"><div class="absolute right-0 top-0 w-full lg:w-[50%] h-full overflow-hidden"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_10_ABOUT_SECTION_BG.png" alt="SVSRH Facility" class="absolute inset-0 w-full h-full object-cover object-[right_center] grayscale-[5%] brightness-[1.05]" onerror="this.src='https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1000'"><div class="img-gradient-overlay"></div></div><div class="relative z-10 w-full lg:w-[55%] px-4 md:px-6 lg:pl-12 lg:pr-4 py-4 flex flex-col justify-center h-full"><div class="space-y-2"><div class="flex items-center gap-3 pt-1"><div class="story-tag uppercase shadow-sm">Dr SVSR Hospital -STORY</div><div class="h-px flex-grow bg-slate-200 max-w-[40px] md:max-w-[80px]"></div><span class="text-slate-500 text-[8px] md:text-[10px] font-extrabold tracking-[0.1em] md:tracking-[0.2em] uppercase">Estd 1989 • Allagadda</span></div><h2 class="text-lg md:text-2xl hd-3d-text py-1">37+ Years of Trust.</h2><div class="hd-block-passage text-[9px] md:text-[11px]"><p>SVSRH, established in 1989 in Allagadda, has been a trusted name in healthcare for over <span class="highlight-3d">37+ years</span>, delivering excellence with compassion and dedication. Our hospital provides high-quality care in a safe, friendly, and patient-centered environment where every individual is treated with warmth.</p><div class="middle-horizontal-line"></div><p>With a team of <span class="highlight-3d">6+ expert doctors</span>, <span class="highlight-3d">50+ wards</span>, <span class="highlight-3d">50+ healthcare services</span>, and <span class="highlight-3d">60+ helping staff</span>, SVSRH ensures efficient care. Our professionals work together to provide accurate diagnosis and effective treatments.</p></div></div></div></div></section></div>
 
 <!-- 03-SPECIALTY SECTION -->
 
@@ -342,12 +502,12 @@ body, p, span, div, a, li, td, th, input, button, textarea, select, h1, h2, h3, 
 		<div class="max-w-[1500px] mx-auto"> 
 		<div class="flex items-center justify-center mb-8"><div class="h-px bg-slate-200 flex-grow"></div><div class="px-5 py-2 bg-slate-900 text-white text-[10px] md:text-[14px] tracking-[0.3em] font-black mx-4 rounded-md uppercase shadow-md">OUR MEDICAL SPECIALTIES</div><div class="h-px bg-slate-200 flex-grow"></div></div>
 		<div class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-		<div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/SVSRIMG/Gynecology.png" alt="OBGY"></div><div class="title-box"><h3>OBGY – OBSTETRICS & GYNAECOLOGY</h3></div><div class="points-list"><div class="point-item"><span class="dot"></span><span class="point-text">Antenatal Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">High-risk Preg.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Normal Delivery</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Caesarean Sec.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Labour Analgesia</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Infertility Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Menstrual Dis.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">PCOS Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Family Planning</span></div><div class="point-item"><span class="dot"></span><span class="point-text">IUCD/Steril.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Gynaec Surgery</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Hysterectomy</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Laparoscopic Surg</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Obstetric USG</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Pelvic Ultrasound</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Neonatal Stab.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Prenatal Counsel</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Postnatal Care</span></div></div></div>
-		<div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/SVSRIMG/Anesthesiology.png" alt="Medicine"></div><div class="title-box"><h3>DIABETOLOGY & GENERAL MEDICINE</h3></div><div class="points-list"><div class="point-item"><span class="dot"></span><span class="point-text">Fever Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Diabetes Treatment</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Hypertension Mgmt</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Asthma Treatment</span></div><div class="point-item"><span class="dot"></span><span class="point-text">COPD Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">TB Treatment</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Cardiac Screening</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Preventive Health</span></div><div class="point-item"><span class="dot"></span><span class="point-text">General Consult</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Glucose Monitor</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Thyroid Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Lifestyle Counsel</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Obesity Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Chronic Disease</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Routine Screening</span></div></div></div>
-		<div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/SVSRIMG/Trauma%20Care.png" alt="Emergency"></div><div class="title-box"><h3>EMERGENCY DEPARTMENT</h3></div><div class="points-list"><div class="point-item"><span class="dot"></span><span class="point-text">24×7 Emergency</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Trauma Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Poisoning Mgmt</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Cardiac Emergency</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Stroke Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Ambulance Service</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Myocardial Infarct</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Arrhythmia Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">BLS Support</span></div><div class="point-item"><span class="dot"></span><span class="point-text">ACLS Support</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Critical Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Emergency Proc.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Rapid Response</span></div><div class="point-item"><span class="dot"></span><span class="point-text">ICU Support</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Observation Care</span></div></div></div>
-		<div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/SVSRIMG/Orthopedics.png" alt="Orthopaedics"></div><div class="title-box"><h3>ORTHOPAEDICS</h3></div><div class="points-list"><div class="point-item"><span class="dot"></span><span class="point-text">Fracture Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Plaster Treatment</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Orthopaedic Surg.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Joint Replacement</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Knee Replacement</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Hip Replacement</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Spine Disorders</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Sports Injuries</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Arthroscopy</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Physiotherapy</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Rehabilitation</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Arthritis Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Back Pain Mgmt</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Trauma Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Bone & Joint Care</span></div></div></div>
-		<div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/SVSRIMG/Eye%20Care.png" alt="Ophthalmology"></div><div class="title-box"><h3>OPHTHALMOLOGY</h3></div><div class="points-list"><div class="point-item"><span class="dot"></span><span class="point-text">Vision Testing</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Cataract (Phaco)</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Glaucoma Screen.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Diabetic Retino.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Minor Eye Proc.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Spectacle Services</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Contact Lens</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Eye Infection Tx</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Dry Eye Treatment</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Routine Checkups</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Retina Eval.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Pediatric Eye Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Vision Correction</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Computer Vision</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Eye Health Counsel</span></div></div></div>
-		<div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/SVSRIMG/Homeopathy.png" alt="Homeopathy"></div><div class="title-box"><h3>HOMEOPATHY & INTEGRATIVE CARE</h3></div><div class="points-list"><div class="point-item"><span class="dot"></span><span class="point-text">Chronic Disease</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Allergy & Skin Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Migraine Mgmt</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Joint Pain Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Stress & Anxiety</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Lifestyle Counsel</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Immunity Support</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Holistic Consult</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Natural Healing</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Digestive Health</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Respiratory Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Women’s Wellness</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Child Health Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Wellness Programs</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Personalized Tx</span></div></div></div>
+		<div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_04_GYNAECOLOGY.png" alt="OBGY"></div><div class="title-box"><h3>OBGY – OBSTETRICS & GYNAECOLOGY</h3></div><div class="points-list"><div class="point-item"><span class="dot"></span><span class="point-text">Antenatal Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">High-risk Preg.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Normal Delivery</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Caesarean Sec.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Labour Analgesia</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Infertility Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Menstrual Dis.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">PCOS Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Family Planning</span></div><div class="point-item"><span class="dot"></span><span class="point-text">IUCD/Steril.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Gynaec Surgery</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Hysterectomy</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Laparoscopic Surg</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Obstetric USG</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Pelvic Ultrasound</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Neonatal Stab.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Prenatal Counsel</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Postnatal Care</span></div></div></div>
+		<div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_05_DIABETOLOGY.png" alt="Medicine"></div><div class="title-box"><h3>DIABETOLOGY & GENERAL MEDICINE</h3></div><div class="points-list"><div class="point-item"><span class="dot"></span><span class="point-text">Fever Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Diabetes Treatment</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Hypertension Mgmt</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Asthma Treatment</span></div><div class="point-item"><span class="dot"></span><span class="point-text">COPD Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">TB Treatment</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Cardiac Screening</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Preventive Health</span></div><div class="point-item"><span class="dot"></span><span class="point-text">General Consult</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Glucose Monitor</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Thyroid Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Lifestyle Counsel</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Obesity Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Chronic Disease</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Routine Screening</span></div></div></div>
+		<div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_06_EMERGENCY.png" alt="Emergency"></div><div class="title-box"><h3>EMERGENCY DEPARTMENT</h3></div><div class="points-list"><div class="point-item"><span class="dot"></span><span class="point-text">24×7 Emergency</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Trauma Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Poisoning Mgmt</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Cardiac Emergency</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Stroke Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Ambulance Service</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Myocardial Infarct</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Arrhythmia Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">BLS Support</span></div><div class="point-item"><span class="dot"></span><span class="point-text">ACLS Support</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Critical Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Emergency Proc.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Rapid Response</span></div><div class="point-item"><span class="dot"></span><span class="point-text">ICU Support</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Observation Care</span></div></div></div>
+		<div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_07_ORTHOPAEDICS.png" alt="Orthopaedics"></div><div class="title-box"><h3>ORTHOPAEDICS</h3></div><div class="points-list"><div class="point-item"><span class="dot"></span><span class="point-text">Fracture Management</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Plaster Treatment</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Orthopaedic Surg.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Joint Replacement</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Knee Replacement</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Hip Replacement</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Spine Disorders</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Sports Injuries</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Arthroscopy</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Physiotherapy</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Rehabilitation</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Arthritis Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Back Pain Mgmt</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Trauma Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Bone & Joint Care</span></div></div></div>
+		<div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_08_OPHTHALMOLOGY.png" alt="Ophthalmology"></div><div class="title-box"><h3>OPHTHALMOLOGY</h3></div><div class="points-list"><div class="point-item"><span class="dot"></span><span class="point-text">Vision Testing</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Cataract (Phaco)</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Glaucoma Screen.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Diabetic Retino.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Minor Eye Proc.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Spectacle Services</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Contact Lens</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Eye Infection Tx</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Dry Eye Treatment</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Routine Checkups</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Retina Eval.</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Pediatric Eye Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Vision Correction</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Computer Vision</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Eye Health Counsel</span></div></div></div>
+		<div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_09_HOMEOPATHY.png" alt="Homeopathy"></div><div class="title-box"><h3>HOMEOPATHY & INTEGRATIVE CARE</h3></div><div class="points-list"><div class="point-item"><span class="dot"></span><span class="point-text">Chronic Disease</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Allergy & Skin Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Migraine Mgmt</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Joint Pain Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Stress & Anxiety</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Lifestyle Counsel</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Immunity Support</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Holistic Consult</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Natural Healing</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Digestive Health</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Respiratory Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Women’s Wellness</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Child Health Care</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Wellness Programs</span></div><div class="point-item"><span class="dot"></span><span class="point-text">Personalized Tx</span></div></div></div>
 		</div>
 		</div>
 		</section>
@@ -378,7 +538,7 @@ body, p, span, div, a, li, td, th, input, button, textarea, select, h1, h2, h3, 
                         <div class="grid grid-cols-12 gap-2">
                             <div class="col-span-6 lg:col-span-3 input-soft-ui"><div class="icon-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div><input type="date" id="formDate" required></div>
                             <div class="col-span-6 lg:col-span-3 input-soft-ui"><div class="icon-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><input type="time" id="formTime" required></div>
-                            <div class="col-span-12 lg:col-span-6 relative"><div class="dropdown-trigger" onclick="toggleDropdown(event, 'branchOptions')"><span id="doctorDisplay">CHOOSE DEPARTMENT</span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg></div><div id="branchOptions" class="dropdown-options"><div class="dropdown-item" onclick="selectDrop('doctor', 'Orthopaedic', 'Orthopaedic', 'branchOptions')">Orthopaedic ( ఎముకలు మరియు కీళ్ల వైద్యం )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'OPHTHALMOLOGY', 'Ophthalmology', 'branchOptions')">Ophthalmology ( కంటి వైద్యం )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'Anesthesiology', 'Anesthesiology', 'branchOptions')">Anesthesiology ( అనస్థీషియాలజీ )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'OBGY – Gynaecology', 'OBGY – Gynaecology', 'branchOptions')">OBGY – Gynaecology ( గైనకాలజీ )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'Homeopathy', 'Homeopathy', 'branchOptions')">Homeopathy ( హోమియోపతి )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'Gynaecology', 'Gynaecology', 'branchOptions')">Gynaecology ( గైనకాలజీ )</div></div><input type="hidden" id="doctor" required></div>
+                            <div class="col-span-12 lg:col-span-6 relative"><div class="dropdown-trigger" onclick="toggleDropdown(event, 'branchOptions')"><span id="doctorDisplay">CHOOSE DEPARTMENT</span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg></div><div id="branchOptions" class="dropdown-options"><div class="dropdown-item" onclick="selectDrop('doctor', 'Orthopaedic', 'Orthopaedic', 'branchOptions')">Orthopaedic ( ?????? ????? ????? ?????? )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'OPHTHALMOLOGY', 'Ophthalmology', 'branchOptions')">Ophthalmology ( ???? ?????? )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'Anesthesiology', 'Anesthesiology', 'branchOptions')">Anesthesiology ( ????????????? )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'OBGY – Gynaecology', 'OBGY – Gynaecology', 'branchOptions')">OBGY – Gynaecology ( ???????? )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'Homeopathy', 'Homeopathy', 'branchOptions')">Homeopathy ( ????????? )</div><div class="dropdown-item" onclick="selectDrop('doctor', 'Gynaecology', 'Gynaecology', 'branchOptions')">Gynaecology ( ???????? )</div></div><input type="hidden" id="doctor" required></div>
                         </div>
                         <div class="grid grid-cols-12 gap-2"><div class="col-span-12 input-soft-ui"><div class="icon-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><input type="text" id="patientName" placeholder="PATIENT FULL NAME" required oninput="handleTitleCase(this)"></div></div>
                         <div class="grid grid-cols-12 gap-2">
@@ -413,15 +573,15 @@ body, p, span, div, a, li, td, th, input, button, textarea, select, h1, h2, h3, 
 
 		<div class="header"><span>EXPERT DOCTORS</span></div>
 		<section class="main-section"><section id="doctors-section">
-		<div class="main-grid">
-		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" class="doctor-img" alt="Dr. P. Haneesha"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. Haneesha Yaswanth</h3></div><div class="spec-box-inline">OBGY-GYNECOLOGY</div><ul class="edu-list"><li class="edu-item">MBBS Degree</li><li class="edu-item">MS (OBGY)</li><li class="edu-item">SR: Santhiram Medical College & Hospital, Nandyal</li><li class="edu-item">Certified Training in Obstetrics & Gynaec Ultrasound</li><li class="edu-item">Pursuing Fellowship in Infertility & Reproductive Medicine</li><li class="edu-item">Global Surgical Institute</li></ul><div class="reg-no">Regd. No. :APMC/FMR/97996</div></div></div>
-		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" class="doctor-img" alt="Dr. S. Chandrika"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. S. Chandrika</h3></div><div class="spec-box-inline">OPHTHALMOLOGY</div><ul class="edu-list"><li class="edu-item">MBBS Degree</li><li class="edu-item">MS (Ophthalmology)</li><li class="edu-item">Senior Residency: Bharati Vidyapeeth, Pune</li><li class="edu-item">Ex-Assistant Professor: Santhiram Medical College & Hospital</li></ul><div class="reg-no">Regd. No. APMC/FMR 98519</div></div></div>
-		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" class="doctor-img" alt="Dr. S. Yaswanth Reddy"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. S. Yaswanth Reddy</h3></div><div class="spec-box-inline">ANESTHESIA</div><ul class="edu-list"><li class="edu-item">MBBS Degree</li><li class="edu-item">MD Anaesthesiology</li><li class="edu-item">SR: Narayana Medical College & Hospital, Nellore</li><li class="edu-item">Fellowship in Diabetology</li><li class="edu-item">Fellowship in Pain Medicine</li><li class="edu-item">Intensivist: Santhiram & Udayanand Hospitals</li></ul><div class="reg-no">Regd. No. :APMC/FMR/97996</div></div></div>
-		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" class="doctor-img" alt="Dr. T.N. Lakshmi Reddy"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. T.N. Lakshmi Reddy</h3></div><div class="spec-box-inline">ORTHOPAEDICS</div><ul class="edu-list"><li class="edu-item">MBBS Degree</li><li class="edu-item">MD (General Medicine)</li><li class="edu-item">Consultant Physician</li><li class="edu-item">Specialist in Diabetes & Hypertension Management</li><li class="edu-item">Emergency and Critical Care Management</li><li class="edu-item">Preventive Health Care Specialist</li></ul><div class="reg-no">Regd.No. APMC/FMR 96871</div></div></div>
-		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" class="doctor-img" alt="Dr. S. Narasimha Reddy"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. S. Narasimha Reddy</h3></div><div class="spec-box-inline">HOMEOPATHY</div><ul class="edu-list"><li class="edu-item">MBS(hom) Degree</li><li class="edu-item">4 Years of Clinical Experience</li></ul><div class="reg-no">Regd. No. : 4678.</div></div></div>
-		<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" class="doctor-img" alt="Dr. S. Siva Nageswaramma"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. S. Siva Nageswaramma</h3></div><div class="spec-box-inline">HOMEOPATHY</div><ul class="edu-list"><li class="edu-item">MBS(hom) Degree</li><li class="edu-item">4 Years of Clinical Experience</li></ul><div class="reg-no">Regd. No. : 4686.</div></div></div>
-		</div>
-		</section>
+<div class="main-grid">
+<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/SVSRIMG/DOCTORE_EXAMPLE_PNG.png" class="doctor-img" alt="Dr. P. Haneesha"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. P. Haneesha</h3></div><div class="spec-box-inline">GYNECOLOGY</div><ul class="edu-list"><li class="edu-item">MBBS Degree</li><li class="edu-item">MS (OBGY)</li><li class="edu-item">SR: Santhiram Medical College & Hospital, Nandyal</li><li class="edu-item">Certified Training in Obstetrics & Gynaec Ultrasound</li><li class="edu-item">Pursuing Fellowship in Infertility & Reproductive Medicine</li><li class="edu-item">Global Surgical Institute</li></ul><div class="reg-no">Regd. No. :APMC/FMR/97996</div></div></div>
+<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/SVSRIMG/DOCTORE_EXAMPLE_PNG.png" class="doctor-img" alt="Dr. S. Chandrika"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. S. Chandrika</h3></div><div class="spec-box-inline">OPHTHALMOLOGY</div><ul class="edu-list"><li class="edu-item">MBBS Degree</li><li class="edu-item">MS (Ophthalmology)</li><li class="edu-item">Senior Residency: Bharati Vidyapeeth, Pune</li><li class="edu-item">Ex-Assistant Professor: Santhiram Medical College & Hospital</li></ul><div class="reg-no">Regd. No. APMC/FMR 98519</div></div></div>
+<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/SVSRIMG/DOCTORE_EXAMPLE_PNG.png" class="doctor-img" alt="Dr. S. Yaswanth Reddy"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. S. Yaswanth Reddy</h3></div><div class="spec-box-inline">ANESTHESIA</div><ul class="edu-list"><li class="edu-item">MBBS Degree</li><li class="edu-item">MD Anaesthesiology</li><li class="edu-item">SR: Narayana Medical College & Hospital, Nellore</li><li class="edu-item">Fellowship in Diabetology</li><li class="edu-item">Fellowship in Pain Medicine</li><li class="edu-item">Intensivist: Santhiram & Udayanand Hospitals</li></ul><div class="reg-no">Regd. No. :APMC/FMR/97996</div></div></div>
+<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/SVSRIMG/DOCTORE_EXAMPLE_PNG.png" class="doctor-img" alt="Dr. T.N. Lakshmi Reddy"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. T.N. Lakshmi Reddy</h3></div><div class="spec-box-inline">GENERAL MEDICINE</div><ul class="edu-list"><li class="edu-item">MBBS Degree</li><li class="edu-item">MD (General Medicine)</li><li class="edu-item">Consultant Physician</li><li class="edu-item">Specialist in Diabetes & Hypertension Management</li><li class="edu-item">Emergency and Critical Care Management</li><li class="edu-item">Preventive Health Care Specialist</li></ul><div class="reg-no">Regd.No. APMC/FMR 96871</div></div></div>
+<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/SVSRIMG/DOCTORE_EXAMPLE_PNG.png" class="doctor-img" alt="Dr. S. Narasimha Reddy"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. S. Narasimha Reddy</h3></div><div class="spec-box-inline">HOMEOPATHY</div><ul class="edu-list"><li class="edu-item">MBS(hom) Degree</li><li class="edu-item">4 Years of Clinical Experience</li></ul><div class="reg-no">Regd. No. : 4678.</div></div></div>
+<div class="doctor-card"><div class="doctor-img-container"><img src="https://dsvsrh.github.io/SVSRIMG/DOCTORE_EXAMPLE_PNG.png" class="doctor-img" alt="Dr. S. Siva Nageswaramma"></div><div class="info-box"><div class="name-section"><h3 class="name">Dr. S. Siva Nageswaramma</h3></div><div class="spec-box-inline">HOMEOPATHY</div><ul class="edu-list"><li class="edu-item">MBS(hom) Degree</li><li class="edu-item">4 Years of Clinical Experience</li></ul><div class="reg-no">Regd. No. : 4686.</div></div></div>
+</div>
+</section>
 
 	
 <!-- 07-GALLERY SECTION -->
@@ -451,33 +611,43 @@ body, p, span, div, a, li, td, th, input, button, textarea, select, h1, h2, h3, 
             <div id="track-left" class="slider-track">
 
                 <div class="slide">
-                    <img src="https://dsvsrh.github.io/SVSRIMG/Orthopedics.png" alt="Orthopedics">
-                    <div class="slide-caption">Orthopedics</div>
-                </div>
-
-                <div class="slide">
-                    <img src="https://dsvsrh.github.io/SVSRIMG/Eye%20Care.png" alt="Eye Care">
-                    <div class="slide-caption">Eye Care</div>
-                </div>
-
-                <div class="slide">
-                    <img src="https://dsvsrh.github.io/SVSRIMG/Trauma%20Care.png" alt="Trauma Care">
-                    <div class="slide-caption">Trauma Care</div>
-                </div>
-
-                <div class="slide">
-                    <img src="https://dsvsrh.github.io/SVSRIMG/Anesthesiology.png" alt="Anesthesiology">
-                    <div class="slide-caption">Anesthesiology</div>
-                </div>
-
-                <div class="slide">
-                    <img src="https://dsvsrh.github.io/SVSRIMG/Gynecology.png" alt="Gynecology">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_04_GYNAECOLOGY.png" alt="Gynecology">
                     <div class="slide-caption">Gynecology</div>
                 </div>
 
                 <div class="slide">
-                    <img src="https://dsvsrh.github.io/SVSRIMG/Homeopathy.png" alt="Homeopathy">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_05_DIABETOLOGY.png" alt="Diabetology">
+                    <div class="slide-caption">Diabetology</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_06_EMERGENCY.png" alt="Emergency">
+                    <div class="slide-caption">Emergency</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_07_ORTHOPAEDICS.png" alt="Orthopaedics">
+                    <div class="slide-caption">Orthopaedics</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_08_OPHTHALMOLOGY.png" alt="Ophthalmology">
+                    <div class="slide-caption">Ophthalmology</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_09_HOMEOPATHY.png" alt="Homeopathy">
                     <div class="slide-caption">Homeopathy</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_10_ABOUT_SECTION_BG.png" alt="Hospital">
+                    <div class="slide-caption">Hospital Care</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_11_RECEPTION_IMAGE_RIGHT.png" alt="Reception">
+                    <div class="slide-caption">Reception</div>
                 </div>
 
             </div>
@@ -500,24 +670,108 @@ body, p, span, div, a, li, td, th, input, button, textarea, select, h1, h2, h3, 
 
             <div id="track-right" class="slider-track">
 
+
+
                 <div class="slide">
-                    <img src="https://dsvsrh.github.io/SVSRIMG/RECEPTION_IMAGE_RIGHT.png" alt="Reception">
-                    <div class="slide-caption">Reception</div>
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_13_PIC.jpg" alt="Hospital Image 13">
+                    <div class="slide-caption">Patient Care</div>
+                </div>
+
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_15_PIC.jpg" alt="Hospital Image 15">
+                    <div class="slide-caption">Healthcare</div>
                 </div>
 
                 <div class="slide">
-                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_12_EXP_DOCTORE_LOGO.png" alt="Doctors">
-                    <div class="slide-caption">Our Doctors</div>
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_16_PIC.jpg" alt="Hospital Image 16">
+                    <div class="slide-caption">Advanced Care</div>
                 </div>
 
                 <div class="slide">
-                    <img src="https://dsvsrh.github.io/SVSRIMG/PAGE_ABOUT_RIGHT_EXAMPLE.png" alt="Infrastructure">
-                    <div class="slide-caption">Infrastructure</div>
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_17_PIC.jpg" alt="Hospital Image 17">
+                    <div class="slide-caption">Hospital Facility</div>
                 </div>
 
                 <div class="slide">
-                    <img src="https://dsvsrh.github.io/SVSRIMG/emergency.png" alt="Emergency">
-                    <div class="slide-caption">24/7 Emergency</div>
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_18_PIC.jpg" alt="Hospital Image 18">
+                    <div class="slide-caption">Special Care</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_19_PIC.jpg" alt="Hospital Image 19">
+                    <div class="slide-caption">Medical Support</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_20_PIC.jpg" alt="Hospital Image 20">
+                    <div class="slide-caption">Hospital Team</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_21_PIC.jpg" alt="Hospital Image 21">
+                    <div class="slide-caption">Care Unit</div>
+                </div>
+
+    
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_23_PIC.jpg" alt="Hospital Image 23">
+                    <div class="slide-caption">Patient Service</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_24_PIC.jpg" alt="Hospital Image 24">
+                    <div class="slide-caption">Hospital Interior</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_25_PIC.jpg" alt="Hospital Image 25">
+                    <div class="slide-caption">Hospital Facility</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_26_PIC.jpg" alt="Hospital Image 26">
+                    <div class="slide-caption">Emergency Care</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_27_PIC.jpg" alt="Hospital Image 27">
+                    <div class="slide-caption">Doctor Support</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_28_PIC.jpg" alt="Hospital Image 28">
+                    <div class="slide-caption">Health Services</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_29_PIC.jpg" alt="Hospital Image 29">
+                    <div class="slide-caption">Patient Safety</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_30_PIC.jpg" alt="Hospital Image 30">
+                    <div class="slide-caption">Hospital Care</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_31_PIC.jpg" alt="Hospital Image 31">
+                    <div class="slide-caption">Medical Team</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_32_PIC.jpg" alt="Hospital Image 32">
+                    <div class="slide-caption">Specialist Care</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_33_PIC.jpg" alt="Hospital Image 33">
+                    <div class="slide-caption">Hospital Environment</div>
+                </div>
+
+                <div class="slide">
+                    <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_34_PIC.jpg" alt="Hospital Image 34">
+                    <div class="slide-caption">Complete Healthcare</div>
                 </div>
 
             </div>
@@ -531,7 +785,6 @@ body, p, span, div, a, li, td, th, input, button, textarea, select, h1, h2, h3, 
 </div>
 
 </section>
-
 <!-- AUTO SLIDER SCRIPT -->
 
 <script>
@@ -648,6 +901,8 @@ function navigateSection(sectionId, pageName) {
         <div class="facility-card"> <div class="card-header"> <div class="icon-container">👣</div> <h3 class="card-title">Post-Op Recovery</h3> </div> <p class="card-desc">High-surveillance unit focusing on patient vital sign stability and safety immediately following surgery.</p> </div>
     </div> </div>
 
+
+
 <!-- 10-SERVICE SECTION -->
 
        <section class="pt-4 pb-8 px-4 w-full"><section id="services-section">
@@ -694,6 +949,17 @@ function navigateSection(sectionId, pageName) {
 		const shareLoc = () => { alert("Location link copied to your system clipboard."); };
 
 
+		
+/* SCROLLING PHOTOS*/	
+
+
+        // Currently, the marquee is handled by CSS for best performance.
+        // You can add custom JS logic here if you want to change speed dynamically.
+        window.onload = function() {
+            console.log("Medical Scroll initialized successfully.");
+        };
+
+
 
         const GLOBAL_DEPLOYED_URL = "https://script.google.com/macros/s/AKfycbxVDbaMKcLJa89Hrbt9RA4mVISf8V1GeciTD8XesY2ufnpQU5ygDfjhLcQ2kD5bgiRc/exec";
         function handleTitleCase(el) { el.value = el.value.toLowerCase().split(' ').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' '); }
@@ -705,10 +971,10 @@ function navigateSection(sectionId, pageName) {
         function PROCEDURE_INITIATE_TOKEN_SHARE() { const btn = document.getElementById('shBtn'); btn.innerText = "..."; btn.disabled = true; setTimeout(() => { const ticket = document.getElementById('ticketCapture'); html2canvas(ticket, { scale: 3 }).then(canvas => { canvas.toBlob(blob => { if (navigator.share && blob) { const file = new File([blob], 'SVSR_Token.png', { type: 'image/png' }); navigator.share({ files: [file], title: 'Patient Token' }).then(() => { btn.innerText = "Share"; btn.disabled = false; }).catch(() => { btn.innerText = "Share"; btn.disabled = false; }); } else { const link = document.createElement('a'); link.href = canvas.toDataURL(); link.click(); btn.innerText = "Share"; btn.disabled = false; } }); }); }, 800); }
         window.onload = () => { SET_DEFAULT_TIMESTAMP(); };
         window.onclick = () => document.querySelectorAll('.dropdown-options').forEach(d => d.classList.remove('show'));
-        document.getElementById('tokenForm').addEventListener('submit', function(e) { e.preventDefault(); const msg = document.getElementById('statusMessage'); if(!document.getElementById('doctor').value || !document.getElementById('gender').value) { msg.innerText = "✕ SELECT DEPT & GENDER"; return; }
+        document.getElementById('tokenForm').addEventListener('submit', function(e) { e.preventDefault(); const msg = document.getElementById('statusMessage'); if(!document.getElementById('doctor').value || !document.getElementById('gender').value) { msg.innerText = "? SELECT DEPT & GENDER"; return; }
             document.getElementById('loadingOverlay').style.display = 'flex';
             const payload = { doctorName: document.getElementById('doctor').value, fullName: document.getElementById('patientName').value.trim(), age: document.getElementById('age').value, gender: document.getElementById('gender').value, phone: document.getElementById('phoneNumber').value.trim(), village: document.getElementById('village').value.trim() };
-            fetch(GLOBAL_DEPLOYED_URL, { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(payload) }).then(res => res.json()).then(data => { if(data.result === "success") { document.getElementById('resToken').innerText = data.token; document.getElementById('resName').innerText = payload.fullName; document.getElementById('formContainer').style.display = 'none'; document.getElementById('successView').style.display = 'flex'; document.getElementById('sideButtons').style.display = 'flex'; } else { msg.innerText = "✕ ERROR: " + data.message; } }).catch(() => { msg.innerText = "✕ CONNECTION ERROR"; }).finally(() => { document.getElementById('loadingOverlay').style.display = 'none'; }); });
+            fetch(GLOBAL_DEPLOYED_URL, { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(payload) }).then(res => res.json()).then(data => { if(data.result === "success") { document.getElementById('resToken').innerText = data.token; document.getElementById('resName').innerText = payload.fullName; document.getElementById('formContainer').style.display = 'none'; document.getElementById('successView').style.display = 'flex'; document.getElementById('sideButtons').style.display = 'flex'; } else { msg.innerText = "? ERROR: " + data.message; } }).catch(() => { msg.innerText = "? CONNECTION ERROR"; }).finally(() => { document.getElementById('loadingOverlay').style.display = 'none'; }); });
     
 
 		function moveSlider(track, slides, state) { state.index = (state.index + 1) % slides.length; track.style.transform = `translateX(-${state.index * 100}%)`; }
