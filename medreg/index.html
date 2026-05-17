@@ -19,7 +19,14 @@ body { font-family: 'Roboto Slab', serif; background-color: var(--bg); margin: 0
 .login-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; padding: 6px 20px; border-radius: 8px; font-size: 9px; font-weight: 900; white-space: nowrap; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4); z-index: 10; }
 .input-group { position: relative; margin-bottom: 15px; } .input-group i { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #3b82f6; font-size: 14px; } 
 .login-input { width: 100%; padding: 12px 20px 12px 50px; border: 1.5px solid #f1f5f9; border-radius: 50px; outline: none; font-size: 11.5px; font-weight: 700; transition: 0.3s; color: #334155; }
-/* టూల్‌బార్ మరియు టేబుల్ అడ్జస్ట్మెంట్స్ */
+
+.login-input:focus { border-color: #3b82f6; background: #f8fafc; }
+/* Restored Stylish Go-Button Styles */
+.login-go-btn { background: var(--primary); color: white; width: 45px; height: 45px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 20px; cursor: pointer; transition: 0.3s; margin: 10px auto 0; box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3); border: none; }
+.login-go-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+
+  
+  /* టూల్‌బార్ మరియు టేబుల్ అడ్జస్ట్మెంట్స్ */
 .toolbar { background: white; padding: 6px 12px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #e2e8f0; width: 100%; }
 .table-container { overflow-x: auto; background: white; width: 100%; scrollbar-width: none; -ms-overflow-style: none; } .table-container::-webkit-scrollbar { display: none; }
 th { background-color: #f8fafc; color: #1e293b; font-weight: 900; text-transform: uppercase; font-size: 8.5px; padding: 10px 8px; border: 1px solid #e2e8f0; white-space: nowrap; }
