@@ -91,13 +91,13 @@
     .title-box { display: flex; align-items: center; justify-content: center; text-align: center; padding: 10px 4px 6px 4px; min-height: 52px; }
     .title-box h3 { background-color: #dc2626; color: white; padding: 5px 8px; border-radius: 3px; display: inline-block; width: 94%; font-size: 10px; line-height: 1.2; font-weight: 900; letter-spacing: 0.02em; box-shadow: 2px 2px 0px rgba(0,0,0,0.1); margin: 0; }
     .points-wrapper { display: flex; align-items: stretch; justify-content: center; padding: 4px 6px; flex-grow: 1; }
-    .points-col-left { display: flex; flex-direction: column; gap: 3.5px; width: 47%; align-items: flex-end; text-align: right; justify-content: flex-start; }
+    .points-col-left { display:flex; flex-direction:column; gap:3.5px; width:47%; align-items:flex-start; text-align:left; justify-content:flex-start; }
     .points-col-right { display: flex; flex-direction: column; gap: 3.5px; width: 47%; align-items: flex-start; text-align: left; justify-content: flex-start; }
     .divider { width: 1.5px; background-color: #fca5a5; align-self: stretch; margin: 4px 3px; opacity: 0.8; }
-    .point-item-left { display: flex; align-items: center; justify-content: flex-end; gap: 5px; line-height: 1.1; width: 100%; overflow: hidden; }
+    .point-item-left { display:flex; align-items:flex-start; justify-content:flex-start; gap:5px; line-height:1.1; width:100%; overflow:hidden; }
     .point-item-right { display: flex; align-items: center; justify-content: flex-start; gap: 5px; line-height: 1.1; width: 100%; overflow: hidden; }
-    .dot { width: 4px; height: 4px; background-color: #dc2626; border-radius: 50%; flex-shrink: 0; }
-    .point-text { font-size: 10.5px; color: #451a03; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .dot { width:4px; height:4px; background-color:#dc2626; border-radius:50%; flex-shrink:0; margin-top:4px; }
+    .point-text { font-size:10.5px; color:#451a03; font-weight:600; letter-spacing:-0.01em; line-height:1.2; }
     @media (min-width: 1024px) { .specialties-section { padding: 48px 32px; } .specialties-header { margin-bottom: 48px; } .header-title { font-size: 14px; padding: 10px 24px; } .specialties-grid { grid-template-columns: repeat(3, 1fr); gap: 32px; } .title-box h3 { font-size: 15px; padding: 6px 12px; } .point-text { font-size: 15px; } .dot { width: 5px; height: 5px; } .points-wrapper { padding: 12px 18px; } .points-col-left { gap: 6px; } .points-col-right { gap: 6px; } .img-box { width: 65%; max-width: 220px; margin-top: 15px; } }
 /* 06-టైమింగ్స్ సెక్షన్ */
     .timing-box { padding: 1rem 1.25rem; background: white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); border-radius: 0.75rem; border-top: 4px solid #0a1d4a; transition: transform 0.2s ease; }
@@ -314,17 +314,217 @@
     </section>
 
 <!-- 05-స్పెషాలిటీ సెక్షన్ -->
-    <section id="specialties-section" class="specialties-section">
-        <div class="specialties-header"><div class="header-line"></div><div class="header-title">OUR MEDICAL SPECIALTIES</div><div class="header-line"></div></div>
-        <div class="specialties-grid">
-            <div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_04_GYNAECOLOGY.png" alt="OBGY"></div><div class="title-box"><h3>OBGY – OBSTETRICS & GYNAECOLOGY</h3></div><div class="points-wrapper"><div class="points-col-left"><div class="point-item-left"><span class="point-text">Antenatal Care</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Normal Delivery</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Labour Analgesia</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Menstrual Dis.</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Family Planning</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Gynaec Surgery</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Laparoscopic Surg</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Pelvic USG</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Prenatal Counsel</span><span class="dot"></span></div></div><div class="divider"></div><div class="points-col-right"><div class="point-item-right"><span class="dot"></span><span class="point-text">High-risk Preg.</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Caesarean Sec.</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Infertility Care</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">PCOS Mgmt</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">IUCD/Steril.</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Hysterectomy</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Obstetric USG</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Neonatal Stab.</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Postnatal Care</span></div></div></div></div>
-            <div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_05_DIABETOLOGY.png" alt="Medicine"></div><div class="title-box"><h3>DIABETOLOGY & GENERAL MEDICINE</h3></div><div class="points-wrapper"><div class="points-col-left"><div class="point-item-left"><span class="point-text">Fever Mgmt</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Hypertension Mgmt</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">COPD Mgmt</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Cardiac Screen</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Gen. Consult</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Thyroid Mgmt</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Obesity Mgmt</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Routine Screen</span><span class="dot"></span></div></div><div class="divider"></div><div class="points-col-right"><div class="point-item-right"><span class="dot"></span><span class="point-text">Diabetes Tx</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Asthma Tx</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">TB Tx</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Preventive Health</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Glucose Monitor</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Lifestyle Couns</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Chronic Illness</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Diet Counseling</span></div></div></div></div>
-            <div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_06_EMERGENCY.png" alt="Emergency"></div><div class="title-box"><h3>EMERGENCY DEPARTMENT</h3></div><div class="points-wrapper"><div class="points-col-left"><div class="point-item-left"><span class="point-text">24×7 Emergency</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Poisoning Mgmt</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Stroke Mgmt</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Myocardial Inf.</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">BLS Support</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Critical Care</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Rapid Response</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Observation Care</span><span class="dot"></span></div></div><div class="divider"></div><div class="points-col-right"><div class="point-item-right"><span class="dot"></span><span class="point-text">Trauma Mgmt</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Cardiac Emerg.</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Ambulance Serv.</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Arrhythmia Care</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">ACLS Support</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Emerg. Proc.</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">ICU Support</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Triage Serv.</span></div></div></div></div>
-            <div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_07_ORTHOPAEDICS.png" alt="Orthopaedics"></div><div class="title-box"><h3>ORTHOPAEDICS</h3></div><div class="points-wrapper"><div class="points-col-left"><div class="point-item-left"><span class="point-text">Fracture Mgmt</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Ortho Surgery</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Knee Replace</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Spine Disorders</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Arthroscopy</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Rehabilitation</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Back Pain Mgmt</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Bone/Joint Care</span><span class="dot"></span></div></div><div class="divider"></div><div class="points-col-right"><div class="point-item-right"><span class="dot"></span><span class="point-text">Plaster Tx</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Joint Replace</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Hip Replace</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Sports Injury</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Physiotherapy</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Arthritis Care</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Trauma Care</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Pediatric Ortho</span></div></div></div></div>
-            <div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_08_OPHTHALMOLOGY.png" alt="Ophthalmology"></div><div class="title-box"><h3>OPHTHALMOLOGY</h3></div><div class="points-wrapper"><div class="points-col-left"><div class="point-item-left"><span class="point-text">Vision Testing</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Glaucoma Screen</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Minor Eye Proc</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Contact Lens</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Dry Eye Tx</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Retina Eval.</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Vision Correct.</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Eye Counseling</span><span class="dot"></span></div></div><div class="divider"></div><div class="points-col-right"><div class="point-item-right"><span class="dot"></span><span class="point-text">Cataract (Phaco)</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Diabetic Retina</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Spectacle Serv.</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Eye Infection Tx</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Routine Checkup</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Pediatric Eye</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Computer Vision</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Cornea Eval</span></div></div></div></div>
-            <div class="specialty-card"><div class="img-box"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_09_HOMEOPATHY.png" alt="Homeopathy"></div><div class="title-box"><h3>HOMEOPATHY & INTEGRATIVE CARE</h3></div><div class="points-wrapper"><div class="points-col-left"><div class="point-item-left"><span class="point-text">Chronic Care</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Migraine Mgmt</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Stress Care</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Immunity Care</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Natural Healing</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Respiratory Tx</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Child Care</span><span class="dot"></span></div><div class="point-item-left"><span class="point-text">Personalized Care</span><span class="dot"></span></div></div><div class="divider"></div><div class="points-col-right"><div class="point-item-right"><span class="dot"></span><span class="point-text">Skin & Allergy</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Joint Pain Tx</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Lifestyle Couns</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Holistic Care</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Digestive Tx</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Women Wellness</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Wellness Prog.</span></div><div class="point-item-right"><span class="dot"></span><span class="point-text">Geriatric Homeo</span></div></div></div></div>
-        </div>
-    </section>
+		<section id="specialties-section" class="specialties-section">
+		<div class="specialties-header"><div class="header-line"></div><div class="header-title">OUR MEDICAL SPECIALTIES</div><div class="header-line"></div></div>
+
+		<div class="specialties-grid">
+
+		<!-- 01 -->
+		<div class="specialty-card">
+		<div class="img-box"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_04_GYNAECOLOGY.png" alt="OBGY"></div>
+		<div class="title-box"><h3>OBGY – OBSTETRICS & GYNAECOLOGY</h3></div>
+		<div class="points-wrapper">
+
+		<div class="points-col-left">
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Antenatal Care</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Normal Delivery</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Labour Analgesia</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Menstrual Dis.</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Family Planning</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Gynaec Surgery</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Laparoscopic Surg</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Pelvic USG</span></div>
+		</div>
+
+		<div class="divider"></div>
+
+		<div class="points-col-right">
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">High-risk Preg.</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Caesarean Sec.</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Infertility Care</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">PCOS Mgmt</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">IUCD/Steril.</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Hysterectomy</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Obstetric USG</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Neonatal Stab.</span></div>
+		</div>
+
+		</div>
+		</div>
+
+		<!-- 02 -->
+		<div class="specialty-card">
+		<div class="img-box"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_05_DIABETOLOGY.png" alt="Medicine"></div>
+		<div class="title-box"><h3>DIABETOLOGY & GENERAL MEDICINE</h3></div>
+
+		<div class="points-wrapper">
+
+		<div class="points-col-left">
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Fever Mgmt</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Hypertension Mgmt</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">COPD Mgmt</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Cardiac Screen</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Gen. Consult</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Thyroid Mgmt</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Obesity Mgmt</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Routine Screen</span></div>
+		</div>
+
+		<div class="divider"></div>
+
+		<div class="points-col-right">
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Diabetes Tx</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Asthma Tx</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">TB Tx</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Preventive Health</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Glucose Monitor</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Lifestyle Couns</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Chronic Illness</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Diet Counseling</span></div>
+		</div>
+
+		</div>
+		</div>
+
+		<!-- 03 -->
+		<div class="specialty-card">
+		<div class="img-box"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_06_EMERGENCY.png" alt="Emergency"></div>
+		<div class="title-box"><h3>EMERGENCY DEPARTMENT</h3></div>
+
+		<div class="points-wrapper">
+
+		<div class="points-col-left">
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">24×7 Emergency</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Poisoning Mgmt</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Stroke Mgmt</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Myocardial Inf.</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">BLS Support</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Critical Care</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Rapid Response</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Observation Care</span></div>
+		</div>
+
+		<div class="divider"></div>
+
+		<div class="points-col-right">
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Trauma Mgmt</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Cardiac Emerg.</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Ambulance Serv.</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Arrhythmia Care</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">ACLS Support</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Emerg. Proc.</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">ICU Support</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Triage Serv.</span></div>
+		</div>
+
+		</div>
+		</div>
+
+		<!-- 04 -->
+		<div class="specialty-card">
+		<div class="img-box"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_07_ORTHOPAEDICS.png" alt="Orthopaedics"></div>
+		<div class="title-box"><h3>ORTHOPAEDICS</h3></div>
+
+		<div class="points-wrapper">
+
+		<div class="points-col-left">
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Fracture Mgmt</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Ortho Surgery</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Knee Replace</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Spine Disorders</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Arthroscopy</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Rehabilitation</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Back Pain Mgmt</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Bone/Joint Care</span></div>
+		</div>
+
+		<div class="divider"></div>
+
+		<div class="points-col-right">
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Plaster Tx</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Joint Replace</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Hip Replace</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Sports Injury</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Physiotherapy</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Arthritis Care</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Trauma Care</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Pediatric Ortho</span></div>
+		</div>
+
+		</div>
+		</div>
+
+		<!-- 05 -->
+		<div class="specialty-card">
+		<div class="img-box"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_08_OPHTHALMOLOGY.png" alt="Ophthalmology"></div>
+		<div class="title-box"><h3>OPHTHALMOLOGY</h3></div>
+
+		<div class="points-wrapper">
+
+		<div class="points-col-left">
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Vision Testing</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Glaucoma Screen</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Minor Eye Proc</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Contact Lens</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Dry Eye Tx</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Retina Eval.</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Vision Correct.</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Eye Counseling</span></div>
+		</div>
+
+		<div class="divider"></div>
+
+		<div class="points-col-right">
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Cataract (Phaco)</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Diabetic Retina</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Spectacle Serv.</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Eye Infection Tx</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Routine Checkup</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Pediatric Eye</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Computer Vision</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Cornea Eval</span></div>
+		</div>
+
+		</div>
+		</div>
+
+		<!-- 06 -->
+		<div class="specialty-card">
+		<div class="img-box"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_09_HOMEOPATHY.png" alt="Homeopathy"></div>
+		<div class="title-box"><h3>HOMEOPATHY & INTEGRATIVE CARE</h3></div>
+
+		<div class="points-wrapper">
+
+		<div class="points-col-left">
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Chronic Care</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Migraine Mgmt</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Stress Care</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Immunity Care</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Natural Healing</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Respiratory Tx</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Child Care</span></div>
+		<div class="point-item-left"><span class="dot"></span><span class="point-text">Personalized Care</span></div>
+		</div>
+
+		<div class="divider"></div>
+
+		<div class="points-col-right">
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Skin & Allergy</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Joint Pain Tx</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Lifestyle Couns</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Holistic Care</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Digestive Tx</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Women Wellness</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Wellness Prog.</span></div>
+		<div class="point-item-right"><span class="dot"></span><span class="point-text">Geriatric Homeo</span></div>
+		</div>
+
+		</div>
+		</div>
+
+		</div>
+		</section>
+
 
 <!-- 06-టైమింగ్స్ సెక్షన్ -->
     <section id="timings-section" class="w-full py-2 px-4 bg-[#f8fafc] border-b border-slate-200">
@@ -432,12 +632,12 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg>
                                 </div>
                                 <div id="branchOptions" class="dropdown-options">
-                                    <div class="dropdown-item" onclick="selectDrop('doctor', 'Orthopaedic', 'Orthopaedic (కీళ్ల వైద్యం)', 'branchOptions')">Orthopaedic (అస్థిపంజర మరియు కీళ్ల వైద్యం)</div>
-                                    <div class="dropdown-item" onclick="selectDrop('doctor', 'OPHTHALMOLOGY', 'Ophthalmology (నేత్ర వైద్యం)', 'branchOptions')">Ophthalmology (నేత్ర వైద్యం)</div>
-                                    <div class="dropdown-item" onclick="selectDrop('doctor', 'Anesthesiology', 'Anesthesiology (మత్తుమందు)', 'branchOptions')">Anesthesiology (మత్తుమందు వైద్యం)</div>
-                                    <div class="dropdown-item" onclick="selectDrop('doctor', 'OBGY – Gynaecology', 'OBGY – Gynaecology (ప్రసూతి)', 'branchOptions')">OBGY – Gynaecology (స్త్రీ ప్రసూతి మరియు గర్భాశయ వైద్యం)</div>
+                                    <div class="dropdown-item" onclick="selectDrop('doctor', 'Orthopaedic', 'Orthopaedic (కీళ్ల వైద్యం)', 'branchOptions')">Orthopaedic (ఎముకల మరియు కీళ్ల వైద్యం )</div>
+                                    <div class="dropdown-item" onclick="selectDrop('doctor', 'OPHTHALMOLOGY', 'Ophthalmology (నేత్ర వైద్యం)', 'branchOptions')">Ophthalmology (కంటి వైద్యం)</div>
+                                    <div class="dropdown-item" onclick="selectDrop('doctor', 'Anesthesiology', 'Anesthesiology (మత్తుమందు)', 'branchOptions')">Diabetology (డయాబెటాలజీ)</div>
+                                    <div class="dropdown-item" onclick="selectDrop('doctor', 'OBGY – Gynaecology', 'OBGY – Gynaecology (ప్రసూతి)', 'branchOptions')">OBGY – Gynaecology (స్త్రీ ప్రసూతి మరియు గైనకాలజీ)</div>
                                     <div class="dropdown-item" onclick="selectDrop('doctor', 'Homeopathy', 'Homeopathy (హోమియోపతి)', 'branchOptions')">Homeopathy (హోమియోపతి వైద్యం)</div>
-                                    <div class="dropdown-item" onclick="selectDrop('doctor', 'Gynaecology', 'Gynaecology (స్త్రీల వైద్యం)', 'branchOptions')">Gynaecology (స్త్రీల వైద్యం)</div>
+                                    <div class="dropdown-item" onclick="selectDrop('doctor', 'Gynaecology', 'Gynaecology (స్త్రీల వైద్యం)', 'branchOptions')">Gynaecology (గైనకాలజీ )</div>
                                 </div>
                                 <input type="hidden" id="doctor" required>
                             </div>
