@@ -12,19 +12,19 @@
         html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, input, textarea, select, button, table, tr, td, th, form, label, section, article, aside, canvas, details, embed, figure, figcaption, footer, header, menu, nav, output, ruby, summary, time, mark, audio, video { box-sizing: border-box; font-family: 'Roboto Slab', serif !important; margin: 0; padding: 0; }
         body * { font-family: 'Roboto Slab', serif !important; }
         body, input, textarea, select, button { font-synthesis: none !important; }
-        body { background-color: #FFFDE7; display: flex; flex-direction: column; align-items: center; padding: 0; margin: 0; min-height: 100vh; width: 100%; overflow-y: auto; overflow-x: hidden; font-size: 8.5pt; padding-top: 65px !important; font-family: 'Roboto Slab', serif !important; }
+        body { background-color: #FFFDE7; display: flex; flex-direction: column; align-items: center; padding: 0; margin: 0; min-height: 100vh; width: 100%; overflow-y: auto; overflow-x: hidden; font-size: 8.5pt; padding-top: 45px !important; font-family: 'Roboto Slab', serif !important; }
         input, select, button, textarea, .sec-editable, .patient-field, .did-value, .input-label, .sec-head, .doc-main-title, .h-title, .h-tagline, .h-address, .did-title, .grid-label, .grid-input, .grid-select, .sig-line, .check-item, .control-label { font-family: 'Roboto Slab', serif !important; }
         /* 02-TOKEN GATE CSS SECTION */
         .token-gate-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 253, 231, 0.88); backdrop-filter: blur(5px); display: flex; justify-content: center; align-items: center; z-index: 100000; transition: opacity 0.4s ease, visibility 0.4s ease; }
         .token-gate-overlay.fade-out { opacity: 0; visibility: hidden; pointer-events: none; }
         .token-gate-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; max-width: 360px; width: 90%; border: 1px solid rgba(0,0,0,0.06); }
         .token-gate-logo { max-height: 55px; margin-bottom: 15px; object-fit: contain; }
-        .token-gate-title { color: #d32f2f; font-size: 14pt; font-weight: 700; margin-bottom: 6px; }
+        .token-gate-title { color: #1f3f95; font-size: 14pt; font-weight: 700; margin-bottom: 6px; }
         .token-gate-subtitle { color: #666; font-size: 8.5pt; margin-bottom: 15px; line-height: 1.4; }
         .token-input { width: 100%; padding: 10px; font-size: 12pt; border: 2px solid #ddd; border-radius: 6px; text-align: center; margin-bottom: 12px; outline: none; letter-spacing: 4px; }
-        .token-input:focus { border-color: #d32f2f; }
-        .token-btn { width: 100%; padding: 10px; font-size: 10pt; background: #d32f2f; color: white; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
-        .token-error { color: #d32f2f; font-size: 8.5pt; font-weight: 700; margin-top: 8px; display: none; }
+        .token-input:focus { border-color: #1f3f95; }
+        .token-btn { width: 100%; padding: 10px; font-size: 10pt; background: #1f3f95; color: white; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+        .token-error { color: #1f3f95; font-size: 8.5pt; font-weight: 700; margin-top: 8px; display: none; }
         /* 03-WATERMARK CSS SECTION */
         .watermark-matrix { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(8, 1fr); z-index: -1; pointer-events: none; }
         .watermark-item { font-size: 18pt; font-weight: 900; color: rgba(0,0,0,0.02); transform: rotate(30deg); white-space: nowrap; display: flex; align-items: center; justify-content: center; user-select: none; }
@@ -36,7 +36,7 @@
         .no-print-controls { background: white; padding: 10px; border-radius: 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); width: 210mm; margin-top: 5px; margin-bottom: 15px; display: flex; flex-direction: column; border: 1px solid #ddd; position: relative; z-index: 2000; gap: 10px; }
         .control-row { display: flex; flex-wrap: wrap; gap: 12px; width: 100%; border-bottom: none; padding-bottom: 0; }
         .control-section { flex: 1; min-width: 250px; }
-        .control-label { font-size: 8.5px; font-weight: bold; color: #d32f2f; text-transform: uppercase; margin-bottom: 4px; display: block; letter-spacing: 0.5px; }
+        .control-label { font-size: 8.5px; font-weight: bold; color: #1f3f95; text-transform: uppercase; margin-bottom: 4px; display: block; letter-spacing: 0.5px; }
         .checkbox-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 4px; }
         .check-item { display: flex; align-items: center; gap: 4px; font-size: 8.5px; cursor: pointer; color: #333; }
         .other-inputs { margin-top: 6px; display: none; gap: 8px; }
@@ -44,81 +44,87 @@
         .btn-group { display: flex; gap: 12px; justify-content: center; width: 100%; flex-wrap: nowrap; flex-direction: row; }
         .btn { border: none; padding: 8px 18px; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 10.5px; text-transform: uppercase; color: white; width: auto; min-width: auto; transition: background 0.2s; white-space: nowrap; }
         .btn-reset { background: #757575; }
-        .btn-sync { background: #d32f2f; }
+        .btn-sync { background: #1f3f95; }
         .btn-print { background: #1565c0; }
         .btn-share { background: #25D366; }
         .btn:hover { filter: brightness(1.1); }
         /* 06-DOCUMENT CONTAINER CSS SECTION */
-        .page-border-outer { width: 210mm; max-width: 100%; min-height: 292mm; height: 292mm; background: white; padding: 2mm !important; box-shadow: 0 4px 15px rgba(0,0,0,0.15); margin: 0 auto 15px auto; position: relative; z-index: 10; overflow-x: auto; overflow-y: hidden; display: flex; align-items: stretch; justify-content: stretch; -webkit-overflow-scrolling: touch; }
+        .page-border-outer { width: 210mm; max-width: 100%; min-height: 297mm; background: white; padding: 0 !important; box-shadow: 0 4px 15px rgba(0,0,0,0.15); margin: 0 auto 15px auto; position: relative; z-index: 10; overflow: hidden; display: flex; align-items: stretch; justify-content: stretch; -webkit-overflow-scrolling: touch; }
         .page-border-outer::-webkit-scrollbar { display: none; }
-        .page { border: 1.2pt solid #000; width: 100%; height: 100% !important; padding: 3mm 5mm 1.5mm 5mm !important; display: flex; flex-direction: column; position: relative; background: white; justify-content: space-between; }
+        .page { border: 1.5pt solid #000; width: 100%; min-height: 277mm; padding: 4.5mm 6.5mm 8mm 6.5mm !important; display: flex; flex-direction: column; position: relative; background: white; justify-content: space-between; box-sizing: border-box; overflow: hidden; }
         .print-page-border { display: none; }
         /* 07-HEADER DESIGN CSS SECTION */
-        .header-main-container { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 2px 0; position: relative; height: 15mm; }
+        .header-main-container { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 4px 0; position: relative; height: 20mm; }
         .logo-box { display: flex; align-items: center; justify-content: center; padding-right: 4mm; }
-        .logo-box img { max-height: 13mm; width: auto; }
+.logo-box img { max-height: 29mm; width: auto; }
         .hospital-details { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; flex-grow: 1; position: relative; }
-        .h-title { font-size: 11pt; font-weight: 700; color: #d32f2f; text-transform: uppercase; white-space: nowrap; margin-bottom: 1px; letter-spacing: -0.2px; }
+.h-title { font-size: 15pt; font-weight: 700; color: #1f3f95; text-transform: uppercase; white-space: nowrap; margin-bottom: 2px; letter-spacing: 0px; }
         .h-line-row { display: flex; align-items: center; justify-content: center; width: 100%; position: relative; margin: 1px 0; }
         .h-title-separator { width: 40mm; height: 1.5pt; background: #000; margin: 0.5mm auto; }
-        .h-tagline { font-size: 6.2pt; font-style: italic; color: #333; font-weight: 700; margin-bottom: 0.5mm; display: flex; align-items: center; gap: 3px; }
-        .h-address { font-size: 6pt; color: #333; font-weight: 400; line-height: 1.1; max-width: 140mm; }
+        .h-tagline { font-size: 9pt; font-style: italic; color: #333; font-weight: 700; margin-bottom: 1mm; display: flex; align-items: center; gap: 3px; }
+        .h-address { font-size: 8pt; color: #333; font-weight: 500; line-height: 1.4; max-width: 160mm; }
         /* 08-DOCTORS & DETAILS BAR CSS SECTION */
         .doctor-line-top { border-bottom: 1.2pt solid #000; margin-left: -6mm; margin-right: -6mm; margin-top: 1px; position: relative; }
-        .bottom-doctor-bar { display: flex; justify-content: space-between; align-items: flex-end; min-height: 8mm; padding: 1px 6mm; margin-left: -6mm; margin-right: -6mm; background: none; position: relative; }
+        .bottom-doctor-bar { display: flex; justify-content: space-between; align-items: flex-end; min-height: 4mm; padding: 0px 6mm; margin-left: -6mm; margin-right: -6mm; background: none; position: relative; }
         .discharge-id-display-box { display: flex; flex-direction: column; text-align: left; gap: 1px; margin-bottom: 1px; z-index: 5; }
         .did-title { font-size: 6.2pt; font-weight: 700; color: #000; text-transform: uppercase; letter-spacing: 0.3px; }
         .did-value { font-size: 8pt; font-weight: 700; color: #000; outline: none; border-bottom: 1px dashed transparent; }
-        .did-value:hover { border-bottom: 1px dashed #d32f2f; }
-        .d-creds-box { font-weight: 700; font-size: 8pt; text-transform: uppercase; color: #000; display: flex; flex-direction: column; gap: 1px; text-align: right; margin-bottom: 1px; max-width: 140mm; z-index: 5; }
+        .did-value:hover { border-bottom: 1px dashed #1f3f95; }
+        .d-creds-box { font-weight: 700; font-size: 8.5pt; text-transform: uppercase; color: #000; display: flex; flex-direction: column; gap: 2px; text-align: right; margin-bottom: 2px; max-width: 140mm; z-index: 5; }
         .smart-line-bottom { border-bottom: 1.2pt solid #000; margin-left: -6mm; margin-right: -6mm; margin-top: 0; position: relative; }
-        .doc-main-title-wrap { text-align: center; margin: 1mm 0; position: relative; }
+        .doc-main-title-wrap { text-align: center; margin: 0.2mm 0; position: relative; }
         .doc-main-title { font-size: 8pt; font-weight: 700; background: none; color: #000; padding: 0; display: inline-block; text-transform: uppercase; letter-spacing: 0.8px; text-decoration: underline; text-underline-offset: 2px; }
         /* 09-PATIENT DEMOGRAPHICS CSS SECTION */
-        .patient-block { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 12px; margin-bottom: 1.5mm; position: relative; width: 100%; }
+        .patient-block { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 6px; margin-bottom: 0.3mm; position: relative; width: 100%; }
         .input-row { display: flex; margin-bottom: 3px; align-items: flex-start; position: relative; }
-        .input-label { font-weight: 700; font-size: 7.2pt; min-width: 100px; color: #000; padding-top: 1px; }
+        .input-label { font-weight: 700; font-size: 8pt; min-width: 105px; color: #000; padding-top: 1px; }
         .input-fill-wrapper { flex-grow: 1; border-bottom: 1px dotted #333; display: flex; align-items: center; min-height: 14px; position: relative; overflow: visible; }
-        .patient-field { width: 100%; border: none; background: transparent; font-size: 8pt; color: #000; font-weight: 400; outline: none; padding: 2px 3px; display: block; word-break: break-word; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.patient-field { width: 100%; border: none; background: transparent; font-size: 8.7pt; color: #000; font-weight: 500; outline: none; padding: 2px 3px; display: block; }
         .patient-field[contenteditable="true"] { word-break: break-word; white-space: pre-wrap; width: 100%; display: inline-block; min-height: 14px; unicode-bidi: plaintext; direction: ltr; }
         .date-picker-trigger { cursor: pointer; display: inline-flex; align-items: center; margin-left: 6px; padding: 2px; }
-        .date-picker-trigger svg { width: 12px; height: 12px; stroke: #d32f2f; }
+        .date-picker-trigger svg { width: 12px; height: 12px; stroke: #1f3f95; }
         .date-picker-trigger:hover svg { stroke: #b71c1c; filter: drop-shadow(0 0 2px rgba(211,47,47,0.3)); }
         .hidden-picker { position: absolute; width: 0; height: 0; opacity: 0; pointer-events: none; }
-        .smart-line-demog { border-bottom: 0.6pt solid #000; margin-left: -6mm; margin-right: -6mm; margin-top: 1mm; margin-bottom: 1mm; position: relative; }
+        .smart-line-demog { border-bottom: 0.6pt solid #000; margin-left: -6mm; margin-right: -6mm; margin-top: 0.2mm; margin-bottom: 0.2mm; position: relative; }
         /* 10-CLINICAL CONTENT CSS SECTION */
-        .content-sections { display: flex; flex-direction: column; flex-grow: 1; padding-top: 0.5mm; position: relative; }
-        .row-section { border-bottom: none; padding: 0.5mm 30px 0.5mm 0 !important; display: block; line-height: 1.35; margin-bottom: 0.5mm; position: relative !important; }
-        .sec-head { font-weight: 700; font-size: 7.8pt; text-transform: uppercase; display: inline-block; border-bottom: 1px solid #000; margin-right: 6px; padding-bottom: 1px; }
-        .sec-editable { display: inline; outline: none; font-size: 7.5pt; color: #333; background: transparent; min-width: 120px; text-transform: uppercase; }
+        .content-sections { display: flex; flex-direction: column; flex-grow: 1 !important; padding-top: 0.8mm; padding-bottom: 14mm !important; position: relative; min-height: auto !important; }
+.row-section { border-bottom: none; padding: 1mm 24px 1mm 0 !important; display: flex; flex-direction: column; line-height: 1.45; margin-bottom: 3mm; }
+
+
+        .sec-head { font-weight: 700; font-size: 9pt; text-transform: uppercase; display: inline-block; border-bottom: none; margin-right: 7px; padding-bottom: 1px; position: relative; } .sec-head::after { display: none; content: none; }
+.sec-editable { display: block; outline: none; font-size: 8.3pt; color: #333; background: transparent; width: 100%; margin-top: 4px; text-transform: uppercase; }
+
+
         .sec-editable:empty:before { content: "Type here..."; color: #aaa; font-style: italic; text-transform: none; }
         .sec-editable:focus:empty:before { content: ""; }
         .section-actions { position: absolute !important; right: 0px !important; top: 2px !important; display: inline-flex; gap: 3px; opacity: 0; transition: opacity 0.2s; }
         .row-section:hover .section-actions { opacity: 1; }
         .sec-action-btn { background: #f5f5f5; border: 1px solid #ccc; border-radius: 3px; padding: 1px 4px; font-size: 7px; cursor: pointer; color: #555; font-weight: bold; line-height: 1; }
+		
+		
         .sec-action-btn:hover { background: #e0e0e0; color: #000; }
-        .sec-action-btn.sec-delete-btn:hover { background: #fdd; color: #d32f2f; border-color: #fcc; }
+        .sec-action-btn.sec-delete-btn:hover { background: #fdd; color: #1f3f95; border-color: #fcc; }
         /* 11-INVESTIGATIONS GRID CSS SECTION */
         .investigations-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 2px; background: #fafafa; border: 0.5pt solid #ccc; margin-top: 2px; margin-bottom: 2px; }
-        .grid-item { display: flex; align-items: center; font-size: 7.2pt; gap: 4px; }
+        .grid-item { display: flex; align-items: center; font-size: 8pt; gap: 5px; }
         .grid-label { font-weight: 700; color: #333; min-width: 55px; }
         .grid-input { border: none; border-bottom: 1px dotted #333; background: transparent; font-size: 7.2pt; width: 100%; outline: none; }
         .grid-select { border: 1px solid #ccc; border-radius: 2px; font-size: 7pt; outline: none; background: white; cursor: pointer; padding: 1px; }
         .other-row-line { border-top: 1px solid #ccc; margin: 2px 0; width: 100%; }
         #printInvestigationsText { display: none; font-size: 7.5pt; color: #333; white-space: pre-wrap; line-height: 1.35; }
         /* 12-FOOTER SIGNATURES CSS SECTION */
-        .footer-signatures { margin-top: auto !important; display: flex !important; justify-content: space-between !important; padding-bottom: 0mm !important; margin-bottom: -1.5mm !important; position: relative !important; width: 100% !important; }
+        .footer-signatures { margin-top: 6mm !important; display: flex !important; justify-content: flex-start !important; padding-bottom: 0mm !important; margin-bottom: -1.5mm !important; position: relative !important; width: 100% !important; }
         .sig-box-left { width: 45%; text-align: center; margin-bottom: 1px; }
         .sig-box-right { width: 40%; text-align: center; margin-bottom: 1px; }
         .sig-line { border-top: 1pt solid #000; margin-top: 10px !important; padding-top: 2px; font-weight: 700; font-size: 7.8pt; text-transform: uppercase; color: #000; }
         /* 13-POPUP OVERLAYS CSS SECTION */
         .cloud-loader-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: none; justify-content: center; align-items: center; flex-direction: column; z-index: 1000000; color: white; }
-        .loader-spinner { border: 4px solid #f3f3f3; border-top: 4px solid #d32f2f; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 15px; }
+        .loader-spinner { border: 4px solid #f3f3f3; border-top: 4px solid #1f3f95; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 15px; }
         .loader-text { font-size: 10pt; font-weight: bold; text-align: center; }
         .success-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: none; justify-content: center; align-items: center; z-index: 1000001; }
         .success-card { background: white; padding: 25px; border-radius: 10px; max-width: 400px; width: 90%; box-shadow: 0 10px 30px rgba(0,0,0,0.3); text-align: center; color: #333; }
         .success-icon { font-size: 35pt; color: #4caf50; margin-bottom: 10px; }
-        .success-title { font-size: 14pt; font-weight: bold; margin-bottom: 8px; color: #d32f2f; }
+        .success-title { font-size: 14pt; font-weight: bold; margin-bottom: 8px; color: #1f3f95; }
         .success-subtitle-text { font-size: 8.5pt; color: #555; margin-bottom: 20px; line-height: 1.5; }
         .success-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
         .btn-action { padding: 8px 16px; border-radius: 4px; border: none; font-weight: bold; font-size: 8.5pt; cursor: pointer; color: white; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; min-width: 100px; }
@@ -127,20 +133,107 @@
         .analog-clock-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center; z-index: 1000002; }
         .analog-clock-card { background: white; border-radius: 12px; padding: 20px; width: 280px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px; }
         .clock-ring { position: relative; width: 160px; height: 160px; border-radius: 50%; border: 2px solid #ccc; background: #fafafa; margin: 10px 0; }
-        .clock-center-pin { position: absolute; width: 8px; height: 8px; background: #d32f2f; border-radius: 50%; top: calc(50% - 4px); left: calc(50% - 4px); z-index: 10; }
-        .clock-indicator-hand { position: absolute; width: 2px; height: 60px; background: #d32f2f; bottom: 50%; left: calc(50% - 1px); transform-origin: bottom center; transition: transform 0.2s ease-out; transform: rotate(0deg); z-index: 5; }
+        .clock-center-pin { position: absolute; width: 8px; height: 8px; background: #1f3f95; border-radius: 50%; top: calc(50% - 4px); left: calc(50% - 4px); z-index: 10; }
+        .clock-indicator-hand { position: absolute; width: 2px; height: 60px; background: #1f3f95; bottom: 50%; left: calc(50% - 1px); transform-origin: bottom center; transition: transform 0.2s ease-out; transform: rotate(0deg); z-index: 5; }
         .clock-number-label { position: absolute; font-size: 9pt; font-weight: bold; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 50%; transition: background 0.15s; }
-        .clock-number-label:hover { background: rgba(211, 47, 47, 0.15); color: #d32f2f; }
-        .clock-number-label.selected-val { background: #d32f2f; color: white !important; }
+        .clock-number-label:hover { background: rgba(211, 47, 47, 0.15); color: #1f3f95; }
+        .clock-number-label.selected-val { background: #1f3f95; color: white !important; }
         .manual-time-display { display: flex; gap: 6px; align-items: center; justify-content: center; }
         .manual-time-display input { width: 45px; padding: 6px; text-align: center; font-size: 11pt; border: 1px solid #ccc; border-radius: 4px; outline: none; font-weight: bold; }
-        .manual-time-display input:focus { border-color: #d32f2f; }
+        .manual-time-display input:focus { border-color: #1f3f95; }
         .ampm-btn { padding: 4px 10px; font-size: 8.5pt; background: #eee; color: #333; font-weight: bold; border: 1px solid #ccc; border-radius: 4px; cursor: pointer; width: 55px; text-align: center; }
         .ampm-btn.selected-val { background: #1565c0 !important; color: white !important; border-color: #1565c0 !important; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         /* 14-PRINT OVERRIDES CSS SECTION */
-        @media screen { .page { height: 100% !important; display: flex; flex-direction: column; justify-content: space-between; } .content-sections { flex-grow: 1; overflow-y: auto; max-height: 185mm; padding-right: 5px; } .content-sections::-webkit-scrollbar { width: 4px; } .content-sections::-webkit-scrollbar-thumb { background-color: rgba(211, 47, 47, 0.4); border-radius: 2px; } }
-        @media print { * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } @page { size: A4; margin: 0; } .no-print-controls, .token-gate-overlay, .cloud-loader-overlay, .success-overlay, .section-actions, .fixed-action-bar { display: none !important; } body { padding: 0 !important; margin: 0 !important; background: none !important; } .page-border-outer { box-shadow: none !important; padding: 0 !important; width: 210mm !important; height: 297mm !important; min-height: 297mm !important; margin: 0 !important; overflow: visible !important; border: none !important; } .page { border: none !important; height: 297mm !important; min-height: 297mm !important; margin: 0 !important; box-sizing: border-box !important; padding: 12mm 12mm 15mm 12mm !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important; } .print-page-border { display: block !important; position: fixed !important; top: 5mm !important; bottom: 5mm !important; left: 5mm !important; right: 5mm !important; border: 1.5pt solid #000 !important; pointer-events: none !important; z-index: 999999 !important; box-sizing: border-box !important; } .watermark-matrix { display: none; } .sec-editable:empty:before { content: ""; } .patient-field { border: none !important; } .header-main-container, .bottom-doctor-bar, .patient-block, .row-section { page-break-inside: avoid !important; break-inside: avoid !important; } .row-section.is-empty { display: none !important; } .investigations-grid, .other-row-line, #txt-INVESTIGATIONS { display: none !important; } #printInvestigationsText { display: block !important; } .doctor-line-top { border-bottom: 1.5pt solid #000 !important; display: block !important; } .smart-line-bottom { border-bottom: 1.5pt solid #000 !important; display: block !important; } .h-title-separator { background-color: #000 !important; height: 1.5pt !important; display: block !important; width: 40mm !important; margin: 0.5mm auto !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } .doc-main-title { text-decoration: underline !important; font-weight: 700 !important; text-underline-offset: 2px !important; } .footer-signatures { margin-top: auto !important; position: relative !important; display: flex !important; justify-content: space-between !important; width: 100% !important; page-break-inside: avoid !important; background: transparent !important; } .no-print { display: none !important; } }
+        @media screen { .page { height: 100% !important; display: flex; flex-direction: column; justify-content: space-between; min-height: 0; } .content-sections { flex-grow: 1; overflow-y: auto; max-height: 195mm; padding-right: 5px; min-height: 0; } .content-sections::-webkit-scrollbar { width: 6px; } .content-sections::-webkit-scrollbar-thumb { background-color: rgba(211, 47, 47, 0.4); border-radius: 3px; } }
+        @media print { * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } }
+       @media print {
+    @page {
+        size: A4;
+        margin: 0mm;
+    }
+}
+        @media print { html, body { display: block !important; width: 100% !important; height: auto !important; min-height: 0 !important; margin: 0 !important; padding: 0 !important; background: none !important; } }
+@media print { .no-print-controls, .token-gate-overlay, .cloud-loader-overlay, .success-overlay, .section-actions, .fixed-action-bar, .no-print, .check-item input, #chkOtherInjection, #otherInjectionBox { display: none !important; } #treatmentListBox label { display: none !important; } #treatmentListBox label.active-treatment { display: flex !important; } }
+
+@media print {
+    .page-border-outer {
+        box-shadow: none !important;
+        padding: 0 !important;
+        width: 210mm !important;
+        margin: 0 auto !important;
+   overflow: visible !important;
+        border: none !important;
+        background: white !important;
+        display: block !important;
+    }
+}
+@media print {
+    .page {
+        border: 1.5pt solid #000 !important;
+        width: 198mm !important;
+min-height: 281mm !important; !important;
+        margin: 8mm auto !important;
+        padding: 10mm 7mm 28mm 7mm !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        background: #fff !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+        position: relative !important;
+        page-break-after: always !important;
+		break-inside: avoid !important;
+    }
+}        @media print { .print-page-border { display: none !important; } }
+        @media print { .watermark-matrix { display: none !important; } }
+        @media print { .sec-editable:empty:before { content: "" !important; } }
+        @media print { .patient-field { border: none !important; } }
+        @media print { .header-main-container, .bottom-doctor-bar, .patient-block, .footer-signatures { page-break-inside: avoid !important; break-inside: avoid !important; } }
+        @media print { .row-section { page-break-inside: auto !important; break-inside: auto !important; } }
+        @media print { .row-section.is-empty { display: none !important; } }
+        @media print { .investigations-grid, .other-row-line, #txt-INVESTIGATIONS { display: none !important; } }
+        @media print { #printInvestigationsText { display: block !important; } }
+        @media print { .doctor-line-top { border-bottom: 1.5pt solid #000 !important; display: block !important; } }
+        @media print { .smart-line-bottom { border-bottom: 1.5pt solid #000 !important; display: block !important; } }
+        @media print { .h-title-separator { background-color: #000 !important; height: 1.5pt !important; display: block !important; width: 40mm !important; margin: 0.5mm auto !important; } }
+        @media print { .doc-main-title { text-decoration: underline !important; font-weight: 700 !important; text-underline-offset: 2px !important; } }
+@media print {
+    .footer-signatures {
+        display: none !important;
+    }
+
+    .page:last-of-type .footer-signatures {
+        display: flex !important;
+        position: absolute !important;
+        left: 10mm !important;
+        right: 10mm !important;
+bottom: 6mm !important;
+        width: auto !important;
+        justify-content: space-between !important;
+        align-items: flex-end !important;
+        background: #fff !important;
+        z-index: 9999 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
+
+.content-sections {
+    padding-bottom: 10mm !important;
+}
+
+@media print {
+    .footer-signatures {
+        margin-top: 12mm !important;
+    }
+
+    .row-section {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -152,13 +245,13 @@
     <div id="cloudLoader" class="cloud-loader-overlay"><div class="loader-spinner"></div><div id="loaderStatus" class="loader-text">Preparing Discharge Summary...</div></div>
 
     <!-- 03-CONFIRMATION CONSOLE SECTION -->
-    <div id="confirmModal" class="success-overlay" style="display: none; z-index: 10005;"><div class="success-card" style="max-width: 350px;"><h3 class="success-title" style="font-size: 12pt; margin-bottom: 12px;">Confirmation Required</h3><p id="confirmModalMessage" style="font-size: 9pt; color: #555; margin-bottom: 15px;">Are you sure you want to proceed?</p><div style="display: flex; gap: 8px; justify-content: center;"><button class="btn btn-reset" id="confirmModalCancelBtn" style="min-width: 80px; padding: 6px 12px;">Cancel</button><button class="btn btn-sync" id="confirmModalOkBtn" style="min-width: 80px; padding: 6px 12px; background: #d32f2f;">Confirm</button></div></div></div>
+    <div id="confirmModal" class="success-overlay" style="display: none; z-index: 10005;"><div class="success-card" style="max-width: 350px;"><h3 class="success-title" style="font-size: 12pt; margin-bottom: 12px;">Confirmation Required</h3><p id="confirmModalMessage" style="font-size: 9pt; color: #555; margin-bottom: 15px;">Are you sure you want to proceed?</p><div style="display: flex; gap: 8px; justify-content: center;"><button class="btn btn-reset" id="confirmModalCancelBtn" style="min-width: 80px; padding: 6px 12px;">Cancel</button><button class="btn btn-sync" id="confirmModalOkBtn" style="min-width: 80px; padding: 6px 12px; background: #1f3f95;">Confirm</button></div></div></div>
 
     <!-- 04-SUCCESS MODAL MODIFIER SECTION -->
     <div id="successPopup" class="success-overlay"><div class="success-card"><div class="success-icon">✔</div><h3 class="success-title">Cloud Upload Successful!</h3><p class="success-subtitle-text">The Discharge Summary has been securely uploaded to Google Drive and saved inside the spreadsheet registry.</p><div class="success-actions"><button class="btn-action btn-print" style="background: #1565c0;" onclick="closeSuccessPopupAndPrint()">Print</button><button class="btn-action btn-action-close" onclick="closeSuccessPopupOnly()">Cancel</button></div></div></div>
 
     <!-- 04.1-CUSTOM ANALOG CIRCLE TIME PICKER MODAL SECTION -->
-    <div id="customClockModal" class="analog-clock-overlay"><div class="analog-clock-card"><h4 style="font-size: 11pt; color: #d32f2f; font-weight: 700; text-transform: uppercase;">సమయాన్ని ఎంచుకోండి (SELECT TIME)</h4><div class="clock-ring" id="clockRing"><div class="clock-center-pin"></div><div class="clock-indicator-hand" id="clockIndicatorHand"></div><div id="clockNumbersContainer"></div></div><div class="manual-time-display"><input type="text" id="manualHH" maxlength="2" placeholder="HH" oninput="syncManualClockInput()"><span style="font-weight: bold; font-size: 14px;">:</span><input type="text" id="manualMM" maxlength="2" placeholder="MM" oninput="syncManualClockInput()"><div style="display: flex; flex-direction: column; gap: 6px;"><button id="amBtn" class="ampm-btn" onclick="setClockAMPM('AM')">AM</button><button id="pmBtn" class="ampm-btn" onclick="setClockAMPM('PM')">PM</button></div></div><div style="display: flex; gap: 10px; width: 100%; justify-content: center; margin-top: 5px;"><button class="btn" style="background: #757575; font-size: 8.5pt; padding: 6px 14px;" onclick="closeClockModal()">CANCEL</button><button class="btn" style="background: #d32f2f; font-size: 8.5pt; padding: 6px 14px;" onclick="saveClockTime()">OK</button></div></div></div>
+    <div id="customClockModal" class="analog-clock-overlay"><div class="analog-clock-card"><h4 style="font-size: 11pt; color: #1f3f95; font-weight: 700; text-transform: uppercase;">సమయాన్ని ఎంచుకోండి (SELECT TIME)</h4><div class="clock-ring" id="clockRing"><div class="clock-center-pin"></div><div class="clock-indicator-hand" id="clockIndicatorHand"></div><div id="clockNumbersContainer"></div></div><div class="manual-time-display"><input type="text" id="manualHH" maxlength="2" placeholder="HH" oninput="syncManualClockInput()"><span style="font-weight: bold; font-size: 14px;">:</span><input type="text" id="manualMM" maxlength="2" placeholder="MM" oninput="syncManualClockInput()"><div style="display: flex; flex-direction: column; gap: 6px;"><button id="amBtn" class="ampm-btn" onclick="setClockAMPM('AM')">AM</button><button id="pmBtn" class="ampm-btn" onclick="setClockAMPM('PM')">PM</button></div></div><div style="display: flex; gap: 10px; width: 100%; justify-content: center; margin-top: 5px;"><button class="btn" style="background: #757575; font-size: 8.5pt; padding: 6px 14px;" onclick="closeClockModal()">CANCEL</button><button class="btn" style="background: #1f3f95; font-size: 8.5pt; padding: 6px 14px;" onclick="saveClockTime()">OK</button></div></div></div>
 
     <!-- 04.2-PRINT PAGE BORDER CONTAINER -->
     <div class="print-page-border no-screen"></div>
@@ -167,16 +260,99 @@
     <div class="watermark-matrix"><div class="watermark-item">VSR HOSPITAL</div><div class="watermark-item">VSR HOSPITAL</div><div class="watermark-item">VSR HOSPITAL</div><div class="watermark-item">VSR HOSPITAL</div><div class="watermark-item">VSR HOSPITAL</div><div class="watermark-item">VSR HOSPITAL</div><div class="watermark-item">VSR HOSPITAL</div><div class="watermark-item">VSR HOSPITAL</div><div class="watermark-item">VSR HOSPITAL</div><div class="watermark-item">VSR HOSPITAL</div><div class="watermark-item">VSR HOSPITAL</div><div class="watermark-item">VSR HOSPITAL</div><div class="watermark-item">VSR HOSPITAL</div><div class="watermark-item">VSR HOSPITAL</div><div class="watermark-item">VSR HOSPITAL</div><div class="watermark-item">VSR HOSPITAL</div><div class="watermark-item">VSR HOSPITAL</div><div class="watermark-item">VSR HOSPITAL</div><div class="watermark-item">VSR HOSPITAL</div><div class="watermark-item">VSR HOSPITAL</div></div>
 
     <!-- 05.1-FIXED NAVIGATION BUTTONS SECTION -->
-    <div class="fixed-action-bar no-print"><div class="btn-group"><button class="btn btn-reset" onclick="triggerResetForm()">RESET</button><button class="btn btn-sync" id="actionBtn" onclick="uploadAndSaveToCloud()" style="background: #d32f2f; display: inline-flex; align-items: center; justify-content: center; gap: 4px;"><span id="btnText">SAVE</span><span id="btnSpinner" class="loader-spinner" style="width: 10px; height: 10px; border-width: 2px; margin: 0; display: none;"></span></button><button class="btn btn-print" onclick="triggerNativePrint()" style="background: #1565c0;">PRINT</button><button class="btn btn-share" onclick="triggerShare()">SHARE</button></div></div>
+    <div class="fixed-action-bar no-print"><div class="btn-group"><button class="btn btn-reset" onclick="triggerResetForm()">RESET</button><button class="btn btn-sync" id="actionBtn" onclick="uploadAndSaveToCloud()" style="background: #1f3f95; display: inline-flex; align-items: center; justify-content: center; gap: 4px;"><span id="btnText">SAVE</span><span id="btnSpinner" class="loader-spinner" style="width: 10px; height: 10px; border-width: 2px; margin: 0; display: none;"></span></button><button class="btn btn-print" id="topPrintBtn" onclick="triggerNativePrint()" style="background: #1565c0; display: none;">PRINT</button> </div></div>
 
     <!-- 06-DASHBOARD CONTROL GRID SECTION -->
     <div class="no-print-controls"><div class="control-row"><div class="control-section"><span class="control-label">DOCTOR SELECTION</span><div class="checkbox-grid"><label class="check-item"><input type="checkbox" class="doc-chk" value="0" onchange="updateView()"> Dr. T.N. Lakshmi Reddy (ORTHO)</label><label class="check-item"><input type="checkbox" class="doc-chk" value="1" onchange="updateView()"> Dr. S. Chandrika (OPHTHAL)</label><label class="check-item"><input type="checkbox" class="doc-chk" value="2" onchange="updateView()"> Dr. S. Yashwanth Reddy (ANESTH)</label><label class="check-item"><input type="checkbox" class="doc-chk" value="3" onchange="updateView()"> Dr. Haneesha Reddy (OBGY)</label><label class="check-item"><input type="checkbox" class="doc-chk" value="4" onchange="updateView()"> Dr. S. Narasimha Reddy (HOM)</label><label class="check-item"><input type="checkbox" class="doc-chk" value="5" onchange="updateView()"> Dr. S. Siva Nageswaramma (HOM)</label><label class="check-item"><input type="checkbox" id="chkOtherDoc" onchange="toggleOtherDocInputs()"> OTHERS</label></div><div class="other-inputs" id="otherDocInputs"><input type="text" id="otherDocName" placeholder="DOCTOR NAME..." oninput="updateView()"><input type="text" id="otherDocQual" placeholder="REGD / ROLL..." oninput="updateView()"></div></div></div><input type="hidden" id="gasAppUrl" value="https://script.google.com/macros/s/AKfycbyP_xxwaWla6i65Wwzrdt7qyPJzpsZnEL28aLh_WVa04FVGTgHIvkCMJy7VWdsQqSXY_g/exec"><input type="hidden" id="svdsIdField" value="SVDS001"></div>
 
     <!-- 07-PRIMARY DISCHARGE DOCUMENT SECTION -->
-    <div class="page-border-outer" id="printableDischargePage"><div class="page"><div class="header-main-container"><div class="logo-box"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_01_HEDER_LOGO_MAIN.png" alt="Hospital Logo"></div><div class="hospital-details"><h1 class="h-title">Dr. S. Venkata Subba Reddy MULTISPECIALTY Hospital</h1><div class="h-line-row"><div class="h-title-separator"></div></div><span class="h-tagline">SINCE 1989 - "Best Of Care, Close to Home"</span><p class="h-address">Church Masjid Street, Allagadda, Nandyal District, Andhra Pradesh - 518543.</p></div></div><div class="doctor-line-top"></div><div class="bottom-doctor-bar"><div class="discharge-id-display-box"><div class="did-title">DISCHARGE SUMMARY ID</div><div class="did-value" id="dischargeIdDisplay" contenteditable="true">SVDS001</div></div><div class="d-creds-box" id="bottomDoctorBar"></div></div><div class="smart-line-bottom"></div><div class="doc-main-title-wrap"><span class="doc-main-title">DISCHARGE SUMMARY</span></div><div class="patient-block"><div class="p-left"><div class="input-row"><div class="input-label">PATIENT NAME</div><div class="input-fill-wrapper">: <input type="text" id="patientName" class="patient-field" oninput="this.value = this.value.toUpperCase()"></div></div><div class="input-row"><div class="input-label">AGE</div><div class="input-fill-wrapper">: <input type="text" id="patientAge" class="patient-field"></div></div><div class="input-row"><div class="input-label">ADDRESS</div><div class="input-fill-wrapper"><span style="padding-right:3px;">:</span><input type="text" id="patientAddress" class="patient-field" oninput="this.value = this.value.toUpperCase()"></div></div></div><div class="p-right"><div class="input-row"><div class="input-label">ADMISSION DATE</div><div class="input-fill-wrapper">: <input type="text" id="dateAdmission" class="patient-field" placeholder="DD-MM-YYYY  HH:MM __" value="__-__-____  __:__ __"><span class="date-picker-trigger no-print" onclick="openDateCalendar('dateAdmission')"><svg viewBox="0 0 24 24" fill="none" stroke="#d32f2f" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span><span class="date-picker-trigger no-print" onclick="openCustomClockModal('dateAdmission')"><svg viewBox="0 0 24 24" fill="none" stroke="#d32f2f" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span><input type="date" id="date_picker_dateAdmission" class="hidden-picker" onchange="setDateFromDatePicker('dateAdmission', this.value)"></div></div><div class="input-row"><div class="input-label">OPERATION DATE</div><div class="input-fill-wrapper">: <input type="text" id="dateOperation" class="patient-field" placeholder="DD-MM-YYYY  HH:MM __" value="__-__-____  __:__ __"><span class="date-picker-trigger no-print" onclick="openDateCalendar('dateOperation')"><svg viewBox="0 0 24 24" fill="none" stroke="#d32f2f" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span><span class="date-picker-trigger no-print" onclick="openCustomClockModal('dateOperation')"><svg viewBox="0 0 24 24" fill="none" stroke="#d32f2f" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span><input type="date" id="date_picker_dateOperation" class="hidden-picker" onchange="setDateFromDatePicker('dateOperation', this.value)"></div></div><div class="input-row"><div class="input-label">DISCHARGE DATE</div><div class="input-fill-wrapper">: <input type="text" id="dateDischarge" class="patient-field" placeholder="DD-MM-YYYY  HH:MM __" value="__-__-____  __:__ __"><span class="date-picker-trigger no-print" onclick="openDateCalendar('dateDischarge')"><svg viewBox="0 0 24 24" fill="none" stroke="#d32f2f" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span><span class="date-picker-trigger no-print" onclick="openCustomClockModal('dateDischarge')"><svg viewBox="0 0 24 24" fill="none" stroke="#d32f2f" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span><input type="date" id="date_picker_dateDischarge" class="hidden-picker" onchange="setDateFromDatePicker('dateDischarge', this.value)"></div></div></div></div><div class="smart-line-demog"></div><div class="content-sections" id="clinicalContent"><div class="row-section" id="sec-CHIEF"><span class="sec-head">CHIEF COMPLAINTS:</span><div class="sec-editable" contenteditable="true" id="txt-CHIEF"></div><span class="section-actions no-print"><button class="sec-action-btn" onclick="resetSection('CHIEF')">⟲</button></span></div><div class="row-section" id="sec-DIAGNOSIS"><span class="sec-head">DIAGNOSIS:</span><div class="sec-editable" contenteditable="true" id="txt-DIAGNOSIS"></div><span class="section-actions no-print"><button class="sec-action-btn" onclick="resetSection('DIAGNOSIS')">⟲</button></span></div><div class="row-section" id="sec-INVESTIGATIONS"><span class="sec-head">INVESTIGATIONS:</span><div class="investigations-grid"><div class="grid-item"><span class="grid-label">Hb :</span><input type="text" id="invHb" class="grid-input" placeholder="Enter Hb" oninput="syncInvestigationsForPrint()"></div><div class="grid-item"><span class="grid-label">Blood Group:</span><input type="text" id="invBgp" class="grid-input" placeholder="Enter BG" oninput="syncInvestigationsForPrint()"></div><div class="grid-item"><label><input type="checkbox" id="chkHiv" checked onchange="syncInvestigationsForPrint()"> HIV :</label><select id="invHiv" class="grid-select" onchange="syncInvestigationsForPrint()"><option value="NEGATIVE">NEGATIVE</option><option value="POSITIVE">POSITIVE</option></select></div><div class="grid-item"><label><input type="checkbox" id="chkHbs" checked onchange="syncInvestigationsForPrint()"> HbsAg :</label><select id="invHbs" class="grid-select" onchange="syncInvestigationsForPrint()"><option value="NEGATIVE">NEGATIVE</option><option value="POSITIVE">POSITIVE</option></select></div><div class="grid-item"><label><input type="checkbox" id="chkHcv" checked onchange="syncInvestigationsForPrint()"> HCV :</label><select id="invHcv" class="grid-select" onchange="syncInvestigationsForPrint()"><option value="NEGATIVE">NEGATIVE</option><option value="POSITIVE">POSITIVE</option></select></div><div class="grid-item"><span class="grid-label">Platelets :</span><input type="text" id="invPlt" class="grid-input" placeholder="Enter Platelets" oninput="syncInvestigationsForPrint()"></div><div class="grid-item"><label><input type="checkbox" id="chkBt" checked onchange="syncInvestigationsForPrint()"> BT :</label><input type="text" id="invBt" class="grid-input" value="NORMAL" oninput="syncInvestigationsForPrint()"></div><div class="grid-item"><label><input type="checkbox" id="chkCt" checked onchange="syncInvestigationsForPrint()"> CT :</label><input type="text" id="invCt" class="grid-input" value="NORMAL" oninput="syncInvestigationsForPrint()"></div></div><div class="other-row-line"></div><div id="printInvestigationsText"></div><div class="sec-editable" contenteditable="true" id="txt-INVESTIGATIONS" style="display: block; margin-top: 4px;" oninput="syncInvestigationsForPrint()"></div><span class="section-actions no-print"><button class="sec-action-btn" onclick="resetSection('INVESTIGATIONS')">⟲</button></span></div><div class="row-section" id="sec-OPERATIVE"><span class="sec-head">OPERATIVE PROCEDURE:</span><div class="sec-editable" contenteditable="true" id="txt-OPERATIVE"></div><span class="section-actions no-print"><button class="sec-action-btn" onclick="resetSection('OPERATIVE')">⟲</button></span></div><div class="row-section" id="sec-INDICATION"><span class="sec-head">INDICATION:</span><div class="sec-editable" contenteditable="true" id="txt-INDICATION"></div><span class="section-actions no-print"><button class="sec-action-btn" onclick="resetSection('INDICATION')">⟲</button></span></div><div class="row-section" id="sec-INTRA"><span class="sec-head">INTRA OPERATIVE FINDINGS:</span><div class="sec-editable" contenteditable="true" id="txt-INTRA"></div><span class="section-actions no-print"><button class="sec-action-btn" onclick="resetSection('INTRA')">⟲</button></span></div><div class="row-section" id="sec-TREATMENT"><span class="sec-head">TREATMENT GIVEN:</span><div class="sec-editable" contenteditable="true" id="txt-TREATMENT"></div><span class="section-actions no-print"><button class="sec-action-btn" onclick="resetSection('TREATMENT')">⟲</button></span></div><div class="row-section" id="sec-CONDITION"><span class="sec-head">CONDITION AT DISCHARGE:</span><div class="sec-editable" contenteditable="true" id="txt-CONDITION"></div><span class="section-actions no-print"><button class="sec-action-btn" onclick="resetSection('CONDITION')">⟲</button></span></div><div class="row-section" id="sec-ADVICE"><span class="sec-head">ADVICE ON DISCHARGE:</span><div class="sec-editable" contenteditable="true" id="txt-ADVICE"></div><span class="section-actions no-print"><button class="sec-action-btn" onclick="resetSection('ADVICE')">⟲</button></span></div><div class="row-section" id="sec-FOLLOWUP"><span class="sec-head">FOLLOW UP:</span><div class="sec-editable" contenteditable="true" id="txt-FOLLOWUP"></div><span class="section-actions no-print"><button class="sec-action-btn" onclick="resetSection('FOLLOWUP')">⟲</button></span></div><div class="row-section" id="sec-OTHERS"><span class="sec-head">OTHERS:</span><div class="sec-editable" contenteditable="true" id="txt-OTHERS"></div><span class="section-actions no-print"><button class="sec-action-btn" onclick="resetSection('OTHERS')">⟲</button></span></div></div><div class="footer-signatures"><div class="sig-box-left" style="text-align: left; display: flex; flex-direction: column; justify-content: flex-end; margin-bottom: 2px;"><div style="font-size: 8pt; font-weight: 700; color: #000; display: flex; align-items: center; gap: 4px; margin-bottom: 2px; padding-top: 25px;"><svg style="width:9px;height:9px;" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg>9063307444</div><div style="font-size: 8pt; font-weight: 700; color: #000; display: flex; align-items: center; gap: 4px;"><svg style="width:9px;height:9px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16A2,2 0 0,0 11,18V19.93M17.9,17.39C17.64,16.58 17,16 16,16H15V13A1,1 0 0,0 14,12H8V10H10A1,1 0 0,0 11,9V7H13A2,2 0 0,0 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39Z"/></svg>www.drvsrhospital.in</div></div><div class="sig-box-right"><div class="sig-line">SIGNATURE OF THE DOCTOR</div></div></div></div></div>
+    <div class="page-border-outer" id="printableDischargePage"><div class="page"><div class="header-main-container"><div class="logo-box"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_01_HEDER_LOGO_MAIN.png" alt="Hospital Logo"></div><div class="hospital-details"><h1 class="h-title">Dr. S. Venkata Subba Reddy MULTISPECIALTY Hospital</h1><div class="h-line-row"><div class="h-title-separator"></div></div><span class="h-tagline">SINCE 1989 - "Best Of Care, Close to Home"</span><p class="h-address">Church Masjid Street, Allagadda, Nandyal District, Andhra Pradesh - 518543.</p></div></div><div class="doctor-line-top"></div><div class="bottom-doctor-bar"><div class="discharge-id-display-box"><div class="did-title">DISCHARGE SUMMARY ID</div><div class="did-value" id="dischargeIdDisplay" contenteditable="true">SVDS001</div></div><div class="d-creds-box" id="bottomDoctorBar"></div></div><div class="smart-line-bottom"></div><div class="doc-main-title-wrap"><span class="doc-main-title">DISCHARGE SUMMARY</span></div><div class="patient-block"><div class="p-left"><div class="input-row"><div class="input-label">PATIENT NAME</div><div class="input-fill-wrapper">: <input type="text" id="patientName" class="patient-field" oninput="this.value = this.value.toUpperCase()"></div></div><div class="input-row"><div class="input-label">AGE</div><div class="input-fill-wrapper">: <input type="text" id="patientAge" class="patient-field"></div></div><div class="input-row"><div class="input-label">ADDRESS</div><div class="input-fill-wrapper"><span style="padding-right:3px;">:</span><input type="text" id="patientAddress" class="patient-field" oninput="this.value = this.value.toUpperCase()"></div></div></div><div class="p-right"><div class="input-row"><div class="input-label">ADMISSION DATE</div><div class="input-fill-wrapper">: <input type="text" id="dateAdmission" class="patient-field" placeholder="DD-MM-YYYY  HH:MM __" value="__-__-____  __:__ __"><span class="date-picker-trigger no-print" onclick="openDateCalendar('dateAdmission')"><svg viewBox="0 0 24 24" fill="none" stroke="#1f3f95" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span><span class="date-picker-trigger no-print" onclick="openCustomClockModal('dateAdmission')"><svg viewBox="0 0 24 24" fill="none" stroke="#1f3f95" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span><input type="date" id="date_picker_dateAdmission" class="hidden-picker" onchange="setDateFromDatePicker('dateAdmission', this.value)"></div></div><div class="input-row"><div class="input-label">OPERATION DATE</div><div class="input-fill-wrapper">: <input type="text" id="dateOperation" class="patient-field" placeholder="DD-MM-YYYY  HH:MM __" value="__-__-____  __:__ __"><span class="date-picker-trigger no-print" onclick="openDateCalendar('dateOperation')"><svg viewBox="0 0 24 24" fill="none" stroke="#1f3f95" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span><span class="date-picker-trigger no-print" onclick="openCustomClockModal('dateOperation')"><svg viewBox="0 0 24 24" fill="none" stroke="#1f3f95" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span><input type="date" id="date_picker_dateOperation" class="hidden-picker" onchange="setDateFromDatePicker('dateOperation', this.value)"></div></div><div class="input-row"><div class="input-label">DISCHARGE DATE</div><div class="input-fill-wrapper">: <input type="text" id="dateDischarge" class="patient-field" placeholder="DD-MM-YYYY  HH:MM __" value="__-__-____  __:__ __"><span class="date-picker-trigger no-print" onclick="openDateCalendar('dateDischarge')"><svg viewBox="0 0 24 24" fill="none" stroke="#1f3f95" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span><span class="date-picker-trigger no-print" onclick="openCustomClockModal('dateDischarge')"><svg viewBox="0 0 24 24" fill="none" stroke="#1f3f95" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span><input type="date" id="date_picker_dateDischarge" class="hidden-picker" onchange="setDateFromDatePicker('dateDischarge', this.value)"></div></div></div></div><div class="smart-line-demog"></div>
+
+    <div class="content-sections" id="clinicalContent"><div class="row-section" id="sec-CHIEF"><span class="sec-head">CHIEF COMPLAINTS:</span><div class="sec-editable" contenteditable="true" id="txt-CHIEF"></div><span class="section-actions no-print"><button class="sec-action-btn" onclick="resetSection('CHIEF')">⟲</button></span></div><div class="row-section" id="sec-DIAGNOSIS"><span class="sec-head">DIAGNOSIS:</span><div class="sec-editable" contenteditable="true" id="txt-DIAGNOSIS"></div><span class="section-actions no-print"><button class="sec-action-btn" onclick="resetSection('DIAGNOSIS')">⟲</button></span></div><div class="row-section" id="sec-INVESTIGATIONS"><span class="sec-head">INVESTIGATIONS:</span><div class="investigations-grid"><div class="grid-item"><span class="grid-label">Hb :</span><input type="text" id="invHb" class="grid-input" placeholder="Enter Hb" oninput="syncInvestigationsForPrint()"></div><div class="grid-item"><span class="grid-label">Blood Group:</span><input type="text" id="invBgp" class="grid-input" placeholder="Enter BG" oninput="syncInvestigationsForPrint()"></div><div class="grid-item"><label><input type="checkbox" id="chkHiv" checked onchange="syncInvestigationsForPrint()"> HIV :</label><select id="invHiv" class="grid-select" onchange="syncInvestigationsForPrint()"><option value="NEGATIVE">NEGATIVE</option><option value="POSITIVE">POSITIVE</option></select></div><div class="grid-item"><label><input type="checkbox" id="chkHbs" checked onchange="syncInvestigationsForPrint()"> HbsAg :</label><select id="invHbs" class="grid-select" onchange="syncInvestigationsForPrint()"><option value="NEGATIVE">NEGATIVE</option><option value="POSITIVE">POSITIVE</option></select></div><div class="grid-item"><label><input type="checkbox" id="chkHcv" checked onchange="syncInvestigationsForPrint()"> HCV :</label><select id="invHcv" class="grid-select" onchange="syncInvestigationsForPrint()"><option value="NEGATIVE">NEGATIVE</option><option value="POSITIVE">POSITIVE</option></select></div><div class="grid-item"><span class="grid-label">Platelets :</span><input type="text" id="invPlt" class="grid-input" placeholder="Enter Platelets" oninput="syncInvestigationsForPrint()"></div><div class="grid-item"><label><input type="checkbox" id="chkBt" checked onchange="syncInvestigationsForPrint()"> BT :</label><input type="text" id="invBt" class="grid-input" value="NORMAL" oninput="syncInvestigationsForPrint()"></div><div class="grid-item"><label><input type="checkbox" id="chkCt" checked onchange="syncInvestigationsForPrint()"> CT :</label><input type="text" id="invCt" class="grid-input" value="NORMAL" oninput="syncInvestigationsForPrint()"></div></div><div class="other-row-line"></div><div id="printInvestigationsText"></div><div class="sec-editable" contenteditable="true" id="txt-INVESTIGATIONS" style="display: block; margin-top: 4px;" oninput="syncInvestigationsForPrint()"></div><span class="section-actions no-print"><button class="sec-action-btn" onclick="resetSection('INVESTIGATIONS')">⟲</button></span></div><div class="row-section" id="sec-OPERATIVE"><span class="sec-head">OPERATIVE PROCEDURE:</span><div class="sec-editable" contenteditable="true" id="txt-OPERATIVE"></div><span class="section-actions no-print"><button class="sec-action-btn" onclick="resetSection('OPERATIVE')">⟲</button></span></div><div class="row-section" id="sec-INDICATION"><span class="sec-head">INDICATION:</span><div class="sec-editable" contenteditable="true" id="txt-INDICATION"></div><span class="section-actions no-print"><button class="sec-action-btn" onclick="resetSection('INDICATION')">⟲</button></span></div><div class="row-section" id="sec-INTRA"><span class="sec-head">INTRA OPERATIVE FINDINGS:</span><div class="sec-editable" contenteditable="true" id="txt-INTRA"></div><span class="section-actions no-print"><button class="sec-action-btn" onclick="resetSection('INTRA')">⟲</button></span></div>
+	
+	
+	
+	
+<div class="row-section" id="sec-TREATMENT">
+
+    <span class="sec-head">TREATMENT GIVEN:</span>
+
+<div id="treatmentListBox" style="margin-top:6px; display:flex; flex-direction:column; gap:6px;">
+
+        <label class="check-item">
+            <input type="checkbox" class="treatment-check"
+            value="INJ.MONOCEF 1G IV BD"
+            onchange="updateTreatmentText()">
+            INJ.MONOCEF 1G IV BD
+        </label>
+
+        <label class="check-item">
+            <input type="checkbox" class="treatment-check"
+            value="INJ METRONEDAZOL 100ML TID"
+            onchange="updateTreatmentText()">
+            INJ METRONEDAZOL 100ML TID
+        </label>
+
+        <label class="check-item">
+            <input type="checkbox" class="treatment-check"
+            value="INJ.PANTOP 40MG OD"
+            onchange="updateTreatmentText()">
+            INJ.PANTOP 40MG OD
+        </label>
+
+        <label class="check-item">
+            <input type="checkbox" class="treatment-check"
+            value="INJ DICLOFENAC BD"
+            onchange="updateTreatmentText()">
+            INJ DICLOFENAC BD
+        </label>
+
+        <label class="check-item">
+            <input type="checkbox" class="treatment-check"
+            value="INJ.PCM 1G SOS"
+            onchange="updateTreatmentText()">
+            INJ.PCM 1G SOS
+        </label>
+
+        <label class="check-item">
+            <input type="checkbox"
+            id="chkOtherInjection"
+            onchange="toggleOtherInjection()">
+            OTHERS
+        </label>
+
+        <div id="otherInjectionBox"
+        style="display:none; margin-left:20px; margin-top:4px;">
+
+            <input type="text"
+            id="otherInjectionInput"
+            placeholder="ENTER INJECTION NAME"
+            style="width:100%; padding:4px; border:1px solid #ccc; border-radius:3px; font-size:8pt;"
+            oninput="updateTreatmentText()">
+
+        </div>
+
+    </div>
+
+<div class="sec-editable"
+contenteditable="false"
+id="txt-TREATMENT"
+style="display:none;"></div>
+
+    <span class="section-actions no-print">
+        <button class="sec-action-btn"
+        onclick="resetTreatmentSection()">⟲</button>
+    </span>
+
+</div>
+	
+	
+	
+	
+	<div class="row-section" id="sec-CONDITION"><span class="sec-head">CONDITION AT DISCHARGE:</span><div class="sec-editable" contenteditable="true" id="txt-CONDITION"></div><span class="section-actions no-print"><button class="sec-action-btn" onclick="resetSection('CONDITION')">⟲</button></span></div><div class="row-section" id="sec-ADVICE"><span class="sec-head">ADVICE ON DISCHARGE:</span><div class="sec-editable" contenteditable="true" id="txt-ADVICE"></div><span class="section-actions no-print"><button class="sec-action-btn" onclick="resetSection('ADVICE')">⟲</button></span></div><div class="row-section" id="sec-FOLLOWUP"><span class="sec-head">FOLLOW UP:</span><div class="sec-editable" contenteditable="true" id="txt-FOLLOWUP"></div><span class="section-actions no-print"><button class="sec-action-btn" onclick="resetSection('FOLLOWUP')">⟲</button></span></div><div class="row-section" id="sec-OTHERS"><span class="sec-head">OTHERS:</span><div class="sec-editable" contenteditable="true" id="txt-OTHERS"></div><span class="section-actions no-print"><button class="sec-action-btn" onclick="resetSection('OTHERS')">⟲</button></span></div></div><div class="footer-signatures no-print-last-only"><div class="sig-box-left" style="text-align: left; display: flex; flex-direction: column; justify-content: flex-end; margin-bottom: 2px;"><div style="font-size: 8pt; font-weight: 700; color: #000; display: flex; align-items: center; gap: 4px; margin-bottom: 2px; padding-top: 25px;"><svg style="width:9px;height:9px;" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg>9063307444</div><div style="font-size: 8pt; font-weight: 700; color: #000; display: flex; align-items: center; gap: 4px;"><svg style="width:9px;height:9px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16A2,2 0 0,0 11,18V19.93M17.9,17.39C17.64,16.58 17,16 16,16H15V13A1,1 0 0,0 14,12H8V10H10A1,1 0 0,0 11,9V7H13A2,2 0 0,0 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39Z"/></svg>www.drvsrhospital.in</div></div><div class="sig-box-right"><div class="sig-line">SIGNATURE OF THE DOCTOR</div></div></div></div></div>
 
     <!-- 08-BOTTOM NAVIGATION BUTTONS SECTION -->
-    <div class="no-print-controls" style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 12px; width: 210mm; margin-top: 15px; padding: 12px; border-top: 1px solid #ddd; background: white;"><button class="btn btn-reset" onclick="triggerResetForm()">RESET</button><button class="btn btn-sync" id="bottomSaveBtn" onclick="uploadAndSaveToCloud()" style="background: #d32f2f; display: inline-flex; align-items: center; justify-content: center; gap: 4px;"><span>SAVE</span><span id="bottomSpinner" class="loader-spinner" style="width: 10px; height: 10px; border-width: 2px; margin: 0; display: none;"></span></button><button class="btn btn-print" onclick="triggerNativePrint()" style="background: #1565c0;">PRINT</button><button class="btn btn-share" onclick="triggerShare()">SHARE</button></div>
+    <div class="no-print-controls" style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 12px; width: 210mm; margin-top: 15px; padding: 12px; border-top: 1px solid #ddd; background: white;"><button class="btn btn-reset" onclick="triggerResetForm()">RESET</button><button class="btn btn-sync" id="bottomSaveBtn" onclick="uploadAndSaveToCloud()" style="background: #1f3f95; display: inline-flex; align-items: center; justify-content: center; gap: 4px;"><span>SAVE</span><span id="bottomSpinner" class="loader-spinner" style="width: 10px; height: 10px; border-width: 2px; margin: 0; display: none;"></span></button><button class="btn btn-print" id="bottomPrintBtn" onclick="triggerNativePrint()" style="background: #1565c0; display: none;">PRINT</button> </div>
 
     <script>
         // 01-DOCTORS PROFILE DATABASE SECTION
@@ -189,7 +365,7 @@
         let clockMode = "hours";
         let activeAMPM = "AM";
         // 02-ONLOAD INITIATOR SECTION
-        window.onload = function() { document.getElementById('gasAppUrl').value = ACTIVE_DEFAULT_GAS_URL; const isVerified = sessionStorage.getItem("svr_verified") === "true"; if (isVerified) { document.getElementById('tokenGate').classList.add('fade-out'); } let nextSvdsNum = localStorage.getItem("svr_next_svds_num") || 1; const initialId = "SVDS" + String(nextSvdsNum).padStart(3, '0'); document.getElementById('svdsIdField').value = initialId; document.getElementById('dischargeIdDisplay').innerText = initialId; document.getElementById('dischargeIdDisplay').addEventListener('input', function() { document.getElementById('svdsIdField').value = this.innerText.trim(); }); setupKeyboardNavigation(); setupTitleCaseFormatting(); setupDateFields(); updateView(); updateSections(); syncInvestigationsForPrint(); }
+        window.onload = function() { document.getElementById('gasAppUrl').value = ACTIVE_DEFAULT_GAS_URL; const isVerified = sessionStorage.getItem("svr_verified") === "true"; if (isVerified) { document.getElementById('tokenGate').classList.add('fade-out'); } let nextSvdsNum = localStorage.getItem("svr_next_svds_num") || 1; const initialId = "SVDS" + String(nextSvdsNum).padStart(3, '0'); document.getElementById('svdsIdField').value = initialId; document.getElementById('dischargeIdDisplay').innerText = initialId; document.getElementById('dischargeIdDisplay').addEventListener('input', function() { document.getElementById('svdsIdField').value = this.innerText.trim(); }); setupKeyboardNavigation(); setupTitleCaseFormatting(); setupDateFields(); updateView(); updateSections(); syncInvestigationsForPrint(); document.body.addEventListener('input', () => saveAllToSession()); document.body.addEventListener('change', () => saveAllToSession()); restoreFromSession(); }
         // 03-SECURITY GATEWAY SECTION
         async function verifyToken() { const tokenVal = document.getElementById('tokenPin').value; const errorMsg = document.getElementById('tokenError'); const tokenGate = document.getElementById('tokenGate'); const tokenBtn = document.querySelector('.token-btn'); if (!tokenVal) return; tokenBtn.disabled = true; tokenBtn.innerText = "Verifying..."; try { const response = await fetch(ACTIVE_DEFAULT_GAS_URL, { method: "POST", headers: { "Content-Type": "text/plain" }, body: JSON.stringify({ action: "verifyToken", token: tokenVal, patientName: "VerificationQuery" }) }); const data = await response.json(); if (data && data.success) { tokenGate.classList.add('fade-out'); sessionStorage.setItem("svr_verified", "true"); errorMsg.style.display = 'none'; } else { errorMsg.style.display = 'block'; document.getElementById('tokenPin').value = ''; document.getElementById('tokenPin').focus(); } } catch (e) { if (parseInt(tokenVal) * 31 + 4567 === 277367) { tokenGate.classList.add('fade-out'); sessionStorage.setItem("svr_verified", "true"); errorMsg.style.display = 'none'; } else { errorMsg.style.display = 'block'; document.getElementById('tokenPin').value = ''; document.getElementById('tokenPin').focus(); } } finally { tokenBtn.disabled = false; tokenBtn.innerHTML = `<span>ENTER</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>`; } }
         // 04-CONFIRM MODAL CONSOLE SECTION
@@ -198,15 +374,68 @@
         document.getElementById('confirmModalCancelBtn').addEventListener('click', function() { document.getElementById('confirmModal').style.display = 'none'; confirmCallback = null; });
         document.getElementById('confirmModalOkBtn').addEventListener('click', function() { document.getElementById('confirmModal').style.display = 'none'; if (confirmCallback) { confirmCallback(); } confirmCallback = null; });
         // 05-CLINICAL SECTION CLEANER SECTION
-        function resetSection(secId) { showCustomConfirm("Are you sure you want to reset the " + secId + " section?", function() { if(secId === 'INVESTIGATIONS'){ document.getElementById('invHb').value=''; document.getElementById('invBgp').value=''; document.getElementById('invHiv').value='NEGATIVE'; document.getElementById('invHbs').value='NEGATIVE'; document.getElementById('invHcv').value='NEGATIVE'; document.getElementById('invPlt').value=''; document.getElementById('invBt').value='NORMAL'; document.getElementById('invCt').value='NORMAL'; syncInvestigationsForPrint(); } document.getElementById('txt-' + secId).innerText = ""; }); }
+        function resetSection(secId) { showCustomConfirm("Are you sure you want to reset the " + secId + " section?", function() { if(secId === 'INVESTIGATIONS'){ document.getElementById('invHb').value=''; document.getElementById('invBgp').value=''; document.getElementById('invHiv').value='NEGATIVE'; document.getElementById('invHbs').value='NEGATIVE'; document.getElementById('invHcv').value='NEGATIVE'; document.getElementById('invPlt').value=''; document.getElementById('invBt').value='NORMAL'; document.getElementById('invCt').value='NORMAL'; syncInvestigationsForPrint(); } document.getElementById('txt-' + secId).innerText = ""; saveAllToSession(); }); }
         // 06-CLINICAL SECTION REMOVER SECTION
-        function deleteSection(secId) { showCustomConfirm("Are you sure you want to clear the " + secId + " section?", function() { document.getElementById('txt-' + secId).innerText = ""; }); }
+        function deleteSection(secId) { showCustomConfirm("Are you sure you want to clear the " + secId + " section?", function() { document.getElementById('txt-' + secId).innerText = ""; saveAllToSession(); }); }
         // 07-DOCTOR PROFILE ALIGNER SECTION
         function updateView() { const bar = document.getElementById('bottomDoctorBar'); bar.innerHTML = ""; document.querySelectorAll('.doc-chk:checked').forEach(c => { const d = dData[c.value]; const div = document.createElement('div'); div.innerText = d.n + " (" + d.q + ") - " + d.r; bar.appendChild(div); }); if(document.getElementById('chkOtherDoc').checked) { const div = document.createElement('div'); const n = document.getElementById('otherDocName').value || "________________"; const r = document.getElementById('otherDocQual').value || "__________"; div.innerText = "Dr. " + n.toUpperCase() + " (" + r.toUpperCase() + ")"; bar.appendChild(div); } }
         // 08-DOCTOR INPUTS CONTROLLER SECTION
         function toggleOtherDocInputs() { document.getElementById('otherDocInputs').style.display = document.getElementById('chkOtherDoc').checked ? 'flex' : 'none'; updateView(); }
         // 09-SECTION CONTROL TOGGLER SECTION
         function updateSections() { return true; }
+		function toggleOtherInjection() {
+
+    const box = document.getElementById('otherInjectionBox');
+
+    box.style.display =
+    document.getElementById('chkOtherInjection').checked
+    ? 'block'
+    : 'none';
+
+    updateTreatmentText();
+}
+
+function updateTreatmentText() {
+
+    let lines = [];
+
+document.querySelectorAll('.treatment-check').forEach(chk => { chk.parentElement.classList.remove('active-treatment'); if(chk.checked){ chk.parentElement.classList.add('active-treatment'); lines.push(chk.value); } });
+
+
+
+
+
+    const otherChecked =
+    document.getElementById('chkOtherInjection').checked;
+
+    const otherValue =
+    document.getElementById('otherInjectionInput').value.trim();
+
+    if(otherChecked && otherValue !== '') {
+
+        lines.push(otherValue.toUpperCase());
+
+    }
+
+    document.getElementById('txt-TREATMENT').innerText =
+    lines.join('\n');
+}
+
+function resetTreatmentSection() {
+
+    document.querySelectorAll('.treatment-check')
+    .forEach(chk => chk.checked = false);
+
+    document.getElementById('chkOtherInjection').checked = false;
+
+    document.getElementById('otherInjectionInput').value = '';
+
+    document.getElementById('otherInjectionBox').style.display = 'none';
+
+    document.getElementById('txt-TREATMENT').innerText = '';
+}
+
+
         // 10-PRIMARY BUTTON ROUTER SECTION
         function handleCloudAction() { uploadAndSaveToCloud(); }
         // 11-DASHBOARD RESET CONSOLE SECTION
@@ -214,8 +443,12 @@
         // 12-PATIENT VALUE DUPLICATOR SECTION
         function syncInputDOMValues() { document.querySelectorAll('.patient-field').forEach(input => { if (input.tagName === 'INPUT') { input.setAttribute('value', input.value); } else { input.setAttribute('value', input.innerText); } }); }
         // 13-FORM CLEANUP ROUTINE SECTION
-        function resetForm() { document.querySelectorAll('input[type="checkbox"]').forEach(c => { c.checked = false; }); document.getElementById('otherDocName').value = ""; document.getElementById('otherDocQual').value = ""; document.querySelectorAll('.patient-field').forEach(i => { if(i.tagName === 'INPUT') { i.value = (i.id.startsWith('date') ? "__-__-____  __:__ __" : ""); if(i.id.startsWith('date')) i.dataset.lastVal = "__-__-____  __:__ __"; } else { i.value = ""; } }); document.querySelectorAll('.sec-editable').forEach(d => d.innerText = ""); document.getElementById('invHb').value=''; document.getElementById('invBgp').value=''; document.getElementById('invHiv').value='NEGATIVE'; document.getElementById('invHbs').value='NEGATIVE'; document.getElementById('invHcv').value='NEGATIVE'; document.getElementById('invPlt').value=''; document.getElementById('invBt').value='NORMAL'; document.getElementById('invCt').value='NORMAL'; syncInvestigationsForPrint(); let nextSvdsNum = localStorage.getItem("svr_next_svds_num") || 1; const resetId = "SVDS" + String(nextSvdsNum).padStart(3, '0'); document.getElementById('svdsIdField').value = resetId; document.getElementById('dischargeIdDisplay').innerText = resetId; currentButtonState = "save"; const btnText = document.getElementById('btnText'); if (btnText) btnText.innerText = "SAVE"; const bottomSaveBtn = document.getElementById('bottomSaveBtn'); if (bottomSaveBtn) { const span = bottomSaveBtn.querySelector('span'); if (span) span.innerText = "SAVE"; } toggleOtherDocInputs(); updateSections(); updateView(); }
+        function resetForm() { document.querySelectorAll('input[type="checkbox"]').forEach(c => { c.checked = false; }); document.getElementById('otherDocName').value = ""; document.getElementById('otherDocQual').value = ""; document.querySelectorAll('.patient-field').forEach(i => { if(i.tagName === 'INPUT') { i.value = (i.id.startsWith('date') ? "__-__-____  __:__ __" : ""); if(i.id.startsWith('date')) i.dataset.lastVal = "__-__-____  __:__ __"; } else { i.value = ""; } }); document.querySelectorAll('.sec-editable').forEach(d => d.innerText = ""); document.getElementById('invHb').value=''; document.getElementById('invBgp').value=''; document.getElementById('invHiv').value='NEGATIVE'; document.getElementById('invHbs').value='NEGATIVE'; document.getElementById('invHcv').value='NEGATIVE'; document.getElementById('invPlt').value=''; document.getElementById('invBt').value='NORMAL'; document.getElementById('invCt').value='NORMAL'; syncInvestigationsForPrint(); let nextSvdsNum = localStorage.getItem("svr_next_svds_num") || 1; const resetId = "SVDS" + String(nextSvdsNum).padStart(3, '0'); document.getElementById('svdsIdField').value = resetId; document.getElementById('dischargeIdDisplay').innerText = resetId; currentButtonState = "save"; document.getElementById('topPrintBtn').style.display = 'none'; document.getElementById('bottomPrintBtn').style.display = 'none'; const btnText = document.getElementById('btnText'); if (btnText) btnText.innerText = "SAVE"; const bottomSaveBtn = document.getElementById('bottomSaveBtn'); if (bottomSaveBtn) { const span = bottomSaveBtn.querySelector('span'); if (span) span.innerText = "SAVE"; } toggleOtherDocInputs(); updateSections(); updateView(); sessionStorage.clear(); }
         function syncInvestigationsForPrint() { const hb = document.getElementById('invHb').value.trim(); const bgp = document.getElementById('invBgp').value.trim(); const hiv = document.getElementById('invHiv').value; const hbs = document.getElementById('invHbs').value; const hcv = document.getElementById('invHcv').value; const plt = document.getElementById('invPlt').value.trim(); const bt = document.getElementById('invBt').value.trim(); const ct = document.getElementById('invCt').value.trim(); const extra = document.getElementById('txt-INVESTIGATIONS').innerText.trim(); let parts = []; if(hb) parts.push(`Hb: ${hb}`); if(bgp) parts.push(`Blood Group: ${bgp}`); if(document.getElementById('chkHiv') && document.getElementById('chkHiv').checked) parts.push(`HIV: ${hiv}`); if(document.getElementById('chkHbs') && document.getElementById('chkHbs').checked) parts.push(`HbsAg: ${hbs}`); if(document.getElementById('chkHcv') && document.getElementById('chkHcv').checked) parts.push(`HCV: ${hcv}`); if(plt) parts.push(`Platelets: ${plt}`); if(document.getElementById('chkBt') && document.getElementById('chkBt').checked) parts.push(`BT: ${bt}`); if(document.getElementById('chkCt') && document.getElementById('chkCt').checked) parts.push(`CT: ${ct}`); const formatted = parts.join(' | '); const fullText = extra ? `${formatted}\n${extra}` : formatted; document.getElementById('printInvestigationsText').innerText = fullText; return fullText; }
+        // 13.1-AUTO SAVE TO SESSION FUNCTION
+        function saveAllToSession() { const state = { patientName: document.getElementById('patientName').value, patientAge: document.getElementById('patientAge').value, patientAddress: document.getElementById('patientAddress').value, dateAdmission: document.getElementById('dateAdmission').value, dateOperation: document.getElementById('dateOperation').value, dateDischarge: document.getElementById('dateDischarge').value, dischargeId: document.getElementById('dischargeIdDisplay').innerText, invHb: document.getElementById('invHb').value, invBgp: document.getElementById('invBgp').value, invPlt: document.getElementById('invPlt').value, invBt: document.getElementById('invBt').value, invCt: document.getElementById('invCt').value, invHiv: document.getElementById('invHiv').value, invHbs: document.getElementById('invHbs').value, invHcv: document.getElementById('invHcv').value, chkHiv: document.getElementById('chkHiv').checked, chkHbs: document.getElementById('chkHbs').checked, chkHcv: document.getElementById('chkHcv').checked, chkBt: document.getElementById('chkBt').checked, chkCt: document.getElementById('chkCt').checked, textChief: document.getElementById('txt-CHIEF').innerText, textDiagnosis: document.getElementById('txt-DIAGNOSIS').innerText, textInvestigations: document.getElementById('txt-INVESTIGATIONS').innerText, textOperative: document.getElementById('txt-OPERATIVE').innerText, textIndication: document.getElementById('txt-INDICATION').innerText, textIntra: document.getElementById('txt-INTRA').innerText, textTreatment: document.getElementById('txt-TREATMENT').innerText, textCondition: document.getElementById('txt-CONDITION').innerText, textAdvice: document.getElementById('txt-ADVICE').innerText, textFollowup: document.getElementById('txt-FOLLOWUP').innerText, textOthers: document.getElementById('txt-OTHERS').innerText, docsChecked: Array.from(document.querySelectorAll('.doc-chk')).map(c => c.checked), chkOtherDoc: document.getElementById('chkOtherDoc').checked, otherDocName: document.getElementById('otherDocName').value, otherDocQual: document.getElementById('otherDocQual').value }; sessionStorage.setItem('svr_form_state', JSON.stringify(state)); }
+        // 13.2-RESTORE FROM SESSION FUNCTION
+        function restoreFromSession() { const raw = sessionStorage.getItem('svr_form_state'); const isSaved = sessionStorage.getItem('svr_is_saved') === 'true'; if (isSaved) { document.getElementById('topPrintBtn').style.display = 'inline-block'; document.getElementById('bottomPrintBtn').style.display = 'inline-block'; } else { document.getElementById('topPrintBtn').style.display = 'none'; document.getElementById('bottomPrintBtn').style.display = 'none'; } if (!raw) return; const s = JSON.parse(raw); document.getElementById('patientName').value = s.patientName || ''; document.getElementById('patientAge').value = s.patientAge || ''; document.getElementById('patientAddress').value = s.patientAddress || ''; document.getElementById('dateAdmission').value = s.dateAdmission || ''; document.getElementById('dateOperation').value = s.dateOperation || ''; document.getElementById('dateDischarge').value = s.dateDischarge || ''; document.getElementById('dischargeIdDisplay').innerText = s.dischargeId || 'SVDS001'; document.getElementById('invHb').value = s.invHb || ''; document.getElementById('invBgp').value = s.invBgp || ''; document.getElementById('invPlt').value = s.invPlt || ''; document.getElementById('invBt').value = s.invBt || ''; document.getElementById('invCt').value = s.invCt || ''; document.getElementById('invHiv').value = s.invHiv || 'NEGATIVE'; document.getElementById('invHbs').value = s.invHbs || 'NEGATIVE'; document.getElementById('invHcv').value = s.invHcv || 'NEGATIVE'; if(s.chkHiv !== undefined) document.getElementById('chkHiv').checked = s.chkHiv; if(s.chkHbs !== undefined) document.getElementById('chkHbs').checked = s.chkHbs; if(s.chkHcv !== undefined) document.getElementById('chkHcv').checked = s.chkHcv; if(s.chkBt !== undefined) document.getElementById('chkBt').checked = s.chkBt; if(s.chkCt !== undefined) document.getElementById('chkCt').checked = s.chkCt; document.getElementById('txt-CHIEF').innerText = s.textChief || ''; document.getElementById('txt-DIAGNOSIS').innerText = s.textDiagnosis || ''; document.getElementById('txt-INVESTIGATIONS').innerText = s.textInvestigations || ''; document.getElementById('txt-OPERATIVE').innerText = s.textOperative || ''; document.getElementById('txt-INDICATION').innerText = s.textIndication || ''; document.getElementById('txt-INTRA').innerText = s.textIntra || ''; document.getElementById('txt-TREATMENT').innerText = s.textTreatment || ''; document.getElementById('txt-CONDITION').innerText = s.textCondition || ''; document.getElementById('txt-ADVICE').innerText = s.textAdvice || ''; document.getElementById('txt-FOLLOWUP').innerText = s.textFollowup || ''; document.getElementById('txt-OTHERS').innerText = s.textOthers || ''; if(s.docsChecked) { const chks = document.querySelectorAll('.doc-chk'); chks.forEach((chk, i) => { if(s.docsChecked[i] !== undefined) chk.checked = s.docsChecked[i]; }); } if(s.chkOtherDoc !== undefined) document.getElementById('chkOtherDoc').checked = s.chkOtherDoc; document.getElementById('otherDocName').value = s.otherDocName || ''; document.getElementById('otherDocQual').value = s.otherDocQual || ''; toggleOtherDocInputs(); updateView(); updateSections(); syncInvestigationsForPrint(); }
         // 14-NATIVE PRINTER ENGAGE SECTION
         function triggerNativePrint() { syncInputDOMValues(); syncInvestigationsForPrint(); const dsId = document.getElementById('dischargeIdDisplay').innerText.trim() || 'DISCHARGE_SUMMARY'; document.title = dsId.replace(/[^a-zA-Z0-9_-]/g,'_'); window.print(); }
         // 15-DOCTOR SUMMARY CONCATENATOR SECTION
@@ -231,7 +464,7 @@
         // 20-SMART NAVIGATION SECTION
         function setupKeyboardNavigation() { const order = ['patientName', 'patientAge', 'patientAddress', 'dateAdmission', 'dateOperation', 'dateDischarge']; order.forEach((id, idx) => { const el = document.getElementById(id); if (el) { el.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); if (idx < order.length - 1) { document.getElementById(order[idx + 1]).focus(); } else { const visibleSec = Array.from(document.querySelectorAll('.row-section')).find(s => s.style.display !== 'none'); if (visibleSec) { const editable = visibleSec.querySelector('.sec-editable'); if (editable) editable.focus(); } } } }); } }); }
         // 21-TITLE CASE CONVERTER WITH EXCEPTIONS & SPELLCORRECT SECTION
-        function setupTitleCaseFormatting() { document.querySelectorAll('.sec-editable').forEach(el => { el.addEventListener('blur', () => { if (el.innerText.trim()) { let words = el.innerText.split(/\s+/); let processed = words.map(word => { let clean = word.toLowerCase().replace(/[^a-z]/g, ''); if (medCorrections[clean]) { return word.toUpperCase().replace(new RegExp(clean, 'i'), medCorrections[clean]); } if (/^(mg|mm|ml|od|bd|tds|qid|tid|hs|po|iv|im|sc|gm|cc|kg)$/i.test(clean)) { return word.toLowerCase(); } return word.toUpperCase(); }); el.innerText = processed.join(' '); syncInvestigationsForPrint(); } }); }); }
+        function setupTitleCaseFormatting() { document.querySelectorAll('.sec-editable').forEach(el => { el.addEventListener('blur', () => { if (el.innerText.trim()) { let words = el.innerText.split(/\s+/); let processed = words.map(word => { let clean = word.toLowerCase().replace(/[^a-z]/g, ''); if (medCorrections[clean]) { return word.toUpperCase().replace(new RegExp(clean, 'i'), medCorrections[clean]); } if (/^(mg|mm|ml|od|bd|tds|qid|tid|hs|po|iv|im|sc|gm|cc|kg)$/i.test(clean)) { return word.toLowerCase(); } return word.toUpperCase(); }); el.innerText = processed.join(' '); syncInvestigationsForPrint(); saveAllToSession(); } }); }); }
         // 22-DATE MASK PROCESSOR SECTION
         function setupDateFields() { ['dateAdmission', 'dateOperation', 'dateDischarge'].forEach(id => { const el = document.getElementById(id); if (el) { el.addEventListener('focus', () => { if (!el.value || el.value.trim() === '') { el.value = "__-__-____  __:__ __"; el.dataset.lastVal = "__-__-____  __:__ __"; } }); el.addEventListener('blur', () => { if (el.value === "__-__-____  __:__ __") el.value = ""; }); el.addEventListener('input', (e) => handleDateMaskInput(e, el)); el.addEventListener('click', () => { let pos = el.selectionStart; if (pos !== null) el.setSelectionRange(pos, pos); }); } }); }
         // 23-KEYBOARD MASK HANDLER SECTION
@@ -246,11 +479,12 @@
         function selectClockValue(val) { if (clockMode === "hours") { document.getElementById('manualHH').value = String(val).padStart(2, '0'); document.getElementById('clockIndicatorHand').style.transform = `rotate(${val * 30}deg)`; setTimeout(() => { clockMode = "minutes"; renderClockDial(); }, 200); } else { document.getElementById('manualMM').value = String(val).padStart(2, '0'); document.getElementById('clockIndicatorHand').style.transform = `rotate(${val * 6}deg)`; } }
         function syncManualClockInput() { const hh = parseInt(document.getElementById('manualHH').value) || 0; const mm = parseInt(document.getElementById('manualMM').value) || 0; if (clockMode === "hours" && hh >= 1 && hh <= 12) { document.getElementById('clockIndicatorHand').style.transform = `rotate(${hh * 30}deg)`; } else if (clockMode === "minutes" && mm >= 0 && mm < 60) { document.getElementById('clockIndicatorHand').style.transform = `rotate(${mm * 6}deg)`; } }
         function setClockAMPM(val) { activeAMPM = val; document.getElementById('amBtn').classList.toggle('selected-val', val === 'AM'); document.getElementById('pmBtn').classList.toggle('selected-val', val === 'PM'); setTimeout(() => { saveClockTime(); }, 150); }
-        function saveClockTime() { const hh = document.getElementById('manualHH').value.trim() || "12"; const mm = document.getElementById('manualMM').value.trim() || "00"; const ampm = activeAMPM; const targetEl = document.getElementById(activeClockTargetId); let currentVal = targetEl.value || "__-__-____  __:__ __"; const datePart = currentVal.length >= 10 ? currentVal.substring(0, 10) : "__-__-____"; targetEl.value = `${datePart}  ${String(hh).padStart(2, '0')}:${String(mm).padStart(2, '0')} ${ampm}`; targetEl.dataset.lastVal = targetEl.value; closeClockModal(); }
+        // 25.2-SAVE TIME VALUES
+        function saveClockTime() { const hh = document.getElementById('manualHH').value.trim() || "12"; const mm = document.getElementById('manualMM').value.trim() || "00"; const ampm = activeAMPM; const targetEl = document.getElementById(activeClockTargetId); let currentVal = targetEl.value || "__-__-____  __:__ __"; const datePart = currentVal.length >= 10 ? currentVal.substring(0, 10) : "__-__-____"; targetEl.value = `${datePart}  ${String(hh).padStart(2, '0')}:${String(mm).padStart(2, '0')} ${ampm}`; targetEl.dataset.lastVal = targetEl.value; saveAllToSession(); closeClockModal(); }
         // 26-DATE RECONSTRUCT FROM DATE PICKER
-        function setDateFromDatePicker(id, val) { if (!val) return; const parts = val.split('-'); const formattedDate = `${parts[2]}-${parts[1]}-${parts[0]}`; const el = document.getElementById(id); let currentVal = el.value || "__-__-____  __:__ __"; if (currentVal === "__-__-____  __:__ __") { el.value = `${formattedDate}  __:__ __`; } else { el.value = formattedDate + currentVal.substring(10); } el.dataset.lastVal = el.value; }
+        function setDateFromDatePicker(id, val) { if (!val) return; const parts = val.split('-'); const formattedDate = `${parts[2]}-${parts[1]}-${parts[0]}`; const el = document.getElementById(id); let currentVal = el.value || "__-__-____  __:__ __"; if (currentVal === "__-__-____  __:__ __") { el.value = `${formattedDate}  __:__ __`; } else { el.value = formattedDate + currentVal.substring(10); } el.dataset.lastVal = el.value; saveAllToSession(); }
         // 27-DATABASE TRANSMITTER SECTION
-        async function uploadAndSaveToCloud() { const gasUrl = document.getElementById('gasAppUrl').value.trim(); const pName = document.getElementById('patientName').value.trim(); const svdsIdVal = document.getElementById('svdsIdField').value.trim(); if (!pName) { alert("Please enter the PATIENT NAME first."); document.getElementById('patientName').focus(); return; } if (!gasUrl) { alert("Google Apps Script URL is missing or incorrect."); return; } const btnText = document.getElementById('btnText'); const btnSpinner = document.getElementById('btnSpinner'); if (btnText) btnText.innerText = "SAVING..."; if (btnSpinner) btnSpinner.style.display = "inline-block"; const bottomSaveBtn = document.getElementById('bottomSaveBtn'); const bottomSpinner = document.getElementById('bottomSpinner'); if (bottomSaveBtn) { const span = bottomSaveBtn.querySelector('span'); if (span) span.innerText = "SAVING..."; } if (bottomSpinner) bottomSpinner.style.display = "inline-block"; try { syncInputDOMValues(); const fullInvText = syncInvestigationsForPrint(); const payload = { svdsId: svdsIdVal, patientName: pName, patientAge: document.getElementById('patientAge').value.trim(), patientAddress: document.getElementById('patientAddress').value.trim(), dateAdmission: document.getElementById('dateAdmission').value.trim(), dateOperation: document.getElementById('dateOperation').value.trim(), dateDischarge: document.getElementById('dateDischarge').value.trim(), doctorSelection: getSelectedDoctorsString(), sectionToggles: getSelectedSectionsString(), diagnosis: document.getElementById('txt-DIAGNOSIS').innerText.trim(), investigations: fullInvText, operativeProcedure: document.getElementById('txt-OPERATIVE').innerText.trim(), indication: document.getElementById('txt-INDICATION').innerText.trim(), intraOperative: document.getElementById('txt-INTRA').innerText.trim(), treatmentGiven: document.getElementById('txt-TREATMENT').innerText.trim(), conditionAtDischarge: document.getElementById('txt-CONDITION').innerText.trim(), adviceOnDischarge: document.getElementById('txt-ADVICE').innerText.trim(), followUp: document.getElementById('txt-FOLLOWUP').innerText.trim() }; try { const response = await fetch(gasUrl, { method: "POST", headers: { "Content-Type": "text/plain" }, body: JSON.stringify(payload) }); let responseData; try { const responseText = await response.text(); responseData = JSON.parse(responseText); if (responseData && responseData.driveUrl) { loadedDriveUrl = responseData.driveUrl; } } catch(jsonErr) { console.log("Parsing response text failed.", jsonErr); } let currentNum = parseInt(svdsIdVal.replace("SVDS", "")) || 1; localStorage.setItem("svr_next_svds_num", currentNum + 1); if (btnText) btnText.innerText = "SAVE"; if (btnSpinner) btnSpinner.style.display = "none"; if (bottomSaveBtn) { const span = bottomSaveBtn.querySelector('span'); if (span) span.innerText = "SAVE"; } if (bottomSpinner) bottomSpinner.style.display = "none"; setTimeout(() => { document.getElementById('successPopup').style.display = 'flex'; }, 400); } catch (fetchErr) { if (btnText) btnText.innerText = "SAVE"; if (btnSpinner) btnSpinner.style.display = "none"; if (bottomSaveBtn) { const span = bottomSaveBtn.querySelector('span'); if (span) span.innerText = "SAVE"; } if (bottomSpinner) bottomSpinner.style.display = "none"; alert("Connection to server failed: " + fetchErr.toString()); } } catch (err) { if (btnText) btnText.innerText = "SAVE"; if (btnSpinner) btnSpinner.style.display = "none"; if (bottomSaveBtn) { const span = bottomSaveBtn.querySelector('span'); if (span) span.innerText = "SAVE"; } if (bottomSpinner) bottomSpinner.style.display = "none"; alert("Data submission framework failed: " + err.toString()); } }
+        async function uploadAndSaveToCloud() { const gasUrl = document.getElementById('gasAppUrl').value.trim(); const pName = document.getElementById('patientName').value.trim(); const svdsIdVal = document.getElementById('svdsIdField').value.trim(); if (!pName) { alert("Please enter the PATIENT NAME first."); document.getElementById('patientName').focus(); return; } if (!gasUrl) { alert("Google Apps Script URL is missing or incorrect."); return; } const btnText = document.getElementById('btnText'); const btnSpinner = document.getElementById('btnSpinner'); if (btnText) btnText.innerText = "SAVING..."; if (btnSpinner) btnSpinner.style.display = "inline-block"; const bottomSaveBtn = document.getElementById('bottomSaveBtn'); const bottomSpinner = document.getElementById('bottomSpinner'); if (bottomSaveBtn) { const span = bottomSaveBtn.querySelector('span'); if (span) span.innerText = "SAVING..."; } if (bottomSpinner) bottomSpinner.style.display = "inline-block"; try { syncInputDOMValues(); const fullInvText = syncInvestigationsForPrint(); const payload = { svdsId: svdsIdVal, patientName: pName, patientAge: document.getElementById('patientAge').value.trim(), patientAddress: document.getElementById('patientAddress').value.trim(), dateAdmission: document.getElementById('dateAdmission').value.trim(), dateOperation: document.getElementById('dateOperation').value.trim(), dateDischarge: document.getElementById('dateDischarge').value.trim(), doctorSelection: getSelectedDoctorsString(), sectionToggles: getSelectedSectionsString(), diagnosis: document.getElementById('txt-DIAGNOSIS').innerText.trim(), investigations: fullInvText, operativeProcedure: document.getElementById('txt-OPERATIVE').innerText.trim(), indication: document.getElementById('txt-INDICATION').innerText.trim(), intraOperative: document.getElementById('txt-INTRA').innerText.trim(), treatmentGiven: document.getElementById('txt-TREATMENT').innerText.trim(), conditionAtDischarge: document.getElementById('txt-CONDITION').innerText.trim(), adviceOnDischarge: document.getElementById('txt-ADVICE').innerText.trim(), followUp: document.getElementById('txt-FOLLOWUP').innerText.trim() }; try { const response = await fetch(gasUrl, { method: "POST", headers: { "Content-Type": "text/plain" }, body: JSON.stringify(payload) }); let responseData; try { const responseText = await response.text(); responseData = JSON.parse(responseText); if (responseData && responseData.driveUrl) { loadedDriveUrl = responseData.driveUrl; } } catch(jsonErr) { console.log("Parsing response text failed.", jsonErr); } let currentNum = parseInt(svdsIdVal.replace("SVDS", "")) || 1; localStorage.setItem("svr_next_svds_num", currentNum + 1); if (btnText) btnText.innerText = "SAVE"; if (btnSpinner) btnSpinner.style.display = "none"; if (bottomSaveBtn) { const span = bottomSaveBtn.querySelector('span'); if (span) span.innerText = "SAVE"; } if (bottomSpinner) bottomSpinner.style.display = "none"; document.getElementById('topPrintBtn').style.display = 'inline-block'; document.getElementById('bottomPrintBtn').style.display = 'inline-block'; sessionStorage.setItem('svr_is_saved', 'true'); saveAllToSession(); setTimeout(() => { document.getElementById('successPopup').style.display = 'flex'; }, 400); } catch (fetchErr) { if (btnText) btnText.innerText = "SAVE"; if (btnSpinner) btnSpinner.style.display = "none"; if (bottomSaveBtn) { const span = bottomSaveBtn.querySelector('span'); if (span) span.innerText = "SAVE"; } if (bottomSpinner) bottomSpinner.style.display = "none"; alert("Connection to server failed: " + fetchErr.toString()); } } catch (err) { if (btnText) btnText.innerText = "SAVE"; if (btnSpinner) btnSpinner.style.display = "none"; if (bottomSaveBtn) { const span = bottomSaveBtn.querySelector('span'); if (span) span.innerText = "SAVE"; } if (bottomSpinner) bottomSpinner.style.display = "none"; alert("Data submission framework failed: " + err.toString()); } }
         // 28-POPUP ACTION DISPATCHER SECTION
         function closeSuccessPopupAndPrint() { document.getElementById('successPopup').style.display = 'none'; triggerNativePrint(); }
         // 29-POPUP CLOSE ROUTINE SECTION
