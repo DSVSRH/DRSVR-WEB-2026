@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delivery Certificate | Dr VSR Hospital</title>
+<!-- ఫెవికాన్ కాన్ఫిగరేషన్ -->
+<link rel="icon" type="image/png" href="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_02_FEVICON_ICON.png">
+<!-- రెస్పాన్సివ్ లేఅవుట్ కోసం టెయిల్విండ్ CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;800&display=swap" rel="stylesheet">
+<!-- ఐకాన్ సింబల్స్ కోసం ఫాంట్ ఆసమ్ లైబ్రరీ -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* 01-ప్రధాన లేఅవుట్ శైలులు */
+body { font-family: 'Roboto Slab', serif; background-color: #f1f5f9; padding: 10px; margin: 0; }
+.a4-page { width: 210mm; height: 130mm; min-height: 130mm; padding: 5mm 10mm; margin: 80px auto 40px auto; background: #ffffff; border: 2.5px solid #1e3a8a; box-sizing: border-box; display: flex; flex-direction: column; position: relative; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); overflow: hidden; }
+
+/* 02-హాస్పిటల్ హెడర్ శైలులు */
+.header-container { display: flex; flex-direction: column; border-bottom: 2.5px solid #1e3a8a; padding-bottom: 6px; }
+.header-top { display: flex; align-items: center; justify-content: flex-start; gap: 15px; width: 100%; }
+.logo-img { height: 95px; width: 95px; object-fit: contain; }
+.header-text { display: flex; flex-direction: column; align-items: flex-start; flex-grow: 1; text-align: left; }
+.hospital-name { font-size: 1.35rem; font-weight: 800; color: #1e3a8a; text-transform: uppercase; line-height: 1.2; white-space: nowrap; letter-spacing: -0.01em; }
+.sub-header-row { display: flex; align-items: center; justify-content: space-between; width: 100%; margin-top: 5px; }
+.since-box { font-size: 0.85rem; font-weight: 800; color: #ffffff; background-color: #1e3a8a; padding: 2px 8px; border-radius: 4px; border: 1px solid #1e3a8a; }
+.phone-box { font-size: 0.85rem; font-weight: 800; color: #1e3a8a; }
+.tagline { font-size: 0.8rem; font-weight: 700; color: #1e3a8a; text-transform: uppercase; }
+
+/* 03-సర్టిఫికేట్ కంటెంట్ మరియు ఇన్పుట్ ఫీల్డ్ శైలులు */
+.receipt-headline { font-size: 1.05rem; font-weight: 800; color: #1e3a8a; text-decoration: underline; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; margin-top: 4px; margin-bottom: 4px; }
+.receipt-paragraph { font-size: 0.81rem; line-height: 2.2; color: #1e293b; text-align: justify; font-weight: 600; margin-top: 5px; text-transform: uppercase; }
+.line-input { border: none; border-bottom: 1.5px dotted #1e3a8a; outline: none; padding: 0 4px; font-weight: 800; color: #1e3a8a; text-align: center; background: transparent; transition: border-color 0.15s ease; font-size: 0.72rem; display: inline-block; min-height: 20px; line-height: 1.3; vertical-align: bottom; text-transform: uppercase; word-break: break-word; white-space: normal; }
+.line-input:focus { border-bottom-style: solid; border-bottom-color: #2563eb; }
+.line-input:empty::before { content: attr(placeholder); color: #94a3b8; font-weight: normal; text-transform: none; }
+.date-field { border: none; border-bottom: 1.5px dotted #1e3a8a; outline: none; padding: 0 4px; background: transparent; color: #1e3a8a; font-weight: 800; font-family: inherit; width: 120px; text-align: center; font-size: 0.72rem; height: 20px; line-height: 20px; vertical-align: middle; }
+
+/* 04-ఫుటర్ మరియు కంట్రోల్ బటన్ శైలులు */
+.footer-wrapper { position: absolute; bottom: 8px; left: 20px; right: 20px; display: flex; flex-direction: column; }
+.footer { text-align: center; color: #1e3a8a; border-top: 1px solid #1e3a8a; padding-top: 3px; }
+.address-text { font-size: 0.75rem; font-weight: 800; margin-bottom: 1px; }
+.controls-top { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 16px; z-index: 1000; background: transparent; }
+.btn { padding: 6px 18px; background-color: #1e3a8a; color: white; border-radius: 6px; font-weight: 700; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; transition: all 0.2s ease-in-out; }
+.btn:hover:not(:disabled) { opacity: 0.9; transform: translateY(-1px); }
+.btn:active:not(:disabled) { transform: translateY(1px); }
+.btn:disabled { background-color: #cbd5e1; color: #94a3b8; cursor: not-allowed; border: 1px solid #e2e8f0; }
+.btn-save { background-color: #059669; }
+.btn-print { background-color: #3b82f6; }
+.print-pulse { animation: pulseGlow 2s infinite; }
+@keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); } 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); } }
+#toast { position: fixed; bottom: 15px; right: 15px; padding: 8px 16px; border-radius: 6px; font-weight: 800; color: white; display: none; z-index: 2000; box-shadow: 0 8px 16px rgba(0,0,0,0.15); font-size: 0.75rem; }
+.toast-success { background: #10b981; }
+.toast-error { background: #ef4444; }
+
+/* 05-నిలువు ప్రింటింగ్ మీడియా నియమాలు (A4 Portrait) */
+@media print { @page { size: A4 portrait; margin: 0; } body { background: #ffffff !important; padding: 0 !important; margin: 0 !important; display: flex !important; justify-content: center !important; align-items: flex-start !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; } .a4-page { position: relative !important; top: 0 !important; left: 0 !important; margin: 4mm auto 0 auto !important; border: 2.5px solid #1e3a8a !important; width: 198mm !important; height: 130mm !important; padding: 5mm 10mm 4mm 10mm !important; box-sizing: border-box; box-shadow: none !important; overflow: hidden; display: flex !important; flex-direction: column !important; page-break-after: avoid; page-break-inside: avoid; } .controls-top { display: none !important; } input[type="date"]::-webkit-calendar-picker-indicator, input[type="date"]::-webkit-inner-spin-button { display: none !important; -webkit-appearance: none; } .date-field { width: 105px !important; text-align: center; border-bottom: 1.5px dotted #1e3a8a !important; } }
+</style>
+</head>
+<body oninput="runDataAutoSave_1003()">
+
+<!-- 01-కంట్రోల్ ప్యానెల్ సెక్షన్ -->
+<div class="controls-top"> <button class="btn bg-rose-600 hover:bg-rose-700" onclick="triggerConfirmReset_8213()"><i class="fa-solid fa-trash-can"></i> RESET</button> <button class="btn btn-save" id="commitBtn_9381" onclick="submitToSpreadsheet_7182()"><i class="fa-solid fa-cloud-arrow-up"></i> SAVE</button> <button class="btn btn-print" id="printBtn_2831" onclick="triggerNativePrint_9281()"><i class="fa-solid fa-print"></i> PRINT</button> </div>
+
+<!-- 02-ఎర్రర్ నోటిఫికేషన్ టోస్ట్ -->
+<div id="toast"></div>
+
+<!-- 03-రీసెట్ నిర్ధారణ మోడల్ డైలాగ్ -->
+<div id="confirmModal_9988" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center z-[3000] hidden"> <div class="bg-white p-6 rounded-xl border-2 border-blue-900 shadow-2xl max-w-sm w-full text-center m-4"> <h3 class="text-lg font-extrabold text-blue-900 mb-2">Confirm Action</h3> <p class="text-sm text-slate-700 mb-6 font-semibold">Are you sure you want to reset?</p> <div class="flex justify-center gap-4"> <button class="px-4 py-2 bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold rounded" onclick="closeConfirmModal_8822()">Cancel</button> <button class="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded" onclick="confirmAndClearAllStoredData_9281()">Yes, Reset</button> </div> </div> </div>
+
+<!-- 04-డెలివరీ సర్టిఫికేట్ ప్రధాన లేఅవుట్ -->
+<div class="a4-page"> <div class="header-container"> <div class="header-top"> <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_01_HEDER_LOGO_MAIN.png" alt="Hospital Logo" class="logo-img"> <div class="header-text"> <h1 class="hospital-name">Dr. S. Venkata Subba Reddy Multispecialty Hospital</h1> <div class="sub-header-row"> <div class="flex items-center gap-3"> <span class="since-box">SINCE 1989</span> <p class="tagline">"Best Of Care, Close to Home"</p> </div> <div class="phone-box"><i class="fas fa-phone-alt"></i> 9063307444</div> </div> </div> </div> </div>
+
+    <!-- 05-సర్టిఫికేట్ డేటా ఫీల్డ్స్ -->
+    <div class="flex-grow flex flex-col justify-start"> <div class="flex justify-between w-full mt-2 font-bold text-blue-900 border-b border-blue-900/30 pb-1 text-xs"> <div>Certificate No: <span id="receiptNumDisplay_9182" class="text-rose-600 font-extrabold transition-all">[Click Save]</span></div> <div>Date: <input type="date" class="date-field" id="receiptDate_8471" onchange="runDataAutoSave_1003()"></div> </div> <div class="receipt-headline">DELIVERY CERTIFICATE</div> <p class="receipt-paragraph"> THIS IS TO CERTIFY THAT SMT. <span contenteditable="plaintext-only" id="smtName_1004" class="line-input min-w-[280px]" placeholder="Mother's Name"></span> W/O SRI <span contenteditable="plaintext-only" id="sriName_1005" class="line-input min-w-[280px]" placeholder="Father's Name"></span> NATIVE OF <span contenteditable="plaintext-only" id="nativePlace_1006" class="line-input min-w-[220px]" placeholder="Village"></span> MANDAL <span contenteditable="plaintext-only" id="mandalName_1007" class="line-input min-w-[180px]" placeholder="Mandal"></span> DIST <span contenteditable="plaintext-only" id="distName_1008" class="line-input min-w-[180px]" placeholder="District"></span> DELIVERED IN OUR NURSING HOME, ALLAGADDA ON <input type="date" class="date-field" id="deliveryDate_1009" onchange="runDataAutoSave_1003()">. THIS IS HER <select id="deliveryOrder_1010" class="line-input w-16 bg-transparent font-extrabold text-blue-900" style="text-align-last: center;" onchange="runDataAutoSave_1003()"><option value="1st">1st</option><option value="2nd">2nd</option><option value="3rd">3rd</option><option value="4th">4th</option><option value="5th">5th</option><option value="6th">6th</option><option value="7th">7th</option><option value="8th">8th</option></select> DELIVERY, AND THE BORN CHILD IS ALIVE <select id="childGender_1011" class="line-input w-24 bg-transparent font-extrabold text-blue-900" style="text-align-last: center;" onchange="runDataAutoSave_1003()"><option value="MALE">MALE</option><option value="FEMALE">FEMALE</option></select>. </p> </div> <div class="footer-wrapper"> <div class="flex justify-between items-end mb-2"> <div class="text-[0.65rem] text-blue-900/80 font-bold italic">Generated digitally. Authenticated record.</div> <div class="text-right font-bold text-blue-900 text-[0.7rem] flex flex-col items-center"> <span class="h-4"></span> <span class="border-t border-blue-900/40 pt-1 px-4">Authorized Signatory / Put Signature</span> </div> </div> <div class="footer"> <p class="address-text">Address : Church Masjid Street, ALLAGADDA - 518543, Nandyal District, Andhra Pradesh.</p> <p class="text-[0.5rem] font-bold mt-0.5">© 2026 All Rights Reserved | Dr. S. Venkata Subba Reddy Multispeciality Hospital | Architected by Sri Veda Org.</p> </div> </div> </div>
+
+<script>
+// 01-నెట్‌వర్క్ కనెక్షన్ మరియు స్టోరేజ్ డిక్లరేషన్లు
+const OFFICIAL_WEBAPP_URL_9283 = "https://script.google.com/macros/s/AKfycbyZ8hxoKuGRVZSTALwnkmXQMBEER29yi_-8FmTm6rvY2xCgcDhi9Xng4qe1hiMWCo_ljw/exec";
+const ALL_FORM_INPUTS_LIST_8392 = ['receiptDate_8471', 'smtName_1004', 'sriName_1005', 'nativePlace_1006', 'mandalName_1007', 'distName_1008', 'deliveryDate_1009', 'deliveryOrder_1010', 'childGender_1011'];
+const EDITABLE_SPANS_9281 = ['smtName_1004', 'sriName_1005', 'nativePlace_1006', 'mandalName_1007', 'distName_1008'];
+
+// 02-డేటా రీడింగ్ అండ్ రైటింగ్ హెల్పర్ ఫంక్షన్లు
+function getFieldVal_9281(id) { const el = document.getElementById(id); if (!el) return ""; if (EDITABLE_SPANS_9281.includes(id)) { return el.innerText.trim(); } return el.value; }
+function setFieldVal_9281(id, val) { const el = document.getElementById(id); if (!el) return; if (EDITABLE_SPANS_9281.includes(id)) { el.innerText = val; } else { el.value = val; } }
+
+// 03-ఫారమ్ లోడ్ మరియు ఆటో-సేవ్ ఫంక్షన్లు
+window.onload = function() { loadStoredElementsAndCheckState_8831(); };
+function loadStoredElementsAndCheckState_8831() { const currentDate_9283 = new Date().toISOString().split('T')[0]; restoreFormValuesFromStore_8291(); if (!getFieldVal_9281('receiptDate_8471')) { setFieldVal_9281('receiptDate_8471', currentDate_9283); } if (!getFieldVal_9281('deliveryDate_1009')) { setFieldVal_9281('deliveryDate_1009', currentDate_9283); } handleInitialPrintBtnState_2819(); }
+function restoreFormValuesFromStore_8291() { ALL_FORM_INPUTS_LIST_8392.forEach(fieldId_3821 => { const savedVal_8192 = localStorage.getItem(`vsr_field_${fieldId_3821}`); if (savedVal_8192 !== null) { setFieldVal_9281(fieldId_3821, savedVal_8192); } }); }
+function handleInitialPrintBtnState_2819() { const savedReceipt_3821 = localStorage.getItem('vsr_saved_receipt_9182'); const printBtn_8291 = document.getElementById('printBtn_2831'); if (savedReceipt_3821) { document.getElementById('receiptNumDisplay_9182').innerText = savedReceipt_3821; document.getElementById('receiptNumDisplay_9182').className = "text-blue-900 font-extrabold"; printBtn_8291.disabled = false; printBtn_8291.classList.add('print-pulse'); } else { printBtn_8291.disabled = true; printBtn_8291.classList.remove('print-pulse'); } }
+function runDataAutoSave_1003() { ALL_FORM_INPUTS_LIST_8392.forEach(fieldId_3821 => { localStorage.setItem(`vsr_field_${fieldId_3821}`, getFieldVal_9281(fieldId_3821)); }); const printBtn_8291 = document.getElementById('printBtn_2831'); printBtn_8291.disabled = true; printBtn_8291.classList.remove('print-pulse'); document.getElementById('receiptNumDisplay_9182').innerText = "[Click Save]"; document.getElementById('receiptNumDisplay_9182').className = "text-rose-600 font-extrabold"; localStorage.removeItem('vsr_saved_receipt_9182'); }
+
+// 04-బటన్ల ఈవెంట్ లాజిక్ సెక్షన్
+function triggerConfirmReset_8213() { document.getElementById('confirmModal_9988').classList.remove('hidden'); }
+function closeConfirmModal_8822() { document.getElementById('confirmModal_9988').classList.add('hidden'); }
+function confirmAndClearAllStoredData_9281() { closeConfirmModal_8822(); ALL_FORM_INPUTS_LIST_8392.forEach(fieldId_3821 => { localStorage.removeItem(`vsr_field_${fieldId_3821}`); setFieldVal_9281(fieldId_3821, ""); }); localStorage.removeItem('vsr_saved_receipt_9182'); const today_8293 = new Date().toISOString().split('T')[0]; setFieldVal_9281('receiptDate_8471', today_8293); setFieldVal_9281('deliveryDate_1009', today_8293); document.getElementById('receiptNumDisplay_9182').innerText = "[Click Save]"; document.getElementById('receiptNumDisplay_9182').className = "text-rose-600 font-extrabold"; const printBtn_8291 = document.getElementById('printBtn_2831'); printBtn_8291.disabled = true; printBtn_8291.classList.remove('print-pulse'); generateNotification_8192("Certificate form cleared successfully!"); }
+function generateNotification_8192(message_4812, isErrorFlag_8391 = false) { const toastDomNode_3821 = document.getElementById('toast'); toastDomNode_3821.className = isErrorFlag_8391 ? "toast-error" : "toast-success"; toastDomNode_3821.innerText = message_4812; toastDomNode_3821.style.display = 'block'; setTimeout(() => { toastDomNode_3821.style.display = 'none'; }, 5000); }
+function submitToSpreadsheet_7182() { const domSubmitBtn_2931 = document.getElementById('commitBtn_9381'); const printBtn_8291 = document.getElementById('printBtn_2831'); const motherName_1004 = getFieldVal_9281('smtName_1004'); if (!motherName_1004) { generateNotification_8192("Please enter Smt Mother Name before saving!", true); return; } domSubmitBtn_2931.disabled = true; domSubmitBtn_2931.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> SAVING...'; printBtn_8291.disabled = true; printBtn_8291.classList.remove('print-pulse'); const requestPayloadStructure_4829 = { date: getFieldVal_9281('receiptDate_8471'), smtName_1004: motherName_1004, sriName_1005: getFieldVal_9281('sriName_1005'), nativePlace_1006: getFieldVal_9281('nativePlace_1006'), mandalName_1007: getFieldVal_9281('mandalName_1007'), distName_1008: getFieldVal_9281('distName_1008'), deliveryDate_1009: getFieldVal_9281('deliveryDate_1009'), deliveryOrder_1010: getFieldVal_9281('deliveryOrder_1010'), childGender_1011: getFieldVal_9281('childGender_1011') }; fetch(OFFICIAL_WEBAPP_URL_9283, { method: "POST", mode: "cors", redirect: "follow", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(requestPayloadStructure_4829) }).then(fetchResponse_3829 => { if (!fetchResponse_3829.ok) throw new Error("HTTP Network request failed"); return fetchResponse_3829.json(); }).then(parsedSuccessResponse_9182 => { if (parsedSuccessResponse_9182.status === "success") { const receiptNumEl_3829 = document.getElementById('receiptNumDisplay_9182'); receiptNumEl_3829.innerText = parsedSuccessResponse_9182.receiptNo; receiptNumEl_3829.className = "text-blue-900 font-extrabold transition-all"; localStorage.setItem('vsr_saved_receipt_9182', parsedSuccessResponse_9182.receiptNo); printBtn_8291.disabled = false; printBtn_8291.classList.add('print-pulse'); } else { generateNotification_8192("Error from database: " + parsedSuccessResponse_9182.message, true); } }).catch(networkProcessingError_8291 => { generateNotification_8192("Save failed. Verify Web App parameters or network connection.", true); console.error("Save process error:", networkProcessingError_8291); }).finally(() => { domSubmitBtn_2931.disabled = false; domSubmitBtn_2931.innerHTML = '<i class="fa-solid fa-cloud-arrow-up"></i> SAVE'; }); }
+function triggerNativePrint_9281() { const savedReceipt_3821 = localStorage.getItem('vsr_saved_receipt_9182'); if (!savedReceipt_3821) { generateNotification_8192("Cannot print yet! You must save the certificate first.", true); return; } window.print(); }
+</script>
+</body>
+</html>
