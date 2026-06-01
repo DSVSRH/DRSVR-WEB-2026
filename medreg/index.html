@@ -19,17 +19,10 @@ body { font-family: 'Roboto Slab', serif; background-color: var(--bg); margin: 0
 .login-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; padding: 6px 20px; border-radius: 8px; font-size: 9px; font-weight: 900; white-space: nowrap; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4); z-index: 10; }
 .input-group { position: relative; margin-bottom: 15px; } .input-group i { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #3b82f6; font-size: 14px; } 
 .login-input { width: 100%; padding: 12px 20px 12px 50px; border: 1.5px solid #f1f5f9; border-radius: 50px; outline: none; font-size: 11.5px; font-weight: 700; transition: 0.3s; color: #334155; }
-
-  
-  
-  
 .login-input:focus { border-color: #3b82f6; background: #f8fafc; }
 .login-go-btn { background: var(--primary); color: white; width: 45px; height: 45px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 20px; cursor: pointer; transition: 0.3s; margin: 10px auto 0; box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3); border: none; }
 .login-go-btn:disabled { opacity: 0.7; cursor: not-allowed; }
-
-
-  
-  /* టూల్‌బార్ మరియు టేబుల్ అడ్జస్ట్మెంట్స్ */
+/* టూల్‌బార్ మరియు టేబుల్ అడ్జస్ట్మెంట్స్ */
 .toolbar { background: white; padding: 6px 12px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #e2e8f0; width: 100%; }
 .table-container { overflow-x: auto; background: white; width: 100%; scrollbar-width: none; -ms-overflow-style: none; } .table-container::-webkit-scrollbar { display: none; }
 th { background-color: #f8fafc; color: #1e293b; font-weight: 900; text-transform: uppercase; font-size: 8.5px; padding: 10px 8px; border: 1px solid #e2e8f0; white-space: nowrap; }
@@ -45,7 +38,7 @@ td { padding: 8px; border: 1px solid #f1f5f9; font-size: 10px; text-align: cente
 </style></head><body>
 
 <!-- --- హెడర్ విభాగం --- -->
-<header class="top-hospital-header"><div class="left-branding"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_02_FEVICON_ICON.png" alt="Logo" class="header-logo"><div class="header-text-stack"><div class="hospital-name">Dr. S. Venkata Subba Reddy MULTISPECIALTY Hospital</div><div class="dept-tagline">MEDICAL DEPARTMENT • SECURE ACCESS</div></div></div><div class="header-right-tools"><div class="tracing-pill"><span class="tracing-text">24*7 Live Tracing</span><div class="blink-dot"></div></div></div></header>
+<header class="top-hospital-header"><div class="left-branding"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_02_FEVICON_ICON.png" alt="Logo" class="header-logo"><div class="header-text-stack"><div class="hospital-name">Dr. S. Venkata Subba Reddy MULTISPECIALTY Hospital</div><div class="dept-tagline">MEDICAL DEPARTMENT • SECURE ACCESS</div></div></div><div class="header-right-tools flex flex-col items-end gap-1"><div class="tracing-pill"><span class="tracing-text">24*7 Live Tracing</span><div class="blink-dot"></div></div><div id="liveClock" class="text-[9px] font-black text-gray-700 uppercase tracking-wider"></div></div></header>
 
 <main class="main-wrapper">
   <!-- లాగిన్ విభాగం: లాగిన్ అయిన తర్వాత హైడ్ అవుతుంది -->
@@ -62,7 +55,7 @@ td { padding: 8px; border: 1px solid #f1f5f9; font-size: 10px; text-align: cente
     <p id="loginError" class="text-red-600 text-[9px] text-center font-bold hidden mt-4 uppercase">Invalid Credentials! Try Again.</p>
   </div>
 
-  <!-- రిజిస్ట్రీ డేటా విభాగం -->
+  <!-- రిజిరిస్టీ డేటా విభాగం -->
   <div id="mainContent" class="hidden w-full">
     <div class="toolbar shadow-sm">
       <button onclick="openModal('add')" class="bg-green-600 text-white btn-hd hover:bg-green-700 uppercase whitespace-nowrap"><i class="fa-solid fa-plus-circle"></i> NEW REGISTER</button>
@@ -139,6 +132,9 @@ function getLast7Days() {
   return dates;
 }
 
+/* డేటా ఫార్మాటింగ్ హెల్పర్ (DD MON YYYY ఫార్మాట్ లోకి మార్చడానికి) */
+const formatDate = (ds) => { if(!ds || ds === '0') return '-'; const d = new Date(ds); if(isNaN(d.getTime())) return ds.toUpperCase(); const m = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"]; return `${String(d.getDate()).padStart(2,'0')} ${m[d.getMonth()]} ${d.getFullYear()}`; };
+
 /* లాగిన్ మరియు డేటా ఫెచింగ్ */
 async function verifyAndLoad() { 
   const t = document.getElementById('tokenInput').value.trim(); 
@@ -167,29 +163,46 @@ function renderTable(data) {
   const h = document.getElementById('tableHeader'); const b = document.getElementById('tableBody');
   const last7Days = getLast7Days();
   
-  // హెడర్ కాలమ్స్
-  let headerHtml = '<th>SR</th><th>EDIT</th><th>DEL</th><th>MCD</th><th>MED-SHORT</th><th>MED-NAME</th><th>LST-STK</th><th>CUR-STK</th><th>LST-PRC</th><th>SELL-PRC</th><th>TAB-PRC</th>';
-  last7Days.forEach(day => {
-    headerHtml += `<th>${day.label}<br><span class="text-[7px] text-blue-500">${day.dateStr}</span><br>QTY</th>`;
-    headerHtml += `<th class="bg-blue-50">${day.label}<br><span class="text-[7px] text-blue-500">${day.dateStr}</span><br>AMT</th>`;
+  // హెడర్ కాలమ్స్ - మీరు కోరిన పేర్లతో నూతన అలంకరణ
+  let headerHtml = '<th>SR</th><th>EDIT</th><th>DEL</th><th>MCD</th><th>MED-SHORT</th><th>MED-NAME</th><th>LAST ADDED</th><th>CURRENT STOCK</th><th>LAST ADDED PRICE</th><th>PURCHASING PRICE</th><th>SELLING PRICE</th>';
+  last7Days.forEach((day, idx) => {
+    if(idx === 0) {
+      headerHtml += `<th colspan="2" class="bg-amber-50 border-2 border-amber-200">TODAY<br><span class="text-[7px] text-amber-700">${day.dateStr}</span><br>QTY & AMT</th>`;
+    } else {
+      headerHtml += `<th>${day.label}<br><span class="text-[7px] text-blue-500">${day.dateStr}</span><br>QTY</th>`;
+      headerHtml += `<th class="bg-blue-50">${day.label}<br><span class="text-[7px] text-blue-500">${day.dateStr}</span><br>AMT</th>`;
+    }
   });
-  headerHtml += '<th>WK-QTY</th><th>WK-AMT</th><th>TIME</th>';
+  headerHtml += '<th class="bg-purple-100 text-purple-900">WK-QTY</th><th class="bg-purple-100 text-purple-900">WK-AMT</th><th>DATE</th>';
   h.innerHTML = headerHtml;
 
+  // స్టాక్ ప్రైస్ (LST-PRC, ఇండెక్స్ 6) ఆధారంగా సార్టింగ్ (తక్కువ నుండి ఎక్కువ)
+  const sortedData = [...data].sort((x, y) => Number(x[6] || 0) - Number(y[6] || 0));
+
   // బాడీ డేటా
-  b.innerHTML = data.map(r => {
+  b.innerHTML = sortedData.map((r, index) => {
     let qTotal = 0; for(let i=9; i<=15; i++) qTotal += Number(r[i] || 0);
     let aTotal = 0; for(let i=16; i<=22; i++) aTotal += Number(r[i] || 0);
     
-    let rowHtml = `<td>${r[0]||0}</td><td><button onclick="openModal('update', '${r[1]}')" class="text-blue-600 hover:scale-110 transition"><i class="fa-solid fa-pen-to-square"></i></button></td><td><button onclick="askDelete('${r[1]}')" class="text-red-600 hover:scale-110 transition"><i class="fa-solid fa-trash"></i></button></td><td class="font-black text-blue-800">${r[1]||0}</td><td>${r[2]||0}</td><td class="text-left font-black uppercase px-2">${r[3]||0}</td><td class="col-highlight">₹${r[4]||0}</td><td class="col-highlight font-black">${r[5]||0}</td><td class="col-highlight text-blue-600">₹${r[6]||0}</td><td class="col-highlight font-black text-blue-800">₹${r[7]||0}</td><td>${r[8]||0}</td>`;
+    // సీరియల్ నంబర్ 1 నుండి వరుస క్రమంలో ఉండేలా ఇండెక్స్ వాడాము
+    let srNo = index + 1;
     
-    // 7 రోజుల Q మరియు A ఇంటర్లీవింగ్ (Day 1 Q, Day 1 A, Day 2 Q...)
+    let rowHtml = `<td>${srNo}</td><td><button onclick="openModal('update', '${r[1]}')" class="text-blue-600 hover:scale-110 transition"><i class="fa-solid fa-pen-to-square"></i></button></td><td><button onclick="askDelete('${r[1]}')" class="text-red-600 hover:scale-110 transition"><i class="fa-solid fa-trash"></i></button></td><td class="font-black text-blue-800">${r[1]||0}</td><td>${r[2]||0}</td><td class="text-left font-black uppercase px-2">${r[3]||0}</td><td class="col-highlight">₹${r[4]||0}</td><td class="col-highlight font-black">${r[5]||0}</td><td class="col-highlight text-blue-600">₹${r[6]||0}</td><td class="col-highlight font-black text-blue-800">₹${r[7]||0}</td><td>${r[8]||0}</td>`;
+    
+    // 7 రోజుల Q మరియు A ఇంటర్లీవింగ్
     for (let i = 0; i < 7; i++) {
-      rowHtml += `<td class="col-qty">${r[9+i]||0}</td>`;
-      rowHtml += `<td class="col-amt">₹${r[16+i]||0}</td>`;
+      if(i === 0) {
+        // TODAY Qty రెడ్ కలర్ లో, TODAY Amt గ్రీన్ కలర్ లో
+        rowHtml += `<td class="bg-red-50 text-red-600 font-bold border-l-2 border-red-100">${r[9]||0}</td>`;
+        rowHtml += `<td class="bg-green-50 text-green-700 font-bold border-r-2 border-green-100">₹${r[16]||0}</td>`;
+      } else {
+        rowHtml += `<td class="col-qty">${r[9+i]||0}</td>`;
+        rowHtml += `<td class="col-amt">₹${r[16+i]||0}</td>`;
+      }
     }
     
-    rowHtml += `<td class="col-green font-black">${qTotal}</td><td class="col-green font-black">₹${aTotal}</td><td class="text-[8px] text-gray-400 font-bold italic uppercase tracking-tighter">${r[25]||0}</td></tr>`;
+    // Weekly QTY, AMT కాలమ్స్ మరియు చివరలో DATE కాలమ్ అప్‌డేట్ చేసాము
+    rowHtml += `<td class="bg-purple-100 text-purple-950 font-black border-x border-purple-200">${qTotal}</td><td class="bg-purple-100 text-purple-950 font-black border-x border-purple-200">₹${aTotal}</td><td class="text-[8.5px] text-gray-500 font-bold uppercase tracking-tight">${formatDate(r[25])}</td></tr>`;
     return rowHtml;
   }).join('');
 }
@@ -213,5 +226,17 @@ function openModal(mode, mcd = '') {
   if (mode === 'add') { document.getElementById('editMcd').value = ''; document.querySelectorAll('#modal input:not([type=hidden])').forEach(i => i.value = (i.type === 'number' ? '0' : '')); window.currentAction = 'add'; }
   else { const m = allMedicines.find(x => x[1] === mcd); document.getElementById('editMcd').value = m[1]; document.getElementById('shortName').value = m[2]; document.getElementById('fullName').value = m[3]; document.getElementById('lstStk').value = 0; document.getElementById('lstPrc').value = 0; document.getElementById('tabPrc').value = m[8]; window.currentAction = 'update'; }
 }
-document.getElementById('pwdInput').addEventListener('keypress', (e) => { if(e.key === 'Enter') verifyAndLoad(); });
+
+/* లైవ్ గడియారం ఫంక్షన్ */
+const updateLiveClock = () => { const d = new Date(); const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]; const hours = d.getHours(); const ampm = hours >= 12 ? 'PM' : 'AM'; const formattedHours = hours % 12 || 12; const formattedMinutes = String(d.getMinutes()).padStart(2, '0'); const formattedSeconds = String(d.getSeconds()).padStart(2, '0'); document.getElementById('liveClock').innerText = `${d.getDate()} ${monthNames[d.getMonth()]} ${d.getFullYear()} | ${formattedHours}:${formattedMinutes}:${formattedSeconds} ${ampm}`; };
+
+/* విండో లోడ్ అయినప్పుడు ఈవెంట్లు */
+window.onload = () => {
+  // ఎంటర్ కీ ఫ్లో కాన్ఫిగరేషన్
+  document.getElementById('tokenInput').addEventListener('keypress', (e) => { if(e.key === 'Enter') document.getElementById('uidInput').focus(); });
+  document.getElementById('uidInput').addEventListener('keypress', (e) => { if(e.key === 'Enter') document.getElementById('pwdInput').focus(); });
+  document.getElementById('pwdInput').addEventListener('keypress', (e) => { if(e.key === 'Enter') verifyAndLoad(); });
+  // క్లాక్ ప్రారంభం
+  updateLiveClock(); setInterval(updateLiveClock, 1000);
+};
 </script></body></html>
