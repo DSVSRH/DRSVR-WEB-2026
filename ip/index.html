@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IP BILL - VSR Hospital</title>
-<link rel="icon" type="image/png" href="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_02_FEVICON_ICON.png">
+<link class="no-print" rel="icon" type="image/png" href="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_02_FEVICON_ICON.png">
 <!-- Tailwind CSS for high quality responsive elements -->
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;800&display=swap" rel="stylesheet">
@@ -38,8 +38,7 @@ body { font-family: 'Roboto Slab', serif; background-color: #f1f5f9; padding: 2p
 .field-label { width: 210px; font-weight: 700; color: #1e3a8a; }
 .input-field { border: none; border-bottom: 1px dotted #1e3a8a; width: 100%; outline: none; padding: 1px 2px; font-weight: bold; color: #0f172a; background: transparent; line-height: 1.1; }
 .input-field:focus { border-bottom: 1.5px solid #2563eb; }
-.date-field { border: none; border-bottom: 1px dotted #1e3a8a; width: 145px; outline: none; padding: 1px; background: transparent; color: #1e3a8a; font-weight: bold; }
-
+.date-field { border: none; border-bottom: 1px dotted #1e3a8a; outline: none; padding: 1px; background: transparent; color: #1e3a8a; font-weight: bold; cursor: pointer; }
 
 /* REMOVE NUMBER INPUT ARROWS COMPLETELY */
 input[type="number"]::-webkit-outer-spin-button,
@@ -85,22 +84,13 @@ input[type="number"] {
 
 /* 06-PRINT CSS SECTION */
 @media print {
-
 @page { size: A4; margin: 2mm; }
-
 body { background: #ffffff; padding: 0; margin: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-
 .controls-top { display: none !important; }
-
 .no-print { display: none !important; }
-
 .a4-page { margin: 2mm auto; border: 3.5px solid #1e3a8a !important; width: 198mm; min-height: 287mm; padding: 5mm 8mm 8mm 8mm; box-sizing: border-box; position: relative; box-shadow: none !important; page-break-after: avoid; page-break-inside: avoid; overflow: hidden; }
-
-input[type="date"]::-webkit-calendar-picker-indicator,
-input[type="date"]::-webkit-inner-spin-button { display: none !important; -webkit-appearance: none; }
-
+input[type="date"] { display: none !important; -webkit-appearance: none; }
 .date-field { width: 120px !important; text-align: center; border-bottom: 1px dotted #1e3a8a !important; }
-
 }
 </style>
 </head>
@@ -156,7 +146,6 @@ input[type="date"]::-webkit-inner-spin-button { display: none !important; -webki
         </div>
     </div>
 	
-	
 <!-- IN PATIENT BILL HEADING -->
 <div class="bg-white px-4 py-2 text-center">
     <h2 class="text-sm md:text-base font-bold text-[#1e3a8a] uppercase tracking-wider">
@@ -170,7 +159,15 @@ input[type="date"]::-webkit-inner-spin-button { display: none !important; -webki
         <div class="flex justify-between mb-6 font-bold text-blue-900 border-b border-blue-900 pb-2 text-sm">
             <div>Receipt No: <span id="receiptNumDisplay_9182" class="text-rose-600 font-extrabold transition-all">[Click Save]</span></div>
             <div>IP Number: <span id="ipNumDisplay_2931" class="text-rose-600 font-extrabold transition-all">[Click Save]</span></div>
-            <div>Date: <input type="date" class="date-field" id="receiptDate_8471" onchange="runDataAutoSave_8312()"></div>
+            <div class="flex items-center">
+                <span>Date: </span>
+                <!-- Custom formatted date input wrapper with calendar icon -->
+                <div class="relative inline-flex items-center ml-1">
+                    <input type="text" class="date-field text-center cursor-pointer" id="receiptDate_8471" readonly style="width: 115px;">
+                    <i class="fa-regular fa-calendar-days text-[#1e3a8a] ml-1 no-print"></i>
+                    <input type="date" id="receiptDate_8471_raw" class="absolute inset-0 opacity-0 cursor-pointer no-print" onchange="syncAndFormatDate_7281('receiptDate_8471', this.value)">
+                </div>
+            </div>
         </div>
 
         <div class="space-y-2">
@@ -185,9 +182,21 @@ input[type="date"]::-webkit-inner-spin-button { display: none !important; -webki
             <div class="field-row"><label class="field-label">Doctor Charges</label> : <input type="number" class="input-field" id="docCharge_1942"></div>
             
             <div class="field-row">
-                <label class="field-label">Charges Days</label> : <input type="number" class="input-field" style="width: 50px;" id="rentDays_5821">
-                <span class="ml-4 font-bold text-blue-900 font-sans">From</span> <input type="date" class="date-field" id="rentFrom_4812" onchange="runDataAutoSave_8312()"> 
-                <span class="ml-4 font-bold text-blue-900 font-sans">To</span> <input type="date" class="date-field" id="rentTo_2931" onchange="runDataAutoSave_8312()">
+                <label class="field-label">Charges Days</label> : <input type="number" class="input-field" style="width: 50px; margin-right: 12px;" id="rentDays_5821">
+                <span class="mr-2 font-bold text-blue-900 font-sans">From</span> 
+                <!-- Custom formatted date input wrapper with calendar icon (From) -->
+                <div class="relative inline-flex items-center mr-4">
+                    <input type="text" class="date-field text-center cursor-pointer" id="rentFrom_4812" readonly style="width: 115px;">
+                    <i class="fa-regular fa-calendar-days text-[#1e3a8a] ml-1 no-print"></i>
+                    <input type="date" id="rentFrom_4812_raw" class="absolute inset-0 opacity-0 cursor-pointer no-print" onchange="syncAndFormatDate_7281('rentFrom_4812', this.value)">
+                </div>
+                <span class="mr-2 font-bold text-blue-900 font-sans">To</span> 
+                <!-- Custom formatted date input wrapper with calendar icon (To) -->
+                <div class="relative inline-flex items-center">
+                    <input type="text" class="date-field text-center cursor-pointer" id="rentTo_2931" readonly style="width: 115px;">
+                    <i class="fa-regular fa-calendar-days text-[#1e3a8a] ml-1 no-print"></i>
+                    <input type="date" id="rentTo_2931_raw" class="absolute inset-0 opacity-0 cursor-pointer no-print" onchange="syncAndFormatDate_7281('rentTo_2931', this.value)">
+                </div>
             </div>
 
             <div class="field-row"><label class="field-label">Room Rent</label> : <input type="number" class="input-field" id="roomRent_6294"></div>
@@ -217,22 +226,270 @@ const OFFICIAL_WEBAPP_URL_9283 = "https://script.google.com/macros/s/AKfycbx-wXy
 const NUMERIC_CALCULATION_IDS_8293 = ['consultFee_2841', 'admissionFee_4732', 'opCharge_9184', 'anesCharge_3849', 'otCharge_7412', 'oxyCharge_6391', 'fluidsMed_8423', 'docCharge_1942', 'roomRent_6294', 'nurseCharge_7183', 'misc_3948'];
 const ALL_FORM_INPUTS_LIST_8392 = ['receiptDate_8471', 'patientName_9103', 'consultFee_2841', 'admissionFee_4732', 'opCharge_9184', 'anesCharge_3849', 'otCharge_7412', 'oxyCharge_6391', 'fluidsMed_8423', 'docCharge_1942', 'rentDays_5821', 'rentFrom_4812', 'rentTo_2931', 'roomRent_6294', 'nurseCharge_7183', 'misc_3948', 'totalAmount_8192', 'receivedAmount_9482', 'rupeesWords_1029'];
 
+// DATE FORMAT UTILITIES (DD-MMM-YYYY - eg. 02-Jun-2026)
+function formatDateToDDMMMYYYY(dateObjOrStr) {
+    let date;
+    if (typeof dateObjOrStr === 'string') {
+        if (!dateObjOrStr) return "";
+        // If it's already formatted, return as is
+        if (/[a-zA-Z]/.test(dateObjOrStr)) return dateObjOrStr;
+        const parts = dateObjOrStr.split('-');
+        if (parts.length === 3) {
+            date = new Date(parts[0], parts[1] - 1, parts[2]);
+        } else {
+            date = new Date(dateObjOrStr);
+        }
+    } else {
+        date = dateObjOrStr;
+    }
+    if (isNaN(date.getTime())) return "";
+    
+    const dd = String(date.getDate()).padStart(2, '0');
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const mmm = months[date.getMonth()];
+    const yyyy = date.getFullYear();
+    return `${dd}-${mmm}-${yyyy}`;
+}
+
+function parseDDMMMYYYYToYYYYMMDD(formattedStr) {
+    if (!formattedStr) return "";
+    const parts = formattedStr.split('-');
+    if (parts.length !== 3) return "";
+    const dd = parseInt(parts[0], 10);
+    const mmm = parts[1];
+    const yyyy = parseInt(parts[2], 10);
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const mm = months.indexOf(mmm);
+    if (mm === -1) return "";
+    const dateObj = new Date(yyyy, mm, dd);
+    const y = dateObj.getFullYear();
+    const m = String(dateObj.getMonth() + 1).padStart(2, '0');
+    const d = String(dateObj.getDate()).padStart(2, '0');
+    return `${y}-${m}-${d}`;
+}
+
+function syncAndFormatDate_7281(targetId, rawValue) {
+    if (!rawValue) return;
+    const formatted = formatDateToDDMMMYYYY(rawValue);
+    document.getElementById(targetId).value = formatted;
+    runDataAutoSave_8312();
+}
+
+function updateRawDatePickers_1932() {
+    ['receiptDate_8471', 'rentFrom_4812', 'rentTo_2931'].forEach(id => {
+        const val = document.getElementById(id).value;
+        const rawVal = parseDDMMMYYYYToYYYYMMDD(val);
+        if (rawVal) {
+            document.getElementById(id + '_raw').value = rawVal;
+        }
+    });
+}
+
 // 02-FORM VALIDATION SECTION
 window.onload = function() { loadStoredElementsAndCheckState_8831(); };
-function loadStoredElementsAndCheckState_8831() { const currentDate_9283 = new Date().toISOString().split('T')[0]; restoreFormValuesFromStore_8291(); runCalculations_9182(); if (!document.getElementById('receiptDate_8471').value) { document.getElementById('receiptDate_8471').value = currentDate_9283; } if (!document.getElementById('rentFrom_4812').value) { document.getElementById('rentFrom_4812').value = currentDate_9283; } if (!document.getElementById('rentTo_2931').value) { document.getElementById('rentTo_2931').value = currentDate_9283; } handleInitialPrintBtnState_2819(); }
-function restoreFormValuesFromStore_8291() { ALL_FORM_INPUTS_LIST_8392.forEach(fieldId_3821 => { const savedVal_8192 = localStorage.getItem(`vsr_field_${fieldId_3821}`); if (savedVal_8192 !== null) { document.getElementById(fieldId_3821).value = savedVal_8192; } }); }
-function handleInitialPrintBtnState_2819() { const savedReceipt_3821 = localStorage.getItem('vsr_saved_receipt_9182'); const savedIP_8291 = localStorage.getItem('vsr_saved_ip_2931'); const printBtn_8291 = document.getElementById('printBtn_2831'); if (savedReceipt_3821 && savedIP_8291) { document.getElementById('receiptNumDisplay_9182').innerText = savedReceipt_3821; document.getElementById('receiptNumDisplay_9182').className = "text-blue-900 font-extrabold"; document.getElementById('ipNumDisplay_2931').innerText = savedIP_8291; document.getElementById('ipNumDisplay_2931').className = "text-blue-900 font-extrabold"; printBtn_8291.disabled = false; printBtn_8291.classList.add('print-pulse'); } else { printBtn_8291.disabled = true; printBtn_8291.classList.remove('print-pulse'); } }
-function runDataAutoSave_8312() { runCalculations_9182(); ALL_FORM_INPUTS_LIST_8392.forEach(fieldId_3821 => { localStorage.setItem(`vsr_field_${fieldId_3821}`, document.getElementById(fieldId_3821).value); }); const printBtn_8291 = document.getElementById('printBtn_2831'); printBtn_8291.disabled = true; printBtn_8291.classList.remove('print-pulse'); document.getElementById('receiptNumDisplay_9182').innerText = "[Click Save]"; document.getElementById('receiptNumDisplay_9182').className = "text-rose-600 font-extrabold"; document.getElementById('ipNumDisplay_2931').innerText = "[Click Save]"; document.getElementById('ipNumDisplay_2931').className = "text-rose-600 font-extrabold"; localStorage.removeItem('vsr_saved_receipt_9182'); localStorage.removeItem('vsr_saved_ip_2931'); }
+
+function loadStoredElementsAndCheckState_8831() { 
+    restoreFormValuesFromStore_8291(); 
+    runCalculations_9182(); 
+    
+    const today_9283 = formatDateToDDMMMYYYY(new Date()); 
+    if (!document.getElementById('receiptDate_8471').value) { 
+        document.getElementById('receiptDate_8471').value = today_9283; 
+    } 
+    if (!document.getElementById('rentFrom_4812').value) { 
+        document.getElementById('rentFrom_4812').value = today_9283; 
+    } 
+    if (!document.getElementById('rentTo_2931').value) { 
+        document.getElementById('rentTo_2931').value = today_9283; 
+    } 
+    updateRawDatePickers_1932();
+    handleInitialPrintBtnState_2819(); 
+}
+
+function restoreFormValuesFromStore_8291() { 
+    ALL_FORM_INPUTS_LIST_8392.forEach(fieldId_3821 => { 
+        const savedVal_8192 = localStorage.getItem(`vsr_field_${fieldId_3821}`); 
+        if (savedVal_8192 !== null) { 
+            document.getElementById(fieldId_3821).value = savedVal_8192; 
+        } 
+    }); 
+}
+
+function handleInitialPrintBtnState_2819() { 
+    const savedReceipt_3821 = localStorage.getItem('vsr_saved_receipt_9182'); 
+    const savedIP_8291 = localStorage.getItem('vsr_saved_ip_2931'); 
+    const printBtn_8291 = document.getElementById('printBtn_2831'); 
+    if (savedReceipt_3821 && savedIP_8291) { 
+        document.getElementById('receiptNumDisplay_9182').innerText = savedReceipt_3821; 
+        document.getElementById('receiptNumDisplay_9182').className = "text-blue-900 font-extrabold"; 
+        document.getElementById('ipNumDisplay_2931').innerText = savedIP_8291; 
+        document.getElementById('ipNumDisplay_2931').className = "text-blue-900 font-extrabold"; 
+        printBtn_8291.disabled = false; 
+        printBtn_8291.classList.add('print-pulse'); 
+    } else { 
+        printBtn_8291.disabled = true; 
+        printBtn_8291.classList.remove('print-pulse'); 
+    } 
+}
+
+function runDataAutoSave_8312() { 
+    runCalculations_9182(); 
+    ALL_FORM_INPUTS_LIST_8392.forEach(fieldId_3821 => { 
+        localStorage.setItem(`vsr_field_${fieldId_3821}`, document.getElementById(fieldId_3821).value); 
+    }); 
+    updateRawDatePickers_1932(); // Keep hidden date pickers synchronized
+    const printBtn_8291 = document.getElementById('printBtn_2831'); 
+    printBtn_8291.disabled = true; 
+    printBtn_8291.classList.remove('print-pulse'); 
+    document.getElementById('receiptNumDisplay_9182').innerText = "[Click Save]"; 
+    document.getElementById('receiptNumDisplay_9182').className = "text-rose-600 font-extrabold"; 
+    document.getElementById('ipNumDisplay_2931').innerText = "[Click Save]"; 
+    document.getElementById('ipNumDisplay_2931').className = "text-rose-600 font-extrabold"; 
+    localStorage.removeItem('vsr_saved_receipt_9182'); 
+    localStorage.removeItem('vsr_saved_ip_2931'); 
+}
 
 // 03-BUTTON ACTION SECTION
 function triggerConfirmReset_8213() { document.getElementById('confirmModal_9988').classList.remove('hidden'); }
 function closeConfirmModal_8822() { document.getElementById('confirmModal_9988').classList.add('hidden'); }
-function confirmAndClearAllStoredData_9281() { closeConfirmModal_8822(); ALL_FORM_INPUTS_LIST_8392.forEach(fieldId_3821 => { localStorage.removeItem(`vsr_field_${fieldId_3821}`); document.getElementById(fieldId_3821).value = ""; }); localStorage.removeItem('vsr_saved_receipt_9182'); localStorage.removeItem('vsr_saved_ip_2931'); const today_8293 = new Date().toISOString().split('T')[0]; document.getElementById('receiptDate_8471').value = today_8293; document.getElementById('rentFrom_4812').value = today_8293; document.getElementById('rentTo_2931').value = today_8293; document.getElementById('receiptNumDisplay_9182').innerText = "[Click Save]"; document.getElementById('receiptNumDisplay_9182').className = "text-rose-600 font-extrabold"; document.getElementById('ipNumDisplay_2931').innerText = "[Click Save]"; document.getElementById('ipNumDisplay_2931').className = "text-rose-600 font-extrabold"; const printBtn_8291 = document.getElementById('printBtn_2831'); printBtn_8291.disabled = true; printBtn_8291.classList.remove('print-pulse'); runCalculations_9182(); generateNotification_8192("Billing page reset successfully!"); }
-function runCalculations_9182() { let aggregatedTotal_2931 = 0; NUMERIC_CALCULATION_IDS_8293.forEach(targetId_1928 => { aggregatedTotal_2931 += parseFloat(document.getElementById(targetId_1928).value) || 0; }); document.getElementById('totalAmount_8192').value = aggregatedTotal_2931 > 0 ? aggregatedTotal_2931 : ""; }
-function transcribeNumberToWords_1832() { runDataAutoSave_8312(); let inputNumericalValue_2931 = document.getElementById('receivedAmount_9482').value; if (!inputNumericalValue_2931 || inputNumericalValue_2931 == 0) { document.getElementById('rupeesWords_1029').value = ""; return; } const unitsArray_4829 = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen']; const tensArray_3829 = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety']; const matchesArray_2931 = ('000000000' + inputNumericalValue_2931).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/); let outputWordValue_8291 = ''; outputWordValue_8291 += (matchesArray_2931[1] != 0) ? (unitsArray_4829[Number(matchesArray_2931[1])] || tensArray_3829[matchesArray_2931[1][0]] + ' ' + unitsArray_4829[matchesArray_2931[1][1]]) + ' Crore ' : ''; outputWordValue_8291 += (matchesArray_2931[2] != 0) ? (unitsArray_4829[Number(matchesArray_2931[2])] || tensArray_3829[matchesArray_2931[2][0]] + ' ' + unitsArray_4829[matchesArray_2931[2][1]]) + ' Lakh ' : ''; outputWordValue_8291 += (matchesArray_2931[3] != 0) ? (unitsArray_4829[Number(matchesArray_2931[3])] || tensArray_3829[matchesArray_2931[3][0]] + ' ' + unitsArray_4829[matchesArray_2931[3][1]]) + ' Thousand ' : ''; outputWordValue_8291 += (matchesArray_2931[4] != 0) ? (unitsArray_4829[Number(matchesArray_2931[4])] || tensArray_3829[matchesArray_2931[4][0]] + ' ' + unitsArray_4829[matchesArray_2931[4][1]]) + ' Hundred ' : ''; outputWordValue_8291 += (matchesArray_2931[5] != 0) ? ((outputWordValue_8291 != '') ? 'and ' : '') + (unitsArray_4829[Number(matchesArray_2931[5])] || tensArray_3829[matchesArray_2931[5][0]] + ' ' + unitsArray_4829[matchesArray_2931[5][1]]) : ''; document.getElementById('rupeesWords_1029').value = outputWordValue_8291 + " Only"; localStorage.setItem('vsr_field_rupeesWords_1029', outputWordValue_8291 + " Only"); }
-function generateNotification_8192(message_4812, isErrorFlag_8391 = false) { const toastDomNode_3821 = document.getElementById('toast'); toastDomNode_3821.className = isErrorFlag_8391 ? "toast-error" : "toast-success"; toastDomNode_3821.innerText = message_4812; toastDomNode_3821.style.display = 'block'; setTimeout(() => { toastDomNode_3821.style.display = 'none'; }, 6000); }
-function submitToSpreadsheet_7182() { const activePatientName_9281 = document.getElementById('patientName_9103').value.trim(); if (!activePatientName_9281) { generateNotification_8192("Validation Error: Please fill the Patient's Name before saving!", true); document.getElementById('patientName_9103').focus(); return; } const domSubmitBtn_2931 = document.getElementById('commitBtn_9381'); const printBtn_8291 = document.getElementById('printBtn_2831'); domSubmitBtn_2931.disabled = true; domSubmitBtn_2931.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> SAVING...'; printBtn_8291.disabled = true; printBtn_8291.classList.remove('print-pulse'); const requestPayloadStructure_4829 = { receiptDate_8471: document.getElementById('receiptDate_8471').value, patientName_9103: activePatientName_9281, consultFee_2841: document.getElementById('consultFee_2841').value, admissionFee_4732: document.getElementById('admissionFee_4732').value, opCharge_9184: document.getElementById('opCharge_9184').value, anesCharge_3849: document.getElementById('anesCharge_3849').value, otCharge_7412: document.getElementById('otCharge_7412').value, oxyCharge_6391: document.getElementById('oxyCharge_6391').value, fluidsMed_8423: document.getElementById('fluidsMed_8423').value, docCharge_1942: document.getElementById('docCharge_1942').value, rentDays_5821: document.getElementById('rentDays_5821').value, rentFrom_4812: document.getElementById('rentFrom_4812').value, rentTo_2931: document.getElementById('rentTo_2931').value, roomRent_6294: document.getElementById('roomRent_6294').value, nurseCharge_7183: document.getElementById('nurseCharge_7183').value, misc_3948: document.getElementById('misc_3948').value, totalAmount_8192: document.getElementById('totalAmount_8192').value, receivedAmount_9482: document.getElementById('receivedAmount_9482').value, rupeesWords_1029: document.getElementById('rupeesWords_1029').value }; fetch(OFFICIAL_WEBAPP_URL_9283, { method: "POST", mode: "cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(requestPayloadStructure_4829) }).then(fetchResponse_3829 => { if (!fetchResponse_3829.ok) throw new Error("HTTP Network request failed"); return fetchResponse_3829.json(); }).then(parsedSuccessResponse_9182 => { if (parsedSuccessResponse_9182.status === "success") { const receiptNumEl_3829 = document.getElementById('receiptNumDisplay_9182'); const ipNumEl_8192 = document.getElementById('ipNumDisplay_2931'); receiptNumEl_3829.innerText = parsedSuccessResponse_9182.receiptNo; receiptNumEl_3829.className = "text-blue-900 font-extrabold transition-all"; ipNumEl_8192.innerText = parsedSuccessResponse_9182.ipNumber; ipNumEl_8192.className = "text-blue-900 font-extrabold transition-all"; localStorage.setItem('vsr_saved_receipt_9182', parsedSuccessResponse_9182.receiptNo); localStorage.setItem('vsr_saved_ip_2931', parsedSuccessResponse_9182.ipNumber); generateNotification_8192(`Successfully Saved! Receipt ID: ${parsedSuccessResponse_9182.receiptNo} | IP: ${parsedSuccessResponse_9182.ipNumber}`); printBtn_8291.disabled = false; printBtn_8291.classList.add('print-pulse'); } else { generateNotification_8192("Error from database: " + parsedSuccessResponse_9182.message, true); } }).catch(networkProcessingError_8291 => { generateNotification_8192("Save failed. Verify Web App parameters or network connection.", true); console.error("Save process error:", networkProcessingError_8291); }).finally(() => { domSubmitBtn_2931.disabled = false; domSubmitBtn_2931.innerHTML = '<i class="fa-solid fa-cloud-arrow-up"></i> SAVE'; }); }
-function triggerNativePrint_9281() { const savedReceipt_3821 = localStorage.getItem('vsr_saved_receipt_9182'); if (!savedReceipt_3821) { generateNotification_8192("Cannot print yet! You must save the current record to the sheet first.", true); return; } window.print(); }
+
+function confirmAndClearAllStoredData_9281() { 
+    closeConfirmModal_8822(); 
+    ALL_FORM_INPUTS_LIST_8392.forEach(fieldId_3821 => { 
+        localStorage.removeItem(`vsr_field_${fieldId_3821}`); 
+        document.getElementById(fieldId_3821).value = ""; 
+    }); 
+    localStorage.removeItem('vsr_saved_receipt_9182'); 
+    localStorage.removeItem('vsr_saved_ip_2931'); 
+    const today_8293 = formatDateToDDMMMYYYY(new Date()); 
+    document.getElementById('receiptDate_8471').value = today_8293; 
+    document.getElementById('rentFrom_4812').value = today_8293; 
+    document.getElementById('rentTo_2931').value = today_8293; 
+    updateRawDatePickers_1932();
+    document.getElementById('receiptNumDisplay_9182').innerText = "[Click Save]"; 
+    document.getElementById('receiptNumDisplay_9182').className = "text-rose-600 font-extrabold"; 
+    document.getElementById('ipNumDisplay_2931').innerText = "[Click Save]"; 
+    document.getElementById('ipNumDisplay_2931').className = "text-rose-600 font-extrabold"; 
+    const printBtn_8291 = document.getElementById('printBtn_2831'); 
+    printBtn_8291.disabled = true; 
+    printBtn_8291.classList.remove('print-pulse'); 
+    runCalculations_9182(); 
+    generateNotification_8192("Billing page reset successfully!"); 
+}
+
+function runCalculations_9182() { 
+    let aggregatedTotal_2931 = 0; 
+    NUMERIC_CALCULATION_IDS_8293.forEach(targetId_1928 => { 
+        aggregatedTotal_2931 += parseFloat(document.getElementById(targetId_1928).value) || 0; 
+    }); 
+    document.getElementById('totalAmount_8192').value = aggregatedTotal_2931 > 0 ? aggregatedTotal_2931 : ""; 
+}
+
+function transcribeNumberToWords_1832() { 
+    runDataAutoSave_8312(); 
+    let inputNumericalValue_2931 = document.getElementById('receivedAmount_9482').value; 
+    if (!inputNumericalValue_2931 || inputNumericalValue_2931 == 0) { 
+        document.getElementById('rupeesWords_1029').value = ""; 
+        return; 
+    } 
+    const unitsArray_4829 = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen']; 
+    const tensArray_3829 = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety']; 
+    const matchesArray_2931 = ('000000000' + inputNumericalValue_2931).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/); 
+    let outputWordValue_8291 = ''; 
+    outputWordValue_8291 += (matchesArray_2931[1] != 0) ? (unitsArray_4829[Number(matchesArray_2931[1])] || tensArray_3829[matchesArray_2931[1][0]] + ' ' + unitsArray_4829[matchesArray_2931[1][1]]) + ' Crore ' : ''; 
+    outputWordValue_8291 += (matchesArray_2931[2] != 0) ? (unitsArray_4829[Number(matchesArray_2931[2])] || tensArray_3829[matchesArray_2931[2][0]] + ' ' + unitsArray_4829[matchesArray_2931[2][1]]) + ' Lakh ' : ''; 
+    outputWordValue_8291 += (matchesArray_2931[3] != 0) ? (unitsArray_4829[Number(matchesArray_2931[3])] || tensArray_3829[matchesArray_2931[3][0]] + ' ' + unitsArray_4829[matchesArray_2931[3][1]]) + ' Thousand ' : ''; 
+    outputWordValue_8291 += (matchesArray_2931[4] != 0) ? (unitsArray_4829[Number(matchesArray_2931[4])] || tensArray_3829[matchesArray_2931[4][0]] + ' ' + unitsArray_4829[matchesArray_2931[4][1]]) + ' Hundred ' : ''; 
+    outputWordValue_8291 += (matchesArray_2931[5] != 0) ? ((outputWordValue_8291 != '') ? 'and ' : '') + (unitsArray_4829[Number(matchesArray_2931[5])] || tensArray_3829[matchesArray_2931[5][0]] + ' ' + unitsArray_4829[matchesArray_2931[5][1]]) : ''; 
+    document.getElementById('rupeesWords_1029').value = outputWordValue_8291 + " Only"; 
+    localStorage.setItem('vsr_field_rupeesWords_1029', outputWordValue_8291 + " Only"); 
+}
+
+function generateNotification_8192(message_4812, isErrorFlag_8391 = false) { 
+    const toastDomNode_3821 = document.getElementById('toast'); 
+    toastDomNode_3821.className = isErrorFlag_8391 ? "toast-error" : "toast-success"; 
+    toastDomNode_3821.innerText = message_4812; 
+    toastDomNode_3821.style.display = 'block'; 
+    setTimeout(() => { toastDomNode_3821.style.display = 'none'; }, 6000); 
+}
+
+function submitToSpreadsheet_7182() { 
+    const activePatientName_9281 = document.getElementById('patientName_9103').value.trim(); 
+    if (!activePatientName_9281) { 
+        generateNotification_8192("Validation Error: Please fill the Patient's Name before saving!", true); 
+        document.getElementById('patientName_9103').focus(); 
+        return; 
+    } 
+    const domSubmitBtn_2931 = document.getElementById('commitBtn_9381'); 
+    const printBtn_8291 = document.getElementById('printBtn_2831'); 
+    domSubmitBtn_2931.disabled = true; 
+    domSubmitBtn_2931.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> SAVING...'; 
+    printBtn_8291.disabled = true; 
+    printBtn_8291.classList.remove('print-pulse'); 
+    
+    const requestPayloadStructure_4829 = { 
+        receiptDate_8471: document.getElementById('receiptDate_8471').value, 
+        patientName_9103: activePatientName_9281, 
+        consultFee_2841: document.getElementById('consultFee_2841').value, 
+        admissionFee_4732: document.getElementById('admissionFee_4732').value, 
+        opCharge_9184: document.getElementById('opCharge_9184').value, 
+        anesCharge_3849: document.getElementById('anesCharge_3849').value, 
+        otCharge_7412: document.getElementById('otCharge_7412').value, 
+        oxyCharge_6391: document.getElementById('oxyCharge_6391').value, 
+        fluidsMed_8423: document.getElementById('fluidsMed_8423').value, 
+        docCharge_1942: document.getElementById('docCharge_1942').value, 
+        rentDays_5821: document.getElementById('rentDays_5821').value, 
+        rentFrom_4812: document.getElementById('rentFrom_4812').value, 
+        rentTo_2931: document.getElementById('rentTo_2931').value, 
+        roomRent_6294: document.getElementById('roomRent_6294').value, 
+        nurseCharge_7183: document.getElementById('nurseCharge_7183').value, 
+        misc_3948: document.getElementById('misc_3948').value, 
+        totalAmount_8192: document.getElementById('totalAmount_8192').value, 
+        receivedAmount_9482: document.getElementById('receivedAmount_9482').value, 
+        rupeesWords_1029: document.getElementById('rupeesWords_1029').value 
+    }; 
+    
+    fetch(OFFICIAL_WEBAPP_URL_9283, { 
+        method: "POST", 
+        mode: "cors", 
+        headers: { "Content-Type": "text/plain;charset=utf-8" }, 
+        body: JSON.stringify(requestPayloadStructure_4829) 
+    }).then(fetchResponse_3829 => { 
+        if (!fetchResponse_3829.ok) throw new Error("HTTP Network request failed"); 
+        return fetchResponse_3829.json(); 
+    }).then(parsedSuccessResponse_9182 => { 
+        if (parsedSuccessResponse_9182.status === "success") { 
+            const receiptNumEl_3829 = document.getElementById('receiptNumDisplay_9182'); 
+            const ipNumEl_8192 = document.getElementById('ipNumDisplay_2931'); 
+            receiptNumEl_3829.innerText = parsedSuccessResponse_9182.receiptNo; 
+            receiptNumEl_3829.className = "text-blue-900 font-extrabold transition-all"; 
+            ipNumEl_8192.innerText = parsedSuccessResponse_9182.ipNumber; 
+            ipNumEl_8192.className = "text-blue-900 font-extrabold transition-all"; 
+            localStorage.setItem('vsr_saved_receipt_9182', parsedSuccessResponse_9182.receiptNo); 
+            localStorage.setItem('vsr_saved_ip_2931', parsedSuccessResponse_9182.ipNumber); 
+            generateNotification_8192(`Successfully Saved! Receipt ID: ${parsedSuccessResponse_9182.receiptNo} | IP: ${parsedSuccessResponse_9182.ipNumber}`); 
+            printBtn_8291.disabled = false; 
+            printBtn_8291.classList.add('print-pulse'); 
+        } else { 
+            generateNotification_8192("Error from database: " + parsedSuccessResponse_9182.message, true); 
+        } 
+    }).catch(networkProcessingError_8291 => { 
+        generateNotification_8192("Save failed. Verify Web App parameters or network connection.", true); 
+        console.error("Save process error:", networkProcessingError_8291); 
+    }).finally(() => { 
+        domSubmitBtn_2931.disabled = false; 
+        domSubmitBtn_2931.innerHTML = '<i class="fa-solid fa-cloud-arrow-up"></i> SAVE'; 
+    }); 
+}
+
+function triggerNativePrint_9281() { 
+    const savedReceipt_3821 = localStorage.getItem('vsr_saved_receipt_9182'); 
+    if (!savedReceipt_3821) { 
+        generateNotification_8192("Cannot print yet! You must save the current record to the sheet first.", true); 
+        return; 
+    } 
+    window.print(); 
+}
 </script>
 </body>
 </html>
