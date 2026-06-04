@@ -3,441 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VSR-RECIPT</title>
-    <!-- [శ్రేణి సంఖ్య 1] గూగుల్ క్రోమ్ బ్రౌజర్ నుండి యాప్ లాగా ఇన్‌స్టాల్ చేసుకోవడానికి వెబ్ మేనిఫెస్టో అమరింది -->
+    <title>SVR Hospital Receipt System</title>
     <link rel="manifest" href='data:application/manifest+json,{"name":"SVR Hospital Receipt System","short_name":"SVR MedRec","start_url":".","display":"standalone","background_color":"#e9f0f5","theme_color":"#1a252f","icons":[{"src":"https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_02_FEVICON_ICON.png","sizes":"512x512","type":"image/png"}]}'>
     <link rel="icon" type="image/png" href="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_02_FEVICON_ICON.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700;900&display=swap" rel="stylesheet">
     
-    <!-- START OF CSS SECTION -->
     <style>
-        /* [శ్రేణి సంఖ్య 2] బేసిక్ మార్జిన్ రీసెట్ మరియు బాక్స్ సైజింగ్ నియమాలు */ * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Roboto Slab', serif; font-size: 11px; }
-        /* [శ్రేణి సంఖ్య 3] పేజీ యొక్క గరిష్ట వెడల్పు మరియు బ్యాక్‌గ్రౌండ్ రంగు అమరిక */ body { background-color: #e9f0f5; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
-        /* [శ్రేణి సంఖ్య 4] ఎల్లప్పుడూ కనిపించే వెబ్‌సైట్ ప్రధాన బ్రాండింగ్ హెడర్ బార్ */ .web-page-header { width: 100%; height: 16mm; background: #ffffff; color: #1a252f; display: flex; align-items: center; padding: 0 15px; border-bottom: 2px solid #1a252f; box-shadow: 0 2px 8px rgba(0,0,0,0.05); flex-shrink: 0; }
-        /* [శ్రేణి సంఖ్య 5] హెడర్ లోగో స్టైల్స్ */ .web-logo { height: 12mm; margin-right: 12px; border-radius: 4px; }
-        /* [శ్రేణి సంఖ్య 6] ఆసుపత్రి పేరు ఫాంట్ సైజు మరియు స్టైలింగ్ */ .web-h-name { font-size: 13px; font-weight: 900; color: #1a252f; line-height: 1.2; }
-        /* [శ్రేణి సంఖ్య 7] హెడర్ క్రింద ఉండే రసీదు టైటిల్ అమరిక */ .web-h-title { font-size: 9px; font-weight: 700; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px; color: #2c3e50; }
-        /* [శ్రేణి సంఖ్య 8] ప్రధాన కంటెంట్ ఏరియా యొక్క ప్యాడింగ్ మరియు అమరిక */ .main-content-wrapper { flex-grow: 1; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 0; position: relative; }
-        /* [శ్రేణి సంఖ్య 9] లాగిన్ విజయవంతమైన తర్వాత డ్యాష్‌బోర్డ్‌ని పైభాగానికి జరిపే క్లాస్ నియమం */ .main-content-wrapper.dashboard-active { justify-content: flex-start !important; }
-        
-        /* [శ్రేణి సంఖ్య 10] పేజీకి ఖచ్చితంగా మధ్యలో ఉంచే ప్రీమియం లాగిన్ విభాగానికి సంబంధించిన స్టైలింగ్ */ #login-section { background: rgba(255, 255, 255, 0.95); padding: 25px 30px; border-radius: 12px; width: 350px; text-align: center; box-shadow: 0 8px 32px rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.2); border-top: 5px solid #1a252f; z-index: 999; }
-        /* [శ్రేణి సంఖ్య 11] లాగిన్ బాక్స్ టైటిల్ సైజు నియమాలు */ #login-section h2 { font-size: 14px; margin-bottom: 15px; color: #1a252f; font-weight: 900; letter-spacing: 0.5px; text-transform: uppercase; }
-        /* [శ్రేణి సంఖ్య 12] ప్రతి లాగిన్ ఇన్‌పుట్ ఫీల్డ్ కంటైనర్ అమరిక */ .login-field { margin-bottom: 12px; text-align: left; position: relative; }
-        /* [శ్రేణి సంఖ్య 13] లాగిన్ ఫీల్డ్ లేబుల్ స్టైల్స్ */ .login-field label { font-size: 8px; font-weight: 800; display: block; margin-bottom: 3px; color: #444; text-transform: uppercase; }
-        /* [శ్రేణి సంఖ్య 14] ఇన్‌పుట్ ఫీల్డ్ లోపల ప్రీమియం HD ఐకాన్ల అమరిక */ .login-field svg { position: absolute; left: 10px; bottom: 8px; width: 14px; height: 14px; fill: #64748b; }
-        /* [శ్రేణి సంఖ్య 15] ఐకాన్లతో కూడిన ఇన్‌పుట్ బాక్స్ ప్యాడింగ్ మరియు సైజులు */ .login-field input { width: 100%; padding: 7px 10px 7px 32px; border: 1.5px solid #dfe6e9; border-radius: 6px; font-size: 11px; outline: none; transition: border-color 0.2s; }
-        /* [శ్రేణి సంఖ్య 16] ఫోకస్ చేసినప్పుడు బోర్డర్ రంగు మారడం */ .login-field input:focus { border-color: #1a252f; }
-        /* [శ్రేణి సంఖ్య 17] లాగిన్ సబ్మిట్ బటన్ డిజైన్ */ .btn-login { background-color: #1a252f; color: white; width: 100%; height: 34px; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; border: none; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 11px; transition: background 0.2s; }
-        /* [శ్రేణి సంఖ్య 18] బటన్ లోపల ఉండే లోడింగ్ స్పిన్నర్ స్టైల్స్ */ .spinner { width: 14px; height: 14px; border: 2px solid #ffffff; border-top-color: transparent; border-radius: 50%; display: none; animation: spin 0.8s linear infinite; } @keyframes spin { to { transform: rotate(360deg); } }
+        /* 01-GLOBAL AND BODY STYLES CSS SECTION */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Roboto Slab', serif; font-size: 11px; }
+        body { background-color: #e9f0f5; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
 
-        /* [శ్రేణి సంఖ్య 19] లాగిన్ అయిన తర్వాత కనిపించే యూజర్ కంట్రోల్ బార్ అమరిక */ .user-control-bar { width: 100%; max-width: 1050px; background: #ffffff; padding: 6px 12px; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); display: none; align-items: center; gap: 8px; margin-bottom: 8px; border-left: 4px solid #1a252f; }
-        /* [శ్రేణి సంఖ్య 20] గ్లోబల్ సెర్చ్ బాక్స్ సైజు నియమం */ .search-box-header { padding: 4px 8px; border: 1.2px solid #cbd5e1; border-radius: 4px; font-size: 11px; outline: none; width: 220px; }
-        /* [శ్రేణి సంఖ్య 21] యాక్టివ్ యూజర్ డాక్టర్ ఇన్ఫో బ్యాడ్జ్ అమరిక */ .doctor-badge { display: flex; flex-direction: column; align-items: flex-end; margin-left: auto; font-size: 10px; line-height: 1.3; }
-        /* [శ్రేణి సంఖ్య 22] డాక్టర్ పేరు చూపించే లేబుల్ */ .dr-name-label { font-weight: 900; color: #1a252f; text-transform: uppercase; }
-        /* [శ్రేణి సంఖ్య 23] లైవ్ సమయం మరియు తేదీ చూపించే చిన్న లేబుల్ */ .dr-live-status { font-size: 9px; color: #64748b; display: flex; align-items: center; gap: 4px; margin-bottom: 2px; }
-        /* [శ్రేణి సంఖ్య 24] నిరంతరం బ్లింక్ అయ్యే లైవ్ గ్రీన్ డాట్ యానిమేషన్ */ .green-pulse-dot { width: 6px; height: 6px; background-color: #2ecc71; border-radius: 50%; display: inline-block; animation: pulse-green 1.2s infinite; } @keyframes pulse-green { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 4px rgba(46, 204, 113, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); } }
-        /* [శ్రేణి సంఖ్య 25] కంట్రోల్ బార్ లో उपयोगించే బటన్లు */ .ctrl-btn { padding: 4px 10px; border: none; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 10px; text-transform: uppercase; }
-        /* [శ్రేణి సంఖ్య 26] రీలోడ్ బటన్ రంగు */ .btn-reload { background-color: #3498db; color: white; }
-        /* [శ్రేణి సంఖ్య 27] లాగౌట్ బటన్ రంగు */ .btn-logout { background-color: #e74c3c; color: white; }
+        /* 02-HEADER AND WEB NAVIGATION CSS SECTION */
+        .web-page-header { width: 100%; height: auto; min-height: 16mm; background: #ffffff; color: #1a252f; display: flex; align-items: center; justify-content: space-between; padding: 10px 15px; border-bottom: 2px solid #1a252f; box-shadow: 0 2px 8px rgba(0,0,0,0.05); flex-shrink: 0; }
+        .web-logo { height: 12mm; margin-right: 12px; border-radius: 4px; }
+        .web-h-name { font-size: 13px; font-weight: 900; color: #1a252f; line-height: 1.2; }
+        .web-h-title { font-size: 9px; font-weight: 700; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px; color: #2c3e50; }
+        .header-controls { display: none; align-items: center; gap: 15px; margin-left: auto; }
+        .header-buttons { display: flex; gap: 6px; }
 
-        /* [శ్రేణి సంఖ్య 28] మెయిన్ వర్క్‌స్పేస్ డ్యాష్‌బోర్డ్ విభాగం */ #app-dashboard { width: 100%; display: none; flex-direction: column; align-items: center; }
-        /* [శ్రేణి సంఖ్య 29] రోగి వివరాలు నమోదు చేసే ఇన్‌పుట్ ప్యానెల్ హద్దులు */ .input-panel { background: #ffffff; padding: 8px 12px; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); width: 100%; max-width: 1050px; margin-bottom: 8px; border-top: 3px solid #1a252f; }
-        /* [శ్రేణి సంఖ్య 30] ఒకే వరుసలో ఇన్‌పుట్లను అమర్చే గ్రిడ్ సిస్టమ్ */ .input-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 6px; margin-bottom: 6px; }
-        /* [శ్రేణి సంఖ్య 31] లేబుల్ మరియు ఇన్‌పుట్ ఫీల్డ్ కంటైనర్ */ .field { display: flex; flex-direction: column; }
-        /* [శ్రేణి సంఖ్య 32] ఇన్‌పుట్ ఫీల్డ్ పైన ఉండే చిన్న అక్షరాల లేబుల్స్ */ .field label { font-size: 8px; font-weight: 800; color: #2c3e50; margin-bottom: 2px; text-transform: uppercase; }
-        /* [శ్రేణి సంఖ్య 33] ఇన్‌పుట్ బాక్సుల యొక్క పొడవు మరియు బోర్డర్ స్టైల్ */ .field input, .field select { padding: 4px 8px; border: 1.2px solid #dfe6e9; border-radius: 4px; outline: none; font-size: 11px; height: 26px; }
-        
-        /* [శ్రేణి సంఖ్య 34] తాత్కాలిక మందుల డ్రాఫ్ట్ స్టేజింగ్ ప్యానెల్ */ .staging-panel { background: #ffffff; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); width: 100%; max-width: 1050px; margin-bottom: 10px; border-top: 3px solid #27ae60; }
-        /* [శ్రేణి సంఖ్య 35] સ્ટેజింగ్ విభాగం యొక్క హెడర్ టైటిల్ */ .staging-title { font-size: 10px; font-weight: 800; color: #27ae60; text-transform: uppercase; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center; }
-        /* [శ్రేణి సంఖ్య 36] డ్రాఫ్ట్ మందులను చూపించే పట్టిక */ .staging-table { width: 100%; border-collapse: collapse; font-size: 11px; margin-bottom: 6px; }
-        /* [శ్రేణి సంఖ్య 37] స్టేజింగ్ టేబుల్ హెడర్ కాలమ్స్ */ .staging-table th { background: #f8f9fa; color: #2c3e50; font-weight: 800; text-align: left; padding: 6px; border-bottom: 2px solid #e2e8f0; }
-        /* [శ్రేణి సంఖ్య 38] స్టేజింగ్ టేబుల్ లోపలి డేటా రోస్ */ .staging-table td { padding: 4px 6px; border-bottom: 1px solid #edf2f7; vertical-align: middle; }
-        /* [శ్రేణి సంఖ్య 39] స్టేజింగ్ టేబుల్ లో నేరుగా మార్చుకునే ఇన్‌పుట్ బాక్సులు */ .staging-input { border: 1px solid #cbd5e1; padding: 3px 6px; border-radius: 4px; font-size: 11px; font-weight: 700; width: 100%; height: 24px; }
-        /* [శ్రేణి సంఖ్య 40] స్టేజింగ్ ఇన్‌పుట్ బాక్స్ ఆక్టివ్ గా ఉన్నప్పుడు మారే రంగు */ .staging-input:focus { border-color: #27ae60; outline: none; background: #f0fdf4; }
-        
-        /* [శ్రేణి సంఖ్య 41] రసీదు ప్రివ్యూ ఏరియా మరియు హద్దులు (హాఫ్ పేపర్ సైజు సెటప్) */ .page-boundary { width: 210mm; height: 138mm; background: #fff5f5; padding: 1mm; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; margin-bottom: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-        /* [శ్రేణి సంఖ్య 42] రసీదు చుట్టూ ఉండే ఒకే బోర్డర్ మరియు ప్యాడింగ్ */ .receipt-container { width: calc(100% - 2mm); height: calc(100% - 2mm); background: #fff5f5; padding: 0 6mm 2mm 6mm; position: relative; display: flex; flex-direction: column; border: 1px solid #000; box-sizing: border-box; overflow: hidden; }
-        /* [శ్రేణి సంఖ్య 43] రసీదు వెనుకభాగంలో కనిపించే వాటర్ మార్క్ టెక్స్ట్ */ .watermark { position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%) rotate(-35deg); font-size: 70px; font-weight: 900; color: rgba(139, 0, 0, 0.03); white-space: nowrap; pointer-events: none; z-index: 0; text-transform: uppercase; }
-        
-        /* [శ్రేణి సంఖ్య 44] రసీదు హెడర్ లోపల ఉండే లోగో మరియు హాస్పిటల్ సమాచారం */ .receipt-header { display: flex; align-items: center; border-bottom: 1px solid #000; height: 18mm; position: relative; z-index: 1; }
-        /* [శ్రేణి సంఖ్య 45] రసీదులోని లోగో బాక్స్ సైజు */ .logo-box { flex: 0 0 14mm; margin-right: 10px; display: flex; align-items: center; justify-content: center; }
-        /* [శ్రేణి సంఖ్య 46] రసీదు లోగో ఇమేజ్ పొడవు */ .logo-box img { height: 12mm; width: auto; }
-        /* [శ్రేణి సంఖ్య 47] లోగో ప్రక్కన ఉండే టెక్స్ట్ కాలమ్ */ .header-text { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-        /* [శ్రేణి సంఖ్య 48] రసీదు లోని ఆసుపత్రి పేరు ఫాంట్ సైజు */ .hospital-name { font-size: 12.5px; font-weight: 900; color: #000; line-height: 1.1; }
-        /* [శ్రేణి సంఖ్య 49] డాక్యుమెంట్ రసీదు శీర్షిక అమరిక */ .receipt-title { font-size: 9px; font-weight: 700; color: #000; letter-spacing: 0.5px; }
-        /* [శ్రేణి సంఖ్య 50] ఆసుపత్రి అడ్రస్ అక్షరాల సైజు */ .hospital-address { font-size: 7px; color: #000; white-space: nowrap; }
+        /* 03-LOGIN SECTION CSS SECTION */
+        #login-section { background: rgba(255, 255, 255, 0.95); padding: 25px 30px; border-radius: 12px; width: 350px; text-align: center; box-shadow: 0 8px 32px rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.2); border-top: 5px solid #1a252f; z-index: 999; margin: auto; }
+        #login-section h2 { font-size: 14px; margin-bottom: 15px; color: #1a252f; font-weight: 900; letter-spacing: 0.5px; text-transform: uppercase; }
+        .login-field { margin-bottom: 12px; text-align: left; position: relative; }
+        .login-field label { font-size: 8px; font-weight: 800; display: block; margin-bottom: 3px; color: #444; text-transform: uppercase; }
+        .login-field svg { position: absolute; left: 10px; bottom: 8px; width: 14px; height: 14px; fill: #64748b; }
+        .login-field input { width: 100%; padding: 7px 10px 7px 32px; border: 1.5px solid #dfe6e9; border-radius: 6px; font-size: 11px; outline: none; transition: border-color 0.2s; }
+        .login-field input:focus { border-color: #1a252f; }
+        .btn-login { background-color: #1a252f; color: white; width: 100%; height: 34px; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; border: none; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 11px; transition: background 0.2s; }
+        .spinner { width: 14px; height: 14px; border: 2px solid #ffffff; border-top-color: transparent; border-radius: 50%; display: none; animation: spin 0.8s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* [శ్రేణి సంఖ్య 51] రోగి పేరు, వయస్సు చూపే డ్యాష్డ్ లైన్ గ్రిడ్ */ .patient-info-grid { display: grid; grid-template-columns: 2fr 0.8fr 1fr; font-size: 9px; margin-top: 1px; padding: 3px 0; border-bottom: 1px dashed #000; line-height: 1; }
-        /* [శ్రేణి సంఖ్య 52] రసీదు లో ముద్రించబడే మెడిసిన్ టేబుల్ స్టైలింగ్ */ .medicine-table { width: 100%; border-collapse: collapse; font-size: 10px; table-layout: fixed; margin-top: 2px; }
-        /* [శ్రేణి సంఖ్య 53] రసీదు టేబుల్ హెడర్ కాలమ్స్ */ .medicine-table th { border-bottom: 1px solid #000; text-align: left; padding: 1.5px 2.5px; font-size: 7.5px; font-weight: 900; background: rgba(0,0,0,0.01); }
-        /* [శ్రేణి సంఖ్య 54] రసీదు టేబుల్ లోపలి డేటా (పేరు కట్ కాకుండా వర్డ్-బ్రేక్ ఇవ్వబడింది) */ .medicine-table td { padding: 2.5px; border: none; height: auto; min-height: 22px; vertical-align: middle; border-bottom: 0.5px solid #ddd; font-weight: 700; color: #000; word-break: break-word; }
-        
-        /* [శ్రేణి సంఖ్య 55] రసీదు చివర ఉండే గ్రాండ్ టోటల్ విభాగం మరియు అమరిక */ .total-section { text-align: right; padding-top: 4px; border-top: 1px solid #000; margin-top: auto; margin-bottom: 4mm; position: relative; z-index: 1; }
-        /* [శ్రేణి సంఖ్య 56] గ్రాండ్ టోటల్ పక్కన ఉండే సమ్మరీ లైన్లు */ .summary-line { font-size: 8.5px; font-weight: 600; color: #333; display: block; line-height: 1.1; }
-        /* [శ్రేణి సంఖ్య 57] చెల్లించాల్సిన ఫైనల్ అమౌంట్ చూపే పెద్ద అక్షరాల లేబుల్ */ .pay-label { font-weight: 900; font-size: 11.5px; color: #000; border-top: 1px dashed #000; display: inline-block; padding-top: 1.5px; margin-top: 1.5px; }
+        /* 04-DASHBOARD AND INPUT PANEL CSS SECTION */
+        .doctor-badge { display: flex; flex-direction: column; align-items: flex-end; font-size: 10px; line-height: 1.3; }
+        .dr-name-label { font-weight: 900; color: #1a252f; text-transform: uppercase; }
+        .dr-live-status { font-size: 9px; color: #64748b; display: flex; align-items: center; gap: 4px; margin-bottom: 2px; }
+        .green-pulse-dot { width: 6px; height: 6px; background-color: #2ecc71; border-radius: 50%; display: inline-block; animation: pulse-green 1.2s infinite; }
+        @keyframes pulse-green { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 4px rgba(46, 204, 113, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); } }
+        .ctrl-btn { padding: 6px 12px; border: none; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 10px; text-transform: uppercase; transition: opacity 0.2s; display: flex; align-items: center; justify-content: center; }
+        .ctrl-btn:hover { opacity: 0.9; }
+        .btn-reload { background-color: #3498db; color: white; }
+        .btn-logout { background-color: #e74c3c; color: white; }
+        #app-dashboard { width: 100%; display: none; flex-direction: column; align-items: center; padding: 15px; }
+        .input-panel { background: #ffffff; padding: 12px; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); width: 100%; max-width: 1050px; margin-bottom: 8px; border-top: 3px solid #1a252f; }
+        .input-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; margin-bottom: 8px; }
+        .field { display: flex; flex-direction: column; }
+        .field label { font-size: 8px; font-weight: 800; color: #2c3e50; margin-bottom: 2px; text-transform: uppercase; }
+        .field input, .field select { padding: 4px 8px; border: 1.2px solid #dfe6e9; border-radius: 4px; outline: none; font-size: 11px; height: 26px; }
+        .field input:focus, .field select:focus { border-color: #1a252f; }
 
-        /* [శ్రేణి సంఖ్య 58] రసీదు లోపల మందుల లిస్ట్ పొడవు ఎక్కువైతే స్క్రోల్ అయ్యేలా గరిష్ట పరిమితి */ .medicine-area { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; margin-top: 1px; position: relative; z-index: 1; max-height: 72mm; }
+        /* 05-STAGING TABLE AND DRAFTS CSS SECTION */
+        .staging-panel { background: #ffffff; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); width: 100%; max-width: 1050px; margin-bottom: 10px; border-top: 3px solid #27ae60; }
+        .staging-title { font-size: 10px; font-weight: 800; color: #27ae60; text-transform: uppercase; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center; }
+        .staging-table { width: 100%; border-collapse: collapse; font-size: 11px; margin-bottom: 6px; }
+        .staging-table th { background: #f8f9fa; color: #2c3e50; font-weight: 800; text-align: left; padding: 6px; border-bottom: 2px solid #e2e8f0; }
+        .staging-table td { padding: 4px 6px; border-bottom: 1px solid #edf2f7; vertical-align: middle; }
+        .staging-input { border: 1px solid #cbd5e1; padding: 3px 6px; border-radius: 4px; font-size: 11px; font-weight: 700; width: 100%; height: 24px; }
+        .staging-input:focus { border-color: #27ae60; outline: none; background: #f0fdf4; }
 
-        /* [శ్రేణి సంఖ్య 59] మందుల రిటర్న్ ప్యానెల్ (మెడిసిన్ బ్యాక్ ప్యానెల్) - అడ్వాన్స్‌డ్ స్టైల్ */ .return-panel { background: #ffffff; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); width: 100%; max-width: 1050px; margin-top: 10px; border-top: 3px solid #c0392b; }
-        /* [శ్రేణి సంఖ్య 60] రిటర్న్ ప్యానెల్ టైటిల్ స్టైల్ */ .return-title { font-size: 10px; font-weight: 800; color: #c0392b; text-transform: uppercase; margin-bottom: 6px; }
+        /* 06-RECEIPT PRINT BOUNDARY CSS SECTION */
+        .page-boundary { width: 210mm; height: 138mm; background: #fff5f5; padding: 1mm; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; margin-bottom: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .receipt-container { width: calc(100% - 2mm); height: calc(100% - 2mm); background: #fff5f5; padding: 0 6mm 2mm 6mm; position: relative; display: flex; flex-direction: column; border: 1px solid #000; box-sizing: border-box; overflow: hidden; }
+        .watermark { position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%) rotate(-35deg); font-size: 70px; font-weight: 900; color: rgba(139, 0, 0, 0.03); white-space: nowrap; pointer-events: none; z-index: 0; text-transform: uppercase; }
+        .receipt-header { display: flex; align-items: center; border-bottom: 1px solid #000; height: 18mm; position: relative; z-index: 1; }
+        .logo-box { flex: 0 0 14mm; margin-right: 10px; display: flex; align-items: center; justify-content: center; }
+        .logo-box img { height: 12mm; width: auto; }
+        .header-text { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .hospital-name { font-size: 12.5px; font-weight: 900; color: #000; line-height: 1.1; }
+        .receipt-title { font-size: 9px; font-weight: 700; color: #000; letter-spacing: 0.5px; }
+        .hospital-address { font-size: 7px; color: #000; white-space: nowrap; }
+        .patient-info-grid { display: grid; grid-template-columns: 2fr 0.8fr 1fr; font-size: 9px; margin-top: 1px; padding: 3px 0; border-bottom: 1px dashed #000; line-height: 1; }
+        .medicine-table { width: 100%; border-collapse: collapse; font-size: 10px; table-layout: fixed; margin-top: 2px; }
+        .medicine-table th { border-bottom: 1px solid #000; text-align: left; padding: 1.5px 2.5px; font-size: 7.5px; font-weight: 900; background: rgba(0,0,0,0.01); }
+        .medicine-table td { padding: 2.5px; border: none; height: auto; min-height: 22px; vertical-align: middle; border-bottom: 0.5px solid #ddd; font-weight: 700; color: #000; word-break: break-word; }
+        .total-section { text-align: right; padding-top: 4px; border-top: 1px solid #000; margin-top: auto; margin-bottom: 4mm; position: relative; z-index: 1; }
+        .summary-line { font-size: 8.5px; font-weight: 600; color: #333; display: block; line-height: 1.1; }
+        .pay-label { font-weight: 900; font-size: 11.5px; color: #000; border-top: 1px dashed #000; display: inline-block; padding-top: 1.5px; margin-top: 1.5px; }
+        .medicine-area { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; margin-top: 1px; position: relative; z-index: 1; max-height: 72mm; }
+        .receipt-footer-note { position: absolute; bottom: 2mm; left: 4mm; font-size: 7px; font-style: italic; color: #333; }
 
-        /* [శ్రేణి సంఖ్య 61] వెబ్‌సైట్ లో కింద వైపు ఎల్లప్పుడూ కనిపించే ఫుటర్ డిజైన్ */ .web-footer { width: 100%; background: #ffffff; padding: 8px 0; text-align: center; border-top: 1px solid #ddd; margin-top: auto; flex-shrink: 0; }
-        /* [శ్రేణి సంఖ్య 62] ఫుటర్ లోపలి కాపీరైట్స్ అక్షరాల సైజు */ .footer-text { font-size: 9px; color: #333; font-weight: 600; }
+        /* 07-RETURN PANEL AND ACTIONS CSS SECTION */
+        .return-panel { background: #ffffff; padding: 25px 12px; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); width: 100%; max-width: 1050px; margin-top: 25px; margin-bottom: 25px; border-top: 3px solid #c0392b; }
+        .return-title { font-size: 10px; font-weight: 800; color: #c0392b; text-transform: uppercase; margin-bottom: 12px; }
+        .web-footer { width: 100%; background: #ffffff; padding: 8px 0; text-align: center; border-top: 1px solid #ddd; margin-top: auto; flex-shrink: 0; }
+        .footer-text { font-size: 9px; color: #333; font-weight: 600; }
+        .action-buttons { display: flex; gap: 6px; justify-content: center; margin-top: 4px; flex-wrap: wrap; }
+        .btn { padding: 6px 14px; border: none; border-radius: 4px; cursor: pointer; font-weight: 700; text-transform: uppercase; font-size: 10px; }
+        .btn-add { background-color: #27ae60; color: white; }
+        .btn-print { background-color: #2c3e50; color: white; }
+        .btn-clear { background-color: #c0392b; color: white; }
+        .btn-insert { background-color: #d35400; color: white; font-size: 10px; }
+        .btn-action-del { background-color: #e74c3c; color: white; padding: 2px 5px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 9px; }
+        .btn-return { background-color: #c0392b; color: white; }
 
-        /* [శ్రేణి సంఖ్య 63] బటన్ల యొక్క కలర్స్, బోర్డర్ రేడియస్ మరియు అమరిక */ .action-buttons { display: flex; gap: 6px; justify-content: center; margin-top: 4px; flex-wrap: wrap; }
-        /* [శ్రేణి సంఖ్య 64] సాధారణ బటన్ స్టైల్స్ */ .btn { padding: 6px 14px; border: none; border-radius: 4px; cursor: pointer; font-weight: 700; text-transform: uppercase; font-size: 10px; }
-        /* [శ్రేణి సంఖ్య 65] యాడ్ బటన్ రంగు */ .btn-add { background-color: #27ae60; color: white; }
-        /* [శ్రేణి సంఖ్య 66] ప్రింట్ బటన్ రంగు */ .btn-print { background-color: #2c3e50; color: white; }
-        /* [శ్రేణి సంఖ్య 67] క్లియర్ బటన్ రంగు */ .btn-clear { background-color: #c0392b; color: white; }
-        /* [శ్రేణి సంఖ్య 68] ఇన్సర్ట్ బటన్ రంగు */ .btn-insert { background-color: #d35400; color: white; font-size: 10px; }
-        /* [శ్రేణి సంఖ్య 69] డిలీట్ ఐకాన్ బటన్ రంగు */ .btn-action-del { background-color: #e74c3c; color: white; padding: 2px 5px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 9px; }
-        /* [శrange సంఖ్య 70] రిటర్న్ కన్ఫర్మ్ బటన్ రంగు */ .btn-return { background-color: #c0392b; color: white; margin-top: 6px; }
+        /* 08-MODAL OVERLAY SYSTEM CSS SECTION */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 10000; }
+        .modal-box { background: white; padding: 15px 20px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.25); max-width: 380px; width: 90%; text-align: center; border-top: 4px solid #c0392b; }
+        .modal-box h3 { margin-bottom: 8px; font-size: 14px; color: #2c3e50; }
+        .modal-box p { font-size: 12px; color: #666; margin-bottom: 15px; line-height: 1.4; }
+        .modal-btn-group { display: flex; justify-content: center; gap: 10px; }
+        .modal-btn { padding: 5px 14px; border: none; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 10px; text-transform: uppercase; }
+        .modal-btn-confirm { background-color: #c0392b; color: white; }
+        .modal-btn-cancel { background-color: #95a5a6; color: white; }
 
-        /* [శ్రేణి సంఖ్య 71] కస్టమ్ ఓవర్‌లే నోటిఫికేషన్ బాక్స్ స్టైల్స్ */ .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 10000; }
-        /* [శ్రేణి సంఖ్య 72] నోటిఫికేషన్ కార్డ్ బాక్స్ సైజు */ .modal-box { background: white; padding: 15px 20px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.25); max-width: 380px; width: 90%; text-align: center; border-top: 4px solid #c0392b; }
-        /* [శ్రేణి సంఖ్య 73] నోటిఫికేషన్ లోపలి టైటిల్ అలైన్‌మెంట్ */ .modal-box h3 { margin-bottom: 8px; font-size: 14px; color: #2c3e50; }
-        /* [శ్రేణి సంఖ్య 74] నోటిఫికేషన్ లోపలి వివరణ అక్షరాల సైజు */ .modal-box p { font-size: 12px; color: #666; margin-bottom: 15px; line-height: 1.4; }
-        /* [శ్రేణి సంఖ్య 75] నోటిఫికేషన్ లోపలి బటన్ల అమరిక */ .modal-btn-group { display: flex; justify-content: center; gap: 10px; }
-        /* [శ్రేణి సంఖ్య 76] సాధారణ డైలాగ్ బటన్ సైజు */ .modal-btn { padding: 5px 14px; border: none; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 10px; text-transform: uppercase; }
-        /* [శ్రేణి సంఖ్య 77] కన్ఫర్మ్ బటన్ రంగు */ .modal-btn-confirm { background-color: #c0392b; color: white; }
-        /* [శ్రేణి సంఖ్య 78] క్యాన్సిల్ బటన్ రంగు */ .modal-btn-cancel { background-color: #95a5a6; color: white; }
-        /* [శ్రేణి సంఖ్య 79] రసీదు క్రింద ఉండే చిన్న ఫుట్‌నోట్ */ .receipt-footer-note { position: absolute; bottom: 2mm; left: 4mm; font-size: 7px; font-style: italic; color: #333; }
+        /* 09-SUGGESTIONS DROPDOWN OVERLAYS CSS SECTION */
+        .suggestions-box { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; border: 1.5px solid #1a252f; border-top: none; border-radius: 0 0 6px 6px; max-height: 160px; overflow-y: auto; z-index: 2000; box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+        .suggestion-item { padding: 6px 10px; cursor: pointer; font-size: 11px; font-weight: 700; border-bottom: 1px solid #f1f2f6; color: #1a252f; text-align: left; }
+        .suggestion-item:hover { background: #e9f0f5; color: #1a252f; }
+        .main-content-wrapper { display: flex; align-items: center; justify-content: center; flex-grow: 1; padding: 20px; }
+        .main-content-wrapper.dashboard-active { display: block; }
 
-        /* [శ్రేణి సంఖ్య 80] ప్రింటింగ్ సమయంలో అనవసరమైన అంశాలను దాచిపెట్టి కేవలం రసీదును మాత్రమే హాఫ్ పేజీకి సెట్ చేసే విభాగాలు */
-        @media print { 
-            @page { size: A4 portrait; margin: 0; } 
-            body { background: none; margin: 0; padding: 0; } 
-            .web-page-header, .web-footer, .input-panel, .staging-panel, .return-panel, .action-buttons, .no-print, .modal-overlay, .user-control-bar { display: none !important; } 
-            /* [శ్రేణి సంఖ్య 81] A4 హాఫ్ పేపర్ సైజు సరిగ్గా పై నుండి సగానికి సరిపోయేలా సెట్ చేస్తుంది */
-            .page-boundary { width: 210mm !important; height: 138mm !important; padding: 0; margin: 0; background: white !important; box-shadow: none !important; display: flex !important; align-items: flex-start; justify-content: flex-start; position: absolute; top: 0; left: 0; border: none !important; } 
-            /* [శ్రేణి సంఖ్య 82] రసీదు ప్రింట్ లో కేవలం ఒకే ఔటర్ బ్లాక్ బోర్డర్ ఇస్తుంది */
-            .receipt-container { border: 1px solid #000 !important; width: 210mm !important; height: 138mm !important; margin: 0; padding: 4mm 6mm 2mm 6mm !important; background: white !important; } 
-            .total-section { margin-bottom: 2mm; }
-        }
+        /* 10-MEDIA QUERIES AND PRINT ENGINE CSS SECTION */
+        @media print { @page { size: A4 portrait; margin: 0; } body { background: none; margin: 0; padding: 0; } .web-page-header, .web-footer, .input-panel, .staging-panel, .return-panel, .action-buttons, .no-print, .modal-overlay { display: none !important; } .page-boundary { width: 210mm !important; height: 138mm !important; padding: 0; margin: 0; background: white !important; box-shadow: none !important; display: flex !important; align-items: flex-start; justify-content: flex-start; position: absolute; top: 0; left: 0; border: none !important; } .receipt-container { border: 1px solid #000 !important; width: 210mm !important; height: 138mm !important; margin: 0; padding: 4mm 6mm 2mm 6mm !important; background: white !important; } .total-section { margin-bottom: 2mm; } }
     </style>
-    <!-- END OF CSS SECTION -->
 </head>
 <body>
 
-    <!-- [శ్రేణి సంఖ్య 83] వెబ్‌సైట్ ఎగువన ఎల్లప్పుడూ లోగో తో కూడిన హెడర్ -->
-    <header class="web-page-header">
-        <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_01_HEDER_LOGO_MAIN.png" alt="SVR Main Logo" class="web-logo">
-        <div class="web-header-info">
-            <div class="web-h-name">Dr. S. Venkata Subba Reddy Multispecialty Hospital</div>
-            <div class="web-h-title">Medical Receipt System</div>
-        </div>
-        <!-- [శ్రేణి సంఖ్య 84] లాగిన్ అయిన తర్వాత డాక్టర్ ఇన్ఫో మరియు లైవ్ బ్లింకింగ్ సిస్టమ్ కనిపించే విభాగం -->
-        <div id="logged-user-display" class="doctor-badge" style="display: none;">
-            <div class="dr-live-status">
-                <span class="green-pulse-dot"></span>
-                <span id="live-time-display">00:00:00 AM</span> | <span id="live-date-display">00/00/0000</span>
-            </div>
-            <div id="dr-display-name" class="dr-name-label">Active Operator</div>
-        </div>
-    </header>
+    <!-- 01-HEADER SECTION -->
+    <header class="web-page-header"><div style="display: flex; align-items: center;"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_01_HEDER_LOGO_MAIN.png" alt="SVR Main Logo" class="web-logo" onerror="this.src='https://placehold.co/100x40/1a252f/ffffff?text=SVR+Logo'"><div class="web-header-info"><div class="web-h-name">Dr. S. Venkata Subba Reddy Multispecialty Hospital</div><div class="web-h-title">Medical Receipt System</div></div></div><div id="logged-user-display" class="header-controls"><div class="doctor-badge"><div class="dr-live-status"><span class="green-pulse-dot"></span><span id="live-time-display">00:00:00 AM</span> | <span id="live-date-display">00/00/0000</span></div><div id="dr-display-name" class="dr-name-label">Active Operator</div></div><div class="header-buttons"><button class="ctrl-btn btn-reload" onclick="loadMedicineDatabase()" title="Reload DB"><svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg></button><button class="ctrl-btn btn-logout" onclick="logoutSession()" title="Logout"><svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"/></svg></button></div></div></header>
 
-    <!-- [శ్రేణి సంఖ్య 85] మెయిన్ ఇంటర్‌ఫేస్ రాపర్ బాక్స్ -->
-    <div class="main-content-wrapper" id="content-wrapper">
-        
-        <!-- [శ్రేణి సంఖ్య 86] పేజీ మధ్యకు అమర్చబడిన హెచ్‌డీ లాగిన్ విభాగం (HD SVGs ఐకాన్లతో కూడినది) -->
-        <div id="login-section">
-            <h2>SYSTEM LOGIN</h2>
-            <div class="login-field">
-                <label>Token Number</label>
-                <!-- [శ్రేణి సంఖ్య 87] కీబోర్డ్ ఐకాన్ SVG -->
-                <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
-                <input type="password" id="log-token" placeholder="Security Token">
-            </div>
-            <div class="login-field">
-                <label>Login ID</label>
-                <!-- [శ్రేణి సంఖ్య 88] యూజర్ ప్రొఫైల్ ఐకాన్ SVG -->
-                <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                <input type="text" id="log-id" placeholder="ID Number" oninput="this.value = this.value.toUpperCase()">
-            </div>
-            <div class="login-field">
-                <label>Password</label>
-                <!-- [శ్రేణి సంఖ్య 89] లాక్ తాళం ఐకాన్ SVG -->
-                <svg viewBox="0 0 24 24"><path d="M12.63 2.17c-.7-.7-1.84-.7-2.55 0L3.13 9.12c-.7.7-.7 1.84 0 2.55l6.95 6.95c.7.7 1.84.7 2.55 0l6.95-6.95c.7-.7.7-1.84 0-2.55l-6.95-6.95zM12 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
-                <input type="password" id="log-pass" placeholder="Password">
-            </div>
-            <button class="btn-login" id="login-btn" onclick="initiateSecureAuthenticationSequence()">
-                <span class="spinner" id="login-spinner"></span>
-                <span id="login-btn-text">Sign In Now</span>
-            </button>
-            <p id="log-msg" style="font-size:10px; margin-top:8px; font-weight: 700; line-height: 1.3;"></p>
-        </div>
+    <!-- 02-LOGIN SECTION -->
+    <div class="main-content-wrapper" id="content-wrapper"><div id="login-section"><h2>SYSTEM LOGIN</h2><div class="login-field"><label>Token Number</label><svg viewBox="0 0 24 24" style="position: absolute; left: 10px; bottom: 8px; width: 14px; height: 14px; fill: #64748b;"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg><input type="password" id="log-token" class="login-nav-input" placeholder="Security Token"></div><div class="login-field"><label>Login ID</label><svg viewBox="0 0 24 24" style="position: absolute; left: 10px; bottom: 8px; width: 14px; height: 14px; fill: #64748b;"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><input type="text" id="log-id" class="login-nav-input" placeholder="ID Number" oninput="this.value = this.value.toUpperCase()"></div><div class="login-field"><label>Password</label><svg viewBox="0 0 24 24" style="position: absolute; left: 10px; bottom: 8px; width: 14px; height: 14px; fill: #64748b;"><path d="M12.63 2.17c-.7-.7-1.84-.7-2.55 0L3.13 9.12c-.7.7-.7 1.84 0 2.55l6.95 6.95c.7.7 1.84.7 2.55 0l6.95-6.95c.7-.7.7-1.84 0-2.55l-6.95-6.95zM12 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg><input type="password" id="log-pass" class="login-nav-input" placeholder="Password"></div><button class="btn-login" id="login-btn" onclick="initiateSecureAuthenticationSequence()"><span class="spinner" id="login-spinner"></span><span id="login-btn-text">Sign In Now</span></button><p id="log-msg" style="font-size:10px; margin-top:8px; font-weight: 700; line-height: 1.3;"></p></div>
 
-        <!-- [శ్రేణి సంఖ్య 90] లాగిన్ సక్సెస్ అయిన తర్వాత లోడ్ అయ్యే అప్లికేషన్ వర్క్‌స్పేస్ డ్యాష్‌బోర్డ్ -->
-        <div id="app-dashboard">
-            
-            <!-- [శ్రేణి సంఖ్య 91] గ్లోబల్ సెర్చ్, రీలోడ్ మరియు లాగౌట్ కంట్రోల్స్ కలిగి ఉన్న బార్ -->
-            <div class="user-control-bar" id="ctrl-bar">
-                <input type="text" id="med-search" class="search-box-header" placeholder="Search / Filter Medicine Database..." oninput="handleMedicineLiveSearch()">
-                <button class="ctrl-btn btn-reload" onclick="loadMedicineDatabase()">Reload Database</button>
-                <button class="ctrl-btn btn-logout" onclick="logoutSession()">Logout Session</button>
-            </div>
+    <!-- 03-SPECIALTY SECTION -->
+    <div id="app-dashboard" style="display: none;"><div class="input-panel" id="input-form"><div class="input-group"><div class="field"><label>Patient Name</label><input type="text" id="in-pname" class="nav-input" placeholder="Full Name" tabindex="1"></div><div class="field"><label>Age</label><input type="number" id="in-page" class="nav-input" placeholder="Age" tabindex="2"></div><div class="field"><label>Gender</label><select id="in-pgender" class="nav-input" tabindex="3"><option value="" disabled selected>Select</option><option value="Male">Male</option><option value="Female">Female</option><option value="Other">Other</option></select></div></div><div class="input-group" style="border-top: 1px solid #f1f2f6; padding-top: 8px;"><div class="field" style="position: relative;"><label>Short Name</label><input type="text" id="in-mshort" class="nav-input" placeholder="Short Code" tabindex="4" autocomplete="off"><div id="short-suggestions" class="suggestions-box"></div></div><div class="field" style="position: relative;"><label>Medicine Full Name</label><input type="text" id="in-mfull" class="nav-input" placeholder="Medicine Description" tabindex="5" autocomplete="off"><div id="full-suggestions" class="suggestions-box"></div></div><div class="field"><label>Tabs Quantity</label><input type="number" id="in-mqty" class="nav-input" value="1" tabindex="6"></div><div class="field"><label>Rate (Fixed from Sheet)</label><input type="text" id="in-mprice" class="nav-input" value="2.00" disabled style="background:#f8f9fa; color:#888;"></div><div class="field"><label>Discount (%)</label><div style="display: flex; gap: 4px; align-items: center;"><input type="number" id="in-mdisc" class="nav-input" value="0" tabindex="7" style="width: 50px;"><button class="btn" id="btn-apply-disc" onclick="applyDiscountToCalculations()" style="padding: 4px 8px; background-color: #2c3e50; color: white; height: 26px; border: none; border-radius: 4px; font-weight: 700; display: flex; align-items: center; justify-content: center;">✔</button></div></div></div><div class="action-buttons"><button class="btn btn-add" onclick="addNewMedicineEntry()">Add to Draft</button><button class="btn btn-clear" onclick="triggerSystemResetRequest()">Clear All</button></div></div>
 
-            <!-- [శ్రేణి సంఖ్య 92] రోగి మరియు మందుల వివరాలు నమోదు చేసే ఇన్‌పుట్ ప్యానెల్ -->
-            <div class="input-panel" id="input-form">
-                <div class="input-group">
-                    <div class="field">
-                        <label>Patient Name</label>
-                        <input type="text" id="in-pname" class="nav-input" placeholder="Full Name" tabindex="1">
-                    </div>
-                    <div class="field">
-                        <label>Age</label>
-                        <input type="number" id="in-page" class="nav-input" placeholder="Age" tabindex="2">
-                    </div>
-                    <div class="field">
-                        <label>Gender</label>
-                        <!-- [శ్రేణి సంఖ్య 93] డిఫాల్ట్‌గా 'Select' ఆప్షన్ తో కూడిన జెండర్ డ్రాప్‌డౌన్ -->
-                        <select id="in-pgender" class="nav-input" tabindex="3">
-                            <option value="" disabled selected>Select</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="input-group" style="border-top: 1px solid #f1f2f6; padding-top: 8px;">
-                    <div class="field">
-                        <label>Short Name</label>
-                        <input type="text" id="in-mshort" class="nav-input" placeholder="Short ID" tabindex="4" list="short-list-options">
-                        <datalist id="short-list-options"></datalist>
-                    </div>
-                    <div class="field">
-                        <label>Medicine Full Name</label>
-                        <input type="text" id="in-mfull" class="nav-input" placeholder="Medicine Description" tabindex="5" list="full-list-options">
-                        <datalist id="full-list-options"></datalist>
-                    </div>
-                    <div class="field">
-                        <label>Tabs Quantity</label>
-                        <input type="number" id="in-mqty" class="nav-input" value="1" tabindex="6">
-                    </div>
-                    <div class="field">
-                        <label>Rate (Fixed from Sheet)</label>
-                        <input type="text" id="in-mprice" class="nav-input" value="2.00" disabled style="background:#f8f9fa; color:#888;">
-                    </div>
-                    <div class="field">
-                        <label>Discount (%)</label>
-                        <input type="number" id="in-mdisc" class="nav-input" value="0" tabindex="7">
-                    </div>
-                </div>
-                <div class="action-buttons">
-                    <button class="btn btn-add" onclick="addNewMedicineEntry()">Add to Draft</button>
-                    <button class="btn btn-clear" onclick="triggerSystemResetRequest()">Clear All</button>
-                </div>
-            </div>
+    <!-- 04-TIMINGS SECTION -->
+    <div class="staging-panel"><div class="staging-title"><span>Draft Staging List (Staged Medicine Registry)</span></div><table class="staging-table"><thead><tr><th style="width: 50px;">S.NO</th><th style="width: 150px;">Short Name</th><th>Medicine Description</th><th style="width: 100px;">Quantity</th><th style="width: 120px;">Each Tab Price</th><th style="width: 120px;">Total</th><th style="width: 80px; text-align: center;">Action</th></tr></thead><tbody id="staging-list"><tr><td colspan="7" style="text-align: center; color: #718096; padding: 15px;">Staging is empty. Add medicines using the input form above.</td></tr></tbody></table><div class="action-buttons" style="margin-top: 12px; justify-content: flex-start; padding-top: 8px; border-top: 1px solid #edf2f7;"><button class="btn btn-insert" id="btn-insert-preview" onclick="insertDraftsToReceipt()">Insert</button><button class="btn" id="btn-save-sheet" onclick="saveReceiptToGoogleSheets()" style="background-color: #27ae60; color: white; display: none;" disabled>Save Receipt</button><button class="btn btn-print" id="print-receipt-btn" onclick="triggerReceiptPrintProcess()" style="background-color: #2c3e50; color: white; display: none;" disabled>Print Receipt</button></div></div>
 
-            <!-- [శ్రేణి సంఖ్య 94] డ్రాఫ్ట్ స్టేజింగ్ ప్యానెల్ (రసీదు ప్రివ్యూ లోపలికి పంపే ముందు ఎడిట్ చేసుకోవచ్చు) -->
-            <div class="staging-panel">
-                <div class="staging-title">
-                    <span>Draft Staging List (Staged Medicine Registry)</span>
-                    <button class="btn btn-insert" onclick="insertDraftsToReceipt()">Insert & Preview Receipt</button>
-                </div>
-                <table class="staging-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 50px;">S.NO</th>
-                            <th style="width: 100px;">MCD / ID</th>
-                            <th>Medicine Description</th>
-                            <th style="width: 100px;">Quantity</th>
-                            <th style="width: 120px;">Each Tab Price</th>
-                            <th style="width: 120px;">Total</th>
-                            <th style="width: 80px; text-align: center;">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="staging-list">
-                        <tr>
-                            <td colspan="7" style="text-align: center; color: #718096; padding: 15px;">Staging is empty. Add medicines using the input form above.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+    <!-- 05-REGISTRATION SECTION -->
+    <div class="page-boundary" id="pdf-area"><div class="receipt-container" id="receipt-content"><div class="watermark">SVR Hospital</div><div class="receipt-header"><div class="logo-box"><img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_02_FEVICON_ICON.png" alt="SVR Icon" onerror="this.src='https://placehold.co/40x40/1a252f/ffffff?text=SVR'"><div class="header-text"><div class="hospital-name">Dr. S. Venkata Subba Reddy Multispecialty Hospital</div><div class="receipt-title">MEDICINE RECEIPT</div><div class="hospital-address">Church Masjid Street, ALLAGADDA - 518543, Nandyal District, Andhra Pradesh.</div></div></div></div><div class="patient-info-grid"><div><strong>Patient:</strong> <span id="out-pname"></span></div><div><strong>Age:</strong> <span id="out-page"></span></div><div><strong>Gender:</strong> <span id="out-pgender"></span></div></div><div class="medicine-area"><table class="medicine-table"><thead><tr><th style="width:35px">S.NO</th><th style="width:80px">MED ID</th><th>Medicine Description</th><th style="width:55px; text-align:center;">Qty</th><th style="width:110px; text-align:right;">Each Tab Price</th><th style="width:110px; text-align:right;">Total</th></tr></thead><tbody id="medicine-list"><tr><td colspan="6" style="text-align: center; color: #777; padding: 20px;">Receipt is empty. Please complete the draft list above and insert.</td></tr></tbody></table></div><div class="total-section" id="financial-summary-block"><span class="summary-line">Gross Grand Total: ₹ <span id="gross-total">0.00</span></span><span class="summary-line" id="discount-display-note">No discount applied</span><span class="pay-label">YOU PAY ONLY: ₹ <span id="net-payable-total">0.00</span></span></div><div class="receipt-footer-note">Note: Computer generated medical record. All amounts in INR.</div></div></div><div class="return-panel"><div class="return-title">Medicine Return Panel</div><div class="input-group"><div class="field" style="position: relative;"><label>Return Short Name</label><input type="text" id="ret-mcd" placeholder="e.g. Mc500mg" class="nav-input" autocomplete="off"><div id="return-suggestions" class="suggestions-box"></div></div><div class="field"><label>Return Quantity</label><input type="number" id="ret-qty" value="1" min="1"></div><div class="field"><label>Refund Amount</label><input type="number" id="ret-amt" placeholder="e.g. 24.00" step="0.01"></div></div><div style="text-align: center; display: flex; justify-content: center; gap: 8px;"><button class="btn" id="btn-confirm-return" onclick="triggerMedicineReturnProcess()" style="background-color: #c0392b; color: white;">Confirm</button><button class="btn" id="btn-another-return" onclick="resetReturnPanelForm()" style="background-color: #3498db; color: white; display: none;">Add Another Return</button></div></div></div></div>
 
-            <!-- [శ్రేణి సంఖ్య 95] A4 హాఫ్ పేజీకి కుదించబడిన రసీదు ప్రింట్ ప్రివ్యూ విభాగం -->
-            <div class="page-boundary" id="pdf-area">
-                <div class="receipt-container" id="receipt-content">
-                    <div class="watermark">SVR Hospital</div>
-                    <div class="receipt-header">
-                        <div class="logo-box">
-                            <img src="https://dsvsrh.github.io/DRSVR-IMG-2026/IMG_02_FEVICON_ICON.png" alt="SVR Icon">
-                        </div>
-                        <div class="header-text">
-                            <div class="hospital-name">Dr. S. Venkata Subba Reddy Multispecialty Hospital</div>
-                            <div class="receipt-title">MEDICINE RECEIPT</div>
-                            <div class="hospital-address">Church Masjid Street, ALLAGADDA - 518543, Nandyal District, Andhra Pradesh.</div>
-                        </div>
-                    </div>
-                    <div class="patient-info-grid">
-                        <div><strong>Patient:</strong> <span id="out-pname"></span></div>
-                        <div><strong>Age:</strong> <span id="out-page"></span></div>
-                        <div><strong>Gender:</strong> <span id="out-pgender"></span></div>
-                    </div>
-                    <div class="medicine-area">
-                        <table class="medicine-table">
-                            <thead>
-                                <tr>
-                                    <th style="width:35px">S.NO</th>
-                                    <th style="width:80px">MCD / ID</th>
-                                    <th>Medicine Description</th>
-                                    <th style="width:55px; text-align:center;">Qty</th>
-                                    <th style="width:110px; text-align:right;">Each Tab Prc</th>
-                                    <th style="width:110px; text-align:right;">Total</th>
-                                </tr>
-                            </thead>
-                            <tbody id="medicine-list">
-                                <tr>
-                                    <td colspan="6" style="text-align: center; color: #777; padding: 20px;">Receipt is empty. Please complete the draft list above and insert.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="total-section" id="financial-summary-block">
-                        <span class="summary-line">Gross Grand Total: ₹ <span id="gross-total">0.00</span></span>
-                        <span class="summary-line" id="discount-display-note">No discount applied</span>
-                        <span class="pay-label">YOU PAY ONLY: ₹ <span id="net-payable-total">0.00</span></span>
-                    </div>
-                    <div class="receipt-footer-note">Note: Computer generated medical record. All amounts in INR.</div>
-                </div>
-            </div>
+    <!-- 06-FOOTER COPYRIGHT SECTION -->
+    <footer class="web-footer"><div class="footer-text">© 2026 All Rights Reserved | Dr. S. Venkata Subba Reddy Multispeciality Hospital | Architected by Sri Veda Org.</div></footer>
 
-            <!-- [శ్రేణి సంఖ్య 96] రసీదు సిద్ధం అయిన తర్వాత ముద్రించడానికి గల ప్రింట్ బటన్ -->
-            <div class="action-buttons" style="margin-top: 10px;">
-                <button class="btn btn-print" id="print-receipt-btn" onclick="triggerReceiptPrintProcess()" style="display: none;">Print Receipt</button>
-            </div>
+    <!-- 07-MODAL DIALOG POPUP SECTION -->
+    <div id="modal-container" class="modal-overlay"><div class="modal-box"><h3 id="modal-title">System Prompt</h3><p id="modal-message">Are you sure you want to perform this action?</p><div class="modal-btn-group"><button class="modal-btn modal-btn-confirm" id="modal-confirm-action">Confirm</button><button class="modal-btn modal-btn-cancel" onclick="closeCustomDialog()">Cancel</button></div></div></div>
 
-            <!-- [శ్రేణి సంఖ్య 97] రిటర్న్ మెడిసిన్ క్వాంటిటీ, రిఫండ్ అమౌంట్ నమోదు చేసి స్టాక్ ప్లస్ చేసే రిటర్న్ ప్యానెల్ -->
-            <div class="return-panel">
-                <div class="return-title">Medicine Return Panel</div>
-                <div class="input-group">
-                    <div class="field">
-                        <label>Return MCD / ID</label>
-                        <input type="text" id="ret-mcd" placeholder="e.g. SM002" list="short-list-options">
-                    </div>
-                    <div class="field">
-                        <label>Return Quantity</label>
-                        <input type="number" id="ret-qty" value="1" min="1">
-                    </div>
-                    <div class="field">
-                        <label>Refund Amount</label>
-                        <input type="number" id="ret-amt" placeholder="e.g. 24.00" step="0.01">
-                    </div>
-                </div>
-                <div style="text-align: center;">
-                    <button class="btn btn-return" onclick="triggerMedicineReturnProcess()">Confirm Return & Adjust Stock</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    
-    <!-- [శ్రేణి సంఖ్య 98] వెబ్‌సైట్ క్రింద ఎల్లప్పుడూ స్థిరంగా కనిపించే బ్రాండింగ్ ఫుటర్ బార్ -->
-    <footer class="web-footer">
-        <div class="footer-text">© 2026 All Rights Reserved | Dr. S. Venkata Subba Reddy Multispeciality Hospital | Architected by Sri Veda Org.
-</div>
-    </footer>
-    
-    <!-- [శ్రేణి సంఖ్య 99] ఐఫ్రేమ్ కంపాటబుల్ కస్టమ్ అలర్ట్ అండ్ కన్ఫర్మేషన్ డైలాగ్ బాక్స్ -->
-    <div id="modal-container" class="modal-overlay">
-        <div class="modal-box">
-            <h3 id="modal-title">System Prompt</h3>
-            <p id="modal-message">Are you sure you want to perform this action?</p>
-            <div class="modal-btn-group">
-                <button class="modal-btn modal-btn-confirm" id="modal-confirm-action">Confirm</button>
-                <button class="modal-btn modal-btn-cancel" onclick="closeCustomDialog()">Cancel</button>
-            </div>
-        </div>
-    </div>
-    <!-- END OF BODY SECTION -->
-
-    <!-- START OF SCRIPT SECTION -->
     <script>
-        // [శ్రేణి సంఖ్య 100] గూగుల్ షీట్స్ కి అనుసంధానించబడిన వెబ్ యాప్ ఏపీఐ లింక్ మరియు గ్లోబల్ డిక్లరేషన్స్
-        const CLOUD_URL = "https://script.google.com/macros/s/AKfycbwjAWjv80Rw2UO4QJ1Fp9EsUAPLEENZBJpN9bTarggOj1wrP8eLRRA-AzbnryKRpddRlg/exec"; let draftMedicinesArray = []; let activeInventoryArray = []; let dbMedicines = []; let currentConfirmAction = null; let liveTimeInterval_99 = null;
+        // 01-HEADER JAVASCRIPT SECTION
+        const CLOUD_URL = "https://script.google.com/macros/s/AKfycbwHI8ucAZ3c2kRbaBVjVYnrrWcROOx0bADVhJWzOU5U_kIuwVU3aruOg3DMsOzZe69pCQ/exec";
+        let draftMedicinesArray = [];
+        let activeInventoryArray = [];
+        let dbMedicines = [];
+        let currentConfirmAction = null;
+        let liveTimeInterval_99 = null;
 
-        // [శ్రేణి సంఖ్య 101] కస్టమ్ డైలాగ్ బాక్స్‌ను స్క్రీన్ పై చూపే సింగిల్-లైన్ ప్రాంప్ట్ ఫంక్షన్
+        // 02-FORM VALIDATION SECTION
         const showCustomDialog = (title, message, callback) => { document.getElementById('modal-title').innerText = title; document.getElementById('modal-message').innerText = message; document.getElementById('modal-container').style.display = 'flex'; currentConfirmAction = callback; };
-
-        // [శ్రేణి సంఖ్య 102] కస్టమ్ డైలాగ్ బాక్స్‌ను క్లోజ్ చేసే సింగిల్-లైన్ ఫంక్షన్
         const closeCustomDialog = () => { document.getElementById('modal-container').style.display = 'none'; currentConfirmAction = null; };
-
-        // [శ్రేణి సంఖ్య 103] డైలాగ్ బాక్స్ లో 'Confirm' పై క్లిక్ చేసినప్పుడు జరిగే చర్య
         document.getElementById('modal-confirm-action').addEventListener('click', () => { if (currentConfirmAction) currentConfirmAction(); closeCustomDialog(); });
 
-        // [శ్రేణి సంఖ్య 104] ప్రతి సెకనుకు లైవ్ సమయం మరియు తేదీని హెడర్‌లో అప్‌డేట్ చేసే క్లాక్ ఫంక్షన్
+        // 03-BUTTON ACTION SECTION
         const runLiveTimeClockSequence_99 = () => { liveTimeInterval_99 = setInterval(() => { const now = new Date(); document.getElementById('live-time-display').innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }); document.getElementById('live-date-display').innerText = now.toLocaleDateString('en-GB'); }, 1000); };
-
-        // [శ్రేణి సంఖ్య 105] టోకెన్ నెంబర్ 8800 వెరిఫై చేసి, ఐడి మరియు పాస్‌వర్డ్ చెక్ చేసి లాగిన్ రన్ చేసే ఫంక్షన్
-        const initiateSecureAuthenticationSequence = () => { const token = document.getElementById('log-token').value.trim(); const id = document.getElementById('log-id').value.trim(); const pass = document.getElementById('log-pass').value.trim(); if (!token || !id || !pass) { updateAuthStatus("#e74c3c", "Please enter Token, Login ID, and Password."); return; } updateAuthStatus("#3498db", "Connecting to SVR Hospital Access Registry..."); toggleLoginLoading(true); fetch(CLOUD_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: "auth", token: token, user: id, pass: pass }) }).then(res => res.json()).then(data => { toggleLoginLoading(false); if (data.success) { updateAuthStatus("#2ecc71", "Access Approved! Loading Dashboard..."); setTimeout(() => transitionToDashboard(data.name || "Authorized Doctor"), 800); } else { updateAuthStatus("#e74c3c", "Error: " + data.message); } }).catch(err => { toggleLoginLoading(false); updateAuthStatus("#e67e22", "⚠️ Cloud Connection Error!"); console.error(err); }); };
-
-        // [శ్రేణి సంఖ్య 106] లాగిన్ అయ్యేటప్పుడు స్పిన్నర్ లోడింగ్ ఆన్/ఆఫ్ చేసే ఫంక్షన్
+        const initiateSecureAuthenticationSequence = () => { const token = document.getElementById('log-token').value.trim(); const id = document.getElementById('log-id').value.trim(); const pass = document.getElementById('log-pass').value.trim(); if (!token || !id || !pass) { updateAuthStatus("#e74c3c", "Please enter Token, Login ID, and Password."); return; } updateAuthStatus("#3498db", "Connecting to SVR Hospital Server..."); toggleLoginLoading(true); fetch(CLOUD_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: "auth", token: token, user: id, pass: pass }) }).then(res => res.json()).then(data => { toggleLoginLoading(false); if (data.success) { updateAuthStatus("#2ecc71", "Login Approved! Loading Dashboard..."); setTimeout(() => transitionToDashboard(data.name || "Authorized Operator"), 800); } else { updateAuthStatus("#e74c3c", "Error: " + data.message); } }).catch(err => { toggleLoginLoading(false); updateAuthStatus("#e67e22", "⚠️ Cloud Connection Error!"); console.error(err); }); };
         const toggleLoginLoading = (isLoading) => { document.getElementById('login-spinner').style.display = isLoading ? 'inline-block' : 'none'; document.getElementById('login-btn-text').style.display = isLoading ? 'none' : 'inline'; document.getElementById('login-btn').disabled = isLoading; };
-
-        // [శ్రేణి సంఖ్య 107] డ్యాష్‌బోర్డ్ పేజీలోకి ప్రవేశించి, కంట్రోల్స్ యాక్టివేట్ చేసే ఫంక్షన్
-        const transitionToDashboard = (name) => { document.getElementById('login-section').style.display = 'none'; document.getElementById('app-dashboard').style.display = 'flex'; document.getElementById('content-wrapper').classList.add('dashboard-active'); document.getElementById('dr-display-name').innerText = "Active: " + name; document.getElementById('logged-user-display').style.display = 'block'; document.getElementById('ctrl-bar').style.display = 'flex'; runLiveTimeClockSequence_99(); loadMedicineDatabase(); };
-
-        // [శ్రేణి సంఖ్య 108] సెషన్‌ను క్లోజ్ చేసి తిరిగి లాగిన్ బాక్స్ వద్దకు పంపే లాగౌట్ ఫంక్షన్
-        const logoutSession = () => { showCustomDialog("Logout Session", "Are you sure you want to log out of SVR Medical Receipt System?", () => { clearInterval(liveTimeInterval_99); document.getElementById('log-token').value = ''; document.getElementById('log-id').value = ''; document.getElementById('log-pass').value = ''; document.getElementById('logged-user-display').style.display = 'none'; document.getElementById('ctrl-bar').style.display = 'none'; document.getElementById('app-dashboard').style.display = 'none'; document.getElementById('content-wrapper').classList.remove('dashboard-active'); document.getElementById('login-section').style.display = 'block'; updateAuthStatus("#333333", "Session closed successfully."); }); };
-
-        // [శ్రేణి సంఖ్య 109] గూగుల్ షీట్ నుండి మెడిసిన్ కేటలాగ్ వివరాలను లోడ్ చేసే ఫంక్షన్
-        const loadMedicineDatabase = () => { fetch(CLOUD_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: "getMedicines" }) }).then(res => res.json()).then(resData => { if (resData.success && resData.data) { dbMedicines = resData.data; populateMedicineDatalists(); } }).catch(err => console.error("Error loading database catalogue:", err)); };
-
-        // [శ్రేణి సంఖ్య 110] ఆటో-కంప్లీట్ సెర్చ్ సలహాల పట్టికను అప్‌డేట్ చేసే ఫంక్షన్
-        const populateMedicineDatalists = () => { const shortDatalist = document.getElementById('short-list-options'); const fullDatalist = document.getElementById('full-list-options'); shortDatalist.innerHTML = ''; fullDatalist.innerHTML = ''; dbMedicines.forEach(med => { const shortOpt = document.createElement('option'); shortOpt.value = med.short; shortOpt.textContent = `${med.name} (₹${med.price.toFixed(2)})`; shortDatalist.appendChild(shortOpt); const fullOpt = document.createElement('option'); fullOpt.value = med.name; fullOpt.textContent = `Code: ${med.short} (₹${med.price.toFixed(2)})`; fullDatalist.appendChild(fullOpt); }); };
-
-        // [శ్రేణి సంఖ్య 111] గ్లోబల్ సెర్చ్ బాక్స్ లో టైప్ చేసినప్పుడు లైవ్ గా ఫిల్టర్ చేసే ఫంక్షన్
-        const handleMedicineLiveSearch = () => { const query = document.getElementById('med-search').value.trim().toLowerCase(); if (!query) { loadMedicineDatabase(); return; } dbMedicines = dbMedicines.filter(med => med.name.toLowerCase().includes(query) || med.short.toLowerCase().includes(query) || med.mcd.toLowerCase().includes(query)); populateMedicineDatalists(); };
-
-        // [శ్రేణి సంఖ్య 112] షార్ట్ ఐడి నమోదు చేసినప్పుడు ఆటోమేటిక్‌గా పూర్తి పేరు, ధరను మ్యాచ్ చేసే సింగిల్-లైన్ ఈవెంట్ లిజనర్
-        document.getElementById('in-mshort').addEventListener('input', function() { const val = this.value.trim().toUpperCase(); const matched = dbMedicines.find(m => m.short.toUpperCase() === val || m.mcd.toUpperCase() === val); if (matched) { document.getElementById('in-mfull').value = matched.name; document.getElementById('in-mprice').value = matched.price.toFixed(2); } else { document.getElementById('in-mprice').value = "2.00"; } });
-
-        // [శ్రేణి సంఖ్య 113] మందు పూర్తి పేరు నమోదు చేసినప్పుడు షార్ట్ ఐడి, ధరను మ్యాచ్ చేసే సింగిల్-లైన్ ఈవెంట్ లిజనర్
-        document.getElementById('in-mfull').addEventListener('input', function() { const val = this.value.trim().toUpperCase(); const matched = dbMedicines.find(m => m.name.toUpperCase() === val); if (matched) { document.getElementById('in-mshort').value = matched.short; document.getElementById('in-mprice').value = matched.price.toFixed(2); } });
-
-        // [శ్రేణి సంఖ్య 114] డ్రాఫ్ట్ స్టేజింగ్ లిస్ట్‌లోకి సరికొత్త మందును చేర్చే ఫంక్షన్
-        const addNewMedicineEntry = () => { const shortVal = document.getElementById('in-mshort').value.trim(); const fullVal = document.getElementById('in-mfull').value.trim(); let matched = dbMedicines.find(m => m.name.toUpperCase() === fullVal.toUpperCase()); if (!matched) matched = dbMedicines.find(m => m.short.toUpperCase() === shortVal.toUpperCase()); const mcdVal = matched ? matched.mcd : "-"; const m = { mcd: mcdVal, short: shortVal || (matched ? matched.short : "-"), full: fullVal, qty: parseFloat(document.getElementById('in-mqty').value) || 0, price: parseFloat(document.getElementById('in-mprice').value) || 2.00 }; if (!m.full) return; draftMedicinesArray.push(m); renderStagingTable(); clearMedicineInputs(); document.getElementById('in-mshort').focus(); };
-
-        // [శ్రేణి సంఖ్య 115] స్టేజింగ్ టేబుల్‌లోని మందుల క్వాంటిటీ మార్చినప్పుడు అప్‌డేట్ చేసే సింగిల్-లైన్ ఫంక్షన్
+        const transitionToDashboard = (name) => { document.getElementById('login-section').style.display = 'none'; document.getElementById('app-dashboard').style.display = 'flex'; document.getElementById('content-wrapper').classList.add('dashboard-active'); document.getElementById('dr-display-name').innerText = name; document.getElementById('logged-user-display').style.display = 'flex'; runLiveTimeClockSequence_99(); loadMedicineDatabase(); };
+        const logoutSession = () => { showCustomDialog("Logout Session", "Are you sure you want to log out of SVR Medical Receipt System?", () => { clearInterval(liveTimeInterval_99); document.getElementById('log-token').value = ''; document.getElementById('log-id').value = ''; document.getElementById('log-pass').value = ''; document.getElementById('logged-user-display').style.display = 'none'; document.getElementById('app-dashboard').style.display = 'none'; document.getElementById('content-wrapper').classList.remove('dashboard-active'); document.getElementById('login-section').style.display = 'block'; updateAuthStatus("#333333", "Session closed successfully."); }); };
+        const loadMedicineDatabase = () => { fetch(CLOUD_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: "getMedicines" }) }).then(res => res.json()).then(resData => { if (resData.success && resData.data && resData.data.length > 0) { dbMedicines = resData.data.map(med => ({ mcd: med.mcd || "-", short: med.short || "-", name: med.name || med.short || "-", price: parseFloat(med.price) || 2.00 })); } else { dbMedicines = [{ mcd: "SM001", short: "Mc500mg", name: "tested", price: 2.00 }, { mcd: "SM002", short: "Dmc90ml", name: "tesd", price: 3.00 }]; } setupSuggestionsUI(); }).catch(err => { console.error("Database load error, using fallbacks:", err); dbMedicines = [{ mcd: "SM001", short: "Mc500mg", name: "tested", price: 2.00 }, { mcd: "SM002", short: "Dmc90ml", name: "tesd", price: 3.00 }]; setupSuggestionsUI(); }); };
+        const renderShortSuggestions = (query) => { const box = document.getElementById('short-suggestions'); const val = query.trim().toUpperCase(); const filtered = dbMedicines.filter(m => m.short.toUpperCase().includes(val)); if (filtered.length === 0) { box.style.display = 'none'; return; } box.innerHTML = ''; filtered.forEach(m => { const item = document.createElement('div'); item.className = 'suggestion-item'; item.textContent = `${m.short} - ${m.name} (₹${m.price.toFixed(2)})`; item.addEventListener('click', () => { document.getElementById('in-mshort').value = m.short; document.getElementById('in-mfull').value = m.name; document.getElementById('in-mprice').value = m.price.toFixed(2); box.style.display = 'none'; }); box.appendChild(item); }); box.style.display = 'block'; };
+        const renderFullSuggestions = (query) => { const box = document.getElementById('full-suggestions'); const val = query.trim().toUpperCase(); const filtered = dbMedicines.filter(m => m.name.toUpperCase().includes(val)); if (filtered.length === 0) { box.style.display = 'none'; return; } box.innerHTML = ''; filtered.forEach(m => { const item = document.createElement('div'); item.className = 'suggestion-item'; item.textContent = `${m.name} (${m.short} | ₹${m.price.toFixed(2)})`; item.addEventListener('click', () => { document.getElementById('in-mshort').value = m.short; document.getElementById('in-mfull').value = m.name; document.getElementById('in-mprice').value = m.price.toFixed(2); box.style.display = 'none'; }); box.appendChild(item); }); box.style.display = 'block'; };
+        const renderReturnSuggestions = (query) => { const box = document.getElementById('return-suggestions'); const val = query.trim().toUpperCase(); const filtered = dbMedicines.filter(m => m.short.toUpperCase().includes(val)); if (filtered.length === 0) { box.style.display = 'none'; return; } box.innerHTML = ''; filtered.forEach(m => { const item = document.createElement('div'); item.className = 'suggestion-item'; item.textContent = `${m.short} - ${m.name} (₹${m.price.toFixed(2)})`; item.addEventListener('click', () => { document.getElementById('ret-mcd').value = m.short; box.style.display = 'none'; }); box.appendChild(item); }); box.style.display = 'block'; };
+        const handleShortInputAutoFill = (val) => { const query = val.trim().toUpperCase(); const matched = dbMedicines.find(m => m.short.toUpperCase() === query); if (matched) { document.getElementById('in-mfull').value = matched.name; document.getElementById('in-mprice').value = matched.price.toFixed(2); } };
+        const handleFullInputAutoFill = (val) => { const query = val.trim().toUpperCase(); const matched = dbMedicines.find(m => m.name.toUpperCase() === query); if (matched) { document.getElementById('in-mshort').value = matched.short; document.getElementById('in-mprice').value = matched.price.toFixed(2); } };
+        const setupSuggestionsUI = () => { const shortInput = document.getElementById('in-mshort'); const fullInput = document.getElementById('in-mfull'); const retInput = document.getElementById('ret-mcd'); const shortBox = document.getElementById('short-suggestions'); const fullBox = document.getElementById('full-suggestions'); const retBox = document.getElementById('return-suggestions'); shortInput.addEventListener('focus', () => { renderShortSuggestions(shortInput.value); }); fullInput.addEventListener('focus', () => { renderFullSuggestions(fullInput.value); }); retInput.addEventListener('focus', () => { renderReturnSuggestions(retInput.value); }); shortInput.addEventListener('input', (e) => { renderShortSuggestions(e.target.value); handleShortInputAutoFill(e.target.value); }); fullInput.addEventListener('input', (e) => { renderFullSuggestions(e.target.value); handleFullInputAutoFill(e.target.value); }); retInput.addEventListener('input', (e) => { renderReturnSuggestions(e.target.value); }); document.addEventListener('click', (e) => { if (e.target !== shortInput && e.target !== shortBox) shortBox.style.display = 'none'; if (e.target !== fullInput && e.target !== fullBox) fullBox.style.display = 'none'; if (e.target !== retInput && e.target !== retBox) retBox.style.display = 'none'; }); };
+        document.addEventListener('keydown', function(e) { if (e.key === 'Enter') { const active = document.activeElement; if (active) { if (active.classList.contains('nav-input')) { e.preventDefault(); const inputs = Array.from(document.querySelectorAll('.nav-input')); const index = inputs.indexOf(active); if (index > -1) { if (index < inputs.length - 1) { inputs[index + 1].focus(); } else { addNewMedicineEntry(); } } } else if (active.classList.contains('login-nav-input')) { e.preventDefault(); const inputs = Array.from(document.querySelectorAll('.login-nav-input')); const index = inputs.indexOf(active); if (index > -1) { if (index < inputs.length - 1) { inputs[index + 1].focus(); } else { initiateSecureAuthenticationSequence(); } } } } } });
+        const addNewMedicineEntry = () => { const shortVal = document.getElementById('in-mshort').value.trim(); const fullVal = document.getElementById('in-mfull').value.trim(); let matched = dbMedicines.find(m => m.name.toUpperCase() === fullVal.toUpperCase() || m.short.toUpperCase() === shortVal.toUpperCase()); if (!matched) return; const existing = draftMedicinesArray.find(item => item.short.toUpperCase() === matched.short.toUpperCase()); const addQty = parseFloat(document.getElementById('in-mqty').value) || 1; if (existing) { existing.qty += addQty; } else { const mcdVal = matched ? matched.mcd : "-"; const m = { mcd: mcdVal, short: matched ? matched.short : "-", full: matched ? matched.name : fullVal, qty: addQty, price: matched ? matched.price : 2.00 }; draftMedicinesArray.push(m); } renderStagingTable(); clearMedicineInputs(); document.getElementById('in-mshort').focus(); };
         const updateStagingValue = (index, field, value) => { if (field === 'qty') draftMedicinesArray[index].qty = parseFloat(value) || 0; if (field === 'full') draftMedicinesArray[index].full = value; renderStagingTable(); };
-
-        // [శ్రేణి సంఖ్య 116] స్టేజింగ్ డ్రాఫ్ట్ నుండి ఐటెమ్‌ను తొలగించే సింగిల్-లైన్ ఫంక్షన్
         const removeStagingItem = (index) => { draftMedicinesArray.splice(index, 1); renderStagingTable(); };
-
-        // [శ్రేణి సంఖ్య 117] మందుల డ్రాఫ్ట్ పట్టికను వెబ్‌పేజీ పై డైనమిక్‌గా నిర్మించే ఫంక్షన్
-        const renderStagingTable = () => { const tbody = document.getElementById('staging-list'); if (draftMedicinesArray.length === 0) { tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: #718096; padding: 15px;">Draft list is empty. Add medicines using the panel above.</td></tr>`; return; } tbody.innerHTML = ''; draftMedicinesArray.forEach((med, i) => { const total = med.qty * med.price; tbody.innerHTML += `<tr><td>${i + 1}</td><td style="font-weight: bold; color: #2c3e50;">${med.mcd}</td><td><input type="text" class="staging-input" value="${med.full}" onchange="updateStagingValue(${i}, 'full', this.value)"></td><td><input type="number" class="staging-input" value="${med.qty}" onchange="updateStagingValue(${i}, 'qty', this.value)"></td><td style="font-weight: bold;">₹ ${med.price.toFixed(2)}</td><td style="font-weight: bold; color: #27ae60;">₹ ${total.toFixed(2)}</td><td style="text-align: center;"><button class="btn-action-del" onclick="removeStagingItem(${i})">✖</button></td></tr>`; }); };
-
-        // [శ్రేణి సంఖ్య 118] సిద్ధమైన డ్రాఫ్ట్ మొత్తాన్ని ప్రివ్యూ రసీదు లోకి పంపే ఫంక్షన్
-        const insertDraftsToReceipt = () => { if (draftMedicinesArray.length === 0) { showCustomDialog("Staging is Empty", "Please add medicines to draft list before inserting.", () => {}); return; } activeInventoryArray = JSON.parse(JSON.stringify(draftMedicinesArray)); renderCalculatedReceiptTable(); document.getElementById('print-receipt-btn').style.display = 'inline-block'; };
-
-        // [శ్రేణి సంఖ్య 119] రసీదు ప్రివ్యూను తయారు చేసి పేజీలో చూపించే ఫంక్షన్
-        const renderCalculatedReceiptTable = () => { const tbody = document.getElementById('medicine-list'); tbody.innerHTML = ''; let gross = 0; activeInventoryArray.forEach((med, i) => { const line = med.qty * med.price; gross += line; tbody.innerHTML += `<tr><td>${i+1}</td><td style="font-size: 9px; font-weight: 900;">${med.mcd}</td><td style="word-break: break-word; font-size: 9px;">${med.full}</td><td style="text-align:center;">${med.qty}</td><td style="text-align:right;">₹ ${med.price.toFixed(2)}</td><td style="text-align:right;">₹ ${line.toFixed(2)}</td></tr>`; }); const dPerc = parseFloat(document.getElementById('in-mdisc').value) || 0; const sav = gross * (dPerc / 100); const net = gross - sav; document.getElementById('gross-total').innerText = gross.toFixed(2); document.getElementById('discount-display-note').innerHTML = dPerc > 0 ? `Discount <span style="color:#8b0000;font-weight:900;">${dPerc}%</span> (Saved ₹ ${sav.toFixed(2)})` : `No discount applied`; document.getElementById('net-payable-total').innerText = net.toFixed(2); updatePatientReceiptDisplay(); };
-
-        // [శ్రేణి సంఖ్య 120] రోగి సమాచారాన్ని రసీదు మీద డైనమిక్‌గా చూపించే సింగిల్-లైన్ ఫంక్షన్
+        const renderStagingTable = () => { const tbody = document.getElementById('staging-list'); if (draftMedicinesArray.length === 0) { tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; color: #718096; padding: 15px;">Draft list is empty. Add medicines using the input form above.</td></tr>'; return; } tbody.innerHTML = ''; draftMedicinesArray.forEach((med, i) => { const total = med.qty * med.price; tbody.innerHTML += '<tr><td>' + (i + 1) + '</td><td style="font-weight: bold; color: #2c3e50;">' + med.short + '</td><td><input type="text" class="staging-input" value="' + med.full + '" onchange="updateStagingValue(' + i + ', \'full\', this.value)"></td><td><input type="number" class="staging-input" value="' + med.qty + '" onchange="updateStagingValue(' + i + ', \'qty\', this.value)"></td><td style="font-weight: bold;">₹ ' + med.price.toFixed(2) + '</td><td style="font-weight: bold; color: #27ae60;">₹ ' + total.toFixed(2) + '</td><td style="text-align: center;"><button class="btn-action-del" onclick="removeStagingItem(' + i + ')">✖</button></td></tr>'; }); };
+        const insertDraftsToReceipt = () => { if (draftMedicinesArray.length === 0) { showCustomDialog("Staging Empty", "Please add medicines to draft list before inserting.", () => {}); return; } activeInventoryArray = JSON.parse(JSON.stringify(draftMedicinesArray)); renderCalculatedReceiptTable(); const saveBtn = document.getElementById('btn-save-sheet'); saveBtn.removeAttribute('disabled'); saveBtn.style.display = 'inline-block'; saveBtn.style.opacity = '1.0'; saveBtn.style.pointerEvents = 'auto'; saveBtn.innerHTML = 'Save Receipt'; };
+        const applyDiscountToCalculations = () => { renderCalculatedReceiptTable(); showCustomDialog("Discount Applied", "The discount percentage has been recalculated successfully.", () => {}); };
+        const renderCalculatedReceiptTable = () => { const tbody = document.getElementById('medicine-list'); tbody.innerHTML = ''; let gross = 0; activeInventoryArray.forEach((med, i) => { const line = med.qty * med.price; gross += line; tbody.innerHTML += '<tr><td>' + (i+1) + '</td><td style="font-size: 9px; font-weight: 900;">' + med.mcd + '</td><td style="word-break: break-word; font-size: 9px;">' + med.full + '</td><td style="text-align:center;">' + med.qty + '</td><td style="text-align:right;">₹ ' + med.price.toFixed(2) + '</td><td style="text-align:right;">₹ ' + line.toFixed(2) + '</td></tr>'; }); const dPerc = parseFloat(document.getElementById('in-mdisc').value) || 0; const sav = gross * (dPerc / 100); const net = Math.ceil(gross - sav); document.getElementById('gross-total').innerText = gross.toFixed(2); document.getElementById('discount-display-note').innerHTML = dPerc > 0 ? 'Discount <span style="color:#8b0000;font-weight:900;">' + dPerc + '%</span> (Saved ₹ ' + sav.toFixed(2) + ')' : 'No discount applied'; document.getElementById('net-payable-total').innerText = net.toFixed(2); updatePatientReceiptDisplay(); };
         const updatePatientReceiptDisplay = () => { document.getElementById('out-pname').innerText = document.getElementById('in-pname').value || "-"; document.getElementById('out-page').innerText = document.getElementById('in-page').value || "-"; document.getElementById('out-pgender').innerText = document.getElementById('in-pgender').value || "-"; };
-
-        // [శ్రేణి సంఖ్య 121] మందుల నమోదు బాక్సులను క్లియర్ చేసే సింగిల్-లైన్ ఫంక్షన్
         const clearMedicineInputs = () => { document.getElementById('in-mshort').value = ''; document.getElementById('in-mfull').value = ''; document.getElementById('in-mqty').value = '1'; document.getElementById('in-mprice').value = '2.00'; };
-
-        // [శ్రేణి సంఖ్య 122] మొత్తం అప్లికేషన్‌ను క్లియర్ చేసి రీసెట్ చేసే ఫంక్షన్
-        const triggerSystemResetRequest = () => { showCustomDialog("Reset List", "Are you sure you want to discard the entered medicine details and reset the receipt?", () => { draftMedicinesArray = []; activeInventoryArray = []; renderStagingTable(); document.getElementById('medicine-list').innerHTML = `<tr><td colspan="6" style="text-align: center; color: #777; padding: 20px;">Receipt is empty. Please complete the draft list above and insert.</td></tr>`; document.getElementById('gross-total').innerText = "0.00"; document.getElementById('discount-display-note').innerHTML = "No discount applied"; document.getElementById('net-payable-total').innerText = "0.00"; document.getElementById('print-receipt-btn').style.display = 'none'; document.querySelectorAll('#input-form input').forEach(el => el.value = el.id === 'in-mqty' ? "1" : (el.id === 'in-mdisc' ? "0" : (el.id === 'in-mprice' ? "2.00" : ""))); document.getElementById('in-pgender').value = ""; updatePatientReceiptDisplay(); }); };
-
-        // [శ్రేణి సంఖ్య 123] రసీదు ప్రింట్ కాగానే దాని వివరాలను గూగుల్ షీట్స్ కి బ్యాకప్ చేసే ఫంక్షన్
-        const saveReceiptToGoogleSheets = () => { if (activeInventoryArray.length === 0) return; const pname = document.getElementById('in-pname').value || "Unknown Patient"; const page = document.getElementById('in-page').value || "-"; const pgender = document.getElementById('in-pgender').value || "-"; const gross = parseFloat(document.getElementById('gross-total').innerText) || 0; const discount = parseFloat(document.getElementById('in-mdisc').value) || 0; const net = parseFloat(document.getElementById('net-payable-total').innerText) || 0; const items = activeInventoryArray.map(m => ({ mcd: m.mcd, full: m.full, qty: m.qty, price: m.price })); const billData = { pname: pname, page: page, pgender: pgender, gross: gross, discount: discount, net: net, items: items }; fetch(CLOUD_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: "saveBill", bill: billData }) }).then(res => res.json()).then(res => { if (res.success) { console.log("Transaction saved securely in cloud database."); } else { console.error("Cloud storage error:", res.error); } }).catch(err => console.error("Database connection failed:", err)); };
-
-        // [శ్రేణి సంఖ్య 124] మందులు వెనక్కి తీసుకున్నప్పుడు స్టాక్ సర్దుబాటు చేసే రిటర్న్ ఫంక్షన్
-        const triggerMedicineReturnProcess = () => { const medId = document.getElementById('ret-mcd').value.trim().toUpperCase(); const qty = parseFloat(document.getElementById('ret-qty').value) || 0; const amt = parseFloat(document.getElementById('ret-amt').value) || 0; if (!medId) { showCustomDialog("Input Error", "Please provide a valid Medicine ID (MCD) to process return.", () => {}); return; } if (qty <= 0 || amt < 0) { showCustomDialog("Input Error", "Return Quantity must be greater than 0, and Refund Amount cannot be negative.", () => {}); return; } let matched = dbMedicines.find(m => m.mcd.toUpperCase() === medId || m.short.toUpperCase() === medId); const targetMcd = matched ? matched.mcd : medId; showCustomDialog("Confirm Return", `Are you sure you want to return (${qty}) of Med ID "${targetMcd}" and refund ₹ ${amt.toFixed(2)}?`, () => { fetch(CLOUD_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: "returnMedicine", medId: targetMcd, qty: qty, amount: amt }) }).then(res => res.json()).then(res => { if (res.success) { showCustomDialog("Return Confirmed", "Medicine returned successfully. Stock updated.", () => { document.getElementById('ret-mcd').value = ''; document.getElementById('ret-qty').value = '1'; document.getElementById('ret-amt').value = ''; loadMedicineDatabase(); }); } else { showCustomDialog("Failed", "Error: " + res.message, () => {}); } }).catch(err => { console.error(err); showCustomDialog("Error", "Could not connect to return API.", () => {}); }); }); };
-
-        // [శ్రేణి సంఖ్య 125] ప్రింటింగ్ కమాండ్ రన్ చేసి రికార్డులను క్లౌడ్‌కు పంపే సింగిల్-లైన్ ఫంక్షన్
-        const triggerReceiptPrintProcess = () => { saveReceiptToGoogleSheets(); window.print(); };
-
-        // [శ్రేణి సంఖ్య 126] లాగిన్ బాక్స్ అడుగున అలర్ట్ మెసేజ్ చూపే సింగిల్-లైన్ ఫంక్షన్
+        const triggerSystemResetRequest = () => { showCustomDialog("Reset List", "Are you sure you want to discard the entered medicine details and reset the receipt?", () => { draftMedicinesArray = []; activeInventoryArray = []; renderStagingTable(); document.getElementById('medicine-list').innerHTML = '<tr><td colspan="6" style="text-align: center; color: #777; padding: 20px;">Receipt is empty. Please complete the draft list above and insert.</td></tr>'; document.getElementById('gross-total').innerText = "0.00"; document.getElementById('discount-display-note').innerHTML = "No discount applied"; document.getElementById('net-payable-total').innerText = "0.00"; document.getElementById('btn-save-sheet').setAttribute('disabled', 'true'); document.getElementById('btn-save-sheet').style.display = 'none'; document.getElementById('print-receipt-btn').setAttribute('disabled', 'true'); document.getElementById('print-receipt-btn').style.display = 'none'; document.querySelectorAll('#input-form input').forEach(el => el.value = el.id === 'in-mqty' ? "1" : (el.id === 'in-mdisc' ? "0" : (el.id === 'in-mprice' ? "2.00" : ""))); document.getElementById('in-pgender').value = ""; updatePatientReceiptDisplay(); }); };
+        const saveReceiptToGoogleSheets = () => { if (activeInventoryArray.length === 0) { showCustomDialog("Staging Empty", "Please insert drafts into the receipt preview first.", () => {}); return; } const saveBtn = document.getElementById('btn-save-sheet'); saveBtn.disabled = true; saveBtn.innerHTML = '<span class="spinner" style="display:inline-block; margin-right:4px;"></span>Saving...'; const pname = document.getElementById('in-pname').value || "Unknown Patient"; const page = document.getElementById('in-page').value || "-"; const pgender = document.getElementById('in-pgender').value || "-"; const gross = parseFloat(document.getElementById('gross-total').innerText) || 0; const discount = parseFloat(document.getElementById('in-mdisc').value) || 0; const net = Math.ceil(gross - (gross * (discount / 100))); const items = activeInventoryArray.map(m => ({ mcd: m.mcd, short: m.short, full: m.full, qty: m.qty, price: m.price })); const billData = { pname: pname, page: page, pgender: pgender, gross: gross, discount: discount, net: net, items: items }; fetch(CLOUD_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: "saveBill", bill: billData }) }).then(res => res.json()).then(res => { if (res.success) { saveBtn.innerHTML = '✔ Saved'; saveBtn.style.opacity = '0.5'; saveBtn.style.pointerEvents = 'none'; showCustomDialog("Success", "Transaction saved successfully! Bill ID: " + (res.billId || "Saved"), () => { const prnBtn = document.getElementById('print-receipt-btn'); prnBtn.removeAttribute('disabled'); prnBtn.style.display = 'inline-block'; }); } else { saveBtn.disabled = false; saveBtn.innerHTML = "Save Receipt"; showCustomDialog("Error", "Cloud saving failed: " + res.error, () => {}); } }).catch(err => { saveBtn.disabled = false; saveBtn.innerHTML = "Save Receipt"; console.error("Database connection failed:", err); showCustomDialog("Error", "Database connection failed.", () => {}); }); };
+        const triggerMedicineReturnProcess = () => { const medId = document.getElementById('ret-mcd').value.trim().toUpperCase(); const qty = parseFloat(document.getElementById('ret-qty').value) || 0; const amt = parseFloat(document.getElementById('ret-amt').value) || 0; if (!medId) { showCustomDialog("Input Error", "Please provide a valid Medicine ID (MCD) to process return.", () => {}); return; } if (qty <= 0 || amt < 0) { showCustomDialog("Input Error", "Return Quantity must be greater than 0, and Refund Amount cannot be negative.", () => {}); return; } let matched = dbMedicines.find(m => m.mcd.toUpperCase() === medId || m.short.toUpperCase() === medId); const targetMcd = matched ? matched.mcd : medId; const confirmBtn = document.getElementById('btn-confirm-return'); confirmBtn.disabled = true; confirmBtn.innerHTML = '<span class="spinner" style="display:inline-block; margin-right:4px;"></span>Refunding...'; showCustomDialog("Confirm Return", 'Are you sure you want to return (' + qty + ') of Med ID "' + targetMcd + '" and refund ₹ ' + amt.toFixed(2) + '?', () => { fetch(CLOUD_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: "returnMedicine", medId: targetMcd, qty: qty, amount: amt }) }).then(res => res.json()).then(res => { if (res.success) { confirmBtn.innerHTML = '✔ Confirmed'; confirmBtn.style.opacity = '0.5'; confirmBtn.style.pointerEvents = 'none'; document.getElementById('btn-another-return').style.display = 'inline-block'; showCustomDialog("Return Confirmed", "Medicine returned successfully. Stock updated.", () => { loadMedicineDatabase(); }); } else { confirmBtn.disabled = false; confirmBtn.innerHTML = "Confirm"; showCustomDialog("Failed", "Error: " + res.message, () => {}); } }).catch(err => { confirmBtn.disabled = false; confirmBtn.innerHTML = "Confirm"; console.error(err); showCustomDialog("Error", "Could not connect to return API.", () => {}); }); }, () => { confirmBtn.disabled = false; confirmBtn.innerHTML = "Confirm"; }); };
+        const resetReturnPanelForm = () => { document.getElementById('ret-mcd').value = ''; document.getElementById('ret-qty').value = '1'; document.getElementById('ret-amt').value = ''; const confirmBtn = document.getElementById('btn-confirm-return'); confirmBtn.disabled = false; confirmBtn.style.opacity = '1.0'; confirmBtn.style.pointerEvents = 'auto'; confirmBtn.innerHTML = 'Confirm'; document.getElementById('btn-another-return').style.display = 'none'; };
+        const triggerReceiptPrintProcess = () => { window.print(); };
         const updateAuthStatus = (color, text) => { const el = document.getElementById('log-msg'); el.style.color = color; el.innerHTML = text; };
-
-        // [శ్రేణి సంఖ్య 127] ఆటోమేటిక్ గా PWA సర్వీస్ వర్కర్ రిజిస్ట్రేషన్ చేయడం ద్వారా ఇసుకపెట్టె (sandbox) వాతావరణంలో ఎర్రర్ రాకుండా నిశ్శబ్దంగా బైపాస్ చేసే అప్‌డేటెడ్ సురక్షిత రిజిస్ట్రేషన్ విధానం
         if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').then(() => console.log('PWA Service Worker registered.')).catch(err => { if (location.hostname.includes('usercontent.goog') || location.hostname.includes('scf.usercontent')) { console.log('Service worker registration bypassed in preview sandbox.'); } else { console.warn('Service Worker registration failed:', err); } }); }); }
     </script>
-    <!-- END OF SCRIPT SECTION -->
-
 </body>
 </html>
