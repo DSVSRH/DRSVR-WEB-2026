@@ -628,18 +628,18 @@
                             </div>
                             <div class="col-span-12 lg:col-span-8 relative">
                                 <div class="dropdown-trigger" onclick="toggleDropdown(event, 'branchOptions')">
-                                    <span id="doctorDisplay">CHOOSE CLINICAL DEPARTMENT</span>
+                                  <span id="doctorDisplay">OBGY – Gynaecology (ప్రసూతి మరియు స్త్రీ వ్యాధి నిపుణులు)</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg>
                                 </div>
                                 <div id="branchOptions" class="dropdown-options">
                                     <div class="dropdown-item" onclick="selectDrop('doctor', 'Orthopaedic', 'Orthopaedic (కీళ్ల వైద్యం)', 'branchOptions')">Orthopaedic (ఎముకల మరియు కీళ్ల వైద్యం )</div>
                                     <div class="dropdown-item" onclick="selectDrop('doctor', 'OPHTHALMOLOGY', 'Ophthalmology (నేత్ర వైద్యం)', 'branchOptions')">Ophthalmology (కంటి వైద్యం)</div>
                                     <div class="dropdown-item" onclick="selectDrop('doctor', 'Anesthesiology', 'Anesthesiology (మత్తుమందు)', 'branchOptions')">Diabetology (డయాబెటాలజీ)</div>
-                                    <div class="dropdown-item" onclick="selectDrop('doctor', 'OBGY – Gynaecology', 'OBGY – Gynaecology (ప్రసూతి)', 'branchOptions')">OBGY – Gynaecology (స్త్రీ ప్రసూతి మరియు గైనకాలజీ)</div>
+                                    <div class="dropdown-item" onclick="selectDrop('doctor', 'OBGY – Gynaecology', 'OBGY – Gynaecology (ప్రసూతి మరియు స్త్రీ వ్యాధి నిపుణులు)', 'branchOptions')">OBGY – Gynaecology (ప్రసూతి మరియు స్త్రీ వ్యాధి నిపుణులు )</div>
                                     <div class="dropdown-item" onclick="selectDrop('doctor', 'Homeopathy', 'Homeopathy (హోమియోపతి)', 'branchOptions')">Homeopathy (హోమియోపతి వైద్యం)</div>
                                     <div class="dropdown-item" onclick="selectDrop('doctor', 'Gynaecology', 'Gynaecology (స్త్రీల వైద్యం)', 'branchOptions')">Gynaecology (గైనకాలజీ )</div>
                                 </div>
-                                <input type="hidden" id="doctor" required>
+                                <input type="hidden" id="doctor" value="OBGY – Gynaecology" required>
                             </div>
                         </div>
                         <div class="grid grid-cols-12 gap-2">
@@ -656,14 +656,14 @@
                             </div>
                             <div class="col-span-8 lg:col-span-4 relative">
                                 <div class="dropdown-trigger" onclick="toggleDropdown(event, 'genderOptions')">
-                                    <span id="genderDisplay">SELECT GENDER</span>
+                                    <span id="genderDisplay">FEMALE</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg>
                                 </div>
-                                <div id="genderOptions" class="dropdown-options">
-                                    <div class="dropdown-item" onclick="selectDrop('gender', 'Male', 'MALE', 'genderOptions')">MALE</div>
-                                    <div class="dropdown-item" onclick="selectDrop('gender', 'Female', 'FEMALE', 'genderOptions')">FEMALE</div>
-                                </div>
-                                <input type="hidden" id="gender" required>
+<div id="genderOptions" class="dropdown-options">
+    <div class="dropdown-item" onclick="selectDrop('gender', 'Male', 'MALE', 'genderOptions')">MALE</div>
+    <div class="dropdown-item" onclick="selectDrop('gender', 'Female', 'FEMALE', 'genderOptions')">FEMALE</div>
+</div>
+<input type="hidden" id="gender" value="Female" required>
                             </div>
                             <div class="col-span-12 lg:col-span-6 input-soft-ui">
                                 <div class="icon-overlay">
@@ -892,7 +892,7 @@
     function toggleDropdown(e, id) { e.stopPropagation(); document.querySelectorAll('.dropdown-options').forEach(d => { if(d.id !== id) d.classList.remove('show'); }); document.getElementById(id).classList.toggle('show'); }
     function selectDrop(hiddenId, val, label, dropId) { document.getElementById(hiddenId).value = val; document.getElementById(hiddenId + 'Display').innerText = label; document.getElementById(dropId).classList.remove('show'); }
     function SET_DEFAULT_TIMESTAMP() { const N = new Date(); document.getElementById('formDate').value = N.toISOString().split('T')[0]; document.getElementById('formTime').value = N.toTimeString().slice(0,5); }
-    function RESET_REGISTRATION_INTERFACE() { document.getElementById('tokenForm').reset(); document.getElementById('doctorDisplay').innerText = "CHOOSE CLINICAL DEPARTMENT"; document.getElementById('genderDisplay').innerText = "SELECT GENDER"; document.querySelectorAll('input[type="hidden"]').forEach(I => I.value = ""); SET_DEFAULT_TIMESTAMP(); document.getElementById('formContainer').style.display = 'flex'; document.getElementById('successView').style.display = 'none'; document.getElementById('sideButtons').classList.remove('show-flex'); document.getElementById('statusMessage').innerText = ''; }
+function RESET_REGISTRATION_INTERFACE() { document.getElementById('tokenForm').reset(); document.getElementById('doctor').value="OBGY – Gynaecology"; document.getElementById('doctorDisplay').innerText="OBGY – Gynaecology (ప్రసూతి మరియు స్త్రీ వ్యాధి నిపుణులు)"; document.getElementById('gender').value="Female"; document.getElementById('genderDisplay').innerText="FEMALE"; SET_DEFAULT_TIMESTAMP(); document.getElementById('formContainer').style.display='flex'; document.getElementById('successView').style.display='none'; document.getElementById('sideButtons').classList.remove('show-flex'); document.getElementById('statusMessage').innerText=''; }
     function PROCEDURE_INITIATE_TOKEN_DOWNLOAD() { const btn = document.getElementById('dlBtn'); btn.innerText = "CAPTURING..."; btn.disabled = true; setTimeout(() => { const ticket = document.getElementById('ticketCapture'); html2canvas(ticket, { scale: 3, backgroundColor: '#ffffff' }).then(canvas => { const link = document.createElement('a'); link.download = 'SVSR_Hospital_Token.png'; link.href = canvas.toDataURL(); link.click(); btn.innerText = "Print"; btn.disabled = false; }); }, 800); }
     function PROCEDURE_INITIATE_TOKEN_SHARE() { const btn = document.getElementById('shBtn'); btn.innerText = "SHARING..."; btn.disabled = true; setTimeout(() => { const ticket = document.getElementById('ticketCapture'); html2canvas(ticket, { scale: 3 }).then(canvas => { canvas.toBlob(blob => { if (navigator.share && blob) { const file = new File([blob], 'SVSR_Token.png', { type: 'image/png' }); navigator.share({ files: [file], title: 'Patient Entry Token' }).then(() => { btn.innerText = "Share"; btn.disabled = false; }).catch(() => { fallbackCopyText(); }); } else { fallbackCopyText(); } }); }); }, 800); function fallbackCopyText() { const pName = document.getElementById('resName').innerText; const tokenNo = document.getElementById('resToken').innerText; const shareText = `SVSR Hospital Token No: ${tokenNo} for Patient: ${pName}`; const el = document.createElement('textarea'); el.value = shareText; document.body.appendChild(el); el.select(); document.execCommand('copy'); document.body.removeChild(el); alert("Token info copied to clipboard! Share details anywhere."); btn.innerText = "Share"; btn.disabled = false; } }
 /* 08-ఫెసిలిటీ సెక్షన్ */
@@ -904,7 +904,8 @@
 /* 12-ఫుటర్ సెక్షన్ */
     function saveLocation() { alert("Hospital location saved to your portal bookmarks."); }
     function shareLocation() { const url = "https://www.google.com/maps?cid=2609015400208712113"; const dummy = document.createElement('input'); document.body.appendChild(dummy); dummy.value = url; dummy.select(); document.execCommand('copy'); document.body.removeChild(dummy); alert("Map Location Link Copied to Clipboard!"); }
-    window.addEventListener('load', () => { console.log("SVSRH Multispeciality Hospital System Initialized."); finalizeHospitalBranding(); initializeMarqueeTrack(); initializeAboutSection(); SET_DEFAULT_TIMESTAMP(); initSlider('track-left', 3000); initSlider('track-right', 3500); document.querySelectorAll('img').forEach(img => { img.onerror = () => handleImageError(img); }); });
+window.addEventListener('load', () => { console.log("SVSRH Multispeciality Hospital System Initialized."); finalizeHospitalBranding(); initializeMarqueeTrack(); initializeAboutSection(); SET_DEFAULT_TIMESTAMP(); document.getElementById('doctor').value="OBGY – Gynaecology"; document.getElementById('doctorDisplay').innerText="OBGY – Gynaecology (ప్రసూతి మరియు స్త్రీ వ్యాధి నిపుణులు)"; document.getElementById('gender').value="Female"; document.getElementById('genderDisplay').innerText="FEMALE"; initSlider('track-left',3000); initSlider('track-right',3500); document.querySelectorAll('img').forEach(img => { img.onerror = () => handleImageError(img); }); });
+
     window.onclick = () => document.querySelectorAll('.dropdown-options').forEach(d => d.classList.remove('show'));
     document.getElementById('tokenForm').addEventListener('submit', function(e) { e.preventDefault(); const msg = document.getElementById('statusMessage'); if(!document.getElementById('doctor').value) { msg.innerText = "⚠ CHOOSE CLINICAL DEPARTMENT FIRST"; return; } if(!document.getElementById('gender').value) { msg.innerText = "⚠ SELECT PATIENT GENDER"; return; } document.getElementById('loadingOverlay').style.display = 'flex'; const payload = { doctorName: document.getElementById('doctor').value, fullName: document.getElementById('patientName').value.trim(), age: document.getElementById('age').value, gender: document.getElementById('gender').value, phone: document.getElementById('phoneNumber').value.trim(), village: document.getElementById('village').value.trim() }; fetch(GLOBAL_DEPLOYED_URL, { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(payload) }).then(res => res.json()).then(data => { if(data.result === "success") { document.getElementById('resToken').innerText = data.token; document.getElementById('resName').innerText = payload.fullName; document.getElementById('formContainer').style.display = 'none'; document.getElementById('successView').style.display = 'flex'; document.getElementById('sideButtons').classList.add('show-flex'); } else { msg.innerText = "⚠ ENTRY ERROR: " + data.message; } }).catch(() => { msg.innerText = "⚠ CONNECTION TIMEOUT: TRY AGAIN"; }).finally(() => { document.getElementById('loadingOverlay').style.display = 'none'; }); });
 </script>
