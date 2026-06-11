@@ -83,8 +83,21 @@
 <div style="margin-bottom: 11px;"><strong>Village : </strong> <span id="rprVillage"></span></div>
 <div style="margin-top: 20px;"><h3 style="font-weight: bold; font-size: 11px; border-bottom: 1px solid #000; display: inline-block;">CONSULTANT:</h3>
 
+<div style="margin-top: 4px;"><strong><span id="prDocName"></span></strong> (<span id="prDocRole"></span>)</div></div></div>
 
-<div style="margin-top: 4px;"><strong><span id="prDocName"></span></strong> (<span id="prDocRole"></span>)</div></div></div><div style="width: 45%; padding-left: 50px;"><div style="display: flex; margin-bottom: 6px;"><strong>B.P : </strong> <span style="margin-left: auto;">......... / .........</span></div><div style="display: flex; margin-bottom: 6px;"><strong>Temp : </strong> <span style="margin-left: auto;">.................. F</span></div><div style="display: flex; margin-bottom: 6px;"><strong>Weight : </strong> <span style="margin-left: auto;">.................. kg</span></div><div style="display: flex; margin-bottom: 6px;"><strong>LMP : </strong> <span style="margin-left: auto;">..................</span></div><div style="display: flex; margin-bottom: 6px;"><strong>EDD : </strong> <span style="margin-left: auto;">..................</span></div><div style="display: flex; margin-bottom: 6px;"><strong>PR : </strong> <span style="margin-left: auto;">.................. bpm</span></div><div style="display: flex; margin-bottom: 6px;"><strong>RR : </strong> <span style="margin-left: auto;">.................. /min</span></div><div style="display: flex; margin-bottom: 6px;"><strong>ML : </strong> <span style="margin-left: auto;">..................</span></div><div style="display: flex; margin-bottom: 6px;"><strong>MH : </strong> <span style="margin-left: auto;">..................</span></div></div></div><div style="position: absolute; bottom: 8mm; left: 8mm; right: 8mm;"><div style="display: flex; justify-content: space-between; align-items: flex-end;"><div style="font-size: 10px; font-weight: bold;"><i class="fas fa-phone-alt"></i> 9063307444 <br> <i class="fas fa-globe"></i> www.drvsrhospital.in</div><div style="text-align: center;"><div style="width: 3.5cm; border-top: 1px solid black; margin-bottom: 4px;"></div><p style="font-size: 12px; font-weight: bold; margin: 0;">Doctor Signature</p></div></div></div></div></div>
+<div style="width: 45%; padding-left: 50px;">
+
+<div style="display: flex; margin-bottom: 6px;"><strong>ML : </strong> <span style="margin-left: auto;">..................</span></div>
+<div style="display: flex; margin-bottom: 6px;"><strong>MH : </strong> <span style="margin-left: auto;">..................</span></div>
+<div style="display: flex; margin-bottom: 6px;"><strong>LMP : </strong> <span style="margin-left: auto;">..................</span></div>
+<div style="display: flex; margin-bottom: 6px;"><strong>EDD : </strong> <span style="margin-left: auto;">..................</span></div>
+<div style="display: flex; margin-bottom: 6px;"><strong>B.P : </strong> <span style="margin-left: auto;">......... / .........</span></div>
+<div style="display: flex; margin-bottom: 6px;"><strong>Weight : </strong> <span style="margin-left: auto;">.................. kg</span></div>
+<div style="display: flex; margin-bottom: 6px;"><strong>Temp : </strong> <span style="margin-left: auto;">.................. F</span></div>
+<div style="display: flex; margin-bottom: 6px;"><strong>PR : </strong> <span style="margin-left: auto;">.................. bpm</span></div>
+
+
+</div></div><div style="position: absolute; bottom: 8mm; left: 8mm; right: 8mm;"><div style="display: flex; justify-content: space-between; align-items: flex-end;"><div style="font-size: 10px; font-weight: bold;"><i class="fas fa-phone-alt"></i> 9063307444 <br> <i class="fas fa-globe"></i> www.drvsrhospital.in</div><div style="text-align: center;"><div style="width: 3.5cm; border-top: 1px solid black; margin-bottom: 4px;"></div><p style="font-size: 12px; font-weight: bold; margin: 0;">Doctor Signature</p></div></div></div></div></div>
 
 
 
@@ -104,42 +117,42 @@
         let user = null; let activeAction = null; let activeSNo = null;
         const  DOC_INFO = {
     "TN01": {
-        enName: "DR. T.N. LAKSHMI REDDY   MBBS., M.S. (Ortho), FIJR, FIA, FIPT",
+        enName: "DR. T.N. LAKSHMI REDDY   MBBS., M.S. Orthopaedic, FIJR, FIA, FIPT",
         enRole: "Orthopaedic",
         enReg: "Regd. No. APMC/FMR/96871",
-        teName: "డా. టి.ఎన్. లక్ష్మి రెడ్డి MBBS., M.S. (Ortho), FIJR, FIA, FIPT",
+        teName: "డా. టి.ఎన్. లక్ష్మి రెడ్డి MBBS., M.S. Orthopaedic, FIJR, FIA, FIPT",
         teRole: "ఎముకల మరియు కీళ్ల వైద్యం",
         teReg: "రిజిస్ట్రేషన్ నెం. APMC/FMR/96871"
     },
     "SC02": {
-        enName: "DR. S. CHANDRIKA   MBBS., M.S. (Ophthal)",
+        enName: "DR. S. CHANDRIKA   MBBS., M.S. Ophthalmology",
         enRole: "Ophthalmology",
         enReg: "Regd. No. APMC/FMR/98519",
-        teName: "డా. ఎస్. చంద్రిక    MBBS., M.S. (Ophthal)",
+        teName: "డా. ఎస్. చంద్రిక    MBBS., M.S. Ophthalmology",
         teRole: "కంటి వైద్యం",
         teReg: "రిజిస్ట్రేషన్ నెం. APMC/FMR/98519"
     },
     "SY03": {
-        enName: "DR. S. YASHWANTH REDDY   M.B.B.S., M.D. (Anesthesiology)",
+        enName: "DR. S. YASHWANTH REDDY   M.B.B.S., M.D. Anesthesiology",
         enRole: "Anesthesiology",
         enReg: "Regd. No. APMC/FMR/118411",
-        teName: "డా. ఎస్. యశ్వంత్ రెడ్డి    M.B.B.S., M.D. (Anesthesiology)",
+        teName: "డా. ఎస్. యశ్వంత్ రెడ్డి    M.B.B.S., M.D. Anesthesiology",
         teRole: "అనస్థీషియాలజీ",
         teReg: "రిజిస్ట్రేషన్ నెం. APMC/FMR/118411"
     },
     "HY04": {
-        enName: "DR. P. HANEESHA REDDY M.B.B.S., M.S. (OBG)",
+        enName: "DR. P. HANEESHA REDDY M.B.B.S., M.S. OBG – Gynaecology",
         enRole: "OBG – Gynaecology",
         enReg: "Regd. No. APMC/FMR/97996",
-        teName: "డా. పి. హనీషా రెడ్డి  M.B.B.S., M.S. (OBG-Gynaecology)",
+        teName: "డా. పి. హనీషా రెడ్డి  M.B.B.S., M.S. OBG – Gynaecology",
         teRole: "ప్రసూతి మరియు స్త్రీ వ్యాధి నిపుణులు",
         teReg: "రిజిస్ట్రేషన్ నెం. APMC/FMR/97996"
     },
     "SN05": {
-        enName: "DR. S. NARASIMHA REDDY  M.B.B.S. (Hom)",
+        enName: "DR. S. NARASIMHA REDDY  M.B.B.S. Hom",
         enRole: "Homeopathy",
         enReg: "Regd. No. 4678",
-        teName: "డా. ఎస్. నరసింహ రెడ్డి  M.B.B.S. (Hom)",
+        teName: "డా. ఎస్. నరసింహ రెడ్డి  M.B.B.S. Hom",
         teRole: "హోమియోపతి (హోమియోపతి వైద్యం)",
         teReg: "రిజిస్ట్రేషన్ నెం. 4678"
     },
